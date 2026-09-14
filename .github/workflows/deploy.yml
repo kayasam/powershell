@@ -1,0 +1,92 @@
+name: Deploy PowerShell training to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Cache dependencies
+        uses: actions/cache@v5
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fix folder-page links in the local graph
+        run: node scripts/fix-quartz-graph.mjs
+
+      - name: Build Quartz
+        run: node quartz/bootstrap-cli.mjs build
+
+      - name: Publish interactive HTML pages
+        run: |
+          find content -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
+            relative_path="${file#content/}"
+            mkdir -p "public/$(dirname "$relative_path")"
+            cp "$file" "public/$relative_path"
+          done
+
+      - name: Publish Markdown downloads
+        run: |
+          mkdir -p public/telechargements
+          find content -type f -name "*.md" ! -name "index.md" -print0 | while IFS= read -r -d '' file; do
+            relative_path="${file#content/}"
+            mkdir -p "public/telechargements/$(dirname "$relative_path")"
+            cp "$file" "public/telechargements/$relative_path"
+          done
+
+      - name: Create Obsidian archive when course content exists
+        run: |
+          course_count="$(find content/cours -type f -name '*.md' 2>/dev/null | wc -l)"
+          if [ "$course_count" -gt 0 ]; then
+            mkdir -p download/PowerShell
+            cp -R content/. download/PowerShell/
+            rm -f download/PowerShell/index.md
+            cd download
+            zip -qr ../public/powershell-obsidian.zip PowerShell
+          fi
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
