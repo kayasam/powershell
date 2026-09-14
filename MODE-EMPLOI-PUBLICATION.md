@@ -55,3 +55,14 @@ complète, avec l'extension `.html` :
 
 Ne jamais utiliser `./cours/index.html` ou `./cours/.../jeu-fil-rouge.html` dans une page
 Markdown Quartz. Le script de publication vérifie cette règle avant l'envoi.
+
+## Structure obligatoire de chaque chapitre dans l'explorateur
+
+La publication génère automatiquement trois accès cohérents pour chaque chapitre :
+
+- le titre du chapitre ouvre directement sa page de cours ;
+- `Cours` affiche le cours Markdown avec une icône dédiée ;
+- `Cours interactif` intègre la page HTML et propose aussi son ouverture en plein écran ;
+- `Exercices pratiques` reste une section repliable contenant les TP.
+
+Ne pas masquer les entrées `Cours` et `Cours interactif` dans le thème de l'explorateur.

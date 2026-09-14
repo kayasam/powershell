@@ -73,6 +73,38 @@ $sourceCourses = Join-Path $sourceRoot "cours"
 if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
   Write-Host "1/4 - Préparation des cours publics..."
   Mirror-Directory $sourceCourses (Join-Path $stageRoot "cours") @("private", "sessions", "_archives", "solutions") @("*correction*.md", "*corrige*.md", "*.excalidraw", "*.excalidraw.md")
+
+  # Le fichier "dossier/dossier.md" est déjà la page d'accueil Quartz du chapitre.
+  # On ajoute seulement les deux entrées explicites visibles dans l'explorateur.
+  Get-ChildItem -LiteralPath (Join-Path $stageRoot "cours") -Directory | Where-Object {
+    $_.Name -match '^\d{2}-'
+  } | ForEach-Object {
+    $slug = $_.Name
+    $chapterSource = Join-Path $_.FullName "$slug.md"
+    if (Test-Path -LiteralPath $chapterSource -PathType Leaf) {
+      $chapterDocument = [IO.File]::ReadAllText($chapterSource)
+      $courseDocument = [regex]::new('(?m)^title:\s*.*$').Replace($chapterDocument, 'title: "Cours"', 1)
+      [IO.File]::WriteAllText((Join-Path $_.FullName "cours.md"), $courseDocument, [Text.UTF8Encoding]::new($false))
+
+      $interactiveUrl = "https://kayasam.github.io/powershell/cours/$slug/$slug-interactif.html"
+      $interactiveDocument = @"
+---
+title: "Cours interactif"
+---
+
+# Cours interactif
+
+<div class="ps-interactive-launch">
+  <strong>Version interactive du chapitre</strong>
+  <span>Schéma mental, défi rapide, progression et commandes à copier.</span>
+  <a href="$interactiveUrl">Ouvrir en plein écran →</a>
+</div>
+
+<iframe class="ps-course-frame" src="$interactiveUrl" title="Cours PowerShell interactif" loading="eager"></iframe>
+"@
+      [IO.File]::WriteAllText((Join-Path $_.FullName "cours-interactif.md"), $interactiveDocument, [Text.UTF8Encoding]::new($false))
+    }
+  }
 }
 
 $sourceImages = Join-Path $sourceRoot "Ressources\images"

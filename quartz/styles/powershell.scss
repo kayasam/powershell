@@ -201,6 +201,33 @@
   white-space: nowrap;
 }
 
+.ps-interactive-launch {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.18rem 1rem;
+  align-items: center;
+  margin: 0.5rem 0 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--ps-violet) 28%, var(--lightgray));
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--ps-violet) 7%, var(--light));
+}
+
+.ps-interactive-launch strong { color: var(--dark); }
+.ps-interactive-launch span { color: var(--darkgray); font-size: 0.88rem; }
+.ps-interactive-launch a { grid-column: 2; grid-row: 1 / span 2; }
+
+.ps-course-frame {
+  display: block;
+  width: 100%;
+  height: min(78vh, 58rem);
+  min-height: 38rem;
+  border: 1px solid var(--ps-line);
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: var(--ps-shadow);
+}
+
 @media all and (max-width: 800px) {
   .ps-hero {
     grid-template-columns: 1fr;
@@ -224,4 +251,7 @@
   .ps-quest a {
     text-align: center;
   }
+  .ps-interactive-launch { grid-template-columns: 1fr; }
+  .ps-interactive-launch a { grid-column: 1; grid-row: auto; text-align: center; }
+  .ps-course-frame { min-height: 32rem; }
 }

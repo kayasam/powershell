@@ -280,6 +280,51 @@ $chapter-titles: (
   display: none;
 }
 
+.explorer-content a.nav-file-title[href$="/cours"],
+.explorer-content a.nav-file-title[href$="/cours-interactif"] {
+  display: grid;
+  grid-template-columns: 1.55rem minmax(0, 1fr);
+  gap: 0.48rem;
+  align-items: center;
+  margin: 0.2rem 0;
+  padding: 0.38rem 0.42rem;
+  border-radius: 0.58rem;
+  color: var(--darkgray);
+  background: color-mix(in srgb, var(--chapter-accent, #8058f0) 5%, var(--light));
+  font-size: 0.76rem;
+  font-weight: 720;
+  text-decoration: none;
+}
+
+.explorer-content a.nav-file-title[href$="/cours"]::before,
+.explorer-content a.nav-file-title[href$="/cours-interactif"]::before {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  border-radius: 0.44rem;
+  color: var(--chapter-accent, #8058f0);
+  background: color-mix(in srgb, var(--chapter-accent, #8058f0) 13%, var(--light));
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.explorer-content a.nav-file-title[href$="/cours"]::before {
+  content: "▤";
+}
+
+.explorer-content a.nav-file-title[href$="/cours-interactif"]::before {
+  content: ">_";
+  font-family: var(--codeFont);
+}
+
+.explorer-content a.nav-file-title[href$="/cours"]:hover,
+.explorer-content a.nav-file-title[href$="/cours-interactif"]:hover {
+  color: var(--dark);
+  background: color-mix(in srgb, var(--chapter-accent, #8058f0) 10%, var(--light));
+  transform: translateX(2px);
+}
+
 .explorer-content [data-folderpath$="/tp/index"] {
   --tp-accent: var(--chapter-accent, #8058f0);
   position: relative;

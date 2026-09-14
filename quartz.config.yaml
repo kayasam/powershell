@@ -162,7 +162,7 @@ plugins:
     enabled: true
     options:
       title: Parcours
-      folderClickBehavior: collapse
+      folderClickBehavior: link
       folderDefaultState: collapsed
       useSavedState: true
     layout:
