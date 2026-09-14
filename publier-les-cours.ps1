@@ -130,6 +130,13 @@ Write-Host "3/4 - Synchronisation du contenu Quartz..."
 Mirror-Directory $stageRoot $destinationRoot
 Remove-SafeDirectory $stageRoot
 
+$relativeHtmlLinks = Get-ChildItem -LiteralPath $destinationRoot -Recurse -File -Filter "*.md" | Where-Object {
+  [IO.File]::ReadAllText($_.FullName) -match 'href="(?:\./|\.\./)[^"]+\.html(?:[?#][^"]*)?"'
+}
+if ($relativeHtmlLinks) {
+  throw "Lien HTML relatif interdit dans Quartz : $($relativeHtmlLinks[0].FullName). Utilisez l'URL absolue terminée par .html."
+}
+
 Push-Location $projectRoot
 try {
   & npx prettier content site-content quartz.config.yaml quartz/styles/custom.scss --write

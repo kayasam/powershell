@@ -39,3 +39,19 @@ Formations\Powershell\
 ```
 
 Les fichiers contenant `correction` ou `corrige`, les dossiers `solutions`, les dossiers privés, les sessions et les fichiers marqués `publier: false` ne sont pas publiés.
+
+## Règle permanente pour les pages HTML interactives
+
+Dans les fichiers Markdown rendus par Quartz, un lien relatif vers un fichier `.html`
+peut être converti en route sans extension. GitHub Pages sert alors cette route comme
+`application/octet-stream` et le navigateur télécharge un fichier ou un disque virtuel.
+
+Tous les boutons qui ouvrent une page HTML autonome doivent donc utiliser son URL absolue
+complète, avec l'extension `.html` :
+
+```html
+<a href="https://kayasam.github.io/powershell/cours/index.html">Parcours interactif</a>
+```
+
+Ne jamais utiliser `./cours/index.html` ou `./cours/.../jeu-fil-rouge.html` dans une page
+Markdown Quartz. Le script de publication vérifie cette règle avant l'envoi.

@@ -11,8 +11,8 @@ description: Formation PowerShell interactive, des fondamentaux à Active Direct
     <h2>Comprendre PowerShell. Automatiser avec méthode.</h2>
     <p>Vingt-sept chapitres à parcourir librement, avec des schémas mentaux, des défis rapides, des exercices pratiques et un fil rouge ludique.</p>
     <div class="ps-actions">
-      <a href="./cours/index.html">Ouvrir le parcours interactif →</a>
-      <a href="./cours/tp-fil-rouge/jeu-fil-rouge.html">Jouer l’opération Grand Line</a>
+      <a href="https://kayasam.github.io/powershell/cours/index.html">Ouvrir le parcours interactif →</a>
+      <a href="https://kayasam.github.io/powershell/cours/tp-fil-rouge/jeu-fil-rouge.html">Jouer l’opération Grand Line</a>
     </div>
   </div>
   <div class="ps-hero__art"><img src="./cours/interactif-assets/images/equipage-powershell.png" alt="Équipage de codeurs autour d’un terminal PowerShell lumineux"></div>
@@ -30,4 +30,4 @@ description: Formation PowerShell interactive, des fondamentaux à Active Direct
 
 ## Mission finale
 
-<div class="ps-quest"><div><strong>Opération Grand Line</strong><span>Cinq missions pour réfléchir, tester ses choix et relier toutes les notions du cours.</span></div><a href="./cours/tp-fil-rouge/jeu-fil-rouge.html">Lancer le mini-jeu →</a></div>
+<div class="ps-quest"><div><strong>Opération Grand Line</strong><span>Cinq missions pour réfléchir, tester ses choix et relier toutes les notions du cours.</span></div><a href="https://kayasam.github.io/powershell/cours/tp-fil-rouge/jeu-fil-rouge.html">Lancer le mini-jeu →</a></div>
