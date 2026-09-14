@@ -1,0 +1,415 @@
+@use "./variables.scss" as *;
+@use "sass:list";
+@use "sass:map";
+
+.explorer-content {
+  --ps-foundations: #8058f0;
+  --ps-pipeline: #168fbd;
+  --ps-files: #d27228;
+  --ps-scripts: #c64279;
+  --ps-ad: #3977d2;
+}
+
+.explorer-content .folder-container[data-folderpath="cours/index"] {
+  margin: 0.25rem 0;
+  padding: 0.42rem;
+  border: 1px solid color-mix(in srgb, var(--secondary) 25%, var(--lightgray));
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/index"] .folder-title {
+  font-size: 0;
+}
+
+.explorer-content .folder-container[data-folderpath="cours/index"] .folder-title::after {
+  content: "Parcours PowerShell";
+  font-size: 0.9rem;
+}
+
+@mixin chapter-card($accent, $label, $title) {
+  --chapter-accent: #{$accent};
+  position: relative;
+  display: flex;
+  min-height: 2.9rem;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.3rem 0;
+  padding: 0.43rem 0.38rem 0.43rem 0.48rem;
+  border: 1px solid color-mix(in srgb, var(--chapter-accent) 23%, var(--lightgray));
+  border-left: 3px solid var(--chapter-accent);
+  border-radius: 0.78rem;
+  background: color-mix(in srgb, var(--chapter-accent) 6%, var(--light));
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+
+  &::before {
+    display: grid;
+    width: 1.9rem;
+    height: 1.9rem;
+    flex: 0 0 1.9rem;
+    place-items: center;
+    border-radius: 0.55rem;
+    color: #fff;
+    background: var(--chapter-accent);
+    box-shadow: 0 0.3rem 0.65rem color-mix(in srgb, var(--chapter-accent) 25%, transparent);
+    content: ">_";
+    font-family: var(--codeFont);
+    font-size: 0.68rem;
+    font-weight: 900;
+  }
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+    background: color-mix(in srgb, var(--chapter-accent) 11%, var(--light));
+    box-shadow: 0 0.35rem 0.85rem rgb(20 27 70 / 9%);
+    transform: translateX(2px);
+  }
+
+  > div {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .folder-button {
+    display: flex;
+    width: 100%;
+    gap: 0.35rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .folder-title {
+    color: var(--dark);
+    font-size: 0;
+    font-weight: 780;
+    line-height: 1.18;
+  }
+  .folder-title::after {
+    content: $title;
+    font-size: 0.81rem;
+  }
+  .folder-button::after {
+    flex: 0 0 auto;
+    padding: 0.11rem 0.3rem;
+    border: 1px solid color-mix(in srgb, var(--chapter-accent) 30%, transparent);
+    border-radius: 99px;
+    color: var(--chapter-accent);
+    background: color-mix(in srgb, var(--chapter-accent) 9%, transparent);
+    content: $label;
+    font-family: var(--codeFont);
+    font-size: 0.48rem;
+    font-weight: 850;
+    letter-spacing: 0.03em;
+  }
+  > .folder-icon {
+    order: 3;
+    width: 0.7rem;
+    height: 0.7rem;
+    flex: 0 0 0.7rem;
+    margin-left: 0.02rem;
+    color: var(--chapter-accent);
+    opacity: 0.75;
+  }
+}
+
+$chapters: (
+  "01-installation-et-environnement": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "02-cmdlets": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "03-objets": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "04-completion": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "05-alias": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "06-historique": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "07-variables": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "08-formatage": (
+    var(--ps-foundations),
+    "BASE",
+  ),
+  "09-pipeline": (
+    var(--ps-pipeline),
+    "PIPE",
+  ),
+  "10-conditions": (
+    var(--ps-pipeline),
+    "LOGIQUE",
+  ),
+  "11-boucles": (
+    var(--ps-pipeline),
+    "LOGIQUE",
+  ),
+  "12-wmi-et-cim": (
+    var(--ps-pipeline),
+    "SYSTÈME",
+  ),
+  "13-fonctions": (
+    var(--ps-pipeline),
+    "FONCTION",
+  ),
+  "14-fichiers-et-dossiers": (
+    var(--ps-files),
+    "FICHIERS",
+  ),
+  "15-lire-et-ecrire": (
+    var(--ps-files),
+    "FICHIERS",
+  ),
+  "16-export-import": (
+    var(--ps-files),
+    "DONNÉES",
+  ),
+  "17-gestion-des-erreurs": (
+    var(--ps-files),
+    "ERREURS",
+  ),
+  "18-erreurs-avancees": (
+    var(--ps-files),
+    "ERREURS",
+  ),
+  "19-parametres-scripts": (
+    var(--ps-scripts),
+    "SCRIPT",
+  ),
+  "20-modules": (
+    var(--ps-scripts),
+    "MODULE",
+  ),
+  "21-profils": (
+    var(--ps-scripts),
+    "PROFIL",
+  ),
+  "22-regex": (
+    var(--ps-scripts),
+    "REGEX",
+  ),
+  "23-planification": (
+    var(--ps-scripts),
+    "AUTO",
+  ),
+  "24-introduction-ad": (
+    var(--ps-ad),
+    "AD",
+  ),
+  "25-utilisateurs-ad": (
+    var(--ps-ad),
+    "AD",
+  ),
+  "26-groupes-ad": (
+    var(--ps-ad),
+    "AD",
+  ),
+  "27-recherche-et-rapports": (
+    var(--ps-ad),
+    "RAPPORT",
+  ),
+);
+
+$chapter-titles: (
+  "01-installation-et-environnement": "01. Installation et environnement",
+  "02-cmdlets": "02. Cmdlets",
+  "03-objets": "03. Objets",
+  "04-completion": "04. Complétion",
+  "05-alias": "05. Alias",
+  "06-historique": "06. Historique",
+  "07-variables": "07. Variables",
+  "08-formatage": "08. Formatage",
+  "09-pipeline": "09. Pipeline",
+  "10-conditions": "10. Conditions",
+  "11-boucles": "11. Boucles",
+  "12-wmi-et-cim": "12. WMI et CIM",
+  "13-fonctions": "13. Fonctions",
+  "14-fichiers-et-dossiers": "14. Fichiers et dossiers",
+  "15-lire-et-ecrire": "15. Lire et écrire",
+  "16-export-import": "16. Export et import",
+  "17-gestion-des-erreurs": "17. Gestion des erreurs",
+  "18-erreurs-avancees": "18. Erreurs avancées",
+  "19-parametres-scripts": "19. Paramètres de scripts",
+  "20-modules": "20. Modules",
+  "21-profils": "21. Profils PowerShell",
+  "22-regex": "22. Expressions régulières",
+  "23-planification": "23. Planification",
+  "24-introduction-ad": "24. Introduction à AD",
+  "25-utilisateurs-ad": "25. Utilisateurs AD",
+  "26-groupes-ad": "26. Groupes AD",
+  "27-recherche-et-rapports": "27. Recherche et rapports",
+);
+
+@each $slug, $values in $chapters {
+  .explorer-content .folder-container[data-folderpath="cours/#{$slug}/index"] {
+    @include chapter-card(
+      list.nth($values, 1),
+      list.nth($values, 2),
+      map.get($chapter-titles, $slug)
+    );
+  }
+
+  .explorer-content li:has(> a.nav-file-title[href$="/cours/#{$slug}/#{$slug}"]) {
+    display: none;
+  }
+
+  body[data-slug^="cours/#{$slug}/"]
+    .explorer-content
+    .folder-container[data-folderpath="cours/#{$slug}/index"] {
+    border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+    background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+  }
+}
+
+.explorer-content li:has(> a.nav-file-title[href*="-interactif"]) {
+  display: none;
+}
+
+.explorer-content [data-folderpath$="/tp/index"] {
+  --tp-accent: var(--chapter-accent, #8058f0);
+  position: relative;
+  display: flex;
+  min-height: 2.5rem;
+  gap: 0.45rem;
+  align-items: center;
+  margin: 0.34rem 0 0.22rem;
+  padding: 0.37rem 0.36rem 0.37rem 0.44rem;
+  border: 1px dashed color-mix(in srgb, var(--tp-accent) 44%, var(--lightgray));
+  border-radius: 0.68rem;
+  background: color-mix(in srgb, var(--tp-accent) 7%, var(--light));
+}
+
+.explorer-content [data-folderpath$="/tp/index"]::before {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 1.55rem;
+  place-items: center;
+  border-radius: 0.44rem;
+  color: #137746;
+  background: color-mix(in srgb, #20a768 14%, var(--light));
+  content: "▣";
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.explorer-content [data-folderpath$="/tp/index"] .folder-title {
+  color: var(--dark);
+  font-size: 0;
+  font-weight: 780;
+}
+.explorer-content [data-folderpath$="/tp/index"] .folder-title::after {
+  content: "Exercices pratiques";
+  font-size: 0.77rem;
+}
+.explorer-content [data-folderpath$="/tp/index"] .folder-button::after {
+  margin-left: auto;
+  padding: 0.1rem 0.3rem;
+  border-radius: 99px;
+  color: var(--tp-accent);
+  background: color-mix(in srgb, var(--tp-accent) 12%, transparent);
+  content: "TP";
+  font-family: var(--codeFont);
+  font-size: 0.52rem;
+  font-weight: 850;
+}
+
+.explorer-content a.nav-file-title[href*="/tp/"] {
+  display: grid;
+  grid-template-columns: 1.4rem minmax(0, 1fr);
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.17rem 0;
+  padding: 0.34rem;
+  border-radius: 0.54rem;
+  color: var(--darkgray);
+  background: color-mix(in srgb, var(--chapter-accent, #8058f0) 4%, var(--light));
+  font-size: 0.73rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.explorer-content a.nav-file-title[href*="/tp/"]::before {
+  display: grid;
+  width: 1.4rem;
+  height: 1.4rem;
+  place-items: center;
+  border-radius: 0.4rem;
+  color: var(--chapter-accent, #8058f0);
+  background: color-mix(in srgb, var(--chapter-accent, #8058f0) 12%, var(--light));
+  content: "✎";
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.explorer-content a.nav-file-title[href*="/tp/"]:hover {
+  color: var(--dark);
+  transform: translateX(2px);
+}
+
+body[data-slug$="/tp/index"] article .markdown-preview-view > ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.2rem 0;
+  padding: 0;
+}
+body[data-slug$="/tp/index"] article .markdown-preview-view > ul > li {
+  display: flex;
+  min-height: 4rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--ps-line);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, #8058f0 5%, var(--light));
+  list-style: none;
+}
+body[data-slug$="/tp/index"] article .markdown-preview-view > ul > li > a {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: center;
+  padding: 0.75rem 0.8rem;
+  color: var(--dark);
+  background: none;
+  font-size: 0.88rem;
+  font-weight: 780;
+  text-decoration: none;
+}
+body[data-slug$="/tp/index"] article .markdown-preview-view > ul > li > a::before {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.58rem;
+  color: #8058f0;
+  background: color-mix(in srgb, #8058f0 13%, var(--light));
+  content: "✎";
+}
+body[data-slug$="/tp/index"] .page-listing {
+  display: none;
+}
+
+@media all and ($mobile) {
+  .explorer-content ul.explorer-ul {
+    padding-inline: 0.8rem;
+  }
+  .explorer-content .folder-title {
+    font-size: 0.9rem;
+  }
+}

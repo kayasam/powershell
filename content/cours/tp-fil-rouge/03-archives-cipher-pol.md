@@ -40,36 +40,6 @@ $FICHIER_LOG     = "$DOSSIER_RAPPORT\rapport.log"
 2. Écrit la ligne `[DATE] [NIVEAU] Message` dans `$FICHIER_LOG`
 3. Affiche la même ligne en couleur (vert=INFO, jaune=WARN, rouge=ERREUR)
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-function Write-Log {
-    param(
-        $Message,
-        $Niveau = "INFO"
-    )
-
-    if (-not (Test-Path $DOSSIER_RAPPORT)) {
-        New-Item -Path $DOSSIER_RAPPORT -ItemType Directory | Out-Null
-    }
-
-    $date  = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    $ligne = "[$date] [$Niveau] $Message"
-
-    Add-Content -Path $FICHIER_LOG -Value $ligne
-
-    $couleur = switch ($Niveau) {
-        "ERREUR" { "Red" }
-        "WARN"   { "Yellow" }
-        default  { "White" }
-    }
-    Write-Host $ligne -ForegroundColor $couleur
-}
-```
-
-</details>
-
 ---
 
 ## Étape 2 : Export CSV des processus (20 min)
@@ -88,34 +58,6 @@ Créez `Export-Processus` qui :
 - `[math]::Round($_.WorkingSet/1MB, 1)` pour la RAM en MB
 - Wrappez dans un `try/catch`
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-function Export-Processus {
-
-    Write-Log "Début export processus"
-
-    try {
-        Get-Process |
-            Sort-Object WorkingSet -Descending |
-            Select-Object -First 10 `
-                @{Name="Nom";    Expression={$_.Name}},
-                @{Name="Id";     Expression={$_.Id}},
-                @{Name="RAM_MB"; Expression={[math]::Round($_.WorkingSet/1MB, 1)}},
-                @{Name="CPU";    Expression={[math]::Round($_.CPU, 1)}} |
-            Export-Csv "$DOSSIER_RAPPORT\processus.csv" -NoTypeInformation -Encoding UTF8
-
-        Write-Log "Export processus : OK ($DOSSIER_RAPPORT\processus.csv)"
-    }
-    catch {
-        Write-Log "Export processus : ECHEC - $($_.Exception.Message)" "ERREUR"
-    }
-}
-```
-
-</details>
-
 ---
 
 ## Étape 3 : Export CSV des services (15 min)
@@ -129,35 +71,6 @@ Colonnes : `Nom`, `NomComplet`, `Statut`.
 - `"OK"` si le service tourne
 - `"Arrêté"` si le service est arrêté
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-function Export-Services {
-
-    Write-Log "Début export services"
-
-    try {
-        Get-Service |
-            Select-Object `
-                @{Name="Nom";       Expression={$_.Name}},
-                @{Name="NomComplet";Expression={$_.DisplayName}},
-                @{Name="Statut";    Expression={$_.Status}},
-                @{Name="Niveau";    Expression={
-                    if ($_.Status -eq "Running") { "OK" } else { "Arrete" }
-                }} |
-            Export-Csv "$DOSSIER_RAPPORT\services.csv" -NoTypeInformation -Encoding UTF8
-
-        Write-Log "Export services : OK"
-    }
-    catch {
-        Write-Log "Export services : ECHEC - $($_.Exception.Message)" "ERREUR"
-    }
-}
-```
-
-</details>
-
 ---
 
 ## Étape 4 : Rapport JSON de synthèse (15 min)
@@ -169,40 +82,6 @@ Créez `Export-Synthese` qui crée un fichier `synthese.json` contenant :
 - Le nombre de processus exportés
 - Le nombre de services actifs
 - Le nombre de services arrêtés
-
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-function Export-Synthese {
-
-    Write-Log "Création de la synthèse"
-
-    try {
-        $nbProcessus = (Import-Csv "$DOSSIER_RAPPORT\processus.csv").Count
-        $services    = Import-Csv "$DOSSIER_RAPPORT\services.csv"
-        $nbActifs    = ($services | Where-Object Statut -eq "Running").Count
-        $nbArretes   = ($services | Where-Object Statut -eq "Stopped").Count
-
-        $synthese = @{
-            Date           = $DATE_RAPPORT
-            Serveur        = $env:COMPUTERNAME
-            NbProcessus    = $nbProcessus
-            ServicesActifs = $nbActifs
-            ServicesArretes= $nbArretes
-            GenerePar      = "Cipher Pol - Invoke-ArchivesCipherPol"
-        }
-
-        $synthese | ConvertTo-Json | Out-File "$DOSSIER_RAPPORT\synthese.json" -Encoding UTF8
-        Write-Log "Synthèse créée : OK"
-    }
-    catch {
-        Write-Log "Synthèse : ECHEC - $($_.Exception.Message)" "ERREUR"
-    }
-}
-```
-
-</details>
 
 ---
 
@@ -273,5 +152,3 @@ Au moment de la synthèse, si plus de 50% des services sont arrêtés, loguez un
 ## Pour la suite — Jour 4
 
 Vous apprendrez à interroger **Active Directory** et à gérer les **utilisateurs et groupes** directement depuis PowerShell.
-
-**La solution complète est dans :** `TP3-Solution.ps1`

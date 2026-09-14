@@ -124,28 +124,6 @@ Simulez un système de monitoring qui tourne jusqu'à ce qu'on l'arrête.
 Affichez l'état de toutes les bases actives, puis attendez 2 secondes, et recommencez.
 (Arrêtez avec **Ctrl+C**)
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-Write-Host "Monitoring en cours... (Ctrl+C pour arrêter)" -ForegroundColor Cyan
-
-while ($true) {
-    Clear-Host
-    Write-Host "=== Scan de la flotte - $(Get-Date -Format 'HH:mm:ss') ===" -ForegroundColor Cyan
-
-    foreach ($base in $bases) {
-        if ($base.Actif) {
-            Write-Host "  $($base.Nom) : OK ($($base.Stockage)%)" -ForegroundColor Green
-        }
-    }
-
-    Start-Sleep -Seconds 2
-}
-```
-
-</details>
-
 ## Validation
 
 ✅ Vous savez utiliser `for` avec un compteur

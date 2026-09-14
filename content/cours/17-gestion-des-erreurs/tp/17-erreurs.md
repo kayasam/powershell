@@ -168,25 +168,6 @@ foreach ($fichier in $fichiers) {
 }
 ```
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-foreach ($fichier in $fichiers) {
-    try {
-        $contenu = Get-Content $fichier -ErrorAction Stop
-        Write-Host "OK : $fichier ($($contenu.Count) lignes)" -ForegroundColor Green
-    }
-    catch {
-        Write-Host "MANQUANT : $fichier" -ForegroundColor Red
-        Write-Log -Message "Fichier introuvable : $fichier" -Niveau "ERREUR"
-    }
-}
-Write-Log -Message "Scan terminé" -Niveau "INFO"
-```
-
-</details>
-
 ## Validation
 
 - ✅ Vous comprenez pourquoi `-ErrorAction Stop` est nécessaire

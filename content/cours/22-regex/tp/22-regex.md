@@ -137,28 +137,6 @@ Select-String -Path "C:\Temp\*.log" -Pattern "CRITIQUE"
 
 Créez un script qui analyse les transmissions et affiche un résumé coloré.
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-$info     = ($transmissions | Where-Object { $_ -match "\[INFO\]" }).Count
-$warn     = ($transmissions | Where-Object { $_ -match "\[WARN\]" }).Count
-$erreur   = ($transmissions | Where-Object { $_ -match "\[ERREUR\]" }).Count
-$critique = ($transmissions | Where-Object { $_ -match "\[CRITIQUE\]" }).Count
-
-Write-Host "=== RAPPORT TRANSMISSIONS ===" -ForegroundColor Cyan
-Write-Host "INFO     : $info"     -ForegroundColor White
-Write-Host "WARN     : $warn"     -ForegroundColor Yellow
-Write-Host "ERREUR   : $erreur"   -ForegroundColor Red
-Write-Host "CRITIQUE : $critique" -ForegroundColor DarkRed
-
-if ($critique -gt 0) {
-    Write-Host "`nALERTE : $critique message(s) critique(s) détecté(s) !" -ForegroundColor DarkRed
-}
-```
-
-</details>
-
 ---
 
 ## Les motifs essentiels à retenir

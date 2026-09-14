@@ -127,29 +127,6 @@ Créez une fonction `Get-RapportEquipage` qui :
 2. Pour chaque pirate, affiche leur analyse avec `Show-FichePirate`
 3. Affiche à la fin le total des primes avec `ConvertTo-Berrys`
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-function Get-RapportEquipage {
-    param($Equipage)
-
-    Write-Titre "RAPPORT COMPLET - EQUIPAGE CHAPEAU DE PAILLE"
-
-    foreach ($membre in $Equipage) {
-        Show-FichePirate -Nom $membre.Nom -Prime $membre.Prime -DevilFruit $membre.DevilFruit
-    }
-
-    $totalPrimes = ($Equipage | Measure-Object Prime -Sum).Sum
-    Write-Host "`nPrime totale de l'équipage : $(ConvertTo-Berrys $totalPrimes)" -ForegroundColor Magenta
-}
-
-# Appel (après avoir défini $equipage depuis l'Exercice 1)
-Get-RapportEquipage -Equipage $equipage
-```
-
-</details>
-
 ## Validation
 
 ✅ Vous savez créer une fonction avec `param()`

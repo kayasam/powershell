@@ -96,21 +96,6 @@ Combinez tout pour afficher le rapport que la Marine enverra au Gouvernement Mon
 Affichez pour chaque pirate avec une prime > 500M : leur nom, rôle, prime en milliards, et si ils ont un Devil Fruit.
 Triez par prime décroissante, et formatez proprement en tableau.
 
-<details>
-<summary>💡 Solution de la Mission Bonus</summary>
-
-```powershell
-$equipage |
-    Where-Object { $_.Prime -gt 500000000 } |
-    Sort-Object Prime -Descending |
-    Select-Object Nom, Role,
-        @{Name="Prime (Mrd)"; Expression={ [math]::Round($_.Prime / 1000000000, 2) }},
-        @{Name="Devil Fruit"; Expression={ if ($_.DevilFruit) { "Oui" } else { "Non" } }} |
-    Format-Table -AutoSize
-```
-
-</details>
-
 ## Validation
 
 ✅ Vous savez filtrer avec `Where-Object`

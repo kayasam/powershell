@@ -120,24 +120,6 @@ Write-Host "Cola restant : $($cfg.ColaActuel)/$($cfg.ColaCapa)"
 
 Exportez un rapport CSV qui contient **uniquement les pièces opérationnelles**, avec une colonne supplémentaire indiquant si elles sont "Critique" (puissance > 100) ou "Standard".
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-$pieces |
-    Where-Object Operationnel -eq $true |
-    Select-Object Nom, Type, Energie, Puissance,
-        @{Name="Categorie"; Expression={
-            if ($_.Puissance -gt 100) { "Critique" } else { "Standard" }
-        }} |
-    Export-Csv "C:\Temp\Franky\pieces-operationnelles.csv" -NoTypeInformation
-
-Write-Host "Rapport exporté !"
-Import-Csv "C:\Temp\Franky\pieces-operationnelles.csv" | Format-Table -AutoSize
-```
-
-</details>
-
 ## Validation
 
 - ✅ Vous savez exporter des objets en CSV avec `Export-Csv`

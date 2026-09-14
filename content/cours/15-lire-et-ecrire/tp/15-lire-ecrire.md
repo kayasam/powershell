@@ -113,32 +113,6 @@ Get-Content $journalPath
 
 Créez un script qui lit le journal, compte combien de jours ont eu chaque type de météo, et affiche un résumé.
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-$journal = Get-Content $journalPath | Where-Object { $_ -like "*Cap*" }
-
-$meteos = @{
-    "Dégagé"  = 0
-    "Orageux" = 0
-    "Brumeux" = 0
-}
-
-foreach ($ligne in $journal) {
-    foreach ($meteo in $meteos.Keys) {
-        if ($ligne -like "*$meteo*") { $meteos[$meteo]++ }
-    }
-}
-
-Write-Host "=== BILAN MÉTÉO ===" -ForegroundColor Cyan
-foreach ($meteo in $meteos.GetEnumerator()) {
-    Write-Host "$($meteo.Key) : $($meteo.Value) jour(s)"
-}
-```
-
-</details>
-
 ## Validation
 
 - ✅ Vous savez lire un fichier avec `Get-Content`

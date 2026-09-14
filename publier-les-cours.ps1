@@ -88,6 +88,37 @@ Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Ob
   }
 }
 
+# Les index élèves ne doivent jamais proposer un lien vers une correction absente.
+Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "index.md" | Where-Object {
+  $_.DirectoryName -match '(?i)[\\/]tp$'
+} | ForEach-Object {
+  $document = [IO.File]::ReadAllText($_.FullName)
+  $document = [regex]::Replace($document, '(?im)^.*(?:correction|corrig[eé]).*(?:\r?\n|$)', '')
+  [IO.File]::WriteAllText($_.FullName, $document, [Text.UTF8Encoding]::new($false))
+}
+
+# Les énoncés publics gardent les indices de réflexion, pas les blocs de solution.
+Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | Where-Object {
+  $_.DirectoryName -match '(?i)[\\/]tp(?:[\\/]|$)'
+} | ForEach-Object {
+  $document = [IO.File]::ReadAllText($_.FullName)
+  $document = [regex]::Replace($document, '(?is)<details>\s*<summary>[^<]*solution[^<]*</summary>.*?</details>\s*', '')
+  [IO.File]::WriteAllText($_.FullName, $document, [Text.UTF8Encoding]::new($false))
+}
+
+# Le fil rouge public conserve les indices, mais retire les solutions détaillées.
+$publicThread = Join-Path $stageRoot "cours\tp-fil-rouge"
+if (Test-Path -LiteralPath $publicThread -PathType Container) {
+  Get-ChildItem -LiteralPath $publicThread -File -Filter "*.md" | ForEach-Object {
+    $document = [IO.File]::ReadAllText($_.FullName)
+    $document = [regex]::Replace($document, '(?ims)^## Corrections formateur\s*$.*\z', '')
+    $document = [regex]::Replace($document, '(?is)<details>\s*<summary>[^<]*solution[^<]*</summary>.*?</details>\s*', '')
+    $document = [regex]::Replace($document, '(?ims)^## La solution complète\s*$.*\z', '')
+    $document = [regex]::Replace($document, '(?im)^.*solution complète.*(?:\r?\n|$)', '')
+    [IO.File]::WriteAllText($_.FullName, $document, [Text.UTF8Encoding]::new($false))
+  }
+}
+
 $forbidden = Get-ChildItem -LiteralPath $stageRoot -Recurse -File | Where-Object {
   $_.Name -match '(?i)correction|corrig[eé]' -or $_.FullName -match '(?i)[\\/](sessions|private|_archives|solutions)[\\/]'
 }

@@ -128,22 +128,6 @@ if (Test-Path $dossier) {
 
 Générez un rapport de toutes les archives : pour chaque île, affichez le nombre de fichiers et la taille totale.
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-$iles = Get-ChildItem "C:\Temp\Archives-Robin" -Directory
-
-foreach ($ile in $iles) {
-    $fichiers = Get-ChildItem $ile.FullName -File
-    $taille   = ($fichiers | Measure-Object Length -Sum).Sum
-
-    Write-Host "$($ile.Name) : $($fichiers.Count) fichier(s), $taille octets"
-}
-```
-
-</details>
-
 ## Validation
 
 - ✅ Vous savez créer une arborescence avec `New-Item`

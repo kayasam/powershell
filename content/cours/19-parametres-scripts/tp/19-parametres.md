@@ -157,43 +157,6 @@ Créez une fonction `Get-MenuDuJour` qui :
 3. Prend un switch `-VegetarienSeulement`
 4. Filtre les plats selon le budget et l'option végétarienne
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-function Get-MenuDuJour {
-    [CmdletBinding()]
-    param(
-        [ValidateRange(100, 10000)]
-        [int]$Budget = 1000,
-
-        [switch]$VegetarienSeulement
-    )
-
-    $menu = @(
-        @{ Nom="Viande grillée"; Prix=800;  Vegetarien=$false }
-        @{ Nom="Soupe de légumes"; Prix=300; Vegetarien=$true  }
-        @{ Nom="Tarte aux fruits"; Prix=500; Vegetarien=$true  }
-        @{ Nom="Sashimi"; Prix=1200;         Vegetarien=$false }
-    )
-
-    Write-Host "=== MENU DU JOUR (Budget : $Budget Berrys) ===" -ForegroundColor Cyan
-
-    foreach ($plat in $menu) {
-        if ($plat.Prix -gt $Budget) { continue }
-        if ($VegetarienSeulement -and -not $plat.Vegetarien) { continue }
-
-        $tag = if ($plat.Vegetarien) { "[V]" } else { "   " }
-        Write-Host "  $tag $($plat.Nom) — $($plat.Prix) Berrys"
-    }
-}
-
-Get-MenuDuJour -Budget 600
-Get-MenuDuJour -Budget 2000 -VegetarienSeulement
-```
-
-</details>
-
 ## Validation
 
 - ✅ Vous savez rendre un paramètre obligatoire avec `[Parameter(Mandatory)]`

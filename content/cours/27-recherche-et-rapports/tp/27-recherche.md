@@ -140,41 +140,6 @@ Get-ChildItem $dossier | Format-Table Name, Length, LastWriteTime -AutoSize
 
 Créez une fonction `Get-RapportAD` qui affiche en couleur un résumé du domaine.
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-function Get-RapportAD {
-    param($Agents = $agentsAD)
-
-    $seuil     = (Get-Date).AddDays(-60)
-    $bloques   = ($Agents | Where-Object LockedOut -eq $true).Count
-    $actifs    = ($Agents | Where-Object Enabled -eq $true).Count
-    $inactifs  = ($Agents | Where-Object { $_.Enabled -and $_.LastLogonDate -lt $seuil }).Count
-    $mdpPerm   = ($Agents | Where-Object PasswordNeverExpires -eq $true).Count
-
-    Write-Host "`n╔══════════════════════════════════════╗" -ForegroundColor DarkCyan
-    Write-Host "║    RAPPORT AD - CIPHER POL           ║" -ForegroundColor DarkCyan
-    Write-Host "╚══════════════════════════════════════╝`n" -ForegroundColor DarkCyan
-
-    Write-Host "  Total agents     : $($Agents.Count)"                       -ForegroundColor White
-    Write-Host "  Comptes actifs   : $actifs"                                -ForegroundColor Green
-    Write-Host "  Comptes bloqués  : $bloques"   -ForegroundColor $(if ($bloques -gt 0) {"Red"} else {"Green"})
-    Write-Host "  Inactifs >60j    : $inactifs"  -ForegroundColor $(if ($inactifs -gt 0) {"Yellow"} else {"Green"})
-    Write-Host "  MDP permanent    : $mdpPerm"   -ForegroundColor $(if ($mdpPerm -gt 0) {"Yellow"} else {"Green"})
-
-    Write-Host "`n  Répartition par département :" -ForegroundColor Cyan
-    $Agents | Group-Object Department | ForEach-Object {
-        Write-Host "    $($_.Name -replace '^$','(aucun)') : $($_.Count) agent(s)"
-    }
-    Write-Host ""
-}
-
-Get-RapportAD
-```
-
-</details>
-
 ---
 
 ## Validation

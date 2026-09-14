@@ -122,40 +122,6 @@ Le script doit :
 2. Recréer toutes les tâches proprement
 3. Afficher un résumé de ce qui a été planifié
 
-<details>
-<summary>💡 Solution</summary>
-
-```powershell
-$taches = @(
-    @{
-        Nom     = "CipherPol-Archivage"
-        Script  = "C:\...\TP3-Solution.ps1"
-        Trigger = New-ScheduledTaskTrigger -Daily -At "06:00"
-        Desc    = "Archivage quotidien"
-    }
-)
-
-foreach ($t in $taches) {
-    # Supprimer si existe déjà
-    if (Get-ScheduledTask -TaskName $t.Nom -ErrorAction SilentlyContinue) {
-        Unregister-ScheduledTask -TaskName $t.Nom -Confirm:$false
-    }
-
-    $action = New-ScheduledTaskAction -Execute "pwsh.exe" `
-        -Argument "-NonInteractive -File $($t.Script)"
-
-    Register-ScheduledTask `
-        -TaskName $t.Nom `
-        -Action $action `
-        -Trigger $t.Trigger `
-        -Description $t.Desc | Out-Null
-
-    Write-Host "Planifié : $($t.Nom)" -ForegroundColor Green
-}
-```
-
-</details>
-
 ## Nettoyage final
 
 ```powershell
