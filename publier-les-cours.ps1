@@ -72,7 +72,7 @@ Mirror-Directory $staticRoot $stageRoot
 $sourceCourses = Join-Path $sourceRoot "cours"
 if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
   Write-Host "1/4 - Préparation des cours publics..."
-  Mirror-Directory $sourceCourses (Join-Path $stageRoot "cours") @("private", "sessions", "_archives") @("*correction*.md", "*corrige*.md", "*.excalidraw", "*.excalidraw.md")
+  Mirror-Directory $sourceCourses (Join-Path $stageRoot "cours") @("private", "sessions", "_archives", "solutions") @("*correction*.md", "*corrige*.md", "*.excalidraw", "*.excalidraw.md")
 }
 
 $sourceImages = Join-Path $sourceRoot "Ressources\images"
@@ -89,7 +89,7 @@ Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Ob
 }
 
 $forbidden = Get-ChildItem -LiteralPath $stageRoot -Recurse -File | Where-Object {
-  $_.Name -match '(?i)correction|corrig[eé]' -or $_.FullName -match '(?i)[\\/](sessions|private|_archives)[\\/]'
+  $_.Name -match '(?i)correction|corrig[eé]' -or $_.FullName -match '(?i)[\\/](sessions|private|_archives|solutions)[\\/]'
 }
 if ($forbidden) {
   throw "Un élément privé a été détecté dans le contenu à publier : $($forbidden[0].FullName)"

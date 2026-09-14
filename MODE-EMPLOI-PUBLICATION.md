@@ -38,4 +38,4 @@ Formations\Powershell\
 └── sessions\
 ```
 
-Les fichiers contenant `correction` ou `corrige`, les dossiers privés, les sessions et les fichiers marqués `publier: false` ne sont pas publiés.
+Les fichiers contenant `correction` ou `corrige`, les dossiers `solutions`, les dossiers privés, les sessions et les fichiers marqués `publier: false` ne sont pas publiés.
