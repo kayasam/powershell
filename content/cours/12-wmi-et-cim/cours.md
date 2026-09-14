@@ -111,7 +111,7 @@ La différence est invisible en local, mais très nette sur une machine distante
 > -Filter "DriveType=3 AND FreeSpace < 10000000000"   # AND / OR, pas -and
 > ```
 >
-> Vous retrouverez exactement le même piège au chapitre 27 avec le `-Filter` d'Active Directory.
+> Vous retrouverez exactement le même piège au chapitre 29 avec le `-Filter` d'Active Directory.
 
 ## Explorer quand on ne sait pas
 

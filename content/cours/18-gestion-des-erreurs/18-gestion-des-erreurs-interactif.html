@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>18. Gestion des erreurs</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="18-gestion-des-erreurs">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>29 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-fichiers-et-dossiers"
+          href="../14-fichiers-et-dossiers/14-fichiers-et-dossiers-interactif.html"
+          ><span class="n">14</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-lire-et-ecrire"
+          href="../15-lire-et-ecrire/15-lire-et-ecrire-interactif.html"
+          ><span class="n">15</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-export-import"
+          href="../16-export-import/16-export-import-interactif.html"
+          ><span class="n">16</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-registre-journaux-certificats"
+          href="../17-registre-journaux-certificats/17-registre-journaux-certificats-interactif.html"
+          ><span class="n">17</span><span class="t">Registre, journaux et certificats</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-gestion-des-erreurs"
+          href="../18-gestion-des-erreurs/18-gestion-des-erreurs-interactif.html"
+          ><span class="n">18</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="19-erreurs-avancees"
+          href="../19-erreurs-avancees/19-erreurs-avancees-interactif.html"
+          ><span class="n">19</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="20-parametres-scripts"
+          href="../20-parametres-scripts/20-parametres-scripts-interactif.html"
+          ><span class="n">20</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-modules"
+          href="../21-modules/21-modules-interactif.html"
+          ><span class="n">21</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="22-profils"
+          href="../22-profils/22-profils-interactif.html"
+          ><span class="n">22</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-regex"
+          href="../23-regex/23-regex-interactif.html"
+          ><span class="n">23</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="24-planification"
+          href="../24-planification/24-planification-interactif.html"
+          ><span class="n">24</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory et interfaces</div>
+        <a
+          class="course-nav-link"
+          data-chapter="25-introduction-ad"
+          href="../25-introduction-ad/25-introduction-ad-interactif.html"
+          ><span class="n">25</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-utilisateurs-ad"
+          href="../26-utilisateurs-ad/26-utilisateurs-ad-interactif.html"
+          ><span class="n">26</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-groupes-ad"
+          href="../27-groupes-ad/27-groupes-ad-interactif.html"
+          ><span class="n">27</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="28-recherche-et-rapports"
+          href="../28-recherche-et-rapports/28-recherche-et-rapports-interactif.html"
+          ><span class="n">28</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="29-interfaces-graphiques"
+          href="../29-interfaces-graphiques/29-interfaces-graphiques-interactif.html"
+          ><span class="n">29</span><span class="t">Interfaces graphiques (WinForms)</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 18 · Fichiers et robustesse</span>
+            <h1>Gestion des erreurs</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>18. Gestion des erreurs</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <h2>Pourquoi gérer les erreurs ?</h2>
+              <p>
+                Sans gestion d'erreur, un script s'arrête dès qu'il rencontre un problème. Avec
+                <code>try/catch</code>, il peut continuer et vous informer proprement.
+              </p>
+              <h2>Try / Catch / Finally</h2>
+              <pre><code class="language-powershell">try {
+    # Code qui peut échouer
+    Get-Item &quot;C:\fichier-inexistant.txt&quot;
+}
+catch {
+    # Ce qui se passe si ça échoue
+    Write-Host &quot;Erreur : $($_.Exception.Message)&quot; -ForegroundColor Red
+}
+finally {
+    # Toujours exécuté (facultatif)
+    Write-Host &quot;Fin de la tentative&quot;
+}
+</code></pre>
+              <h2>Exemple concret</h2>
+              <pre><code class="language-powershell">function Get-ContenuFichier {
+    param($Chemin)
+
+    try {
+        $contenu = Get-Content $Chemin -ErrorAction Stop
+        Write-Host &quot;Fichier lu : $($contenu.Count) lignes&quot; -ForegroundColor Green
+        return $contenu
+    }
+    catch {
+        Write-Host &quot;Impossible de lire $Chemin&quot; -ForegroundColor Red
+        Write-Host &quot;Raison : $($_.Exception.Message)&quot;
+        return $null
+    }
+}
+
+Get-ContenuFichier &quot;C:\Logs\rapport.txt&quot;
+Get-ContenuFichier &quot;C:\inexistant.txt&quot;    # Gérée proprement
+</code></pre>
+              <h2>-ErrorAction : contrôler le comportement</h2>
+              <pre><code class="language-powershell"># Stop : transforme l'erreur en exception (nécessaire pour catch)
+Get-Item &quot;inexistant.txt&quot; -ErrorAction Stop
+
+# SilentlyContinue : ignore l'erreur silencieusement
+Get-Item &quot;inexistant.txt&quot; -ErrorAction SilentlyContinue
+
+# Continue : affiche l'erreur mais continue (défaut)
+Get-Item &quot;inexistant.txt&quot; -ErrorAction Continue
+</code></pre>
+              <p>
+                <strong>Important</strong> : Sans <code>-ErrorAction Stop</code>, certaines erreurs
+                ne sont pas interceptées par <code>catch</code>.
+              </p>
+              <h2>Tester avant d'agir</h2>
+              <p>Souvent, mieux vaut prévenir que guérir :</p>
+              <pre><code class="language-powershell"># Tester avant de lire
+if (Test-Path &quot;C:\Logs\rapport.txt&quot;) {
+    $contenu = Get-Content &quot;C:\Logs\rapport.txt&quot;
+} else {
+    Write-Host &quot;Le fichier n'existe pas&quot; -ForegroundColor Yellow
+}
+
+# Tester avant de supprimer
+if (Test-Path &quot;C:\Logs\vieux.log&quot;) {
+    Remove-Item &quot;C:\Logs\vieux.log&quot;
+    Write-Host &quot;Fichier supprimé&quot;
+}
+</code></pre>
+              <h2>$_ dans le catch : l'objet d'erreur</h2>
+              <pre><code class="language-powershell">catch {
+    Write-Host &quot;Message : $($_.Exception.Message)&quot;
+    Write-Host &quot;Type    : $($_.Exception.GetType().Name)&quot;
+    Write-Host &quot;Ligne   : $($_.InvocationInfo.ScriptLineNumber)&quot;
+}
+</code></pre>
+              <h2>Écrire les erreurs dans un log</h2>
+              <pre><code class="language-powershell">function Write-Log {
+    param($Message, $Niveau = &quot;INFO&quot;)
+
+    $date   = Get-Date -Format &quot;yyyy-MM-dd HH:mm:ss&quot;
+    $ligne  = &quot;[$date] [$Niveau] $Message&quot;
+
+    Add-Content -Path &quot;C:\Logs\app.log&quot; -Value $ligne
+    Write-Host $ligne
+}
+
+try {
+    Get-Item &quot;C:\inexistant.txt&quot; -ErrorAction Stop
+}
+catch {
+    Write-Log -Message $_.Exception.Message -Niveau &quot;ERREUR&quot;
+}
+</code></pre>
+              <h2>À retenir</h2>
+              <ul>
+                <li>✅ <code>try/catch</code> pour intercepter les erreurs</li>
+                <li>✅ <code>-ErrorAction Stop</code> pour que <code>catch</code> fonctionne</li>
+                <li>✅ <code>$_.Exception.Message</code> pour lire le message d'erreur</li>
+                <li>✅ <code>Test-Path</code> pour éviter les erreurs prévisibles</li>
+                <li>✅ <code>finally</code> pour le code qui s'exécute toujours</li>
+              </ul>
+              <blockquote>
+                <p>
+                  <strong>Lien</strong> -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_try_catch_finally"
+                    >À propos de Try/Catch</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">Code risqué</div>
+                  <div class="mental-node">try</div>
+                  <div class="mental-node">Erreur</div>
+                  <div class="mental-node">catch / finally</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="0"
+                data-explanation="catch s’exécute lorsqu’une erreur terminante est levée."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Où intercepter une erreur ?</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">catch</button
+                  ><button type="button" class="quiz-option" data-index="1">param</button
+                  ><button type="button" class="quiz-option" data-index="2">select</button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a
+              href="../17-registre-journaux-certificats/17-registre-journaux-certificats-interactif.html"
+              >← Chapitre précédent</a
+            ><a href="../19-erreurs-avancees/19-erreurs-avancees-interactif.html"
+              >Chapitre suivant →</a
+            >
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>24. Planification des tâches</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="24-planification">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>29 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-fichiers-et-dossiers"
+          href="../14-fichiers-et-dossiers/14-fichiers-et-dossiers-interactif.html"
+          ><span class="n">14</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-lire-et-ecrire"
+          href="../15-lire-et-ecrire/15-lire-et-ecrire-interactif.html"
+          ><span class="n">15</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-export-import"
+          href="../16-export-import/16-export-import-interactif.html"
+          ><span class="n">16</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-registre-journaux-certificats"
+          href="../17-registre-journaux-certificats/17-registre-journaux-certificats-interactif.html"
+          ><span class="n">17</span><span class="t">Registre, journaux et certificats</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-gestion-des-erreurs"
+          href="../18-gestion-des-erreurs/18-gestion-des-erreurs-interactif.html"
+          ><span class="n">18</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="19-erreurs-avancees"
+          href="../19-erreurs-avancees/19-erreurs-avancees-interactif.html"
+          ><span class="n">19</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="20-parametres-scripts"
+          href="../20-parametres-scripts/20-parametres-scripts-interactif.html"
+          ><span class="n">20</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-modules"
+          href="../21-modules/21-modules-interactif.html"
+          ><span class="n">21</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="22-profils"
+          href="../22-profils/22-profils-interactif.html"
+          ><span class="n">22</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-regex"
+          href="../23-regex/23-regex-interactif.html"
+          ><span class="n">23</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="24-planification"
+          href="../24-planification/24-planification-interactif.html"
+          ><span class="n">24</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory et interfaces</div>
+        <a
+          class="course-nav-link"
+          data-chapter="25-introduction-ad"
+          href="../25-introduction-ad/25-introduction-ad-interactif.html"
+          ><span class="n">25</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-utilisateurs-ad"
+          href="../26-utilisateurs-ad/26-utilisateurs-ad-interactif.html"
+          ><span class="n">26</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-groupes-ad"
+          href="../27-groupes-ad/27-groupes-ad-interactif.html"
+          ><span class="n">27</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="28-recherche-et-rapports"
+          href="../28-recherche-et-rapports/28-recherche-et-rapports-interactif.html"
+          ><span class="n">28</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="29-interfaces-graphiques"
+          href="../29-interfaces-graphiques/29-interfaces-graphiques-interactif.html"
+          ><span class="n">29</span><span class="t">Interfaces graphiques (WinForms)</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 24 · Scripts et automatisation</span>
+            <h1>Planification des tâches</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>24. Planification des tâches</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <h2>Pourquoi planifier ?</h2>
+              <p>
+                Un script qui doit tourner tous les jours ne doit pas être lancé manuellement.
+                PowerShell permet de créer des tâches planifiées directement depuis la console.
+              </p>
+              <h2>Créer une tâche planifiée</h2>
+              <p>
+                La création se fait en 3 étapes : l'action, le déclencheur, et l'enregistrement.
+              </p>
+              <pre><code class="language-powershell"># 1. Définir l'action (quel script lancer)
+$action = New-ScheduledTaskAction `
+    -Execute &quot;C:\Program Files\PowerShell\7\pwsh.exe&quot; `
+    -Argument &quot;-NoProfile -NonInteractive -ExecutionPolicy Bypass -File C:\Scripts\Invoke-ArchivesCipherPol.ps1&quot;
+
+# 2. Définir le déclencheur (quand le lancer)
+$trigger = New-ScheduledTaskTrigger -Daily -At &quot;06:00&quot;
+
+# 3. Enregistrer la tâche
+Register-ScheduledTask `
+    -TaskName &quot;Archivage-Cipher-Pol&quot; `
+    -Action $action `
+    -Trigger $trigger `
+    -Description &quot;Rapport quotidien Cipher Pol&quot;
+</code></pre>
+              <h2>Types de déclencheurs</h2>
+              <pre><code class="language-powershell"># Tous les jours à 6h
+$trigger = New-ScheduledTaskTrigger -Daily -At &quot;06:00&quot;
+
+# Toutes les semaines, le lundi
+$trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At &quot;08:00&quot;
+
+# Au démarrage de Windows
+$trigger = New-ScheduledTaskTrigger -AtStartup
+
+# À la connexion d'un utilisateur
+$trigger = New-ScheduledTaskTrigger -AtLogOn
+
+# Toutes les heures (répétition)
+$trigger = New-ScheduledTaskTrigger -Once -At &quot;00:00&quot; `
+    -RepetitionInterval (New-TimeSpan -Hours 1)
+</code></pre>
+              <h2>Gérer les tâches existantes</h2>
+              <pre><code class="language-powershell"># Lister toutes les tâches
+Get-ScheduledTask
+
+# Voir une tâche spécifique
+Get-ScheduledTask -TaskName &quot;Archivage-Cipher-Pol&quot;
+
+# Lancer manuellement
+Start-ScheduledTask -TaskName &quot;Archivage-Cipher-Pol&quot;
+
+# Désactiver (sans supprimer)
+Disable-ScheduledTask -TaskName &quot;Archivage-Cipher-Pol&quot;
+
+# Réactiver
+Enable-ScheduledTask -TaskName &quot;Archivage-Cipher-Pol&quot;
+
+# Supprimer
+Unregister-ScheduledTask -TaskName &quot;Archivage-Cipher-Pol&quot; -Confirm:$false
+</code></pre>
+              <h2>Voir le résultat d'une tâche</h2>
+              <pre><code class="language-powershell"># Voir le dernier résultat (0 = succès)
+$tache = Get-ScheduledTask &quot;Archivage-Cipher-Pol&quot; | Get-ScheduledTaskInfo
+$tache.LastRunTime
+$tache.LastTaskResult   # 0 = OK, autre = erreur
+</code></pre>
+              <h2>Paramètres de sécurité</h2>
+              <p>
+                Pour qu'une tâche s'exécute <strong>même si personne n'est connecté</strong>, ce
+                n'est pas un réglage de <code>-Settings</code> mais un
+                <strong>principal</strong> qu'il faut définir :
+              </p>
+              <pre><code class="language-powershell"># Le principal répond à : QUI exécute la tâche, et avec quels privilèges ?
+$principal = New-ScheduledTaskPrincipal `
+    -UserId    &quot;DOMAINE\svc-archivage&quot; `
+    -LogonType Password `
+    -RunLevel  Highest              # exécuter avec les privilèges administrateur
+
+Register-ScheduledTask `
+    -TaskName  &quot;Archivage-Cipher-Pol&quot; `
+    -Action    $action `
+    -Trigger   $trigger `
+    -Principal $principal
+</code></pre>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong><code>Password</code> ou <code>S4U</code> ?</strong> -
+                  <code>-LogonType Password</code> : le compte a accès au réseau et aux partages,
+                  mais il faut fournir le mot de passe à l'enregistrement. -
+                  <code>-LogonType S4U</code> : pas de mot de passe à stocker, mais la tâche n'a
+                  <strong>pas</strong> accès aux ressources réseau. Parfait pour un script purement
+                  local.
+                </p>
+              </blockquote>
+              <p>
+                Les <code>-Settings</code> servent à autre chose : le comportement de la tâche
+                <strong>une fois lancée</strong>.
+              </p>
+              <pre><code class="language-powershell">$settings = New-ScheduledTaskSettingsSet `
+    -RunOnlyIfNetworkAvailable `                  # ne démarrer que si le réseau est là
+    -ExecutionTimeLimit (New-TimeSpan -Hours 1) ` # tuer la tâche au bout d'une heure
+    -StartWhenAvailable                           # rattraper une exécution manquée
+</code></pre>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong>Ne confondez pas les deux</strong>
+                  <code>-RunOnlyIfNetworkAvailable</code> concerne la
+                  <strong>disponibilité du réseau</strong>, pas la session utilisateur. Ce n'est pas
+                  lui qui permet à une tâche de tourner hors session.
+                </p>
+              </blockquote>
+              <h2>Bonne pratique : tester le script d'abord</h2>
+              <p>Avant de planifier, assurez-vous que le script fonctionne en autonomie :</p>
+              <pre><code class="language-powershell"># Tester en mode non-interactif (comme la tâche planifiée le fera)
+pwsh.exe -NonInteractive -File &quot;C:\Scripts\MonScript.ps1&quot;
+
+# Vérifier qu'il n'y a pas de prompt (Read-Host, confirmations...)
+</code></pre>
+              <h2>À retenir</h2>
+              <ul>
+                <li>✅ <code>New-ScheduledTaskAction</code> : quel script lancer</li>
+                <li>✅ <code>New-ScheduledTaskTrigger</code> : quand le lancer</li>
+                <li>✅ <code>Register-ScheduledTask</code> : enregistrer la tâche</li>
+                <li>✅ <code>Start-ScheduledTask</code> : lancer manuellement pour tester</li>
+                <li>✅ <code>Get-ScheduledTaskInfo</code> : voir le dernier résultat</li>
+              </ul>
+              <blockquote>
+                <p>
+                  <strong>Lien</strong> -
+                  <a href="https://learn.microsoft.com/fr-fr/powershell/module/scheduledtasks"
+                    >ScheduledTasks</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">Action + déclencheur</div>
+                  <div class="mental-node">Register-ScheduledTask</div>
+                  <div class="mental-node">Exécution</div>
+                  <div class="mental-node">Résultat</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="0"
+                data-explanation="Ces trois composants définissent quoi, quand et sous quelle identité."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Une tâche planifiée combine…</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">
+                    Action, déclencheur et principal</button
+                  ><button type="button" class="quiz-option" data-index="1">
+                    Alias et historique</button
+                  ><button type="button" class="quiz-option" data-index="2">CSV et image</button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a href="../23-regex/23-regex-interactif.html">← Chapitre précédent</a
+            ><a href="../25-introduction-ad/25-introduction-ad-interactif.html"
+              >Chapitre suivant →</a
+            >
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

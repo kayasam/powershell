@@ -179,49 +179,61 @@ $chapters: (
     var(--ps-files),
     "DONNÉES",
   ),
-  "17-gestion-des-erreurs": (
+  "17-registre-journaux-certificats": (
+    var(--ps-files),
+    "SYSTÈME",
+  ),
+  "18-gestion-des-erreurs": (
     var(--ps-files),
     "ERREURS",
   ),
-  "18-erreurs-avancees": (
+  "19-erreurs-avancees": (
     var(--ps-files),
     "ERREURS",
   ),
-  "19-parametres-scripts": (
+  "20-parametres-scripts": (
     var(--ps-scripts),
     "SCRIPT",
   ),
-  "20-modules": (
+  "21-modules": (
     var(--ps-scripts),
     "MODULE",
   ),
-  "21-profils": (
+  "22-rsat-et-gallery": (
+    var(--ps-scripts),
+    "OUTILS",
+  ),
+  "23-profils": (
     var(--ps-scripts),
     "PROFIL",
   ),
-  "22-regex": (
+  "24-regex": (
     var(--ps-scripts),
     "REGEX",
   ),
-  "23-planification": (
+  "25-planification": (
     var(--ps-scripts),
     "AUTO",
   ),
-  "24-introduction-ad": (
+  "26-introduction-ad": (
     var(--ps-ad),
     "AD",
   ),
-  "25-utilisateurs-ad": (
+  "27-utilisateurs-ad": (
     var(--ps-ad),
     "AD",
   ),
-  "26-groupes-ad": (
+  "28-groupes-ad": (
     var(--ps-ad),
     "AD",
   ),
-  "27-recherche-et-rapports": (
+  "29-recherche-et-rapports": (
     var(--ps-ad),
     "RAPPORT",
+  ),
+  "30-interfaces-graphiques": (
+    var(--ps-ad),
+    "GUI",
   ),
 );
 
@@ -241,18 +253,21 @@ $chapter-titles: (
   "13-fonctions": "13. Fonctions",
   "14-fichiers-et-dossiers": "14. Fichiers et dossiers",
   "15-lire-et-ecrire": "15. Lire et écrire",
-  "16-export-import": "16. Export et import",
-  "17-gestion-des-erreurs": "17. Gestion des erreurs",
-  "18-erreurs-avancees": "18. Erreurs avancées",
-  "19-parametres-scripts": "19. Paramètres de scripts",
-  "20-modules": "20. Modules",
-  "21-profils": "21. Profils PowerShell",
-  "22-regex": "22. Expressions régulières",
-  "23-planification": "23. Planification",
-  "24-introduction-ad": "24. Introduction à AD",
-  "25-utilisateurs-ad": "25. Utilisateurs AD",
-  "26-groupes-ad": "26. Groupes AD",
-  "27-recherche-et-rapports": "27. Recherche et rapports",
+  "16-export-import": "16. Export et Import",
+  "17-registre-journaux-certificats": "17. Registre, journaux et certificats",
+  "18-gestion-des-erreurs": "18. Gestion des erreurs",
+  "19-erreurs-avancees": "19. Gestion des erreurs avancée",
+  "20-parametres-scripts": "20. Paramètres de scripts",
+  "21-modules": "21. Modules",
+  "22-rsat-et-gallery": "22. RSAT et PowerShell Gallery",
+  "23-profils": "23. Les profils PowerShell",
+  "24-regex": "24. Expressions régulières (Regex)",
+  "25-planification": "25. Planification des tâches",
+  "26-introduction-ad": "26. Introduction à Active Directory",
+  "27-utilisateurs-ad": "27. Utilisateurs Active Directory",
+  "28-groupes-ad": "28. Groupes Active Directory",
+  "29-recherche-et-rapports": "29. Recherche et rapports AD",
+  "30-interfaces-graphiques": "30. Interfaces graphiques (WinForms)",
 );
 
 @each $slug, $values in $chapters {
@@ -274,10 +289,6 @@ $chapter-titles: (
     border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
     background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
   }
-}
-
-.explorer-content li:has(> a.nav-file-title[href*="-interactif"]) {
-  display: none;
 }
 
 .explorer-content a.nav-file-title[href$="/cours"],
