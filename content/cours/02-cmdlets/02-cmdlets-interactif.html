@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>02. Cmdlets</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="02-cmdlets">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>27 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-fichiers-et-dossiers"
+          href="../14-fichiers-et-dossiers/14-fichiers-et-dossiers-interactif.html"
+          ><span class="n">14</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-lire-et-ecrire"
+          href="../15-lire-et-ecrire/15-lire-et-ecrire-interactif.html"
+          ><span class="n">15</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-export-import"
+          href="../16-export-import/16-export-import-interactif.html"
+          ><span class="n">16</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-gestion-des-erreurs"
+          href="../17-gestion-des-erreurs/17-gestion-des-erreurs-interactif.html"
+          ><span class="n">17</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-erreurs-avancees"
+          href="../18-erreurs-avancees/18-erreurs-avancees-interactif.html"
+          ><span class="n">18</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="19-parametres-scripts"
+          href="../19-parametres-scripts/19-parametres-scripts-interactif.html"
+          ><span class="n">19</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="20-modules"
+          href="../20-modules/20-modules-interactif.html"
+          ><span class="n">20</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-profils"
+          href="../21-profils/21-profils-interactif.html"
+          ><span class="n">21</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="22-regex"
+          href="../22-regex/22-regex-interactif.html"
+          ><span class="n">22</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-planification"
+          href="../23-planification/23-planification-interactif.html"
+          ><span class="n">23</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory</div>
+        <a
+          class="course-nav-link"
+          data-chapter="24-introduction-ad"
+          href="../24-introduction-ad/24-introduction-ad-interactif.html"
+          ><span class="n">24</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="25-utilisateurs-ad"
+          href="../25-utilisateurs-ad/25-utilisateurs-ad-interactif.html"
+          ><span class="n">25</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-groupes-ad"
+          href="../26-groupes-ad/26-groupes-ad-interactif.html"
+          ><span class="n">26</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-recherche-et-rapports"
+          href="../27-recherche-et-rapports/27-recherche-et-rapports-interactif.html"
+          ><span class="n">27</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 02 · Fondations PowerShell</span>
+            <h1>Cmdlets</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>02. Cmdlets</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <h2>Qu'est-ce qu'une cmdlet ?</h2>
+              <p>Une <strong>cmdlet</strong> (prononcé "command-let") = une commande PowerShell.</p>
+              <h2>Convention de nommage : Verbe-Nom</h2>
+              <p>
+                Toutes les cmdlets suivent ce modèle : - <code>Get-Process</code> →
+                <strong>Obtenir</strong> les processus - <code>Stop-Service</code> →
+                <strong>Arrêter</strong> un service - <code>New-Item</code> →
+                <strong>Créer</strong> un élément
+              </p>
+              <h2>Verbes courants</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Verbe</th>
+                    <th>Action</th>
+                    <th>Exemple</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Get</td>
+                    <td>Obtenir</td>
+                    <td><code>Get-Service</code></td>
+                  </tr>
+                  <tr>
+                    <td>Set</td>
+                    <td>Modifier</td>
+                    <td><code>Set-Location</code></td>
+                  </tr>
+                  <tr>
+                    <td>New</td>
+                    <td>Créer</td>
+                    <td><code>New-Item</code></td>
+                  </tr>
+                  <tr>
+                    <td>Remove</td>
+                    <td>Supprimer</td>
+                    <td><code>Remove-Item</code></td>
+                  </tr>
+                  <tr>
+                    <td>Start</td>
+                    <td>Démarrer</td>
+                    <td><code>Start-Service</code></td>
+                  </tr>
+                  <tr>
+                    <td>Stop</td>
+                    <td>Arrêter</td>
+                    <td><code>Stop-Process</code></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h2>Découvrir les cmdlets</h2>
+              <pre><code class="language-powershell"># Toutes les cmdlets
+Get-Command
+
+# Cmdlets pour les processus
+Get-Command *Process*
+
+# Cmdlets commençant par Get
+Get-Command -Verb Get
+</code></pre>
+              <h2>Obtenir de l'aide</h2>
+              <pre><code class="language-powershell"># Aide de base
+Get-Help Get-Process
+
+# Voir des exemples
+Get-Help Get-Process -Examples
+
+# Aide complète
+Get-Help Get-Process -Detailed
+</code></pre>
+              <h2>Cmdlets essentielles</h2>
+              <pre><code class="language-powershell">Get-Process      # Lister les processus
+Get-Service      # Lister les services
+Get-ChildItem    # Lister les fichiers (comme dir)
+Get-Content      # Lire un fichier
+Set-Location     # Changer de dossier (comme cd)
+Clear-Host       # Effacer l'écran (comme cls)
+</code></pre>
+              <h2>À retenir</h2>
+              <p>
+                ✅ Format : <strong>Verbe-Nom</strong> (Get-Process, Stop-Service) ✅ Utilisez
+                <code>Get-Command</code> pour trouver des cmdlets ✅ Utilisez
+                <code>Get-Help</code> pour apprendre à les utiliser ✅ Les cmdlets retournent des
+                objets
+              </p>
+              <blockquote>
+                <p>
+                  <strong>Lien</strong> -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands"
+                    >Liste des verbes approuvés</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">Besoin</div>
+                  <div class="mental-node">Get-Command</div>
+                  <div class="mental-node">Get-Help</div>
+                  <div class="mental-node">Cmdlet adaptée</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="0"
+                data-explanation="Get-Command explore les cmdlets disponibles."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Quelle commande aide à découvrir une commande ?</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">Get-Command</button
+                  ><button type="button" class="quiz-option" data-index="1">Write-Host</button
+                  ><button type="button" class="quiz-option" data-index="2">Clear-Host</button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a
+              href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+              >← Chapitre précédent</a
+            ><a href="../03-objets/03-objets-interactif.html">Chapitre suivant →</a>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

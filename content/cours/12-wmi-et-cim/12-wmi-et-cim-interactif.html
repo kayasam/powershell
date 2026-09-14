@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>12. WMI et CIM</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="12-wmi-et-cim">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>27 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-fichiers-et-dossiers"
+          href="../14-fichiers-et-dossiers/14-fichiers-et-dossiers-interactif.html"
+          ><span class="n">14</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-lire-et-ecrire"
+          href="../15-lire-et-ecrire/15-lire-et-ecrire-interactif.html"
+          ><span class="n">15</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-export-import"
+          href="../16-export-import/16-export-import-interactif.html"
+          ><span class="n">16</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-gestion-des-erreurs"
+          href="../17-gestion-des-erreurs/17-gestion-des-erreurs-interactif.html"
+          ><span class="n">17</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-erreurs-avancees"
+          href="../18-erreurs-avancees/18-erreurs-avancees-interactif.html"
+          ><span class="n">18</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="19-parametres-scripts"
+          href="../19-parametres-scripts/19-parametres-scripts-interactif.html"
+          ><span class="n">19</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="20-modules"
+          href="../20-modules/20-modules-interactif.html"
+          ><span class="n">20</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-profils"
+          href="../21-profils/21-profils-interactif.html"
+          ><span class="n">21</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="22-regex"
+          href="../22-regex/22-regex-interactif.html"
+          ><span class="n">22</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-planification"
+          href="../23-planification/23-planification-interactif.html"
+          ><span class="n">23</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory</div>
+        <a
+          class="course-nav-link"
+          data-chapter="24-introduction-ad"
+          href="../24-introduction-ad/24-introduction-ad-interactif.html"
+          ><span class="n">24</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="25-utilisateurs-ad"
+          href="../25-utilisateurs-ad/25-utilisateurs-ad-interactif.html"
+          ><span class="n">25</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-groupes-ad"
+          href="../26-groupes-ad/26-groupes-ad-interactif.html"
+          ><span class="n">26</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-recherche-et-rapports"
+          href="../27-recherche-et-rapports/27-recherche-et-rapports-interactif.html"
+          ><span class="n">27</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 12 · Pipeline et logique</span>
+            <h1>WMI et CIM</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>12. WMI et CIM</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <p>
+                <code>Get-Process</code> et <code>Get-Service</code> couvrent les processus et les
+                services. Mais pour la RAM installée, le numéro de série du BIOS, l'espace disque ou
+                la configuration réseau, il n'existe pas de cmdlet dédiée.
+              </p>
+              <p>
+                Ces informations viennent de <strong>WMI</strong> — l'inventaire interne de Windows.
+                On l'interroge avec les cmdlets <strong>CIM</strong>.
+              </p>
+              <h2>WMI, CIM : de quoi parle-t-on ?</h2>
+              <ul>
+                <li>
+                  <strong>WMI</strong> (<em>Windows Management Instrumentation</em>) est la
+                  <strong>base de données</strong> : Windows y publie en permanence l'état du
+                  matériel, du système et des logiciels installés.
+                </li>
+                <li>
+                  <strong>CIM</strong> (<em>Common Information Model</em>) est le
+                  <strong>standard</strong> qui décrit comment ranger et interroger ces
+                  informations. C'est une norme ouverte, pas une invention Microsoft.
+                </li>
+              </ul>
+              <p>
+                Autrement dit : WMI est l'entrepôt, CIM est la langue dans laquelle on lui parle.
+              </p>
+              <h2>Une seule cmdlet à retenir</h2>
+              <pre><code class="language-powershell">Get-CimInstance &lt;NomDeClasse&gt;
+</code></pre>
+              <p>
+                Une <strong>classe</strong> = une catégorie d'information. Leur nom commence presque
+                toujours par <code>Win32_</code>.
+              </p>
+              <pre><code class="language-powershell"># Le système d'exploitation
+Get-CimInstance Win32_OperatingSystem
+
+# Le ou les processeurs
+Get-CimInstance Win32_Processor
+
+# Les disques
+Get-CimInstance Win32_LogicalDisk
+</code></pre>
+              <h2>Les classes utiles au quotidien</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Classe</th>
+                    <th>Ce qu'elle contient</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Win32_OperatingSystem</code></td>
+                    <td>Version de Windows, RAM totale et libre, date de démarrage</td>
+                  </tr>
+                  <tr>
+                    <td><code>Win32_ComputerSystem</code></td>
+                    <td>Nom de la machine, fabricant, modèle, domaine</td>
+                  </tr>
+                  <tr>
+                    <td><code>Win32_Processor</code></td>
+                    <td>Modèle du CPU, nombre de cœurs, charge instantanée</td>
+                  </tr>
+                  <tr>
+                    <td><code>Win32_LogicalDisk</code></td>
+                    <td>Lettres de lecteur, taille, espace libre</td>
+                  </tr>
+                  <tr>
+                    <td><code>Win32_BIOS</code></td>
+                    <td>Numéro de série, version du BIOS</td>
+                  </tr>
+                  <tr>
+                    <td><code>Win32_NetworkAdapterConfiguration</code></td>
+                    <td>IP, masque, passerelle, DNS</td>
+                  </tr>
+                  <tr>
+                    <td><code>Win32_Service</code></td>
+                    <td>Services, avec leur compte de démarrage et leur chemin</td>
+                  </tr>
+                  <tr>
+                    <td><code>Win32_UserAccount</code></td>
+                    <td>Comptes locaux</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h2>Le résultat est un objet comme les autres</h2>
+              <p>
+                C'est tout l'intérêt : ce qui sort de <code>Get-CimInstance</code> se manipule avec
+                tout ce que vous savez déjà — <code>Select-Object</code>, <code>Where-Object</code>,
+                le pipeline.
+              </p>
+              <pre><code class="language-powershell">$os = Get-CimInstance Win32_OperatingSystem
+
+$os.Caption                    # Microsoft Windows 11 Professionnel
+$os.TotalVisibleMemorySize     # RAM totale, en Ko
+$os.FreePhysicalMemory         # RAM libre, en Ko
+</code></pre>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong>Attention aux unités</strong> <code>Win32_OperatingSystem</code> exprime
+                  la mémoire en <strong>kilooctets</strong>, alors que
+                  <code>Win32_LogicalDisk</code> exprime les tailles en <strong>octets</strong>. Les
+                  diviseurs ne sont donc pas les mêmes :
+                </p>
+                <p>```powershell $os = Get-CimInstance Win32_OperatingSystem</p>
+                <p>$d = Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'"</p>
+                <p>```</p>
+                <p>
+                  Le réflexe : vérifiez toujours l'unité avec
+                  <code>Get-CimInstance &lt;classe&gt; | Format-List *</code> avant de faire un
+                  calcul.
+                </p>
+              </blockquote>
+              <h2>Filtrer : côté serveur, pas côté client</h2>
+              <p>
+                <code>Get-CimInstance</code> accepte <code>-Filter</code>, qui filtre
+                <strong>avant</strong> de renvoyer les données.
+              </p>
+              <pre><code class="language-powershell"># Seulement les disques durs locaux (DriveType 3)
+Get-CimInstance Win32_LogicalDisk -Filter &quot;DriveType=3&quot;
+
+# Seulement les services démarrés
+Get-CimInstance Win32_Service -Filter &quot;State='Running'&quot;
+</code></pre>
+              <p>
+                C'est plus efficace que <code>| Where-Object</code> : on ne transporte que ce dont
+                on a besoin. La différence est invisible en local, mais très nette sur une machine
+                distante.
+              </p>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong>La syntaxe de <code>-Filter</code> n'est pas du PowerShell</strong> C'est
+                  du <strong>WQL</strong>, un mini-langage proche du SQL. Il a ses propres règles :
+                  <code>=</code> et non <code>-eq</code>, les valeurs texte entre
+                  <strong>guillemets simples</strong>, et pas de <code>$_</code>.
+                </p>
+                <p>
+                  <code
+                    >powershell -Filter "DriveType=3" # nombre : sans guillemets -Filter
+                    "State='Running'" # texte : guillemets simples -Filter "DriveType=3 AND
+                    FreeSpace &lt; 10000000000" # AND / OR, pas -and</code
+                  >
+                </p>
+                <p>
+                  Vous retrouverez exactement le même piège au chapitre 27 avec le
+                  <code>-Filter</code> d'Active Directory.
+                </p>
+              </blockquote>
+              <h2>Explorer quand on ne sait pas</h2>
+              <p>
+                Deux questions reviennent toujours : <em>quelle classe ?</em> et
+                <em>quelles propriétés ?</em>
+              </p>
+              <pre><code class="language-powershell"># Quelles classes parlent de disque ?
+Get-CimClass -ClassName Win32_*Disk*
+
+# Quelles propriétés a cette classe, sans même l'interroger ?
+(Get-CimClass Win32_LogicalDisk).CimClassProperties.Name
+
+# Tout voir sur une instance réelle
+Get-CimInstance Win32_BIOS | Format-List *
+</code></pre>
+              <p>
+                C'est le même réflexe qu'au chapitre 03 avec <code>Get-Member</code> : on inspecte
+                avant d'utiliser.
+              </p>
+              <h2>Exemple complet : une fiche machine</h2>
+              <pre><code class="language-powershell">$os  = Get-CimInstance Win32_OperatingSystem
+$cs  = Get-CimInstance Win32_ComputerSystem
+$cpu = Get-CimInstance Win32_Processor | Select-Object -First 1
+
+[PSCustomObject]@{
+    Machine     = $cs.Name
+    Systeme     = $os.Caption
+    Processeur  = $cpu.Name
+    Coeurs      = $cpu.NumberOfCores
+    RAM_Go      = [math]::Round($os.TotalVisibleMemorySize / 1MB, 1)
+    RAM_Libre   = [math]::Round($os.FreePhysicalMemory / 1MB, 1)
+    Demarre_Le  = $os.LastBootUpTime
+}
+</code></pre>
+              <h2>Interroger une machine distante</h2>
+              <p>C'est là que CIM devient un outil d'administration.</p>
+              <pre><code class="language-powershell"># Une machine
+Get-CimInstance Win32_OperatingSystem -ComputerName &quot;SRV-01&quot;
+
+# Plusieurs machines d'un coup
+Get-CimInstance Win32_LogicalDisk -Filter &quot;DriveType=3&quot; -ComputerName &quot;SRV-01&quot;, &quot;SRV-02&quot;
+</code></pre>
+              <p>
+                Si vous interrogez les mêmes serveurs plusieurs fois, ouvrez une
+                <strong>session</strong> : la connexion est négociée une seule fois.
+              </p>
+              <pre><code class="language-powershell">$session = New-CimSession -ComputerName &quot;SRV-01&quot;, &quot;SRV-02&quot;
+
+Get-CimInstance Win32_OperatingSystem -CimSession $session
+Get-CimInstance Win32_Service -Filter &quot;State='Stopped'&quot; -CimSession $session
+
+Remove-CimSession -CimSession $session
+</code></pre>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong>Prérequis réseau</strong> L'accès distant CIM passe par
+                  <strong>WinRM</strong> (port 5985), à activer sur la cible avec
+                  <code>Enable-PSRemoting -Force</code>. L'ancien WMI utilisait DCOM, beaucoup plus
+                  pénible à faire passer dans un pare-feu — c'est l'une des raisons du passage à
+                  CIM.
+                </p>
+              </blockquote>
+              <h2>Et <code>Get-WmiObject</code> ?</h2>
+              <p>
+                Vous le croiserez dans quantité de scripts et de tutoriels. C'est l'<strong
+                  >ancienne</strong
+                >
+                famille de cmdlets, dépréciée depuis PowerShell 3.0 (2012) au profit des cmdlets
+                CIM.
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ancien (à ne plus écrire)</th>
+                    <th>Moderne</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Get-WmiObject</code></td>
+                    <td><code>Get-CimInstance</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Invoke-WmiMethod</code></td>
+                    <td><code>Invoke-CimMethod</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Remove-WmiObject</code></td>
+                    <td><code>Remove-CimInstance</code></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>
+                Pourquoi CIM est meilleur : il utilise WinRM au lieu de DCOM, respecte un standard
+                ouvert, et gère proprement les sessions réutilisables.
+              </p>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ce que vous verrez vraiment sur votre poste</strong>
+                  <code>Get-WmiObject</code> a été <strong>retiré</strong> de PowerShell 6 et des
+                  premières versions 7. Dans PowerShell 7.6 il est de nouveau présent, sous forme de
+                  <strong>fonction de compatibilité</strong> :
+                </p>
+                <p>
+                  ```powershell Get-Command Get-WmiObject | Select-Object Name, CommandType, Source
+                </p>
+                <h1>Get-WmiObject Function Microsoft.PowerShell.Management</h1>
+                <p>```</p>
+                <p>
+                  Notez <code>Function</code> et non <code>Cmdlet</code> : c'est un vestige de
+                  compatibilité, pas un retour en grâce. Ne l'utilisez pas dans du code neuf — sa
+                  présence n'est garantie sur aucune version.
+                </p>
+              </blockquote>
+              <h2>Appeler une méthode</h2>
+              <p>
+                Les classes CIM n'exposent pas que des propriétés : elles ont aussi des
+                <strong>méthodes</strong>.
+              </p>
+              <pre><code class="language-powershell"># Quelles méthodes offre cette classe ?
+(Get-CimClass Win32_Process).CimClassMethods.Name
+# Create, Terminate, GetOwner, SetPriority...
+
+# Qui a lancé ce processus ?
+Get-CimInstance Win32_Process -Filter &quot;Name='notepad.exe'&quot; | Invoke-CimMethod -MethodName GetOwner
+</code></pre>
+              <p>
+                En pratique on préfère les cmdlets natives quand elles existent (<code
+                  >Stop-Process</code
+                >
+                plutôt que <code>Terminate</code>) : elles sont plus lisibles et gèrent
+                <code>-WhatIf</code>.
+              </p>
+              <h2>À retenir</h2>
+              <ul>
+                <li>
+                  ✅ WMI est l'inventaire de Windows, CIM est la façon standard de l'interroger
+                </li>
+                <li>
+                  ✅ <code>Get-CimInstance &lt;Classe&gt;</code> : une seule cmdlet pour tout le
+                  matériel et le système
+                </li>
+                <li>✅ Les noms de classes commencent par <code>Win32_</code></li>
+                <li>
+                  ✅ <code>-Filter</code> utilise du <strong>WQL</strong> (<code>=</code>,
+                  guillemets simples, <code>AND</code>), pas de la syntaxe PowerShell
+                </li>
+                <li>
+                  ✅ <code>Get-CimClass</code> pour découvrir classes et propriétés avant de les
+                  utiliser
+                </li>
+                <li>✅ Attention aux unités : Ko pour la RAM, octets pour les disques</li>
+                <li>
+                  ✅ <code>-ComputerName</code> / <code>New-CimSession</code> pour interroger des
+                  machines distantes
+                </li>
+                <li>
+                  ✅ <code>Get-CimInstance</code> remplace <code>Get-WmiObject</code> : n'écrivez
+                  plus de <code>*-WmiObject</code>
+                </li>
+              </ul>
+              <blockquote>
+                <p>
+                  <strong>Liens</strong> -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/module/cimcmdlets/get-ciminstance"
+                    >Get-CimInstance</a
+                  >
+                  -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/windows/win32/cimwin32prov/win32-provider"
+                    >Classes WMI Win32</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">Classe WMI</div>
+                  <div class="mental-node">Get-CimInstance</div>
+                  <div class="mental-node">Objets</div>
+                  <div class="mental-node">Filtre / rapport</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="0"
+                data-explanation="Get-CimInstance est l’interface moderne recommandée."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Quelle cmdlet moderne interroge CIM ?</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">Get-CimInstance</button
+                  ><button type="button" class="quiz-option" data-index="1">Get-Alias</button
+                  ><button type="button" class="quiz-option" data-index="2">Get-Date</button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a href="../11-boucles/11-boucles-interactif.html">← Chapitre précédent</a
+            ><a href="../13-fonctions/13-fonctions-interactif.html">Chapitre suivant →</a>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Opération Grand Line</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/game.js" defer></script>
+  </head>
+  <body class="game-body">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span><strong>PowerShell Grand Line</strong><small>Retour au cours</small></span></a
+      >
+      <div class="header-actions"><a class="header-link" href="index.md">Énoncés des TP</a></div>
+    </header>
+    <main id="contenu" class="game-shell">
+      <section class="game-hero">
+        <img
+          src="../interactif-assets/images/route-grand-line.png"
+          alt="Carte maritime de cinq îles reliées par une route"
+        />
+        <div class="game-hero-content">
+          <span class="eyebrow">Fil rouge interactif · 5 missions</span>
+          <h1>Opération Grand Line</h1>
+          <p>
+            Observe, formule une hypothèse, teste-la. Chaque mission débloque la suivante, sans
+            afficher les corrections du cours.
+          </p>
+        </div>
+      </section>
+      <div class="rank-bar">
+        <div class="rank-step">Mission 1</div>
+        <div class="rank-step">Mission 2</div>
+        <div class="rank-step">Mission 3</div>
+        <div class="rank-step">Mission 4</div>
+        <div class="rank-step">Mission 5</div>
+      </div>
+      <section class="mission-panel" data-mission="1">
+        <article class="mission-card">
+          <span class="eyebrow">Mission 01 · Enrôlement</span>
+          <h2>Crée ta fiche de recrue</h2>
+          <p>Transforme des informations en variables. Il faut au moins deux compétences.</p>
+          <label>Nom de code<input id="agent-name" autocomplete="off" /></label
+          ><label
+            >Unité<select id="agent-unit">
+              <option value="">Choisir…</option>
+              <option>Support</option>
+              <option>Automatisation</option>
+              <option>Cyberdéfense</option>
+            </select></label
+          >
+          <fieldset>
+            <legend>Compétences</legend>
+            <label><input type="checkbox" name="skill" value="Pipeline" /> Pipeline</label
+            ><label><input type="checkbox" name="skill" value="Objets" /> Objets</label
+            ><label><input type="checkbox" name="skill" value="Scripts" /> Scripts</label>
+          </fieldset>
+          <button class="game-action" data-build-badge>Générer le badge</button>
+          <pre class="terminal-output" id="badge-output">En attente du dossier…</pre>
+          <p class="game-feedback" aria-live="polite"></p>
+          <div class="mission-nav">
+            <span></span
+            ><button class="game-action" data-next="1" hidden>Mission suivante →</button>
+          </div>
+        </article>
+        <aside class="intel-card">
+          <img
+            src="../interactif-assets/images/dossier-cipher-pol.png"
+            alt="Agent masqué analysant un dossier de mission avec un communicateur escargot"
+          />
+          <h3>Indice de l’agent</h3>
+          <p>
+            Une chaîne va entre guillemets. Plusieurs compétences forment un tableau avec @(...).
+          </p>
+          <a href="01-enrolement-marine.md">Lire l’énoncé complet du TP →</a>
+        </aside>
+      </section>
+      <section class="mission-panel" data-mission="2">
+        <article class="mission-card">
+          <span class="eyebrow">Mission 02 · Alertes</span>
+          <h2>Déclenche l’alerte CPU</h2>
+          <p>
+            Règle la charge à une valeur critique, puis choisis la structure qui réagit au seuil.
+          </p>
+          <label
+            >Charge CPU <strong id="alert-value">50%</strong
+            ><input id="alert-slider" type="range" min="0" max="100" value="50"
+          /></label>
+          <div class="choice-grid">
+            <button class="game-choice" data-alert-choice="foreach">
+              foreach ($cpu in $mesures)</button
+            ><button class="game-choice" data-alert-choice="if">if ($cpu -ge 80) { Alerte }</button
+            ><button class="game-choice" data-alert-choice="format">Format-Table $cpu</button>
+          </div>
+          <button class="game-action" data-check-alert>Tester l’alerte</button>
+          <p class="game-feedback" aria-live="polite"></p>
+          <div class="mission-nav">
+            <button class="game-action secondary" data-prev="2">← Retour</button
+            ><button class="game-action" data-next="2" hidden>Mission suivante →</button>
+          </div>
+        </article>
+        <aside class="intel-card">
+          <img
+            src="../interactif-assets/images/dossier-cipher-pol.png"
+            alt="Agent masqué analysant un dossier de mission avec un communicateur escargot"
+          />
+          <h3>Indice de l’agent</h3>
+          <p>
+            -ge signifie supérieur ou égal. La surveillance n’agit que lorsque la condition devient
+            vraie.
+          </p>
+          <a href="02-dashboard-alertes.md">Lire l’énoncé complet du TP →</a>
+        </aside>
+      </section>
+      <section class="mission-panel" data-mission="3">
+        <article class="mission-card">
+          <span class="eyebrow">Mission 03 · Archives</span>
+          <h2>Répare le pipeline</h2>
+          <p>Clique les blocs dans l’ordre logique : produire, trier, sélectionner, exporter.</p>
+          <div class="pipeline-pool">
+            <button class="pipeline-token" data-order="3">Select-Object -First 10</button
+            ><button class="pipeline-token" data-order="1">Get-Process</button
+            ><button class="pipeline-token" data-order="4">Export-Csv .\top.csv</button
+            ><button class="pipeline-token" data-order="2">
+              Sort-Object WorkingSet -Descending
+            </button>
+          </div>
+          <div class="pipeline-slot" id="pipeline-slot">
+            Clique les blocs dans l’ordre du pipeline…
+          </div>
+          <button class="game-action" data-check-pipeline>Vérifier le pipeline</button>
+          <button class="game-action secondary" data-reset-pipeline>Effacer</button>
+          <p class="game-feedback" aria-live="polite"></p>
+          <div class="mission-nav">
+            <button class="game-action secondary" data-prev="3">← Retour</button
+            ><button class="game-action" data-next="3" hidden>Mission suivante →</button>
+          </div>
+        </article>
+        <aside class="intel-card">
+          <img
+            src="../interactif-assets/images/dossier-cipher-pol.png"
+            alt="Agent masqué analysant un dossier de mission avec un communicateur escargot"
+          />
+          <h3>Indice de l’agent</h3>
+          <p>
+            Chaque cmdlet reçoit les objets produits à gauche. Export-Csv termine donc naturellement
+            la chaîne.
+          </p>
+          <a href="03-archives-cipher-pol.md">Lire l’énoncé complet du TP →</a>
+        </aside>
+      </section>
+      <section class="mission-panel" data-mission="4">
+        <article class="mission-card">
+          <span class="eyebrow">Mission 04 · Module</span>
+          <h2>Range le code du QG</h2>
+          <p>Quel fichier doit contenir les fonctions réutilisables du module CipherPolTools ?</p>
+          <div class="choice-grid">
+            <button class="game-choice" data-module-choice="csv">CipherPolTools.csv</button
+            ><button class="game-choice" data-module-choice="psm1">CipherPolTools.psm1</button
+            ><button class="game-choice" data-module-choice="png">CipherPolTools.png</button>
+          </div>
+          <button class="game-action" data-check-module>Valider l’architecture</button>
+          <p class="game-feedback" aria-live="polite"></p>
+          <div class="mission-nav">
+            <button class="game-action secondary" data-prev="4">← Retour</button
+            ><button class="game-action" data-next="4" hidden>Mission suivante →</button>
+          </div>
+        </article>
+        <aside class="intel-card">
+          <img
+            src="../interactif-assets/images/dossier-cipher-pol.png"
+            alt="Agent masqué analysant un dossier de mission avec un communicateur escargot"
+          />
+          <h3>Indice de l’agent</h3>
+          <p>
+            Le module script porte l’extension .psm1. Export-ModuleMember choisit les fonctions
+            publiques.
+          </p>
+          <a href="04-module-cipher-pol.md">Lire l’énoncé complet du TP →</a>
+        </aside>
+      </section>
+      <section class="mission-panel" data-mission="5">
+        <article class="mission-card">
+          <span class="eyebrow">Mission 05 · Agents</span>
+          <h2>Protège l’annuaire</h2>
+          <p>
+            Tu reçois un CSV de recrues. Quelle première exécution est la plus sûre avant toute
+            création réelle dans Active Directory ?
+          </p>
+          <div class="choice-grid">
+            <button class="game-choice" data-ad-choice="force">Tout créer avec -Force</button
+            ><button class="game-choice" data-ad-choice="simulation">
+              Lancer avec -Simulation et contrôler le rapport</button
+            ><button class="game-choice" data-ad-choice="silent">
+              Masquer les erreurs et continuer
+            </button>
+          </div>
+          <button class="game-action" data-check-ad>Prendre la décision</button>
+          <p class="game-feedback" aria-live="polite"></p>
+          <div class="mission-nav">
+            <button class="game-action secondary" data-prev="5">← Retour</button><span></span>
+          </div>
+          <div class="game-complete" data-game-complete hidden>
+            <h2>Capitaine de l’automatisation !</h2>
+            <p>
+              Tu as relié données, conditions, pipeline, modules et sécurité. Le vrai TP t’attend
+              pour écrire les scripts complets.
+            </p>
+            <a class="button gold" href="index.md">Ouvrir le fil rouge complet</a>
+            <button class="game-action secondary" data-reset-game>Rejouer</button>
+          </div>
+        </article>
+        <aside class="intel-card">
+          <img
+            src="../interactif-assets/images/dossier-cipher-pol.png"
+            alt="Agent masqué analysant un dossier de mission avec un communicateur escargot"
+          />
+          <h3>Indice de l’agent</h3>
+          <p>
+            Une simulation produit des preuves sans modifier l’annuaire. Lis le rapport avant le
+            passage réel.
+          </p>
+          <a href="05-gestion-agents.md">Lire l’énoncé complet du TP →</a>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
