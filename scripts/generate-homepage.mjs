@@ -21,6 +21,13 @@ const labels = [
   'Scripts et automatisation',
   'Administration',
 ]
+const descriptions = [
+  'Installer PowerShell, trouver une commande et comprendre variables et objets.',
+  'Transformer des objets dans le pipeline, puis décider et répéter avec scripts et fonctions.',
+  'Explorer fichiers, système et données, puis gérer les erreurs sans perdre le contrôle.',
+  'Construire des scripts réutilisables avec paramètres, modules, profils et expressions régulières.',
+  'Automatiser des tâches et administrer Active Directory avec des rapports lisibles.',
+]
 const groups = labels.map(() => [])
 for (const [index, slug] of chapterNames.entries()) {
   const group = Math.min(groups.length - 1, Math.floor((index * groups.length) / chapterNames.length))
@@ -33,7 +40,7 @@ const cards = groups.map((slugs, index) => {
   const firstNumber = first.slice(0, 2)
   const lastNumber = last.slice(0, 2)
   const range = firstNumber === lastNumber ? `Chapitre ${firstNumber}` : `Chapitres ${firstNumber}–${lastNumber}`
-  return `  <a class="ps-module-card" href="https://kayasam.github.io/powershell/cours/${first}/"><span class="ps-module-card__number">${String(index + 1).padStart(2, '0')}</span><small>${range}</small><strong>${labels[index]}</strong><span>Cours, version interactive, quiz et travaux pratiques accessibles depuis l’arborescence.</span></a>`
+  return `  <a class="ps-module-card" href="https://kayasam.github.io/powershell/cours/${first}/"><span class="ps-module-card__number">${String(index + 1).padStart(2, '0')}</span><small>${range}</small><strong>${labels[index]}</strong><span>${descriptions[index]}</span></a>`
 }).join('\n')
 
 const homepagePath = path.join(stageRoot, 'index.md')

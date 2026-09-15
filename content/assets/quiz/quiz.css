@@ -13,6 +13,20 @@
   box-sizing: border-box;
 }
 
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  left: 1rem;
+  top: -5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0 0 0.7rem 0.7rem;
+  background: var(--ink);
+  color: #fff;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -21,13 +35,9 @@ body {
     radial-gradient(circle at 12% 15%, #ded7ff 0, transparent 28%),
     radial-gradient(circle at 92% 35%, #d9f5ff 0, transparent 29%), #f7f9ff;
   font-family:
+    "Segoe UI",
     system-ui,
     -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
     sans-serif;
 }
 
@@ -181,6 +191,10 @@ button {
   margin: 0 0 1.3rem;
   font-size: clamp(1.12rem, 2.5vw, 1.4rem);
   line-height: 1.35;
+}
+#question-title:focus,
+#result-title:focus {
+  outline: none;
 }
 .answers {
   display: grid;

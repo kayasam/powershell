@@ -2,8 +2,6 @@
 title: "Cours interactif"
 ---
 
-# Cours interactif
-
 <div class="ps-interactive-launch">
   <strong>Version interactive du chapitre</strong>
   <span>Schéma mental, défi rapide, progression et commandes à copier.</span>

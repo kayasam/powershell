@@ -6,10 +6,11 @@
     <meta name="description" content="Quiz PowerShell : 20 questions avec réponses expliquées" />
     <title>Quiz PowerShell</title>
     <link rel="stylesheet" href="../../assets/quiz/quiz.css" />
-    <script defer src="../../assets/quiz/quiz-banks.js"></script>
+    <script defer src="../../assets/quiz/quiz-banks/30-groupes-ad.js"></script>
     <script defer src="../../assets/quiz/quiz-engine.js"></script>
   </head>
   <body>
+    <a class="skip-link" href="#question-panel">Aller aux questions</a>
     <main class="quiz-shell" data-quiz="30-groupes-ad">
       <nav class="quiz-topbar" aria-label="Navigation du quiz">
         <a id="chapter-link" href="../30-groupes-ad/">← Revenir au chapitre</a>
@@ -30,7 +31,7 @@
           <span>Objectif : 16/20</span>
         </div>
         <p class="question-theme" id="question-theme"></p>
-        <h2 id="question-title"></h2>
+        <h2 id="question-title" tabindex="-1"></h2>
         <div class="answers" id="answers"></div>
         <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
         <button class="primary-button" id="next-question" type="button" disabled>
@@ -40,7 +41,7 @@
       <section class="quiz-panel result" id="result-panel" aria-live="polite">
         <strong id="result-score">0/20</strong>
         <p id="result-percent">0 %</p>
-        <h2 id="result-title"></h2>
+        <h2 id="result-title" tabindex="-1"></h2>
         <p id="result-message"></p>
         <div class="result-grid">
           <div><strong id="correct-count">0</strong><span>bonnes réponses</span></div>

@@ -6,6 +6,18 @@
   --ps-shadow: 0 1rem 2.8rem rgb(35 38 96 / 14%);
 }
 
+@media all and (min-width: 1200px) {
+  body[data-slug="index"] .page > #quartz-body {
+    grid-template-columns: minmax(15rem, 19rem) minmax(0, 1fr);
+    grid-template-areas:
+      "grid-sidebar-left grid-header"
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-footer";
+  }
+  body[data-slug="index"] .sidebar.right { display: none; }
+  body[data-slug="index"] .center { max-width: min(76rem, calc(100% - 3rem)); }
+}
+
 .ps-hero {
   position: relative;
   display: grid;
@@ -40,8 +52,8 @@
   max-width: 42rem;
   margin: 0.55rem 0 0.85rem;
   color: #fff;
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 2.8vw, 2.8rem);
+  line-height: 1.05;
 }
 
 .ps-hero p {
@@ -228,6 +240,48 @@
   box-shadow: var(--ps-shadow);
 }
 
+.ps-learning-path {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .65rem;
+  margin: 1rem 0 1.25rem;
+}
+.ps-learning-path span {
+  display: grid;
+  gap: .35rem;
+  padding: .95rem;
+  border: 1px solid var(--ps-line);
+  border-radius: .8rem;
+  background: var(--light);
+  box-shadow: var(--ps-shadow);
+  color: var(--darkgray);
+  font-size: .86rem;
+}
+.ps-learning-path b { color: var(--dark); }
+
+.ps-chapter-path {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .6rem;
+  margin: 1rem 0 1.4rem;
+}
+.ps-chapter-path a {
+  display: grid;
+  gap: .3rem;
+  padding: .8rem;
+  border: 1px solid var(--ps-line);
+  border-radius: .75rem;
+  background: var(--light);
+  color: var(--dark);
+  text-decoration: none;
+}
+.ps-chapter-path a:hover { border-color: var(--secondary); }
+.ps-chapter-path small { color: var(--darkgray); }
+
+@media all and (max-width: 1000px) {
+  .ps-learning-path, .ps-chapter-path { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media all and (max-width: 800px) {
   .ps-hero {
     grid-template-columns: 1fr;
@@ -253,5 +307,11 @@
   }
   .ps-interactive-launch { grid-template-columns: 1fr; }
   .ps-interactive-launch a { grid-column: 1; grid-row: auto; text-align: center; }
-  .ps-course-frame { min-height: 32rem; }
+  .ps-course-frame { min-height: 32rem; height: 70vh; }
+}
+
+@media all and (max-width: 600px) {
+  .ps-learning-path, .ps-chapter-path { grid-template-columns: 1fr; }
+  .ps-course-frame { display: none; }
+  .ps-interactive-launch a { display: block; }
 }

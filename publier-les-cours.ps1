@@ -5,6 +5,10 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+if ($PSVersionTable.PSVersion.Major -lt 7) {
+  throw 'Ce script doit etre lance avec PowerShell 7 (pwsh.exe) pour conserver UTF-8.'
+}
+
 $sourceRoot = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\Powershell"
 $projectRoot = "D:\Projet-git\powershell"
 $staticRoot = Join-Path $projectRoot "site-content"
@@ -74,6 +78,12 @@ if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
   Write-Host "1/4 - Préparation des cours publics..."
   Mirror-Directory $sourceCourses (Join-Path $stageRoot "cours") @("private", "sessions", "_archives", "solutions") @("*correction*.md", "*corrige*.md", "*.excalidraw", "*.excalidraw.md")
 
+  $interactiveIndex = Join-Path $stageRoot 'cours/index.html'
+  if (Test-Path -LiteralPath $interactiveIndex -PathType Leaf) {
+    $indexDocument = [IO.File]::ReadAllText($interactiveIndex).Replace('Formation locale', 'Formation PowerShell')
+    [IO.File]::WriteAllText($interactiveIndex, $indexDocument, [Text.UTF8Encoding]::new($false))
+  }
+
   # Le fichier "dossier/dossier.md" est déjà la page d'accueil Quartz du chapitre.
   # On ajoute seulement les deux entrées explicites visibles dans l'explorateur.
   Get-ChildItem -LiteralPath (Join-Path $stageRoot "cours") -Directory | Where-Object {
@@ -83,7 +93,22 @@ if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
     $chapterSource = Join-Path $_.FullName "$slug.md"
     if (Test-Path -LiteralPath $chapterSource -PathType Leaf) {
       $chapterDocument = [IO.File]::ReadAllText($chapterSource)
+      $chapterPath = @"
+
+<nav class="ps-chapter-path" aria-label="Parcours du chapitre">
+  <a href="https://kayasam.github.io/powershell/cours/$slug/cours"><b>01 · Cours</b><small>Comprendre les notions</small></a>
+  <a href="https://kayasam.github.io/powershell/cours/$slug/cours-interactif"><b>02 · Cours interactif</b><small>Schéma et défi rapide</small></a>
+  <a href="https://kayasam.github.io/powershell/cours/$slug/quiz"><b>03 · Quiz</b><small>Vérifier ses acquis</small></a>
+  <a href="https://kayasam.github.io/powershell/cours/$slug/tp/"><b>04 · Travaux pratiques</b><small>Appliquer en autonomie</small></a>
+</nav>
+
+"@
+      $frontmatter = [regex]::Match($chapterDocument, '\A---\r?\n[\s\S]*?\r?\n---\r?\n')
+      if (-not $frontmatter.Success) { throw "Frontmatter du chapitre absent : $slug" }
+      $chapterDocument = $chapterDocument.Insert($frontmatter.Length, $chapterPath)
       $courseDocument = [regex]::new('(?m)^title:\s*.*$').Replace($chapterDocument, 'title: "Cours"', 1)
+      $chapterLanding = [regex]::new('(?m)^# .*(?:\r?\n|$)').Replace($chapterDocument, '', 1)
+      [IO.File]::WriteAllText($chapterSource, $chapterLanding, [Text.UTF8Encoding]::new($false))
       [IO.File]::WriteAllText((Join-Path $_.FullName "cours.md"), $courseDocument, [Text.UTF8Encoding]::new($false))
 
       $interactiveUrl = "https://kayasam.github.io/powershell/cours/$slug/$slug-interactif.html"
@@ -91,8 +116,6 @@ if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
 ---
 title: "Cours interactif"
 ---
-
-# Cours interactif
 
 <div class="ps-interactive-launch">
   <strong>Version interactive du chapitre</strong>
@@ -164,6 +187,9 @@ $forbidden = Get-ChildItem -LiteralPath $stageRoot -Recurse -File | Where-Object
 if ($forbidden) {
   throw "Un élément privé a été détecté dans le contenu à publier : $($forbidden[0].FullName)"
 }
+
+& node (Join-Path $projectRoot 'scripts/validate-publication.mjs') $stageRoot
+if ($LASTEXITCODE -ne 0) { throw 'Controle de publication echoue : accents, solutions ou liens invalides.' }
 
 Write-Host "3/4 - Synchronisation du contenu Quartz..."
 Mirror-Directory $stageRoot $destinationRoot

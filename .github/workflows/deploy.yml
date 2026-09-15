@@ -49,6 +49,9 @@ jobs:
           node scripts/generate-homepage.mjs content --from-template
           node scripts/generate-explorer-chapters.mjs
 
+      - name: Validate public content before deployment
+        run: node scripts/validate-publication.mjs content
+
       - name: Fix folder-page links in the local graph
         run: node scripts/fix-quartz-graph.mjs
 
@@ -67,14 +70,16 @@ jobs:
         run: |
           test -f content/assets/quiz/quiz.css
           test -f content/assets/quiz/quiz-engine.js
-          test -f content/assets/quiz/quiz-banks.js
+          test -d content/assets/quiz/quiz-banks
           mkdir -p public/assets/quiz
           cp content/assets/quiz/quiz.css public/assets/quiz/quiz.css
           cp content/assets/quiz/quiz-engine.js public/assets/quiz/quiz-engine.js
-          cp content/assets/quiz/quiz-banks.js public/assets/quiz/quiz-banks.js
+          cp -R content/assets/quiz/quiz-banks public/assets/quiz/
           expected="$(find content/cours/quiz -maxdepth 1 -type f -name '*.html' | wc -l)"
+          banks="$(find content/assets/quiz/quiz-banks -maxdepth 1 -type f -name '*.js' | wc -l)"
           actual="$(find content/cours -mindepth 1 -maxdepth 1 -type d -name '[0-9][0-9]-*' | wc -l)"
           test "$expected" -eq "$actual"
+          test "$banks" -eq "$actual"
 
       - name: Publish Markdown downloads
         run: |

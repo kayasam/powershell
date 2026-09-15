@@ -269,6 +269,46 @@ input:focus-visible {
   background: linear-gradient(90deg, var(--cyan), var(--ocean), #7557c7);
   transition: width 0.35s ease;
 }
+.learning-dashboard {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 0.6rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid #dceaf1;
+}
+.learning-dashboard span {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  background: #f1f8fb;
+}
+.learning-dashboard small {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+.learning-dashboard a {
+  display: grid;
+  align-content: center;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  background: var(--navy);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.quiz-best {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.chapter-card.done .quiz-best {
+  color: var(--green);
+}
 .search-wrap {
   position: relative;
   width: min(390px, 100%);
@@ -1034,6 +1074,12 @@ input:focus-visible {
 }
 
 @media (max-width: 620px) {
+  .learning-dashboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .learning-dashboard a {
+    grid-column: 1 / -1;
+  }
   .hero {
     min-height: 470px;
   }

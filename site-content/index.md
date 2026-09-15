@@ -20,6 +20,15 @@ description: Formation PowerShell interactive, des fondamentaux à Active Direct
 
 ## Parcours de formation
 
+<div class="ps-learning-path" aria-label="Les quatre étapes d’un chapitre">
+  <span><b>01 · Comprendre</b> Lire le cours et son schéma</span>
+  <span><b>02 · Essayer</b> Copier et adapter une commande</span>
+  <span><b>03 · Vérifier</b> Faire le quiz expliqué</span>
+  <span><b>04 · Appliquer</b> Réussir un TP et une mission</span>
+</div>
+
+Choisis un module, puis retrouve toutes ces étapes dans l’arborescence de chaque chapitre. Tu peux commencer par le [chapitre 01](https://kayasam.github.io/powershell/cours/01-installation-et-environnement/).
+
 <div class="ps-module-grid">
   {{MODULE_CARDS}}
 </div>

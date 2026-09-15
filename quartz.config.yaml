@@ -14,12 +14,12 @@ configuration:
     - cours/**/*.excalidraw
     - cours/**/*.excalidraw.md
   theme:
-    fontOrigin: googleFonts
-    cdnCaching: true
+    fontOrigin: local
+    cdnCaching: false
     typography:
-      header: Space Grotesk
-      body: Inter
-      code: IBM Plex Mono
+      header: Segoe UI
+      body: Segoe UI
+      code: Cascadia Code
     colors:
       lightMode:
         light: "#f7f9fc"
@@ -173,6 +173,7 @@ plugins:
     layout:
       position: right
       priority: 10
+      display: desktop-only
   - source: "@quartz-community/search"
     enabled: true
     layout:

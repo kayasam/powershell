@@ -1,5 +1,6 @@
-import { copyFile, mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, readdir, readFile, unlink, writeFile } from 'node:fs/promises'
 import path from 'node:path'
+import { scenarios } from './quiz-scenarios.mjs'
 
 const projectRoot = path.resolve(import.meta.dirname, '..')
 const stageRoot = path.resolve(process.argv[2] || '')
@@ -8,6 +9,7 @@ const templatePath = path.join(projectRoot, 'site-content', 'cours', 'quiz', 'qu
 const coursesRoot = path.join(stageRoot, 'cours')
 const quizRoot = path.join(coursesRoot, 'quiz')
 const assetsRoot = path.join(stageRoot, 'assets', 'quiz')
+const chapterBanksRoot = path.join(assetsRoot, 'quiz-banks')
 const siteUrl = 'https://kayasam.github.io/powershell'
 
 if (!stageRoot.startsWith(projectRoot + path.sep)) {
@@ -21,8 +23,9 @@ function titleOf(document, slug) {
   return title.replace(/^['"]|['"]$/g, '')
 }
 
-function buildQuestions(concepts) {
+function buildQuestions(concepts, chapterScenarios) {
   const questions = []
+  const situations = new Map(chapterScenarios)
   for (const [index, [term, definition]] of concepts.entries()) {
     const contrasts = [1, 3, 6].map((offset) => concepts[(index + offset) % concepts.length])
     const formats = [
@@ -33,8 +36,8 @@ function buildQuestions(concepts) {
         alternatives: contrasts.map((item) => item[1]),
       },
       {
-        theme: 'Retrouver la commande ou le concept',
-        question: `Quel concept correspond à cette description : « ${definition} » ?`,
+        theme: situations.has(term) ? 'Situation concrète' : 'Retrouver la commande ou le concept',
+        question: situations.get(term) || `Quel concept correspond à cette description : « ${definition} » ?`,
         correct: term,
         alternatives: contrasts.map((item) => item[0]),
       },
@@ -76,6 +79,7 @@ if (!template.includes('QUIZ_ID')) throw new Error('Le modèle HTML du quiz doit
 
 await mkdir(quizRoot, { recursive: true })
 await mkdir(assetsRoot, { recursive: true })
+await mkdir(chapterBanksRoot, { recursive: true })
 for (const asset of ['quiz.css', 'quiz-engine.js']) {
   await copyFile(path.join(projectRoot, 'site-content', 'assets', 'quiz', asset), path.join(assetsRoot, asset))
 }
@@ -98,11 +102,15 @@ for (const slug of chapters) {
     terms.add(concept[0])
     definitions.add(concept[1])
   }
+  const chapterScenarios = scenarios[slug]
+  if (!Array.isArray(chapterScenarios) || chapterScenarios.length !== 2 || chapterScenarios.some(([term, prompt]) => !terms.has(term) || typeof prompt !== 'string' || prompt.length < 40)) {
+    throw new Error(`Deux situations concrètes valides sont attendues dans le quiz ${slug}.`)
+  }
 
   const chapterDocument = await readFile(path.join(coursesRoot, slug, `${slug}.md`), 'utf8')
   const chapterTitle = titleOf(chapterDocument, slug)
   const quizUrl = `${siteUrl}/cours/quiz/${slug}.html`
-  const questions = buildQuestions(concepts)
+  const questions = buildQuestions(concepts, chapterScenarios)
   const distribution = [0, 0, 0, 0]
   for (const question of questions) {
     if (question.choices.length !== 4 || new Set(question.choices).size !== 4) {
@@ -118,18 +126,22 @@ for (const slug of chapters) {
     id: slug,
     title: `Quiz — ${chapterTitle}`,
     chapter: chapterTitle,
-    intro: '20 questions pour vérifier vos repères avant de passer aux exercices pratiques.',
+    intro: '20 questions, dont deux situations concrètes, pour vérifier vos repères avant les travaux pratiques.',
     chapterLink: `../${slug}/`,
     questions,
   }
 
+  await writeFile(path.join(chapterBanksRoot, `${slug}.js`), `window.powerShellQuizBank = ${JSON.stringify(bank[slug])};\n`, 'utf8')
+
   await writeFile(path.join(quizRoot, `${slug}.html`), template.replaceAll('QUIZ_ID', slug), 'utf8')
   await writeFile(
     path.join(coursesRoot, slug, 'quiz.md'),
-    `---\ntitle: "Quiz"\n---\n\n# Quiz du chapitre\n\n<div class="ps-interactive-launch">\n  <strong>20 questions · objectif 16/20</strong>\n  <span>Quatre choix par question, réponse expliquée et progression sauvegardée.</span>\n  <a href="${quizUrl}">Ouvrir le quiz en plein écran →</a>\n</div>\n\n<iframe class="ps-course-frame" src="${quizUrl}" title="Quiz PowerShell ${chapterTitle.replaceAll('"', '&quot;')}" loading="eager"></iframe>\n`,
+    `---\ntitle: "Quiz"\n---\n\n<div class="ps-interactive-launch">\n  <strong>20 questions · objectif 16/20</strong>\n  <span>Quatre choix par question, réponse expliquée et progression sauvegardée.</span>\n  <a href="${quizUrl}">Ouvrir le quiz en plein écran →</a>\n</div>\n\n<iframe class="ps-course-frame" src="${quizUrl}" title="Quiz PowerShell ${chapterTitle.replaceAll('"', '&quot;')}" loading="eager"></iframe>\n`,
     'utf8',
   )
 }
 
-await writeFile(assetsRoot + path.sep + 'quiz-banks.js', `window.powerShellQuizBanks = ${JSON.stringify(bank)};\n`, 'utf8')
+await unlink(path.join(assetsRoot, 'quiz-banks.js')).catch((error) => {
+  if (error.code !== 'ENOENT') throw error
+})
 console.log(`${chapters.length} quiz produits, 20 questions chacun, réponses A/B/C/D : 5/5/5/5.`)

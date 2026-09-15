@@ -4,8 +4,13 @@
   const letters = ["A", "B", "C", "D"]
   const root = document.querySelector("[data-quiz]")
   if (!root) return
-  const data = window.powerShellQuizBanks?.[root.dataset.quiz]
-  if (!data || !Array.isArray(data.questions) || data.questions.length !== 20) {
+  const data = window.powerShellQuizBank
+  if (
+    !data ||
+    data.id !== root.dataset.quiz ||
+    !Array.isArray(data.questions) ||
+    data.questions.length !== 20
+  ) {
     root.innerHTML = '<p class="quiz-error">Ce quiz n’est pas disponible. Revenez au chapitre.</p>'
     return
   }
@@ -65,6 +70,7 @@
     byId("progress-bar").style.width = `${((current + 1) / 20) * 100}%`
     byId("question-theme").textContent = question.theme
     byId("question-title").textContent = question.question
+    byId("question-title").focus({ preventScroll: true })
     answers.replaceChildren()
     question.choices.forEach((choice, index) => {
       const button = document.createElement("button")
@@ -118,11 +124,24 @@
       const key = `powershell-quiz-${data.id}`
       const best = Math.max(score, Number(localStorage.getItem(key) || 0))
       localStorage.setItem(key, String(best))
+      if (score >= 16) {
+        const courseKey = "powershell-course-v2"
+        let progress = { completed: [] }
+        try {
+          progress = JSON.parse(localStorage.getItem(courseKey)) || progress
+        } catch {
+          /* reset malformed data */
+        }
+        if (!Array.isArray(progress.completed)) progress.completed = []
+        if (!progress.completed.includes(data.id)) progress.completed.push(data.id)
+        localStorage.setItem(courseKey, JSON.stringify(progress))
+      }
       byId("best-score").textContent = String(best)
     } catch {
       byId("best-score").textContent = String(score)
     }
     resultPanel.scrollIntoView({ behavior: "smooth", block: "start" })
+    byId("result-title").focus({ preventScroll: true })
   }
 
   function start() {
