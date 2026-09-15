@@ -65,11 +65,11 @@ article a[href*="/telechargements/"][href$=".md"]:hover {
   width: 2.8rem;
   height: 2.8rem;
   place-items: center;
-  border-radius: 0.7rem;
+  border-radius: 50%;
   color: #fff;
-  background: var(--secondary);
-  font-family: var(--codeFont);
-  font-size: 0.72rem;
+  background: var(--ps-violet);
+  font-family: var(--bodyFont);
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
@@ -91,7 +91,7 @@ article a[href*="/telechargements/"][href$=".md"]:hover {
   padding: 0.7rem 1rem;
   border-radius: 0.55rem;
   color: #fff;
-  background: var(--secondary);
+  background: var(--ps-violet);
   font-weight: 700;
   text-align: center;
   text-decoration: none;

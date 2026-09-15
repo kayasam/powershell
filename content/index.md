@@ -14,6 +14,7 @@ description: Formation PowerShell interactive, des fondamentaux à Active Direct
       <a href="https://kayasam.github.io/powershell/cours/index.html">Ouvrir le parcours interactif →</a>
       <a href="https://kayasam.github.io/powershell/cours/tp-fil-rouge/jeu-fil-rouge.html">Jouer l’opération Grand Line</a>
     </div>
+    <a class="ps-hero-download" href="./powershell-obsidian.zip" download="powershell-obsidian.zip" data-router-ignore>⬇ Télécharger toute la formation (ZIP)</a>
   </div>
   <div class="ps-hero__art"><img src="./cours/interactif-assets/images/equipage-powershell.png" alt="Équipage de codeurs autour d’un terminal PowerShell lumineux"></div>
 </section>
@@ -40,3 +41,16 @@ Choisis un module, puis retrouve toutes ces étapes dans l’arborescence de cha
 ## Mission finale
 
 <div class="ps-quest"><div><strong>Opération Grand Line</strong><span>Cinq missions pour réfléchir, tester ses choix et relier toutes les notions du cours.</span></div><a href="https://kayasam.github.io/powershell/cours/tp-fil-rouge/jeu-fil-rouge.html">Lancer le mini-jeu →</a></div>
+
+## Emporter la formation
+
+<div class="obsidian-download">
+  <div class="obsidian-download__icon" aria-hidden="true">⬇</div>
+  <div class="obsidian-download__content">
+    <strong>Emporter toute la formation</strong>
+    <span>Cours Markdown, travaux pratiques, quiz, HTML interactifs et illustrations — sans les fichiers techniques de Quartz ni les solutions privées.</span>
+  </div>
+  <a class="obsidian-download__button" href="./powershell-obsidian.zip" download="powershell-obsidian.zip" data-router-ignore>Télécharger le ZIP</a>
+</div>
+
+Après l’avoir décompressée, ouvre le dossier `PowerShell` dans Obsidian avec **Ouvrir un dossier comme coffre**.

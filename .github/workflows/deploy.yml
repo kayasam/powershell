@@ -101,6 +101,11 @@ jobs:
             zip -qr ../public/powershell-obsidian.zip PowerShell
           fi
 
+      - name: Verify downloadable Obsidian archive
+        run: |
+          test -s public/powershell-obsidian.zip
+          unzip -tqq public/powershell-obsidian.zip
+
       - name: Upload website
         uses: actions/upload-pages-artifact@v4
         with:
