@@ -1,8 +1,12 @@
 ---
 title: "Exercice 07 - La Fiche des Pirates"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 07 - La Fiche des Pirates 📋
+
+**Durée : 45 min**
 
 ## Contexte
 

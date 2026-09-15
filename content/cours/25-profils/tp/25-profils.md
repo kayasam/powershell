@@ -1,5 +1,7 @@
 ---
 title: "Exercice 25 - Le Poste de Pilotage de Nami"
+parcours-tssr: false
+parcours-pro: false
 ---
 
 # Exercice 25 - Le Poste de Pilotage de Nami 🧭

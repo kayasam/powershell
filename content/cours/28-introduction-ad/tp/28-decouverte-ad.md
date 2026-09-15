@@ -1,8 +1,12 @@
 ---
 title: "Exercice 28 - Le Registre du Gouvernement Mondial"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 28 - Le Registre du Gouvernement Mondial 🌍
+
+**Durée : 50 min**
 
 ## Contexte
 

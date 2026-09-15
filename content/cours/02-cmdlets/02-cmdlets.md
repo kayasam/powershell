@@ -1,5 +1,7 @@
 ---
 title: "02. Cmdlets"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 02. Cmdlets

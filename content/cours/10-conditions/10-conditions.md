@@ -1,5 +1,7 @@
 ---
 title: "10. Conditions"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 10. Conditions

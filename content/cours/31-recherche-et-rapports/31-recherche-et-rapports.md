@@ -1,5 +1,7 @@
 ---
 title: "31. Recherche et rapports AD"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 31. Recherche et rapports AD

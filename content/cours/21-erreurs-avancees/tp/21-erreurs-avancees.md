@@ -1,5 +1,7 @@
 ---
 title: "Exercice 21 - Le Rapport d'Incident de Chopper"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 21 - Le Rapport d'Incident de Chopper 🩺

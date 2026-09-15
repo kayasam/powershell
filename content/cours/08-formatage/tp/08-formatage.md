@@ -1,5 +1,7 @@
 ---
 title: "Exercice 08 - Le Rapport pour l'Amiral"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 08 - Le Rapport pour l'Amiral 📊

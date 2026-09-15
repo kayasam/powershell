@@ -1,5 +1,7 @@
 ---
 title: "Exercice 04 - Le Reflexe Tab"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # Exercice 04 - Le Reflexe Tab ⚡

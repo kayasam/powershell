@@ -1,5 +1,7 @@
 ---
 title: "Cours"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 18. Registre, journaux et certificats

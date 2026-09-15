@@ -1,5 +1,7 @@
 ---
 title: "11. Boucles"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 11. Boucles

@@ -43,6 +43,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Regenerate chapter cards, homepage and quizzes
+        run: |
+          node scripts/generate-quizzes.mjs content
+          node scripts/generate-homepage.mjs content --from-template
+          node scripts/generate-explorer-chapters.mjs
+
       - name: Fix folder-page links in the local graph
         run: node scripts/fix-quartz-graph.mjs
 
@@ -56,6 +62,19 @@ jobs:
             mkdir -p "public/$(dirname "$relative_path")"
             cp "$file" "public/$relative_path"
           done
+
+      - name: Publish quiz assets with original names
+        run: |
+          test -f content/assets/quiz/quiz.css
+          test -f content/assets/quiz/quiz-engine.js
+          test -f content/assets/quiz/quiz-banks.js
+          mkdir -p public/assets/quiz
+          cp content/assets/quiz/quiz.css public/assets/quiz/quiz.css
+          cp content/assets/quiz/quiz-engine.js public/assets/quiz/quiz-engine.js
+          cp content/assets/quiz/quiz-banks.js public/assets/quiz/quiz-banks.js
+          expected="$(find content/cours/quiz -maxdepth 1 -type f -name '*.html' | wc -l)"
+          actual="$(find content/cours -mindepth 1 -maxdepth 1 -type d -name '[0-9][0-9]-*' | wc -l)"
+          test "$expected" -eq "$actual"
 
       - name: Publish Markdown downloads
         run: |

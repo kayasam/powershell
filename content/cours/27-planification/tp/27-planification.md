@@ -1,8 +1,12 @@
 ---
 title: "Exercice 27 - L'Horloge de Zoro"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 27 - L'Horloge de Zoro ⚔️
+
+**Durée : 35 min**
 
 ## Contexte
 

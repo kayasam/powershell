@@ -1,8 +1,12 @@
 ---
 title: "Exercice 02 - Les Outils de la Marine"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 02 - Les Outils de la Marine 🌊
+
+**Durée : 30 min**
 
 ## Contexte
 

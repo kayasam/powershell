@@ -1,8 +1,12 @@
 ---
 title: "Exercice 09 - Le Pipeline des Pirates"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 09 - Le Pipeline des Pirates 🏴‍☠️
+
+**Durée : 35 min**
 
 ## Contexte
 

@@ -1,8 +1,12 @@
 ---
 title: "Exercice 20 - Le Courage d'Usopp"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 20 - Le Courage d'Usopp 🎯
+
+**Durée : 35 min**
 
 ## Contexte
 

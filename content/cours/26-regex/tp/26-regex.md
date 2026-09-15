@@ -1,8 +1,12 @@
 ---
 title: "Exercice 26 - Les Poneglyphes de Robin"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 26 - Les Poneglyphes de Robin 📖
+
+**Durée : 40 min**
 
 ## Contexte
 

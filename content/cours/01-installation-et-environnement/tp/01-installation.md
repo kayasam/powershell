@@ -1,5 +1,7 @@
 ---
 title: "Exercice 01 - L'Équipement de la Recrue"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # Exercice 01 - L'Équipement de la Recrue 🎖️

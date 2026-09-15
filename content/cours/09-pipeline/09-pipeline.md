@@ -1,5 +1,7 @@
 ---
 title: "09. Pipeline"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 09. Pipeline

@@ -1,5 +1,7 @@
 ---
 title: "Cours"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 32. Interfaces graphiques (WinForms)

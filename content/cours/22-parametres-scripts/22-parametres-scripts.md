@@ -1,5 +1,7 @@
 ---
 title: "22. Paramètres de scripts"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 22. Paramètres de scripts

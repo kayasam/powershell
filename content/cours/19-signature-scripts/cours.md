@@ -1,5 +1,7 @@
 ---
 title: "Cours"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 19. Sécurité et signature des scripts

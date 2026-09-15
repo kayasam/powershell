@@ -1,8 +1,12 @@
 ---
 title: "Exercice 10 - L'Analyseur d'Intrusion"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 10 - L'Analyseur d'Intrusion 🔐
+
+**Durée : 45 min**
 
 ## Contexte
 

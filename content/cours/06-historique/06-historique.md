@@ -1,5 +1,7 @@
 ---
 title: "06. Historique"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # 06. Historique

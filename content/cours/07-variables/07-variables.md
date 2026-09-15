@@ -1,5 +1,7 @@
 ---
 title: "07. Variables"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 07. Variables

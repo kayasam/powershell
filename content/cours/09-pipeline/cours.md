@@ -1,5 +1,7 @@
 ---
 title: "Cours"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 09. Pipeline

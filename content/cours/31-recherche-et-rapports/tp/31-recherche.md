@@ -1,8 +1,12 @@
 ---
 title: "Exercice 31 - La Carte des Agents"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 31 - La Carte des Agents 🗺️
+
+**Durée : 35 min**
 
 ## Contexte
 

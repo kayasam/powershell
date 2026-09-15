@@ -1,8 +1,12 @@
 ---
 title: "Exercice 11 - Le Scanner de la Flotte"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 11 - Le Scanner de la Flotte 🛸
+
+**Durée : 45 min**
 
 ## Contexte
 

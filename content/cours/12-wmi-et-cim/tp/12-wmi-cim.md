@@ -1,5 +1,7 @@
 ---
 title: "Exercice 12 - L'Inventaire du Thousand Sunny"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 12 - L'Inventaire du Thousand Sunny 🛠️

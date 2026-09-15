@@ -1,5 +1,7 @@
 ---
 title: "16. Lire et écrire"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 16. Lire et écrire

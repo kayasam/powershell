@@ -1,0 +1,451 @@
+// Généré par scripts/generate-explorer-chapters.mjs depuis les titres du coffre.
+// Ne pas modifier ce fichier à la main : la préparation de publication le recrée.
+@use "./explorer-powershell.scss" as explorer;
+
+.explorer-content .folder-container[data-folderpath="cours/01-installation-et-environnement/index"] {
+  @include explorer.chapter-card(var(--ps-foundations), "BASE", "01. Installation et environnement");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/01-installation-et-environnement/01-installation-et-environnement"]) {
+  display: none;
+}
+
+body[data-slug^="cours/01-installation-et-environnement/"]
+  .explorer-content .folder-container[data-folderpath="cours/01-installation-et-environnement/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/02-cmdlets/index"] {
+  @include explorer.chapter-card(var(--ps-foundations), "BASE", "02. Cmdlets");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/02-cmdlets/02-cmdlets"]) {
+  display: none;
+}
+
+body[data-slug^="cours/02-cmdlets/"]
+  .explorer-content .folder-container[data-folderpath="cours/02-cmdlets/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/03-objets/index"] {
+  @include explorer.chapter-card(var(--ps-foundations), "BASE", "03. Objets");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/03-objets/03-objets"]) {
+  display: none;
+}
+
+body[data-slug^="cours/03-objets/"]
+  .explorer-content .folder-container[data-folderpath="cours/03-objets/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/04-completion/index"] {
+  @include explorer.chapter-card(var(--ps-foundations), "BASE", "04. Complétion");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/04-completion/04-completion"]) {
+  display: none;
+}
+
+body[data-slug^="cours/04-completion/"]
+  .explorer-content .folder-container[data-folderpath="cours/04-completion/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/05-alias/index"] {
+  @include explorer.chapter-card(var(--ps-foundations), "BASE", "05. Alias");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/05-alias/05-alias"]) {
+  display: none;
+}
+
+body[data-slug^="cours/05-alias/"]
+  .explorer-content .folder-container[data-folderpath="cours/05-alias/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/06-historique/index"] {
+  @include explorer.chapter-card(var(--ps-foundations), "BASE", "06. Historique");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/06-historique/06-historique"]) {
+  display: none;
+}
+
+body[data-slug^="cours/06-historique/"]
+  .explorer-content .folder-container[data-folderpath="cours/06-historique/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/07-variables/index"] {
+  @include explorer.chapter-card(var(--ps-foundations), "BASE", "07. Variables");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/07-variables/07-variables"]) {
+  display: none;
+}
+
+body[data-slug^="cours/07-variables/"]
+  .explorer-content .folder-container[data-folderpath="cours/07-variables/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/08-formatage/index"] {
+  @include explorer.chapter-card(var(--ps-pipeline), "OUTILS", "08. Formatage");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/08-formatage/08-formatage"]) {
+  display: none;
+}
+
+body[data-slug^="cours/08-formatage/"]
+  .explorer-content .folder-container[data-folderpath="cours/08-formatage/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/09-pipeline/index"] {
+  @include explorer.chapter-card(var(--ps-pipeline), "OUTILS", "09. Pipeline");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/09-pipeline/09-pipeline"]) {
+  display: none;
+}
+
+body[data-slug^="cours/09-pipeline/"]
+  .explorer-content .folder-container[data-folderpath="cours/09-pipeline/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/10-conditions/index"] {
+  @include explorer.chapter-card(var(--ps-pipeline), "OUTILS", "10. Conditions");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/10-conditions/10-conditions"]) {
+  display: none;
+}
+
+body[data-slug^="cours/10-conditions/"]
+  .explorer-content .folder-container[data-folderpath="cours/10-conditions/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/11-boucles/index"] {
+  @include explorer.chapter-card(var(--ps-pipeline), "OUTILS", "11. Boucles");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/11-boucles/11-boucles"]) {
+  display: none;
+}
+
+body[data-slug^="cours/11-boucles/"]
+  .explorer-content .folder-container[data-folderpath="cours/11-boucles/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/12-wmi-et-cim/index"] {
+  @include explorer.chapter-card(var(--ps-pipeline), "OUTILS", "12. WMI et CIM");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/12-wmi-et-cim/12-wmi-et-cim"]) {
+  display: none;
+}
+
+body[data-slug^="cours/12-wmi-et-cim/"]
+  .explorer-content .folder-container[data-folderpath="cours/12-wmi-et-cim/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/13-fonctions/index"] {
+  @include explorer.chapter-card(var(--ps-pipeline), "OUTILS", "13. Fonctions");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/13-fonctions/13-fonctions"]) {
+  display: none;
+}
+
+body[data-slug^="cours/13-fonctions/"]
+  .explorer-content .folder-container[data-folderpath="cours/13-fonctions/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/14-classes-dotnet/index"] {
+  @include explorer.chapter-card(var(--ps-files), "SYSTÈME", "14. Les classes du framework .NET");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/14-classes-dotnet/14-classes-dotnet"]) {
+  display: none;
+}
+
+body[data-slug^="cours/14-classes-dotnet/"]
+  .explorer-content .folder-container[data-folderpath="cours/14-classes-dotnet/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/15-fichiers-et-dossiers/index"] {
+  @include explorer.chapter-card(var(--ps-files), "SYSTÈME", "15. Fichiers et dossiers");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/15-fichiers-et-dossiers/15-fichiers-et-dossiers"]) {
+  display: none;
+}
+
+body[data-slug^="cours/15-fichiers-et-dossiers/"]
+  .explorer-content .folder-container[data-folderpath="cours/15-fichiers-et-dossiers/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/16-lire-et-ecrire/index"] {
+  @include explorer.chapter-card(var(--ps-files), "SYSTÈME", "16. Lire et écrire");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/16-lire-et-ecrire/16-lire-et-ecrire"]) {
+  display: none;
+}
+
+body[data-slug^="cours/16-lire-et-ecrire/"]
+  .explorer-content .folder-container[data-folderpath="cours/16-lire-et-ecrire/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/17-export-import/index"] {
+  @include explorer.chapter-card(var(--ps-files), "SYSTÈME", "17. Export et Import");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/17-export-import/17-export-import"]) {
+  display: none;
+}
+
+body[data-slug^="cours/17-export-import/"]
+  .explorer-content .folder-container[data-folderpath="cours/17-export-import/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/18-registre-journaux-certificats/index"] {
+  @include explorer.chapter-card(var(--ps-files), "SYSTÈME", "18. Registre, journaux et certificats");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/18-registre-journaux-certificats/18-registre-journaux-certificats"]) {
+  display: none;
+}
+
+body[data-slug^="cours/18-registre-journaux-certificats/"]
+  .explorer-content .folder-container[data-folderpath="cours/18-registre-journaux-certificats/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/19-signature-scripts/index"] {
+  @include explorer.chapter-card(var(--ps-files), "SYSTÈME", "19. Sécurité et signature des scripts");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/19-signature-scripts/19-signature-scripts"]) {
+  display: none;
+}
+
+body[data-slug^="cours/19-signature-scripts/"]
+  .explorer-content .folder-container[data-folderpath="cours/19-signature-scripts/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/20-gestion-des-erreurs/index"] {
+  @include explorer.chapter-card(var(--ps-files), "SYSTÈME", "20. Gestion des erreurs");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/20-gestion-des-erreurs/20-gestion-des-erreurs"]) {
+  display: none;
+}
+
+body[data-slug^="cours/20-gestion-des-erreurs/"]
+  .explorer-content .folder-container[data-folderpath="cours/20-gestion-des-erreurs/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/21-erreurs-avancees/index"] {
+  @include explorer.chapter-card(var(--ps-scripts), "SCRIPT", "21. Gestion des erreurs avancée");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/21-erreurs-avancees/21-erreurs-avancees"]) {
+  display: none;
+}
+
+body[data-slug^="cours/21-erreurs-avancees/"]
+  .explorer-content .folder-container[data-folderpath="cours/21-erreurs-avancees/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/22-parametres-scripts/index"] {
+  @include explorer.chapter-card(var(--ps-scripts), "SCRIPT", "22. Paramètres de scripts");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/22-parametres-scripts/22-parametres-scripts"]) {
+  display: none;
+}
+
+body[data-slug^="cours/22-parametres-scripts/"]
+  .explorer-content .folder-container[data-folderpath="cours/22-parametres-scripts/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/23-modules/index"] {
+  @include explorer.chapter-card(var(--ps-scripts), "SCRIPT", "23. Modules");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/23-modules/23-modules"]) {
+  display: none;
+}
+
+body[data-slug^="cours/23-modules/"]
+  .explorer-content .folder-container[data-folderpath="cours/23-modules/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/24-rsat-et-gallery/index"] {
+  @include explorer.chapter-card(var(--ps-scripts), "SCRIPT", "24. RSAT et PowerShell Gallery");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/24-rsat-et-gallery/24-rsat-et-gallery"]) {
+  display: none;
+}
+
+body[data-slug^="cours/24-rsat-et-gallery/"]
+  .explorer-content .folder-container[data-folderpath="cours/24-rsat-et-gallery/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/25-profils/index"] {
+  @include explorer.chapter-card(var(--ps-scripts), "SCRIPT", "25. Les profils PowerShell");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/25-profils/25-profils"]) {
+  display: none;
+}
+
+body[data-slug^="cours/25-profils/"]
+  .explorer-content .folder-container[data-folderpath="cours/25-profils/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/26-regex/index"] {
+  @include explorer.chapter-card(var(--ps-scripts), "SCRIPT", "26. Expressions régulières (Regex)");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/26-regex/26-regex"]) {
+  display: none;
+}
+
+body[data-slug^="cours/26-regex/"]
+  .explorer-content .folder-container[data-folderpath="cours/26-regex/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/27-planification/index"] {
+  @include explorer.chapter-card(var(--ps-ad), "ADMIN", "27. Planification des tâches");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/27-planification/27-planification"]) {
+  display: none;
+}
+
+body[data-slug^="cours/27-planification/"]
+  .explorer-content .folder-container[data-folderpath="cours/27-planification/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/28-introduction-ad/index"] {
+  @include explorer.chapter-card(var(--ps-ad), "ADMIN", "28. Introduction à Active Directory");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/28-introduction-ad/28-introduction-ad"]) {
+  display: none;
+}
+
+body[data-slug^="cours/28-introduction-ad/"]
+  .explorer-content .folder-container[data-folderpath="cours/28-introduction-ad/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/29-utilisateurs-ad/index"] {
+  @include explorer.chapter-card(var(--ps-ad), "ADMIN", "29. Utilisateurs Active Directory");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/29-utilisateurs-ad/29-utilisateurs-ad"]) {
+  display: none;
+}
+
+body[data-slug^="cours/29-utilisateurs-ad/"]
+  .explorer-content .folder-container[data-folderpath="cours/29-utilisateurs-ad/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/30-groupes-ad/index"] {
+  @include explorer.chapter-card(var(--ps-ad), "ADMIN", "30. Groupes Active Directory");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/30-groupes-ad/30-groupes-ad"]) {
+  display: none;
+}
+
+body[data-slug^="cours/30-groupes-ad/"]
+  .explorer-content .folder-container[data-folderpath="cours/30-groupes-ad/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/31-recherche-et-rapports/index"] {
+  @include explorer.chapter-card(var(--ps-ad), "ADMIN", "31. Recherche et rapports AD");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/31-recherche-et-rapports/31-recherche-et-rapports"]) {
+  display: none;
+}
+
+body[data-slug^="cours/31-recherche-et-rapports/"]
+  .explorer-content .folder-container[data-folderpath="cours/31-recherche-et-rapports/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="cours/32-interfaces-graphiques/index"] {
+  @include explorer.chapter-card(var(--ps-ad), "ADMIN", "32. Interfaces graphiques (WinForms)");
+}
+
+.explorer-content li:has(> a.nav-file-title[href$="/cours/32-interfaces-graphiques/32-interfaces-graphiques"]) {
+  display: none;
+}
+
+body[data-slug^="cours/32-interfaces-graphiques/"]
+  .explorer-content .folder-container[data-folderpath="cours/32-interfaces-graphiques/index"] {
+  border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
+}

@@ -1,5 +1,7 @@
 ---
 title: "Cours"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 21. Gestion des erreurs avancée

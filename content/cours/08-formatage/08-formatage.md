@@ -1,5 +1,7 @@
 ---
 title: "08. Formatage"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 08. Formatage

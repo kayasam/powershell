@@ -1,5 +1,7 @@
 ---
 title: "12. WMI et CIM"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 12. WMI et CIM

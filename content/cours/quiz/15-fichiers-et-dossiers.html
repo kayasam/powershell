@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Quiz PowerShell : 20 questions avec réponses expliquées" />
+    <title>Quiz PowerShell</title>
+    <link rel="stylesheet" href="../../assets/quiz/quiz.css" />
+    <script defer src="../../assets/quiz/quiz-banks.js"></script>
+    <script defer src="../../assets/quiz/quiz-engine.js"></script>
+  </head>
+  <body>
+    <main class="quiz-shell" data-quiz="15-fichiers-et-dossiers">
+      <nav class="quiz-topbar" aria-label="Navigation du quiz">
+        <a id="chapter-link" href="../15-fichiers-et-dossiers/">← Revenir au chapitre</a>
+        <span>⚡ PowerShell · Grand voyage</span>
+      </nav>
+      <header class="quiz-hero">
+        <p class="quiz-kicker" id="quiz-kicker"></p>
+        <h1 id="quiz-title">Quiz du chapitre</h1>
+        <p id="quiz-intro"></p>
+        <div class="quiz-meta">
+          <span>20 questions</span><span>4 choix</span><span>Réponses expliquées</span>
+        </div>
+      </header>
+      <section class="quiz-panel" id="question-panel">
+        <div class="quiz-status">
+          <span id="current-question">Question 1 sur 20</span>
+          <div class="progress-track" aria-hidden="true"><div id="progress-bar"></div></div>
+          <span>Objectif : 16/20</span>
+        </div>
+        <p class="question-theme" id="question-theme"></p>
+        <h2 id="question-title"></h2>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+        <button class="primary-button" id="next-question" type="button" disabled>
+          Question suivante →
+        </button>
+      </section>
+      <section class="quiz-panel result" id="result-panel" aria-live="polite">
+        <strong id="result-score">0/20</strong>
+        <p id="result-percent">0 %</p>
+        <h2 id="result-title"></h2>
+        <p id="result-message"></p>
+        <div class="result-grid">
+          <div><strong id="correct-count">0</strong><span>bonnes réponses</span></div>
+          <div><strong id="wrong-count">0</strong><span>réponses à revoir</span></div>
+          <div><strong id="best-score">0</strong><span>meilleur score /20</span></div>
+        </div>
+        <div class="result-actions">
+          <button class="primary-button" id="restart-quiz" type="button">Recommencer</button>
+          <a id="result-course-link" href="../15-fichiers-et-dossiers/">Revoir le cours</a>
+        </div>
+      </section>
+      <noscript><p class="quiz-error">Activez JavaScript pour utiliser ce quiz.</p></noscript>
+    </main>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 ---
 title: "17. Export et Import"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 17. Export et Import

@@ -1,5 +1,7 @@
 ---
 title: "15. Fichiers et dossiers"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 15. Fichiers et dossiers

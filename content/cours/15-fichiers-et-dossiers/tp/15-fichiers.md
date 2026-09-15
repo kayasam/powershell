@@ -1,8 +1,12 @@
 ---
 title: "Exercice 15 - Les Archives de Robin"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 15 - Les Archives de Robin 📚
+
+**Durée : 45 min**
 
 ## Contexte
 

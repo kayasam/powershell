@@ -1,5 +1,7 @@
 ---
 title: "Exercice 19 - Le Sceau du Gouvernement Mondial"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 19 - Le Sceau du Gouvernement Mondial 🔏

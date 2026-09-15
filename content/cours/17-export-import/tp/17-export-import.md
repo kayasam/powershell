@@ -1,8 +1,12 @@
 ---
 title: "Exercice 17 - Les Plans de Franky"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 17 - Les Plans de Franky 📐
+
+**Durée : 40 min**
 
 ## Contexte
 

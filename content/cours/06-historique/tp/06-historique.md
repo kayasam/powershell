@@ -1,5 +1,7 @@
 ---
 title: "Exercice 06 - Le Journal de Bord du Terminal"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # Exercice 06 - Le Journal de Bord du Terminal 📜

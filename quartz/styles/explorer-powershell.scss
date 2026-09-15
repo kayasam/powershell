@@ -1,6 +1,4 @@
 @use "./variables.scss" as *;
-@use "sass:list";
-@use "sass:map";
 
 .explorer-content {
   --ps-foundations: #8058f0;
@@ -114,185 +112,11 @@
   }
 }
 
-$chapters: (
-  "01-installation-et-environnement": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "02-cmdlets": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "03-objets": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "04-completion": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "05-alias": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "06-historique": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "07-variables": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "08-formatage": (
-    var(--ps-foundations),
-    "BASE",
-  ),
-  "09-pipeline": (
-    var(--ps-pipeline),
-    "PIPE",
-  ),
-  "10-conditions": (
-    var(--ps-pipeline),
-    "LOGIQUE",
-  ),
-  "11-boucles": (
-    var(--ps-pipeline),
-    "LOGIQUE",
-  ),
-  "12-wmi-et-cim": (
-    var(--ps-pipeline),
-    "SYSTÈME",
-  ),
-  "13-fonctions": (
-    var(--ps-pipeline),
-    "FONCTION",
-  ),
-  "14-fichiers-et-dossiers": (
-    var(--ps-files),
-    "FICHIERS",
-  ),
-  "15-lire-et-ecrire": (
-    var(--ps-files),
-    "FICHIERS",
-  ),
-  "16-export-import": (
-    var(--ps-files),
-    "DONNÉES",
-  ),
-  "17-registre-journaux-certificats": (
-    var(--ps-files),
-    "SYSTÈME",
-  ),
-  "18-gestion-des-erreurs": (
-    var(--ps-files),
-    "ERREURS",
-  ),
-  "19-erreurs-avancees": (
-    var(--ps-files),
-    "ERREURS",
-  ),
-  "20-parametres-scripts": (
-    var(--ps-scripts),
-    "SCRIPT",
-  ),
-  "21-modules": (
-    var(--ps-scripts),
-    "MODULE",
-  ),
-  "22-rsat-et-gallery": (
-    var(--ps-scripts),
-    "OUTILS",
-  ),
-  "23-profils": (
-    var(--ps-scripts),
-    "PROFIL",
-  ),
-  "24-regex": (
-    var(--ps-scripts),
-    "REGEX",
-  ),
-  "25-planification": (
-    var(--ps-scripts),
-    "AUTO",
-  ),
-  "26-introduction-ad": (
-    var(--ps-ad),
-    "AD",
-  ),
-  "27-utilisateurs-ad": (
-    var(--ps-ad),
-    "AD",
-  ),
-  "28-groupes-ad": (
-    var(--ps-ad),
-    "AD",
-  ),
-  "29-recherche-et-rapports": (
-    var(--ps-ad),
-    "RAPPORT",
-  ),
-  "30-interfaces-graphiques": (
-    var(--ps-ad),
-    "GUI",
-  ),
-);
-
-$chapter-titles: (
-  "01-installation-et-environnement": "01. Installation et environnement",
-  "02-cmdlets": "02. Cmdlets",
-  "03-objets": "03. Objets",
-  "04-completion": "04. Complétion",
-  "05-alias": "05. Alias",
-  "06-historique": "06. Historique",
-  "07-variables": "07. Variables",
-  "08-formatage": "08. Formatage",
-  "09-pipeline": "09. Pipeline",
-  "10-conditions": "10. Conditions",
-  "11-boucles": "11. Boucles",
-  "12-wmi-et-cim": "12. WMI et CIM",
-  "13-fonctions": "13. Fonctions",
-  "14-fichiers-et-dossiers": "14. Fichiers et dossiers",
-  "15-lire-et-ecrire": "15. Lire et écrire",
-  "16-export-import": "16. Export et Import",
-  "17-registre-journaux-certificats": "17. Registre, journaux et certificats",
-  "18-gestion-des-erreurs": "18. Gestion des erreurs",
-  "19-erreurs-avancees": "19. Gestion des erreurs avancée",
-  "20-parametres-scripts": "20. Paramètres de scripts",
-  "21-modules": "21. Modules",
-  "22-rsat-et-gallery": "22. RSAT et PowerShell Gallery",
-  "23-profils": "23. Les profils PowerShell",
-  "24-regex": "24. Expressions régulières (Regex)",
-  "25-planification": "25. Planification des tâches",
-  "26-introduction-ad": "26. Introduction à Active Directory",
-  "27-utilisateurs-ad": "27. Utilisateurs Active Directory",
-  "28-groupes-ad": "28. Groupes Active Directory",
-  "29-recherche-et-rapports": "29. Recherche et rapports AD",
-  "30-interfaces-graphiques": "30. Interfaces graphiques (WinForms)",
-);
-
-@each $slug, $values in $chapters {
-  .explorer-content .folder-container[data-folderpath="cours/#{$slug}/index"] {
-    @include chapter-card(
-      list.nth($values, 1),
-      list.nth($values, 2),
-      map.get($chapter-titles, $slug)
-    );
-  }
-
-  .explorer-content li:has(> a.nav-file-title[href$="/cours/#{$slug}/#{$slug}"]) {
-    display: none;
-  }
-
-  body[data-slug^="cours/#{$slug}/"]
-    .explorer-content
-    .folder-container[data-folderpath="cours/#{$slug}/index"] {
-    border-color: color-mix(in srgb, var(--chapter-accent) 55%, var(--lightgray));
-    background: color-mix(in srgb, var(--chapter-accent) 14%, var(--light));
-  }
-}
+// Les cartes sont générées depuis les titres du coffre dans explorer-chapters.generated.scss.
 
 .explorer-content a.nav-file-title[href$="/cours"],
-.explorer-content a.nav-file-title[href$="/cours-interactif"] {
+.explorer-content a.nav-file-title[href$="/cours-interactif"],
+.explorer-content a.nav-file-title[href$="/quiz"] {
   display: grid;
   grid-template-columns: 1.55rem minmax(0, 1fr);
   gap: 0.48rem;
@@ -308,7 +132,8 @@ $chapter-titles: (
 }
 
 .explorer-content a.nav-file-title[href$="/cours"]::before,
-.explorer-content a.nav-file-title[href$="/cours-interactif"]::before {
+.explorer-content a.nav-file-title[href$="/cours-interactif"]::before,
+.explorer-content a.nav-file-title[href$="/quiz"]::before {
   display: grid;
   width: 1.55rem;
   height: 1.55rem;
@@ -329,8 +154,15 @@ $chapter-titles: (
   font-family: var(--codeFont);
 }
 
+.explorer-content a.nav-file-title[href$="/quiz"]::before {
+  content: "?";
+  color: #fff;
+  background: var(--chapter-accent, #8058f0);
+}
+
 .explorer-content a.nav-file-title[href$="/cours"]:hover,
-.explorer-content a.nav-file-title[href$="/cours-interactif"]:hover {
+.explorer-content a.nav-file-title[href$="/cours-interactif"]:hover,
+.explorer-content a.nav-file-title[href$="/quiz"]:hover {
   color: var(--dark);
   background: color-mix(in srgb, var(--chapter-accent, #8058f0) 10%, var(--light));
   transform: translateX(2px);

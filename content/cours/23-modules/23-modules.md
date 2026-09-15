@@ -1,5 +1,7 @@
 ---
 title: "23. Modules"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 23. Modules

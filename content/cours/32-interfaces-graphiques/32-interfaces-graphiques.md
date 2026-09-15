@@ -1,5 +1,7 @@
 ---
 title: "32. Interfaces graphiques (WinForms)"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 32. Interfaces graphiques (WinForms)

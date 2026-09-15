@@ -1,5 +1,7 @@
 ---
 title: "03. Objets"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 03. Objets

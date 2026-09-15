@@ -1,5 +1,7 @@
 ---
 title: "Cours"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # 01. Installation et environnement

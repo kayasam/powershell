@@ -1,5 +1,7 @@
 ---
 title: "26. Expressions régulières (Regex)"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 26. Expressions régulières (Regex)

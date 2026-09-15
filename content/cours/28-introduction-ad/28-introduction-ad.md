@@ -1,5 +1,7 @@
 ---
 title: "28. Introduction à Active Directory"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 28. Introduction à Active Directory

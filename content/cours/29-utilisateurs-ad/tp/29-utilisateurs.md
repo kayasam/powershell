@@ -1,8 +1,12 @@
 ---
 title: "Exercice 29 - Le Recrutement de la Cipher Pol"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 29 - Le Recrutement de la Cipher Pol 🕵️
+
+**Durée : 45 min**
 
 ## Contexte
 

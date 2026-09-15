@@ -1,5 +1,7 @@
 ---
 title: "Exercice 32 - Le Poste de Commandement de Franky"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 32 - Le Poste de Commandement de Franky 🔧

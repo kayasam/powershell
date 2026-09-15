@@ -363,5 +363,3 @@ Ajoutez un paramètre `-Supprimer` qui, au lieu de créer, désactive tous les c
 - ✅ Utiliser `$PSScriptRoot` pour des chemins relatifs fiables
 - ✅ Implémenter un mode simulation pour tester sans risque
 - ✅ Générer un rapport d'exécution exportable
-
-**La solution complète est dans :** `solutions/05-gestion-agents/Invoke-IntegrationAgents.ps1`

@@ -1,6 +1,7 @@
 @use "./variables.scss" as *;
 @use "./powershell.scss";
 @use "./explorer-powershell.scss";
+@use "./explorer-chapters.generated.scss";
 
 @media all and ($desktop) {
   .page > #quartz-body > .sidebar {

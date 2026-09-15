@@ -1,8 +1,12 @@
 ---
 title: "Exercice 16 - Le Journal de Bord de Nami"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 16 - Le Journal de Bord de Nami 🗺️
+
+**Durée : 40 min**
 
 ## Contexte
 

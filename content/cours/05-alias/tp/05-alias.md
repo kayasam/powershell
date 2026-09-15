@@ -1,5 +1,7 @@
 ---
 title: "Exercice 05 - Les Noms de Code de la Marine"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # Exercice 05 - Les Noms de Code de la Marine 🏷️

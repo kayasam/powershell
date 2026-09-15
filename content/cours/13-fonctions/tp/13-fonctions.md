@@ -1,8 +1,12 @@
 ---
 title: "Exercice 13 - La Boite à Outils de Franky"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 13 - La Boite à Outils de Franky ⚙️
+
+**Durée : 40 min**
 
 ## Contexte
 

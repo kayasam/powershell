@@ -1,5 +1,7 @@
 ---
 title: "14. Les classes du framework .NET"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 14. Les classes du framework .NET

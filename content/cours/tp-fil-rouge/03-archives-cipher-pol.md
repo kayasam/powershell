@@ -157,5 +157,3 @@ Vos trois scripts fonctionnent, mais ils se répètent : les mêmes fonctions
 Demain vous apprendrez à **industrialiser** : paramètres validés, regroupement en
 **module** réutilisable, installation d'outils depuis la **PowerShell Gallery**,
 et **planification** automatique de l'exécution.
-
-**La solution complète est dans :** `solutions/03-archives-cipher-pol.ps1`

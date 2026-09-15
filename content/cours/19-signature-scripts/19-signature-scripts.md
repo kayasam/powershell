@@ -1,5 +1,7 @@
 ---
 title: "19. Sécurité et signature des scripts"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 19. Sécurité et signature des scripts

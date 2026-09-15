@@ -1,5 +1,7 @@
 ---
 title: "13. Fonctions"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 13. Fonctions

@@ -1,5 +1,7 @@
 ---
 title: "Exercice 18 - Les Archives Secrètes d'Ohara"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 18 - Les Archives Secrètes d'Ohara 📜

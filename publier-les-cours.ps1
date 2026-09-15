@@ -105,6 +105,13 @@ title: "Cours interactif"
       [IO.File]::WriteAllText((Join-Path $_.FullName "cours-interactif.md"), $interactiveDocument, [Text.UTF8Encoding]::new($false))
     }
   }
+
+  # Les quiz sont reconstruits depuis une banque durable hors de content.
+  & node (Join-Path $projectRoot 'scripts/generate-quizzes.mjs') $stageRoot
+  if ($LASTEXITCODE -ne 0) { throw "Quiz manquants ou déséquilibrés : la publication est bloquée." }
+
+  & node (Join-Path $projectRoot 'scripts/generate-homepage.mjs') $stageRoot
+  if ($LASTEXITCODE -ne 0) { throw "Impossible de synchroniser la page d'accueil." }
 }
 
 $sourceImages = Join-Path $sourceRoot "Ressources\images"
@@ -161,6 +168,10 @@ if ($forbidden) {
 Write-Host "3/4 - Synchronisation du contenu Quartz..."
 Mirror-Directory $stageRoot $destinationRoot
 Remove-SafeDirectory $stageRoot
+
+# La forme de l'arborescence suit toujours les chapitres réels du coffre.
+& node (Join-Path $projectRoot 'scripts/generate-explorer-chapters.mjs')
+if ($LASTEXITCODE -ne 0) { throw "Impossible de synchroniser le thème de l'explorateur." }
 
 $relativeHtmlLinks = Get-ChildItem -LiteralPath $destinationRoot -Recurse -File -Filter "*.md" | Where-Object {
   [IO.File]::ReadAllText($_.FullName) -match 'href="(?:\./|\.\./)[^"]+\.html(?:[?#][^"]*)?"'

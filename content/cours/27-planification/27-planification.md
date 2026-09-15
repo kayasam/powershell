@@ -1,5 +1,7 @@
 ---
 title: "27. Planification des tâches"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 27. Planification des tâches

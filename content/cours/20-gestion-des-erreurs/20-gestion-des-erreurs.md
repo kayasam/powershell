@@ -1,5 +1,7 @@
 ---
 title: "20. Gestion des erreurs"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # 20. Gestion des erreurs

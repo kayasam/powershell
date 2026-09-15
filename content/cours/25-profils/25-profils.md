@@ -1,5 +1,7 @@
 ---
 title: "25. Les profils PowerShell"
+parcours-tssr: false
+parcours-pro: false
 ---
 
 # 25. Les profils PowerShell

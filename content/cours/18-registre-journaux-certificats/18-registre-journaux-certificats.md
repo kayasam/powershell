@@ -1,5 +1,7 @@
 ---
 title: "18. Registre, journaux et certificats"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # 18. Registre, journaux et certificats

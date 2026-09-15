@@ -1,8 +1,12 @@
 ---
 title: "Exercice 22 - Les Recettes de Sanji"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 22 - Les Recettes de Sanji 🍳
+
+**Durée : 40 min**
 
 ## Contexte
 

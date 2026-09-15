@@ -1,5 +1,7 @@
 ---
 title: "Exercice 14 - L'Atelier de Vegapunk"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 14 - L'Atelier de Vegapunk 🔬

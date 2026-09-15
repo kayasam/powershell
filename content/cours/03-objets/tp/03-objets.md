@@ -1,5 +1,7 @@
 ---
 title: "Exercice 03 - L'Autopsie du Den Den Mushi"
+parcours-tssr: true
+parcours-pro: true
 ---
 
 # Exercice 03 - L'Autopsie du Den Den Mushi 🐌

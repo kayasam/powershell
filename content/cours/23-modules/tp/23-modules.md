@@ -1,8 +1,12 @@
 ---
 title: "Exercice 23 - La Bibliothèque de Brook"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 23 - La Bibliothèque de Brook 🎸
+
+**Durée : 35 min**
 
 ## Contexte
 

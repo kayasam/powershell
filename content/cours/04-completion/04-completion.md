@@ -1,5 +1,7 @@
 ---
 title: "04. Complétion"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # 04. Complétion

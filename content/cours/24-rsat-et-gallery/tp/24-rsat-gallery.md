@@ -1,5 +1,7 @@
 ---
 title: "Exercice 24 - L'Armurerie de la Marine"
+parcours-tssr: false
+parcours-pro: true
 ---
 
 # Exercice 24 - L'Armurerie de la Marine ⚓

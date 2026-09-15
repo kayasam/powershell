@@ -1,5 +1,7 @@
 ---
 title: "05. Alias"
+parcours-tssr: true
+parcours-pro: false
 ---
 
 # 05. Alias
