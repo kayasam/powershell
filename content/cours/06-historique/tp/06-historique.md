@@ -1,3 +1,7 @@
+---
+title: "Exercice 06 - Le Journal de Bord du Terminal"
+---
+
 # Exercice 06 - Le Journal de Bord du Terminal 📜
 
 ## Contexte

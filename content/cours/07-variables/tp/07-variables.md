@@ -1,3 +1,7 @@
+---
+title: "Exercice 07 - La Fiche des Pirates"
+---
+
 # Exercice 07 - La Fiche des Pirates 📋
 
 ## Contexte

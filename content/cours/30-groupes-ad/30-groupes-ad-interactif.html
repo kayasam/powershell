@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>30. Groupes Active Directory</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="30-groupes-ad">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>32 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers, .NET et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-classes-dotnet"
+          href="../14-classes-dotnet/14-classes-dotnet-interactif.html"
+          ><span class="n">14</span><span class="t">Les classes du framework .NET</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-fichiers-et-dossiers"
+          href="../15-fichiers-et-dossiers/15-fichiers-et-dossiers-interactif.html"
+          ><span class="n">15</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-lire-et-ecrire"
+          href="../16-lire-et-ecrire/16-lire-et-ecrire-interactif.html"
+          ><span class="n">16</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-export-import"
+          href="../17-export-import/17-export-import-interactif.html"
+          ><span class="n">17</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-registre-journaux-certificats"
+          href="../18-registre-journaux-certificats/18-registre-journaux-certificats-interactif.html"
+          ><span class="n">18</span><span class="t">Registre, journaux et certificats</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="19-signature-scripts"
+          href="../19-signature-scripts/19-signature-scripts-interactif.html"
+          ><span class="n">19</span><span class="t">Sécurité et signature des scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="20-gestion-des-erreurs"
+          href="../20-gestion-des-erreurs/20-gestion-des-erreurs-interactif.html"
+          ><span class="n">20</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-erreurs-avancees"
+          href="../21-erreurs-avancees/21-erreurs-avancees-interactif.html"
+          ><span class="n">21</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="22-parametres-scripts"
+          href="../22-parametres-scripts/22-parametres-scripts-interactif.html"
+          ><span class="n">22</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-modules"
+          href="../23-modules/23-modules-interactif.html"
+          ><span class="n">23</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="24-rsat-et-gallery"
+          href="../24-rsat-et-gallery/24-rsat-et-gallery-interactif.html"
+          ><span class="n">24</span><span class="t">RSAT et PowerShell Gallery</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="25-profils"
+          href="../25-profils/25-profils-interactif.html"
+          ><span class="n">25</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-regex"
+          href="../26-regex/26-regex-interactif.html"
+          ><span class="n">26</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-planification"
+          href="../27-planification/27-planification-interactif.html"
+          ><span class="n">27</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory et interfaces</div>
+        <a
+          class="course-nav-link"
+          data-chapter="28-introduction-ad"
+          href="../28-introduction-ad/28-introduction-ad-interactif.html"
+          ><span class="n">28</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="29-utilisateurs-ad"
+          href="../29-utilisateurs-ad/29-utilisateurs-ad-interactif.html"
+          ><span class="n">29</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="30-groupes-ad"
+          href="../30-groupes-ad/30-groupes-ad-interactif.html"
+          ><span class="n">30</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="31-recherche-et-rapports"
+          href="../31-recherche-et-rapports/31-recherche-et-rapports-interactif.html"
+          ><span class="n">31</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="32-interfaces-graphiques"
+          href="../32-interfaces-graphiques/32-interfaces-graphiques-interactif.html"
+          ><span class="n">32</span><span class="t">Interfaces graphiques (WinForms)</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 30 · Active Directory et interfaces</span>
+            <h1>Groupes Active Directory</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>30. Groupes Active Directory</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <h2>Les types de groupes</h2>
+              <p>Avant de créer un groupe, deux choix à faire :</p>
+              <h3>GroupScope (portée)</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Portée</th>
+                    <th>Usage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>DomainLocal</code></td>
+                    <td>Accès aux ressources <strong>dans</strong> le domaine</td>
+                  </tr>
+                  <tr>
+                    <td><code>Global</code></td>
+                    <td>Regrouper des utilisateurs du <strong>même domaine</strong></td>
+                  </tr>
+                  <tr>
+                    <td><code>Universal</code></td>
+                    <td>
+                      Regrouper des utilisateurs de <strong>plusieurs domaines</strong> (forêt)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote>
+                <p>
+                  En pratique dans un domaine unique : utilisez <code>Global</code> pour les groupes
+                  d'utilisateurs.
+                </p>
+              </blockquote>
+              <h3>GroupCategory (catégorie)</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Catégorie</th>
+                    <th>Usage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Security</code></td>
+                    <td>Gérer les <strong>droits d'accès</strong> (le plus courant)</td>
+                  </tr>
+                  <tr>
+                    <td><code>Distribution</code></td>
+                    <td>Listes de <strong>diffusion email</strong> uniquement</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h2>Lire des groupes</h2>
+              <pre><code class="language-powershell"># Tous les groupes
+Get-ADGroup -Filter *
+
+# Un groupe précis
+Get-ADGroup -Identity &quot;CP-Agents&quot;
+
+# Groupes qui contiennent &quot;Cipher&quot; dans le nom
+Get-ADGroup -Filter &quot;Name -like '*Cipher*'&quot;
+
+# Membres d'un groupe
+Get-ADGroupMember -Identity &quot;CP-Agents&quot;
+
+# Membres récursifs (incluant les sous-groupes)
+Get-ADGroupMember -Identity &quot;CP-Agents&quot; -Recursive
+</code></pre>
+              <h2>Créer un groupe</h2>
+              <pre><code class="language-powershell"># Groupe de sécurité standard
+New-ADGroup `
+    -Name        &quot;CP-Agents&quot; `
+    -SamAccountName &quot;CP-Agents&quot; `
+    -GroupScope  &quot;Global&quot; `
+    -GroupCategory &quot;Security&quot; `
+    -Description &quot;Agents de la Cipher Pol&quot; `
+    -Path        &quot;OU=Groupes,DC=cipher-pol,DC=org&quot;
+
+# Groupe de distribution
+New-ADGroup `
+    -Name          &quot;DL-Equipe-CP9&quot; `
+    -SamAccountName &quot;DL-Equipe-CP9&quot; `
+    -GroupScope    &quot;DomainLocal&quot; `
+    -GroupCategory &quot;Distribution&quot; `
+    -Description   &quot;Liste de diffusion Cipher Pol 9&quot;
+</code></pre>
+              <h2>Gérer les membres</h2>
+              <pre><code class="language-powershell"># Ajouter un utilisateur
+Add-ADGroupMember -Identity &quot;CP-Agents&quot; -Members &quot;rlucci&quot;
+
+# Ajouter plusieurs utilisateurs d'un coup
+Add-ADGroupMember -Identity &quot;CP-Agents&quot; -Members &quot;rlucci&quot;, &quot;kkaku&quot;, &quot;khalifa&quot;
+
+# Ajouter depuis un pipeline
+Get-ADUser -Filter &quot;Department -eq 'CP-9'&quot; |
+    ForEach-Object { Add-ADGroupMember -Identity &quot;CP-Agents&quot; -Members $_ }
+
+# Retirer un membre
+Remove-ADGroupMember -Identity &quot;CP-Agents&quot; -Members &quot;rlucci&quot; -Confirm:$false
+</code></pre>
+              <h2>Lister les groupes d'un utilisateur</h2>
+              <pre><code class="language-powershell"># Groupes directs d'un utilisateur
+(Get-ADUser -Identity &quot;rlucci&quot; -Properties MemberOf).MemberOf
+
+# Affichage lisible
+Get-ADUser -Identity &quot;rlucci&quot; -Properties MemberOf |
+    Select-Object -ExpandProperty MemberOf |
+    ForEach-Object { (Get-ADGroup $_).Name }
+
+# Tous les groupes (récursifs)
+Get-ADPrincipalGroupMembership -Identity &quot;rlucci&quot; |
+    Select-Object Name, GroupScope, GroupCategory
+</code></pre>
+              <h2>Supprimer un groupe</h2>
+              <pre><code class="language-powershell">Remove-ADGroup -Identity &quot;CP-Agents&quot; -Confirm:$false
+</code></pre>
+              <h2>Exemple : organiser une équipe</h2>
+              <pre><code class="language-powershell"># 1. Créer les groupes
+$groupes = @(&quot;CP-Agents&quot;, &quot;CP-Admins&quot;, &quot;CP-Lecture-Seule&quot;)
+
+foreach ($groupe in $groupes) {
+    New-ADGroup `
+        -Name          $groupe `
+        -SamAccountName $groupe `
+        -GroupScope    &quot;Global&quot; `
+        -GroupCategory &quot;Security&quot; `
+        -Path          &quot;OU=Groupes,DC=cipher-pol,DC=org&quot;
+    Write-Host &quot;Groupe créé : $groupe&quot; -ForegroundColor Green
+}
+
+# 2. Remplir les groupes selon le département
+Get-ADUser -Filter &quot;Department -eq 'CP-9'&quot; |
+    ForEach-Object { Add-ADGroupMember -Identity &quot;CP-Agents&quot; -Members $_ }
+
+Get-ADUser -Filter &quot;Title -eq 'Administrateur'&quot; |
+    ForEach-Object { Add-ADGroupMember -Identity &quot;CP-Admins&quot; -Members $_ }
+</code></pre>
+              <h2>À retenir</h2>
+              <ul>
+                <li>
+                  ✅ Deux dimensions : <code>GroupScope</code> (portée) et
+                  <code>GroupCategory</code> (sécurité ou distribution)
+                </li>
+                <li>✅ <code>Get-ADGroupMember</code> liste les membres d'un groupe</li>
+                <li>✅ <code>Add-ADGroupMember -Members</code> accepte une liste de logins</li>
+                <li>
+                  ✅ <code>Get-ADPrincipalGroupMembership</code> donne tous les groupes d'un
+                  utilisateur
+                </li>
+                <li>✅ <code>-Recursive</code> pour inclure les membres des sous-groupes</li>
+              </ul>
+              <blockquote>
+                <p>
+                  <strong>Lien</strong> -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/module/activedirectory/new-adgroup"
+                    >New-ADGroup</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">Utilisateurs</div>
+                  <div class="mental-node">Groupes globaux</div>
+                  <div class="mental-node">Groupes locaux</div>
+                  <div class="mental-node">Ressource</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="0"
+                data-explanation="Add-ADGroupMember gère l’appartenance au groupe."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Quelle cmdlet ajoute un membre à un groupe AD ?</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">Add-ADGroupMember</button
+                  ><button type="button" class="quiz-option" data-index="1">Join-Path</button
+                  ><button type="button" class="quiz-option" data-index="2">Set-Location</button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a href="../29-utilisateurs-ad/29-utilisateurs-ad-interactif.html"
+              >← Chapitre précédent</a
+            ><a href="../31-recherche-et-rapports/31-recherche-et-rapports-interactif.html"
+              >Chapitre suivant →</a
+            >
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

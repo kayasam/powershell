@@ -1,3 +1,7 @@
+---
+title: "Exercice 10 - L'Analyseur d'Intrusion"
+---
+
 # Exercice 10 - L'Analyseur d'Intrusion 🔐
 
 ## Contexte

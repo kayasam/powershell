@@ -1,3 +1,7 @@
+---
+title: "Exercice 02 - Les Outils de la Marine"
+---
+
 # Exercice 02 - Les Outils de la Marine 🌊
 
 ## Contexte

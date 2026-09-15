@@ -1,4 +1,19 @@
-# Exercice 01 - Installation et vérification 🏋️
+---
+title: "Exercice 01 - L'Équipement de la Recrue"
+---
+
+# Exercice 01 - L'Équipement de la Recrue 🎖️
+
+## Contexte
+
+Avant d'embarquer, toute recrue passe à l'armurerie : on vérifie son équipement,
+on s'assure qu'il est de la bonne génération, et qu'il est autorisé à servir.
+
+Votre équipement, c'est PowerShell. Vérifions qu'il est opérationnel.
+
+> _"Une arme qu'on n'a pas vérifiée est une arme qui trahit."_ — Vice-Amiral Garp
+
+**Durée : 15 min**
 
 ## Objectif
 

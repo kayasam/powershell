@@ -1,3 +1,7 @@
+---
+title: "Exercice 11 - Le Scanner de la Flotte"
+---
+
 # Exercice 11 - Le Scanner de la Flotte 🛸
 
 ## Contexte

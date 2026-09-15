@@ -1,3 +1,7 @@
+---
+title: "Exercice 03 - L'Autopsie du Den Den Mushi"
+---
+
 # Exercice 03 - L'Autopsie du Den Den Mushi 🐌
 
 ## Contexte

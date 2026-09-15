@@ -1,3 +1,7 @@
+---
+title: "Exercice 09 - Le Pipeline des Pirates"
+---
+
 # Exercice 09 - Le Pipeline des Pirates 🏴‍☠️
 
 ## Contexte

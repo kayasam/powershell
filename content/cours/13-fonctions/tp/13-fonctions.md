@@ -1,3 +1,7 @@
+---
+title: "Exercice 13 - La Boite à Outils de Franky"
+---
+
 # Exercice 13 - La Boite à Outils de Franky ⚙️
 
 ## Contexte

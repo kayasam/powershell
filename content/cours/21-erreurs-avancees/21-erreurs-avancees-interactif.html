@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>21. Gestion des erreurs avancée</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="21-erreurs-avancees">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>32 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers, .NET et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-classes-dotnet"
+          href="../14-classes-dotnet/14-classes-dotnet-interactif.html"
+          ><span class="n">14</span><span class="t">Les classes du framework .NET</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-fichiers-et-dossiers"
+          href="../15-fichiers-et-dossiers/15-fichiers-et-dossiers-interactif.html"
+          ><span class="n">15</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-lire-et-ecrire"
+          href="../16-lire-et-ecrire/16-lire-et-ecrire-interactif.html"
+          ><span class="n">16</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-export-import"
+          href="../17-export-import/17-export-import-interactif.html"
+          ><span class="n">17</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-registre-journaux-certificats"
+          href="../18-registre-journaux-certificats/18-registre-journaux-certificats-interactif.html"
+          ><span class="n">18</span><span class="t">Registre, journaux et certificats</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="19-signature-scripts"
+          href="../19-signature-scripts/19-signature-scripts-interactif.html"
+          ><span class="n">19</span><span class="t">Sécurité et signature des scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="20-gestion-des-erreurs"
+          href="../20-gestion-des-erreurs/20-gestion-des-erreurs-interactif.html"
+          ><span class="n">20</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-erreurs-avancees"
+          href="../21-erreurs-avancees/21-erreurs-avancees-interactif.html"
+          ><span class="n">21</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="22-parametres-scripts"
+          href="../22-parametres-scripts/22-parametres-scripts-interactif.html"
+          ><span class="n">22</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-modules"
+          href="../23-modules/23-modules-interactif.html"
+          ><span class="n">23</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="24-rsat-et-gallery"
+          href="../24-rsat-et-gallery/24-rsat-et-gallery-interactif.html"
+          ><span class="n">24</span><span class="t">RSAT et PowerShell Gallery</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="25-profils"
+          href="../25-profils/25-profils-interactif.html"
+          ><span class="n">25</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-regex"
+          href="../26-regex/26-regex-interactif.html"
+          ><span class="n">26</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-planification"
+          href="../27-planification/27-planification-interactif.html"
+          ><span class="n">27</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory et interfaces</div>
+        <a
+          class="course-nav-link"
+          data-chapter="28-introduction-ad"
+          href="../28-introduction-ad/28-introduction-ad-interactif.html"
+          ><span class="n">28</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="29-utilisateurs-ad"
+          href="../29-utilisateurs-ad/29-utilisateurs-ad-interactif.html"
+          ><span class="n">29</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="30-groupes-ad"
+          href="../30-groupes-ad/30-groupes-ad-interactif.html"
+          ><span class="n">30</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="31-recherche-et-rapports"
+          href="../31-recherche-et-rapports/31-recherche-et-rapports-interactif.html"
+          ><span class="n">31</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="32-interfaces-graphiques"
+          href="../32-interfaces-graphiques/32-interfaces-graphiques-interactif.html"
+          ><span class="n">32</span><span class="t">Interfaces graphiques (WinForms)</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 21 · Fichiers, .NET et robustesse</span>
+            <h1>Gestion des erreurs avancée</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>21. Gestion des erreurs avancée</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <p>
+                Au chapitre 20 vous avez appris à <strong>attraper</strong> une erreur avec
+                <code>try/catch</code>. Ici vous apprenez à en <strong>provoquer</strong> une
+                proprement, à choisir <strong>où elle s'affiche</strong>, et à rendre compte du
+                résultat à celui qui appelle votre script.
+              </p>
+              <p>
+                C'est ce qui sépare un script qui marche sur votre poste d'un script qu'on peut
+                mettre en production.
+              </p>
+              <h2>Les deux familles d'erreurs</h2>
+              <p>C'est la distinction fondamentale, et celle qui piège le plus.</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Erreur <strong>non terminante</strong></th>
+                    <th>Erreur <strong>terminante</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Le script continue ?</td>
+                    <td>oui</td>
+                    <td>non</td>
+                  </tr>
+                  <tr>
+                    <td>Produite par</td>
+                    <td><code>Write-Error</code></td>
+                    <td><code>throw</code></td>
+                  </tr>
+                  <tr>
+                    <td>Attrapée par <code>try/catch</code> ?</td>
+                    <td><strong>non</strong></td>
+                    <td>oui</td>
+                  </tr>
+                </tbody>
+              </table>
+              <pre><code class="language-powershell">function Test-NonTerminante {
+    Write-Error &quot;problème signalé&quot;
+    &quot;cette ligne s'exécute quand même&quot;
+}
+
+function Test-Terminante {
+    throw &quot;problème bloquant&quot;
+    &quot;cette ligne n'est JAMAIS atteinte&quot;
+}
+</code></pre>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong>Le piège n°1 de la gestion d'erreurs</strong> Un
+                  <code>try/catch</code> autour d'un <code>Write-Error</code>
+                  <strong>ne déclenche pas</strong> le <code>catch</code> : l'erreur est signalée,
+                  mais le script poursuit son chemin.
+                </p>
+                <p>Pour rendre une erreur non terminante attrapable, il faut le demander :</p>
+                <p>
+                  <code
+                    >powershell try { Write-Error "boum" -ErrorAction Stop } catch { "capturée -&gt;
+                    $($_.Exception.Message)" }</code
+                  >
+                </p>
+                <p>
+                  C'est exactement la raison du <code>-ErrorAction Stop</code> vu au chapitre 20.
+                </p>
+              </blockquote>
+              <h2>throw : lever sa propre erreur</h2>
+              <pre><code class="language-powershell">function Get-Fichier {
+    param([string]$Chemin)
+
+    if (-not (Test-Path $Chemin)) {
+        throw &quot;Le fichier '$Chemin' est introuvable.&quot;
+    }
+
+    Get-Content $Chemin
+}
+</code></pre>
+              <p>
+                <code>throw</code> interrompt immédiatement et remonte à l'appelant. C'est l'outil
+                des <strong>contrôles de validité</strong> en début de fonction.
+              </p>
+              <h3>Lever une erreur typée</h3>
+              <p>
+                On peut préciser la <em>nature</em> de l'erreur, pour que l'appelant puisse la
+                distinguer :
+              </p>
+              <pre><code class="language-powershell">throw [System.IO.FileNotFoundException]::new(&quot;Archive absente&quot;)
+</code></pre>
+              <p>Le <code>catch</code> peut alors filtrer par type :</p>
+              <pre><code class="language-powershell">try {
+    throw [System.IO.FileNotFoundException]::new(&quot;Archive absente&quot;)
+}
+catch [System.IO.FileNotFoundException] {
+    &quot;Fichier manquant : on peut le recréer&quot;
+}
+catch {
+    &quot;Toute autre erreur&quot;
+}
+</code></pre>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ordre des <code>catch</code></strong> Du
+                  <strong>plus précis au plus général</strong> : le <code>catch</code> sans type
+                  doit être le <strong>dernier</strong>. PowerShell est strict là-dessus — ce n'est
+                  même pas un piège à l'exécution, c'est une erreur de syntaxe :
+                </p>
+                <p><code>ParserError: Le bloc catch doit être le dernier bloc catch.</code></p>
+                <p>
+                  Le script refuse de démarrer, ce qui est une bonne nouvelle : l'erreur se voit
+                  tout de suite.
+                </p>
+              </blockquote>
+              <h2>Régler le comportement sans toucher au code</h2>
+              <h3>Par commande : <code>-ErrorAction</code></h3>
+              <pre><code class="language-powershell">Get-Item &quot;absent.txt&quot; -ErrorAction Stop              # devient terminante
+Get-Item &quot;absent.txt&quot; -ErrorAction SilentlyContinue  # silence total
+Get-Item &quot;absent.txt&quot; -ErrorAction Continue          # défaut : affiche et continue
+Get-Item &quot;absent.txt&quot; -ErrorAction Ignore            # ni affichage, ni trace dans $Error
+</code></pre>
+              <h3>Pour tout le script : <code>$ErrorActionPreference</code></h3>
+              <pre><code class="language-powershell">$ErrorActionPreference = 'Stop'
+
+# Désormais toute erreur est terminante, sans avoir à répéter -ErrorAction
+try { Get-Item &quot;absent.txt&quot; } catch { &quot;capturée&quot; }
+</code></pre>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong><code>SilentlyContinue</code> ou <code>Ignore</code> ?</strong>
+                  <code>SilentlyContinue</code> masque l'erreur
+                  <strong>mais la range dans <code>$Error</code></strong> : vous pouvez l'inspecter
+                  après coup. <code>Ignore</code> ne laisse aucune trace. En pratique, préférez
+                  <code>SilentlyContinue</code> : une erreur qu'on ne peut plus retrouver est une
+                  erreur qu'on ne corrigera jamais.
+                </p>
+              </blockquote>
+              <h3>Les mêmes réglages existent pour les autres flux</h3>
+              <p>
+                <code>-WarningAction</code> / <code>$WarningPreference</code>,
+                <code>-InformationAction</code>, <code>-Verbose</code>,
+                <code>-Debug</code> fonctionnent exactement sur le même modèle.
+              </p>
+              <pre><code class="language-powershell">Import-Module MonModule -WarningAction SilentlyContinue
+</code></pre>
+              <h2>Les six flux de sortie</h2>
+              <p>
+                PowerShell ne sort pas tout par le même tuyau. Chaque flux a un
+                <strong>numéro</strong>, et chacun peut être redirigé séparément.
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>N°</th>
+                    <th>Flux</th>
+                    <th>Cmdlet</th>
+                    <th>Visible par défaut</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Success (sortie normale)</td>
+                    <td><code>Write-Output</code></td>
+                    <td>oui</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Error</td>
+                    <td><code>Write-Error</code></td>
+                    <td>oui</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Warning</td>
+                    <td><code>Write-Warning</code></td>
+                    <td>oui</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Verbose</td>
+                    <td><code>Write-Verbose</code></td>
+                    <td>non (<code>-Verbose</code>)</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Debug</td>
+                    <td><code>Write-Debug</code></td>
+                    <td>non (<code>-Debug</code>)</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Information</td>
+                    <td><code>Write-Information</code></td>
+                    <td>non</td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong>Et <code>Write-Host</code> ?</strong> <code>Write-Host</code> écrit
+                  <em>à travers</em> le flux 6 mais va directement à l'écran : son texte n'est ni
+                  capturable dans une variable, ni redirigeable simplement. C'est le piège vu au
+                  chapitre 13 : pour qu'une fonction <strong>retourne</strong> quelque chose,
+                  utilisez <code>Write-Output</code> — gardez <code>Write-Host</code> pour la
+                  décoration.
+                </p>
+              </blockquote>
+              <h3>Rediriger un flux</h3>
+              <pre><code class="language-powershell"># Jeter les erreurs
+Get-Item &quot;absent.txt&quot; 2&gt;$null
+
+# Envoyer les erreurs dans un fichier
+Get-Item &quot;absent.txt&quot; 2&gt;&quot;C:\Logs\erreurs.txt&quot;
+
+# Ajouter au lieu d'écraser
+Get-Item &quot;absent.txt&quot; 2&gt;&gt;&quot;C:\Logs\erreurs.txt&quot;
+
+# Tout (les 6 flux) dans un fichier
+.\MonScript.ps1 *&gt;&quot;C:\Logs\complet.txt&quot;
+</code></pre>
+              <h3><code>2&gt;&amp;1</code> : transformer une erreur en donnée</h3>
+              <p>
+                C'est la redirection la plus utile : elle fait passer le flux d'erreur
+                <strong>dans</strong> le flux de sortie, ce qui rend l'erreur manipulable comme un
+                objet.
+              </p>
+              <pre><code class="language-powershell">$resultat = Get-Item &quot;absent.txt&quot; 2&gt;&amp;1
+
+$resultat.GetType().Name      # ErrorRecord
+$resultat -is [System.Management.Automation.ErrorRecord]   # True
+</code></pre>
+              <p>
+                Usage typique : collecter tous les résultats, succès et échecs mélangés, puis trier.
+              </p>
+              <pre><code class="language-powershell">$tout = foreach ($s in &quot;SRV-01&quot;, &quot;SRV-02&quot;) {
+    Get-CimInstance Win32_OperatingSystem -ComputerName $s 2&gt;&amp;1
+}
+
+$erreurs = $tout | Where-Object { $_ -is [System.Management.Automation.ErrorRecord] }
+$ok      = $tout | Where-Object { $_ -isnot [System.Management.Automation.ErrorRecord] }
+</code></pre>
+              <h2>Rendre compte : les codes de sortie</h2>
+              <p>
+                Un script qui tourne dans une tâche planifiée ou un pipeline CI n'a personne pour
+                lire ses messages. Ce qu'on lit, c'est son <strong>code de sortie</strong> :
+                <code>0</code> = succès, toute autre valeur = problème.
+              </p>
+              <pre><code class="language-powershell"># À la fin de votre script
+if ($erreurs.Count -gt 0) {
+    exit 1
+}
+exit 0
+</code></pre>
+              <p>Côté appelant, on le récupère dans <code>$LASTEXITCODE</code> :</p>
+              <pre><code class="language-powershell">pwsh -NoProfile -File .\MonScript.ps1
+if ($LASTEXITCODE -ne 0) {
+    Write-Warning &quot;Le script a échoué (code $LASTEXITCODE)&quot;
+}
+</code></pre>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Convention de codes</strong> <code>0</code> succès · <code>1</code> erreur
+                  générale · <code>2</code> mauvais paramètres · et au-delà, ce que vous voulez,
+                  <strong>à condition de le documenter</strong> dans l'en-tête du script. Le
+                  chapitre 27 (planification) s'appuie dessus : <code>LastTaskResult</code> d'une
+                  tâche planifiée n'est rien d'autre que ce code.
+                </p>
+              </blockquote>
+              <h3><code>$?</code> : la dernière commande a-t-elle réussi ?</h3>
+              <pre><code class="language-powershell">Get-Item &quot;absent.txt&quot; -ErrorAction SilentlyContinue
+$?      # False
+</code></pre>
+              <p>
+                Pratique pour un test rapide, mais attention : <code>$?</code> est écrasé par
+                <strong>chaque</strong> commande suivante, y compris un simple
+                <code>Write-Host</code>. Pour un vrai contrôle, préférez <code>try/catch</code>.
+              </p>
+              <h2><code>$Error</code> : l'historique des erreurs</h2>
+              <pre><code class="language-powershell">$Error.Count          # nombre d'erreurs depuis le début de la session
+$Error[0]             # la plus récente
+$Error[0].Exception.Message
+$Error.Clear()        # vider l'historique
+</code></pre>
+              <p>
+                <code>$Error</code> est un tampon de session : il s'accumule tant que la console
+                reste ouverte. Très utile en dépannage — « qu'est-ce qui a échoué tout à l'heure ?
+                ».
+              </p>
+              <h2>Déboguer un script</h2>
+              <p>
+                Quand la lecture ne suffit plus, on arrête le script en vol pour regarder les
+                variables.
+              </p>
+              <h3>Points d'arrêt sur une ligne</h3>
+              <pre><code class="language-powershell"># Poser un point d'arrêt ligne 12
+Set-PSBreakpoint -Script .\MonScript.ps1 -Line 12
+
+# Les lister
+Get-PSBreakpoint
+
+# Les enlever
+Get-PSBreakpoint | Remove-PSBreakpoint
+</code></pre>
+              <p>
+                Au déclenchement, l'invite devient <code>[DBG]&gt;</code>. Les commandes utiles :
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Commande</th>
+                    <th>Raccourci</th>
+                    <th>Effet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>stepInto</code></td>
+                    <td><code>s</code></td>
+                    <td>ligne suivante, en entrant dans les fonctions</td>
+                  </tr>
+                  <tr>
+                    <td><code>stepOver</code></td>
+                    <td><code>v</code></td>
+                    <td>ligne suivante, sans entrer</td>
+                  </tr>
+                  <tr>
+                    <td><code>continue</code></td>
+                    <td><code>c</code></td>
+                    <td>reprendre jusqu'au prochain arrêt</td>
+                  </tr>
+                  <tr>
+                    <td><code>quit</code></td>
+                    <td><code>q</code></td>
+                    <td>arrêter le débogage</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>
+                À l'arrêt, la console est normale : tapez <code>$maVariable</code> pour voir son
+                contenu.
+              </p>
+              <h3>Espionner une variable</h3>
+              <p>
+                C'est souvent plus efficace qu'un point d'arrêt sur une ligne : on demande à
+                PowerShell de s'arrêter <strong>quand une variable change</strong>.
+              </p>
+              <pre><code class="language-powershell"># S'arrêter à chaque écriture dans $total
+Set-PSBreakpoint -Script .\MonScript.ps1 -Variable total -Mode Write
+
+# Modes : Read, Write, ReadWrite
+</code></pre>
+              <h3>Points d'arrêt sur une commande</h3>
+              <pre><code class="language-powershell"># S'arrêter avant chaque Remove-Item du script
+Set-PSBreakpoint -Script .\MonScript.ps1 -Command Remove-Item
+</code></pre>
+              <h3>Dans VS Code</h3>
+              <p>
+                L'extension PowerShell permet de cliquer dans la marge pour poser un point d'arrêt,
+                puis <strong>F5</strong> pour lancer, <strong>F10</strong> pas à pas,
+                <strong>F11</strong> pas à pas détaillé. Les variables sont affichées dans le
+                panneau de gauche. C'est la même mécanique, en version graphique.
+              </p>
+              <h3>Le débogage du pauvre : <code>Write-Debug</code></h3>
+              <p>Pas besoin de débogueur pour des vérifications simples :</p>
+              <pre><code class="language-powershell">function Get-Rapport {
+    [CmdletBinding()]
+    param([int]$Seuil)
+
+    Write-Debug &quot;Seuil reçu : $Seuil&quot;
+    Write-Verbose &quot;Démarrage de l'analyse&quot;
+    # ...
+}
+
+Get-Rapport -Seuil 80 -Debug      # affiche les messages de debug
+Get-Rapport -Seuil 80 -Verbose    # affiche les messages verbeux
+</code></pre>
+              <p>
+                L'avantage sur <code>Write-Host</code> : ces messages sont
+                <strong>invisibles par défaut</strong>. On les laisse dans le code sans polluer la
+                sortie normale, et on les rallume à la demande.
+              </p>
+              <h2>Un script robuste, de bout en bout</h2>
+              <pre><code class="language-powershell">[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [string]$Dossier
+)
+
+$ErrorActionPreference = 'Stop'
+$erreurs = 0
+
+try {
+    if (-not (Test-Path $Dossier)) {
+        throw &quot;Le dossier '$Dossier' n'existe pas.&quot;
+    }
+
+    Write-Verbose &quot;Analyse de $Dossier&quot;
+    $fichiers = Get-ChildItem $Dossier -File
+
+    foreach ($f in $fichiers) {
+        try {
+            Write-Debug &quot;Traitement de $($f.Name)&quot;
+            # ... traitement ...
+        }
+        catch {
+            Write-Warning &quot;Échec sur $($f.Name) : $($_.Exception.Message)&quot;
+            $erreurs++
+        }
+    }
+
+    Write-Output &quot;$($fichiers.Count) fichier(s), $erreurs erreur(s)&quot;
+}
+catch {
+    Write-Error &quot;Échec bloquant : $($_.Exception.Message)&quot;
+    exit 2
+}
+finally {
+    Write-Verbose &quot;Fin du traitement&quot;
+}
+
+if ($erreurs -gt 0) { exit 1 }
+exit 0
+</code></pre>
+              <p>Les trois niveaux à remarquer :</p>
+              <ul>
+                <li>
+                  le <code>try</code> <strong>intérieur</strong> isole un fichier en échec sans
+                  faire tomber tout le lot ;
+                </li>
+                <li>
+                  le <code>try</code> <strong>extérieur</strong> attrape ce qui empêche de
+                  continuer, et sort en code 2 ;
+                </li>
+                <li>
+                  le <code>finally</code> s'exécute dans tous les cas — même après un
+                  <code>throw</code>.
+                </li>
+              </ul>
+              <h2>À retenir</h2>
+              <ul>
+                <li>
+                  ✅ <code>Write-Error</code> = non terminante (le script continue),
+                  <code>throw</code> = terminante
+                </li>
+                <li>
+                  ✅ <code>try/catch</code> n'attrape une erreur non terminante
+                  <strong>que</strong> avec <code>-ErrorAction Stop</code>
+                </li>
+                <li>
+                  ✅ <code>$ErrorActionPreference = 'Stop'</code> applique la règle à tout le script
+                </li>
+                <li>
+                  ✅ Six flux numérotés : <code>2</code> erreur, <code>3</code> warning,
+                  <code>4</code> verbose, <code>5</code> debug, <code>6</code> information
+                </li>
+                <li>
+                  ✅ <code>2&gt;$null</code> pour jeter, <code>2&gt;&amp;1</code> pour transformer
+                  l'erreur en objet manipulable
+                </li>
+                <li>
+                  ✅ <code>exit 0</code> / <code>exit 1</code> : c'est ce que lit une tâche
+                  planifiée ou un pipeline CI
+                </li>
+                <li>
+                  ✅ <code>$LASTEXITCODE</code> côté appelant, <code>$Error</code> pour l'historique
+                  de session
+                </li>
+                <li>
+                  ✅ <code>Set-PSBreakpoint -Variable ... -Mode Write</code> pour espionner une
+                  variable
+                </li>
+                <li>
+                  ✅ <code>Write-Verbose</code> / <code>Write-Debug</code> : des traces qu'on
+                  rallume à la demande
+                </li>
+              </ul>
+              <blockquote>
+                <p>
+                  <strong>Liens</strong> -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_preference_variables"
+                    >À propos des préférences</a
+                  >
+                  -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_redirection"
+                    >À propos des redirections</a
+                  >
+                  -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_debuggers"
+                    >À propos du débogueur</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">ErrorRecord</div>
+                  <div class="mental-node">Identifier</div>
+                  <div class="mental-node">Enrichir</div>
+                  <div class="mental-node">Choisir une stratégie</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="0"
+                data-explanation="ErrorRecord contient exception, catégorie et contexte."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Quel objet décrit une erreur en détail ?</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">ErrorRecord</button
+                  ><button type="button" class="quiz-option" data-index="1">DateTime</button
+                  ><button type="button" class="quiz-option" data-index="2">
+                    ProcessStartInfo
+                  </button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a href="../20-gestion-des-erreurs/20-gestion-des-erreurs-interactif.html"
+              >← Chapitre précédent</a
+            ><a href="../22-parametres-scripts/22-parametres-scripts-interactif.html"
+              >Chapitre suivant →</a
+            >
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

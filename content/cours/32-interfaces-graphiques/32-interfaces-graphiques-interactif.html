@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>32. Interfaces graphiques (WinForms)</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="32-interfaces-graphiques">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>32 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers, .NET et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-classes-dotnet"
+          href="../14-classes-dotnet/14-classes-dotnet-interactif.html"
+          ><span class="n">14</span><span class="t">Les classes du framework .NET</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-fichiers-et-dossiers"
+          href="../15-fichiers-et-dossiers/15-fichiers-et-dossiers-interactif.html"
+          ><span class="n">15</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-lire-et-ecrire"
+          href="../16-lire-et-ecrire/16-lire-et-ecrire-interactif.html"
+          ><span class="n">16</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-export-import"
+          href="../17-export-import/17-export-import-interactif.html"
+          ><span class="n">17</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-registre-journaux-certificats"
+          href="../18-registre-journaux-certificats/18-registre-journaux-certificats-interactif.html"
+          ><span class="n">18</span><span class="t">Registre, journaux et certificats</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="19-signature-scripts"
+          href="../19-signature-scripts/19-signature-scripts-interactif.html"
+          ><span class="n">19</span><span class="t">Sécurité et signature des scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="20-gestion-des-erreurs"
+          href="../20-gestion-des-erreurs/20-gestion-des-erreurs-interactif.html"
+          ><span class="n">20</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-erreurs-avancees"
+          href="../21-erreurs-avancees/21-erreurs-avancees-interactif.html"
+          ><span class="n">21</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="22-parametres-scripts"
+          href="../22-parametres-scripts/22-parametres-scripts-interactif.html"
+          ><span class="n">22</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-modules"
+          href="../23-modules/23-modules-interactif.html"
+          ><span class="n">23</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="24-rsat-et-gallery"
+          href="../24-rsat-et-gallery/24-rsat-et-gallery-interactif.html"
+          ><span class="n">24</span><span class="t">RSAT et PowerShell Gallery</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="25-profils"
+          href="../25-profils/25-profils-interactif.html"
+          ><span class="n">25</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-regex"
+          href="../26-regex/26-regex-interactif.html"
+          ><span class="n">26</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-planification"
+          href="../27-planification/27-planification-interactif.html"
+          ><span class="n">27</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory et interfaces</div>
+        <a
+          class="course-nav-link"
+          data-chapter="28-introduction-ad"
+          href="../28-introduction-ad/28-introduction-ad-interactif.html"
+          ><span class="n">28</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="29-utilisateurs-ad"
+          href="../29-utilisateurs-ad/29-utilisateurs-ad-interactif.html"
+          ><span class="n">29</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="30-groupes-ad"
+          href="../30-groupes-ad/30-groupes-ad-interactif.html"
+          ><span class="n">30</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="31-recherche-et-rapports"
+          href="../31-recherche-et-rapports/31-recherche-et-rapports-interactif.html"
+          ><span class="n">31</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="32-interfaces-graphiques"
+          href="../32-interfaces-graphiques/32-interfaces-graphiques-interactif.html"
+          ><span class="n">32</span><span class="t">Interfaces graphiques (WinForms)</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 32 · Active Directory et interfaces</span>
+            <h1>Interfaces graphiques (WinForms)</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>32. Interfaces graphiques (WinForms)</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <p>
+                Jusqu'ici vos scripts s'adressaient à des administrateurs. Parfois, l'utilisateur
+                final n'est pas censé ouvrir une console : un technicien du support, une personne
+                des RH qui crée un compte, un collègue qui lance une procédure.
+              </p>
+              <p>
+                PowerShell peut alors afficher une <strong>fenêtre</strong>, grâce à Windows Forms.
+              </p>
+              <h2>Quand NE PAS faire d'interface</h2>
+              <p>
+                Autant le dire tout de suite — c'est ce qui distingue un bon script d'un gadget.
+              </p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Situation</th>
+                    <th>Interface ?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Script planifié, sans utilisateur</td>
+                    <td><strong>non</strong>, jamais</td>
+                  </tr>
+                  <tr>
+                    <td>Script lancé par un administrateur</td>
+                    <td>non, des paramètres suffisent</td>
+                  </tr>
+                  <tr>
+                    <td>Traitement en lot, pipeline, CI</td>
+                    <td><strong>non</strong>, ça bloquerait</td>
+                  </tr>
+                  <tr>
+                    <td>Utilisateur non technique, saisie ponctuelle</td>
+                    <td>oui</td>
+                  </tr>
+                  <tr>
+                    <td>Formulaire de création de compte au support</td>
+                    <td>oui</td>
+                  </tr>
+                </tbody>
+              </table>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong>Une fenêtre bloque le script</strong> <code>ShowDialog()</code>
+                  <strong>suspend l'exécution</strong> jusqu'à la fermeture de la fenêtre. Dans une
+                  tâche planifiée (chapitre 27), le script reste figé indéfiniment : personne ne
+                  cliquera jamais.
+                </p>
+                <p>
+                  Règle : une interface se lance <strong>toujours</strong> de façon interactive, et
+                  un script destiné à être planifié ne doit en contenir aucune.
+                </p>
+              </blockquote>
+              <h2>Charger les bibliothèques</h2>
+              <p>
+                Windows Forms fait partie de .NET. On l'ajoute à la session avec
+                <code>Add-Type</code> :
+              </p>
+              <pre><code class="language-powershell">Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+</code></pre>
+              <ul>
+                <li><code>System.Windows.Forms</code> : les fenêtres et les contrôles</li>
+                <li><code>System.Drawing</code> : les tailles, positions et couleurs</li>
+              </ul>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong>Windows uniquement</strong> Testé sur <strong>PowerShell 7.6</strong> :
+                  les deux assemblies se chargent sans problème. Mais WinForms reste une technologie
+                  <strong>Windows</strong> : sur Linux ou macOS,
+                  <code>Add-Type -AssemblyName System.Windows.Forms</code> échoue. Vos scripts
+                  graphiques ne sont donc pas multiplateformes, contrairement au reste de PowerShell
+                  7.
+                </p>
+              </blockquote>
+              <h2>La fenêtre</h2>
+              <pre><code class="language-powershell">$form               = New-Object System.Windows.Forms.Form
+$form.Text          = &quot;Création de compte&quot;
+$form.Size          = New-Object System.Drawing.Size(420, 320)
+$form.StartPosition = &quot;CenterScreen&quot;
+$form.FormBorderStyle = &quot;FixedDialog&quot;   # empêche le redimensionnement
+$form.MaximizeBox   = $false
+</code></pre>
+              <p>
+                Propriétés utiles : <code>Text</code> (titre), <code>Size</code>,
+                <code>StartPosition</code>, <code>Topmost</code>, <code>FormBorderStyle</code>,
+                <code>MinimizeBox</code> / <code>MaximizeBox</code>.
+              </p>
+              <h2>Les contrôles</h2>
+              <p>
+                Le principe est toujours le même en trois temps : <strong>créer</strong>,
+                <strong>positionner</strong>, <strong>ajouter au formulaire</strong>.
+              </p>
+              <pre><code class="language-powershell">$label          = New-Object System.Windows.Forms.Label
+$label.Text     = &quot;Nom de l'agent :&quot;
+$label.Location = New-Object System.Drawing.Point(20, 25)
+$label.Size     = New-Object System.Drawing.Size(140, 20)
+$form.Controls.Add($label)
+</code></pre>
+              <p>
+                <code>Location</code> se compte en pixels depuis le
+                <strong>coin supérieur gauche</strong> de la fenêtre.
+              </p>
+              <h3>Les contrôles à connaître</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Contrôle</th>
+                    <th>Usage</th>
+                    <th>Lire la valeur</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Label</code></td>
+                    <td>texte fixe</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td><code>TextBox</code></td>
+                    <td>saisie libre</td>
+                    <td><code>.Text</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>MaskedTextBox</code></td>
+                    <td>saisie masquée (mot de passe)</td>
+                    <td><code>.Text</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>ComboBox</code></td>
+                    <td>liste déroulante</td>
+                    <td><code>.SelectedItem</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>CheckBox</code></td>
+                    <td>case à cocher</td>
+                    <td><code>.Checked</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Button</code></td>
+                    <td>action</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td><code>ListView</code> / <code>DataGridView</code></td>
+                    <td>tableau de résultats</td>
+                    <td><code>.SelectedItems</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>ProgressBar</code></td>
+                    <td>avancement</td>
+                    <td><code>.Value</code></td>
+                  </tr>
+                </tbody>
+              </table>
+              <pre><code class="language-powershell"># Zone de saisie
+$txtNom          = New-Object System.Windows.Forms.TextBox
+$txtNom.Location = New-Object System.Drawing.Point(170, 22)
+$txtNom.Size     = New-Object System.Drawing.Size(210, 20)
+$form.Controls.Add($txtNom)
+
+# Liste déroulante
+$cmbService          = New-Object System.Windows.Forms.ComboBox
+$cmbService.Location = New-Object System.Drawing.Point(170, 62)
+$cmbService.Size     = New-Object System.Drawing.Size(210, 20)
+$cmbService.DropDownStyle = &quot;DropDownList&quot;   # interdit la saisie libre
+$cmbService.Items.AddRange(@(&quot;CP-0&quot;, &quot;CP-9&quot;, &quot;Marine&quot;, &quot;Direction&quot;))
+$form.Controls.Add($cmbService)
+
+# Case à cocher
+$chkActif          = New-Object System.Windows.Forms.CheckBox
+$chkActif.Text     = &quot;Activer le compte&quot;
+$chkActif.Location = New-Object System.Drawing.Point(170, 100)
+$chkActif.Checked  = $true
+$form.Controls.Add($chkActif)
+</code></pre>
+              <h2>Les boutons et les événements</h2>
+              <p>
+                Un bouton seul ne fait rien : il faut lui attacher un <strong>événement</strong>.
+              </p>
+              <pre><code class="language-powershell">$btnOK          = New-Object System.Windows.Forms.Button
+$btnOK.Text     = &quot;Créer&quot;
+$btnOK.Location = New-Object System.Drawing.Point(170, 200)
+$btnOK.Size     = New-Object System.Drawing.Size(100, 30)
+$form.Controls.Add($btnOK)
+
+$btnOK.Add_Click({
+    Write-Host &quot;Bouton cliqué, nom saisi : $($txtNom.Text)&quot;
+})
+</code></pre>
+              <p>
+                Tous les événements suivent ce modèle <code>Add_&lt;Événement&gt;</code> :
+                <code>Add_Click</code>, <code>Add_TextChanged</code>,
+                <code>Add_SelectedIndexChanged</code>, <code>Add_FormClosing</code>…
+              </p>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong>Le piège de la portée dans un événement</strong> Le bloc
+                  <code>{ }</code> passé à <code>Add_Click</code> s'exécute
+                  <strong>plus tard</strong>, quand l'utilisateur clique. Il voit les variables du
+                  script, mais ce qu'il y <strong>écrit</strong> ne remonte pas forcément là où vous
+                  l'attendez.
+                </p>
+                <p>
+                  Deux solutions propres : - faire porter le résultat par le formulaire lui-même
+                  (<code>$form.Tag = ...</code>) ; - ou préférer le mécanisme
+                  <code>DialogResult</code> ci-dessous, qui évite le problème.
+                </p>
+              </blockquote>
+              <h2>Afficher la fenêtre</h2>
+              <p>Deux méthodes, et une seule est raisonnable dans un script :</p>
+              <pre><code class="language-powershell">$form.ShowDialog()   # bloquant : le script attend la fermeture -&gt; à utiliser
+$form.Show()         # non bloquant : le script continue et la fenêtre disparaît
+</code></pre>
+              <h3>Le mécanisme <code>DialogResult</code></h3>
+              <p>
+                C'est la façon canonique de récupérer « OK » ou « Annuler », sans bricoler avec des
+                variables globales.
+              </p>
+              <pre><code class="language-powershell">$btnOK.DialogResult     = [System.Windows.Forms.DialogResult]::OK
+$btnAnnuler.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+
+$form.AcceptButton = $btnOK        # la touche Entrée valide
+$form.CancelButton = $btnAnnuler   # la touche Échap annule
+
+$resultat = $form.ShowDialog()
+
+if ($resultat -eq [System.Windows.Forms.DialogResult]::OK) {
+    $nom     = $txtNom.Text
+    $service = $cmbService.SelectedItem
+    $actif   = $chkActif.Checked
+}
+else {
+    Write-Host &quot;Opération annulée.&quot;
+    return
+}
+</code></pre>
+              <p>
+                Les contrôles restent lisibles <strong>après</strong> la fermeture : c'est là qu'on
+                récupère les valeurs saisies.
+              </p>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Libérez la fenêtre</strong> Une fois les valeurs récupérées, appelez
+                  <code>$form.Dispose()</code>. Sans cela, les ressources graphiques restent
+                  réservées — anecdotique pour un script ponctuel, gênant dans une console qui ouvre
+                  des dizaines de fenêtres.
+                </p>
+              </blockquote>
+              <h2>Les boîtes de dialogue toutes faites</h2>
+              <p>
+                Pour un simple message ou une confirmation, inutile de construire un formulaire :
+              </p>
+              <pre><code class="language-powershell"># Message simple
+[System.Windows.Forms.MessageBox]::Show(&quot;Compte créé.&quot;, &quot;Succès&quot;)
+
+# Confirmation
+$reponse = [System.Windows.Forms.MessageBox]::Show(
+    &quot;Supprimer définitivement ce compte ?&quot;,
+    &quot;Confirmation&quot;,
+    [System.Windows.Forms.MessageBoxButtons]::YesNo,
+    [System.Windows.Forms.MessageBoxIcon]::Warning
+)
+
+if ($reponse -eq [System.Windows.Forms.DialogResult]::Yes) {
+    # ...
+}
+</code></pre>
+              <p>Et pour choisir un fichier ou un dossier :</p>
+              <pre><code class="language-powershell">$dlg = New-Object System.Windows.Forms.OpenFileDialog
+$dlg.Filter = &quot;CSV (*.csv)|*.csv|Tous (*.*)|*.*&quot;
+
+if ($dlg.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
+    $agents = Import-Csv $dlg.FileName
+}
+</code></pre>
+              <h2>Atelier : formulaire de création de compte AD</h2>
+              <p>C'est l'assemblage des chapitres 29 (utilisateurs AD) et 30.</p>
+              <pre><code class="language-powershell">Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+
+# --- La fenêtre ---
+$form                 = New-Object System.Windows.Forms.Form
+$form.Text            = &quot;Cipher Pol - Nouvel agent&quot;
+$form.Size            = New-Object System.Drawing.Size(430, 290)
+$form.StartPosition   = &quot;CenterScreen&quot;
+$form.FormBorderStyle = &quot;FixedDialog&quot;
+$form.MaximizeBox     = $false
+
+# --- Fabrique de libellés, pour éviter la répétition ---
+function New-Libelle {
+    param([string]$Texte, [int]$Y)
+    $l          = New-Object System.Windows.Forms.Label
+    $l.Text     = $Texte
+    $l.Location = New-Object System.Drawing.Point(20, $Y)
+    $l.Size     = New-Object System.Drawing.Size(130, 20)
+    $form.Controls.Add($l)
+}
+
+function New-Saisie {
+    param([int]$Y)
+    $t          = New-Object System.Windows.Forms.TextBox
+    $t.Location = New-Object System.Drawing.Point(160, ($Y - 3))
+    $t.Size     = New-Object System.Drawing.Size(230, 20)
+    $form.Controls.Add($t)
+    return $t
+}
+
+New-Libelle &quot;Prénom :&quot;  25 ; $txtPrenom = New-Saisie 25
+New-Libelle &quot;Nom :&quot;     60 ; $txtNom    = New-Saisie 60
+New-Libelle &quot;Login :&quot;   95 ; $txtLogin  = New-Saisie 95
+
+New-Libelle &quot;Service :&quot; 130
+$cmbService               = New-Object System.Windows.Forms.ComboBox
+$cmbService.Location      = New-Object System.Drawing.Point(160, 127)
+$cmbService.Size          = New-Object System.Drawing.Size(230, 20)
+$cmbService.DropDownStyle = &quot;DropDownList&quot;
+$cmbService.Items.AddRange(@(&quot;CP-0&quot;, &quot;CP-9&quot;, &quot;Marine&quot;))
+$cmbService.SelectedIndex = 0
+$form.Controls.Add($cmbService)
+
+$chkActif          = New-Object System.Windows.Forms.CheckBox
+$chkActif.Text     = &quot;Activer le compte&quot;
+$chkActif.Location = New-Object System.Drawing.Point(160, 160)
+$chkActif.Size     = New-Object System.Drawing.Size(230, 20)
+$chkActif.Checked  = $true
+$form.Controls.Add($chkActif)
+
+# --- Boutons ---
+$btnOK              = New-Object System.Windows.Forms.Button
+$btnOK.Text         = &quot;Créer&quot;
+$btnOK.Location     = New-Object System.Drawing.Point(160, 200)
+$btnOK.Size         = New-Object System.Drawing.Size(100, 30)
+$btnOK.DialogResult = [System.Windows.Forms.DialogResult]::OK
+$form.Controls.Add($btnOK)
+
+$btnAnnuler              = New-Object System.Windows.Forms.Button
+$btnAnnuler.Text         = &quot;Annuler&quot;
+$btnAnnuler.Location     = New-Object System.Drawing.Point(290, 200)
+$btnAnnuler.Size         = New-Object System.Drawing.Size(100, 30)
+$btnAnnuler.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+$form.Controls.Add($btnAnnuler)
+
+$form.AcceptButton = $btnOK
+$form.CancelButton = $btnAnnuler
+
+# --- Affichage et récupération ---
+$resultat = $form.ShowDialog()
+
+if ($resultat -ne [System.Windows.Forms.DialogResult]::OK) {
+    Write-Host &quot;Création annulée.&quot;
+    $form.Dispose()
+    return
+}
+
+$prenom  = $txtPrenom.Text.Trim()
+$nom     = $txtNom.Text.Trim()
+$login   = $txtLogin.Text.Trim()
+$service = $cmbService.SelectedItem
+$actif   = $chkActif.Checked
+$form.Dispose()
+
+# --- Validation AVANT d'écrire dans l'annuaire ---
+if (-not $prenom -or -not $nom -or -not $login) {
+    [System.Windows.Forms.MessageBox]::Show(&quot;Tous les champs sont obligatoires.&quot;, &quot;Erreur&quot;)
+    return
+}
+
+# --- Création effective (chapitre 29) ---
+try {
+    New-ADUser -Name &quot;$prenom $nom&quot; -GivenName $prenom -Surname $nom `
+               -SamAccountName $login -UserPrincipalName &quot;$login@cipher-pol.org&quot; `
+               -Department $service -Enabled $actif `
+               -AccountPassword (Read-Host &quot;Mot de passe&quot; -AsSecureString) `
+               -ErrorAction Stop
+
+    [System.Windows.Forms.MessageBox]::Show(&quot;Compte $login créé.&quot;, &quot;Succès&quot;)
+}
+catch {
+    [System.Windows.Forms.MessageBox]::Show(&quot;Échec : $($_.Exception.Message)&quot;, &quot;Erreur&quot;)
+}
+</code></pre>
+              <p>
+                Remarquez la structure :
+                <strong>on saisit, on ferme, on valide, puis on agit</strong>. L'appel à
+                <code>New-ADUser</code> n'est pas dans un <code>Add_Click</code> — le code reste
+                linéaire et lisible, et la gestion d'erreurs du chapitre 21 s'applique normalement.
+              </p>
+              <h2>Et WPF ?</h2>
+              <p>
+                WinForms est la voie la plus simple et suffit largement pour des formulaires
+                d'administration. <strong>WPF</strong> (<code>PresentationFramework</code>) permet
+                des interfaces plus modernes, décrites en XAML, mais demande nettement plus de code
+                pour démarrer.
+              </p>
+              <pre><code class="language-powershell">Add-Type -AssemblyName PresentationFramework
+</code></pre>
+              <p>Pour un script d'admin : restez sur WinForms.</p>
+              <h2>À retenir</h2>
+              <ul>
+                <li>
+                  ✅ <code>Add-Type -AssemblyName System.Windows.Forms</code> et
+                  <code>System.Drawing</code> d'abord
+                </li>
+                <li>
+                  ✅ Trois temps par contrôle : créer, positionner (<code>Location</code>),
+                  <code>Controls.Add()</code>
+                </li>
+                <li>
+                  ✅ Les événements s'attachent avec <code>Add_Click { }</code>,
+                  <code>Add_TextChanged { }</code>…
+                </li>
+                <li>
+                  ✅ <code>ShowDialog()</code> <strong>bloque</strong> — jamais dans un script
+                  planifié
+                </li>
+                <li>
+                  ✅ <code>DialogResult</code> + <code>AcceptButton</code> /
+                  <code>CancelButton</code> : la façon propre de valider
+                </li>
+                <li>
+                  ✅ On lit les valeurs <strong>après</strong> la fermeture, puis on appelle
+                  <code>Dispose()</code>
+                </li>
+                <li>
+                  ✅ <code>MessageBox::Show</code> et <code>OpenFileDialog</code> pour les cas
+                  simples
+                </li>
+                <li>✅ WinForms est <strong>Windows uniquement</strong>, même en PowerShell 7</li>
+              </ul>
+              <blockquote>
+                <p>
+                  <strong>Liens</strong> -
+                  <a href="https://learn.microsoft.com/fr-fr/dotnet/desktop/winforms/"
+                    >Windows Forms</a
+                  >
+                  -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.utility/add-type"
+                    >Add-Type</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">Besoin utilisateur</div>
+                  <div class="mental-node">Add-Type</div>
+                  <div class="mental-node">Contrôles</div>
+                  <div class="mental-node">ShowDialog</div>
+                  <div class="mental-node">Action du script</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="1"
+                data-explanation="ShowDialog() suspend le script : sans personne pour cliquer, la tâche reste figée."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Pourquoi ne jamais mettre d’interface dans un script planifié ?</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">
+                    Elle consomme trop de RAM</button
+                  ><button type="button" class="quiz-option" data-index="1">
+                    ShowDialog bloque en attendant un clic</button
+                  ><button type="button" class="quiz-option" data-index="2">
+                    WinForms est payant
+                  </button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a href="../31-recherche-et-rapports/31-recherche-et-rapports-interactif.html"
+              >← Chapitre précédent</a
+            ><a href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu final →</a>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

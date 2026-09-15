@@ -1,3 +1,7 @@
+---
+title: "Exercice 08 - Le Rapport pour l'Amiral"
+---
+
 # Exercice 08 - Le Rapport pour l'Amiral 📊
 
 ## Contexte

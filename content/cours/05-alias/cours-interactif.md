@@ -6,8 +6,8 @@ title: "Cours interactif"
 
 <div class="ps-interactive-launch">
   <strong>Version interactive du chapitre</strong>
-  <span>Schéma mental, défi rapide, progression et commandes à copier.</span>
-  <a href="https://kayasam.github.io/powershell/cours/05-alias/05-alias-interactif.html">Ouvrir en plein écran →</a>
+  <span>SchÃ©ma mental, dÃ©fi rapide, progression et commandes Ã  copier.</span>
+  <a href="https://kayasam.github.io/powershell/cours/05-alias/05-alias-interactif.html">Ouvrir en plein Ã©cran â†’</a>
 </div>
 
 <iframe class="ps-course-frame" src="https://kayasam.github.io/powershell/cours/05-alias/05-alias-interactif.html" title="Cours PowerShell interactif" loading="eager"></iframe>

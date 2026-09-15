@@ -164,3 +164,5 @@ Start-Sleep -Seconds 5
 
 Dernier jour : **Active Directory**.
 Vous apprendrez à gérer les utilisateurs, groupes et permissions directement depuis PowerShell.
+
+**La solution complète est dans :** `solutions/04-module-cipher-pol/`

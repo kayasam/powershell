@@ -233,3 +233,9 @@ while ($true) {
 ✅ Créer des indicateurs visuels avec des couleurs
 ✅ Calculer des scores à partir de conditions
 ✅ Récupérer des métriques système réelles
+
+## La solution complète
+
+**Fichier** : `solutions/02-dashboard-alertes.ps1`
+
+Ne regardez la solution que si vous êtes vraiment bloqué(e) !

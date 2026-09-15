@@ -151,4 +151,11 @@ Au moment de la synthèse, si plus de 50% des services sont arrêtés, loguez un
 
 ## Pour la suite — Jour 4
 
-Vous apprendrez à interroger **Active Directory** et à gérer les **utilisateurs et groupes** directement depuis PowerShell.
+Vos trois scripts fonctionnent, mais ils se répètent : les mêmes fonctions
+(`Write-Log`, `Write-Section`…) sont recopiées dans chacun.
+
+Demain vous apprendrez à **industrialiser** : paramètres validés, regroupement en
+**module** réutilisable, installation d'outils depuis la **PowerShell Gallery**,
+et **planification** automatique de l'exécution.
+
+**La solution complète est dans :** `solutions/03-archives-cipher-pol.ps1`

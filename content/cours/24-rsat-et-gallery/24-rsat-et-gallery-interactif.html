@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>24. RSAT et PowerShell Gallery</title>
+    <link rel="stylesheet" href="../interactif-assets/styles.css" />
+    <script src="../interactif-assets/app.js" defer></script>
+  </head>
+  <body class="" data-chapter="24-rsat-et-gallery">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html"
+        ><span class="brand-mark">&gt;_</span
+        ><span
+          ><strong>PowerShell interactif</strong><small>32 escales pour progresser</small></span
+        ></a
+      >
+      <div class="header-actions">
+        <a class="header-link" href="../tp-fil-rouge/jeu-fil-rouge.html">Mini-jeu</a
+        ><button class="icon-button" data-menu aria-label="Ouvrir le sommaire">☰</button>
+      </div>
+    </header>
+    <div class="course-layout">
+      <aside class="course-sidebar">
+        <a class="back" href="../index.html">← Carte du cours</a
+        ><input
+          class="course-search"
+          data-nav-search
+          type="search"
+          placeholder="Chercher un chapitre"
+        />
+        <div class="nav-group">Fondations PowerShell</div>
+        <a
+          class="course-nav-link"
+          data-chapter="01-installation-et-environnement"
+          href="../01-installation-et-environnement/01-installation-et-environnement-interactif.html"
+          ><span class="n">01</span><span class="t">Installation et environnement</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="02-cmdlets"
+          href="../02-cmdlets/02-cmdlets-interactif.html"
+          ><span class="n">02</span><span class="t">Cmdlets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="03-objets"
+          href="../03-objets/03-objets-interactif.html"
+          ><span class="n">03</span><span class="t">Objets</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="04-completion"
+          href="../04-completion/04-completion-interactif.html"
+          ><span class="n">04</span><span class="t">Complétion</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="05-alias"
+          href="../05-alias/05-alias-interactif.html"
+          ><span class="n">05</span><span class="t">Alias</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="06-historique"
+          href="../06-historique/06-historique-interactif.html"
+          ><span class="n">06</span><span class="t">Historique</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="07-variables"
+          href="../07-variables/07-variables-interactif.html"
+          ><span class="n">07</span><span class="t">Variables</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="08-formatage"
+          href="../08-formatage/08-formatage-interactif.html"
+          ><span class="n">08</span><span class="t">Formatage</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Pipeline et logique</div>
+        <a
+          class="course-nav-link"
+          data-chapter="09-pipeline"
+          href="../09-pipeline/09-pipeline-interactif.html"
+          ><span class="n">09</span><span class="t">Pipeline</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="10-conditions"
+          href="../10-conditions/10-conditions-interactif.html"
+          ><span class="n">10</span><span class="t">Conditions</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="11-boucles"
+          href="../11-boucles/11-boucles-interactif.html"
+          ><span class="n">11</span><span class="t">Boucles</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="12-wmi-et-cim"
+          href="../12-wmi-et-cim/12-wmi-et-cim-interactif.html"
+          ><span class="n">12</span><span class="t">WMI et CIM</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="13-fonctions"
+          href="../13-fonctions/13-fonctions-interactif.html"
+          ><span class="n">13</span><span class="t">Fonctions</span><span class="ok"></span
+        ></a>
+        <div class="nav-group">Fichiers, .NET et robustesse</div>
+        <a
+          class="course-nav-link"
+          data-chapter="14-classes-dotnet"
+          href="../14-classes-dotnet/14-classes-dotnet-interactif.html"
+          ><span class="n">14</span><span class="t">Les classes du framework .NET</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="15-fichiers-et-dossiers"
+          href="../15-fichiers-et-dossiers/15-fichiers-et-dossiers-interactif.html"
+          ><span class="n">15</span><span class="t">Fichiers et dossiers</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="16-lire-et-ecrire"
+          href="../16-lire-et-ecrire/16-lire-et-ecrire-interactif.html"
+          ><span class="n">16</span><span class="t">Lire et écrire</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="17-export-import"
+          href="../17-export-import/17-export-import-interactif.html"
+          ><span class="n">17</span><span class="t">Export et Import</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="18-registre-journaux-certificats"
+          href="../18-registre-journaux-certificats/18-registre-journaux-certificats-interactif.html"
+          ><span class="n">18</span><span class="t">Registre, journaux et certificats</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="19-signature-scripts"
+          href="../19-signature-scripts/19-signature-scripts-interactif.html"
+          ><span class="n">19</span><span class="t">Sécurité et signature des scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="20-gestion-des-erreurs"
+          href="../20-gestion-des-erreurs/20-gestion-des-erreurs-interactif.html"
+          ><span class="n">20</span><span class="t">Gestion des erreurs</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="21-erreurs-avancees"
+          href="../21-erreurs-avancees/21-erreurs-avancees-interactif.html"
+          ><span class="n">21</span><span class="t">Gestion des erreurs avancée</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Scripts et automatisation</div>
+        <a
+          class="course-nav-link"
+          data-chapter="22-parametres-scripts"
+          href="../22-parametres-scripts/22-parametres-scripts-interactif.html"
+          ><span class="n">22</span><span class="t">Paramètres de scripts</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="23-modules"
+          href="../23-modules/23-modules-interactif.html"
+          ><span class="n">23</span><span class="t">Modules</span><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="24-rsat-et-gallery"
+          href="../24-rsat-et-gallery/24-rsat-et-gallery-interactif.html"
+          ><span class="n">24</span><span class="t">RSAT et PowerShell Gallery</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="25-profils"
+          href="../25-profils/25-profils-interactif.html"
+          ><span class="n">25</span><span class="t">Les profils PowerShell</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="26-regex"
+          href="../26-regex/26-regex-interactif.html"
+          ><span class="n">26</span><span class="t">Expressions régulières (Regex)</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="27-planification"
+          href="../27-planification/27-planification-interactif.html"
+          ><span class="n">27</span><span class="t">Planification des tâches</span
+          ><span class="ok"></span
+        ></a>
+        <div class="nav-group">Active Directory et interfaces</div>
+        <a
+          class="course-nav-link"
+          data-chapter="28-introduction-ad"
+          href="../28-introduction-ad/28-introduction-ad-interactif.html"
+          ><span class="n">28</span><span class="t">Introduction à Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="29-utilisateurs-ad"
+          href="../29-utilisateurs-ad/29-utilisateurs-ad-interactif.html"
+          ><span class="n">29</span><span class="t">Utilisateurs Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="30-groupes-ad"
+          href="../30-groupes-ad/30-groupes-ad-interactif.html"
+          ><span class="n">30</span><span class="t">Groupes Active Directory</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="31-recherche-et-rapports"
+          href="../31-recherche-et-rapports/31-recherche-et-rapports-interactif.html"
+          ><span class="n">31</span><span class="t">Recherche et rapports AD</span
+          ><span class="ok"></span></a
+        ><a
+          class="course-nav-link"
+          data-chapter="32-interfaces-graphiques"
+          href="../32-interfaces-graphiques/32-interfaces-graphiques-interactif.html"
+          ><span class="n">32</span><span class="t">Interfaces graphiques (WinForms)</span
+          ><span class="ok"></span
+        ></a>
+      </aside>
+      <main id="contenu" class="course-main">
+        <div class="course-wrap">
+          <header class="course-head">
+            <span class="eyebrow">Chapitre 24 · Scripts et automatisation</span>
+            <h1>RSAT et PowerShell Gallery</h1>
+            <div class="course-head-actions">
+              <button class="complete-button" data-complete aria-pressed="false">
+                Marquer comme terminé</button
+              ><a class="button" href="tp/index.md">Faire les exercices</a>
+            </div>
+          </header>
+          <div class="lesson-grid">
+            <article class="lesson">
+              <h1>24. RSAT et PowerShell Gallery</h1>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Ressources du chapitre</strong> -
+                  <a href="tp/index.md">Exercices pratiques</a> -
+                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                </p>
+              </blockquote>
+              <p>
+                Au chapitre 23 vous avez appris à <strong>écrire</strong> un module. Ici, vous
+                apprenez à <strong>consommer</strong> ceux des autres : les outils d'administration
+                livrés par Microsoft (RSAT) et les milliers de modules publiés sur la PowerShell
+                Gallery.
+              </p>
+              <p>C'est le passage de « je code mes outils » à « je monte mon poste d'admin ».</p>
+              <h2>RSAT : les outils d'administration à distance</h2>
+              <p>
+                <strong>RSAT</strong> (<em>Remote Server Administration Tools</em>) installe sur
+                votre <strong>poste client</strong> les modules qui servent à piloter un serveur :
+                Active Directory, DNS, DHCP, GPO…
+              </p>
+              <h3>Installer RSAT sur Windows 10/11</h3>
+              <pre><code class="language-powershell"># Voir ce qui est disponible (droits administrateur requis)
+Get-WindowsCapability -Online -Name &quot;Rsat*&quot;
+
+# Installer un outil précis
+Add-WindowsCapability -Online -Name &quot;Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0&quot;
+Add-WindowsCapability -Online -Name &quot;Rsat.DNS.Tools~~~~0.0.1.0&quot;
+Add-WindowsCapability -Online -Name &quot;Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0&quot;
+
+# Vérifier
+Get-Module -ListAvailable ActiveDirectory, DnsServer, GroupPolicy
+</code></pre>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong>Élévation obligatoire</strong>
+                  <code>Get-WindowsCapability -Online</code> et
+                  <code>Get-WindowsOptionalFeature -Online</code> échouent sans droits
+                  administrateur :
+                </p>
+                <p><code>L'opération demandée nécessite une élévation.</code></p>
+                <p>
+                  Ouvrez PowerShell <strong>en tant qu'administrateur</strong> pour toute la partie
+                  RSAT.
+                </p>
+              </blockquote>
+              <h3>Le Gestionnaire de serveur : <code>Get-WindowsFeature</code></h3>
+              <p>
+                Sur un <strong>Windows Server</strong>, le module <code>ServerManager</code> pilote
+                les rôles et fonctionnalités.
+              </p>
+              <pre><code class="language-powershell"># Lister les rôles et leur état
+Get-WindowsFeature | Where-Object InstallState -eq Installed
+
+# Chercher un rôle
+Get-WindowsFeature -Name *DNS*
+
+# Installer un rôle, avec ses outils d'administration
+Install-WindowsFeature -Name DNS -IncludeManagementTools
+
+# Installer à distance
+Install-WindowsFeature -Name Web-Server -ComputerName &quot;SRV-02&quot; -IncludeManagementTools
+
+# Désinstaller
+Uninstall-WindowsFeature -Name Web-Server
+</code></pre>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong>Ces cmdlets ne fonctionnent PAS sur un poste client</strong> C'est le
+                  piège le plus déroutant du chapitre. Sur Windows 10/11, RSAT installe bien le
+                  module <code>ServerManager</code> — donc
+                  <code>Get-Command Get-WindowsFeature</code> <strong>trouve la commande</strong>.
+                  Mais à l'exécution :
+                </p>
+                <p>
+                  <code
+                    >La cible de l'applet de commande spécifiée ne peut pas être un système
+                    d'exploitation basé sur un client Windows.</code
+                  >
+                </p>
+                <p>
+                  Vérifié sur un Windows 11 avec RSAT installé. La commande existe, elle refuse
+                  simplement de s'exécuter ailleurs que sur un Server.
+                </p>
+                <p><strong>Sur un poste client</strong>, les équivalents sont :</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Besoin</th>
+                      <th>Sur Server</th>
+                      <th>Sur client</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Rôles et fonctionnalités</td>
+                      <td><code>Get-WindowsFeature</code></td>
+                      <td><code>Get-WindowsOptionalFeature -Online</code></td>
+                    </tr>
+                    <tr>
+                      <td>Outils RSAT</td>
+                      <td>—</td>
+                      <td><code>Get-WindowsCapability -Online -Name Rsat*</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </blockquote>
+              <h3>Fonctionnalités Windows côté client</h3>
+              <pre><code class="language-powershell"># Lister les fonctionnalités activées
+Get-WindowsOptionalFeature -Online | Where-Object State -eq Enabled
+
+# Activer Hyper-V, WSL, le client Telnet…
+Enable-WindowsOptionalFeature -Online -FeatureName &quot;Microsoft-Windows-Subsystem-Linux&quot;
+Disable-WindowsOptionalFeature -Online -FeatureName &quot;TelnetClient&quot;
+</code></pre>
+              <h2>La PowerShell Gallery</h2>
+              <p>
+                C'est le dépôt public de Microsoft : des milliers de modules publiés par la
+                communauté et par des éditeurs.
+              </p>
+              <h3>Chercher avant d'installer</h3>
+              <pre><code class="language-powershell"># Par nom
+Find-Module -Name ImportExcel
+
+# Par mot-clé
+Find-Module -Tag Excel
+Find-Module -Filter &quot;Active Directory&quot;
+
+# Voir les détails, dont la date de publication
+Find-Module -Name PSWindowsUpdate | Format-List Name, Version, Author, PublishedDate, ProjectUri
+</code></pre>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Toujours regarder la date de publication</strong>
+                  Un module abandonné depuis huit ans est un risque, pas une solution.
+                  <code>PublishedDate</code> et <code>ProjectUri</code> (le dépôt GitHub) vous
+                  disent si le projet vit encore.
+                </p>
+              </blockquote>
+              <h3>Installer</h3>
+              <pre><code class="language-powershell"># Pour vous seul : ne demande pas les droits admin
+Install-Module -Name ImportExcel -Scope CurrentUser
+
+# Pour toute la machine : administrateur requis
+Install-Module -Name ImportExcel -Scope AllUsers
+
+# Mettre à jour / désinstaller
+Update-Module  -Name ImportExcel
+Uninstall-Module -Name ImportExcel
+
+# Télécharger sans installer (poste hors ligne)
+Save-Module -Name ImportExcel -Path &quot;D:\Modules&quot;
+</code></pre>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong
+                    >Pourquoi une confirmation au premier <code>Install-Module</code> ?</strong
+                  >
+                  Le dépôt PSGallery est marqué <strong>Untrusted</strong> par défaut :
+                </p>
+                <p>```powershell Get-PSRepository</p>
+                <h1>Name InstallationPolicy SourceLocation</h1>
+                <h1>PSGallery Untrusted https://www.powershellgallery.com/api/v2</h1>
+                <p>```</p>
+                <p>
+                  D'où l'avertissement « dépôt non approuvé ». Sur un poste de travail personnel on
+                  peut le passer en <code>Trusted</code> :
+                </p>
+                <p>
+                  <code
+                    >powershell Set-PSRepository -Name PSGallery -InstallationPolicy Trusted</code
+                  >
+                </p>
+                <p>
+                  En entreprise, on fait l'inverse : on héberge un
+                  <strong>dépôt interne</strong> validé, et on retire PSGallery.
+                </p>
+              </blockquote>
+              <h3>Deux gestionnaires cohabitent</h3>
+              <pre><code class="language-powershell">Get-Command Install-Module, Install-PSResource | Select-Object Name, Source, Version
+</code></pre>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ancien (PowerShellGet)</th>
+                    <th>Moderne (PSResourceGet)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Find-Module</code></td>
+                    <td><code>Find-PSResource</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Install-Module</code></td>
+                    <td><code>Install-PSResource</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>Update-Module</code></td>
+                    <td><code>Update-PSResource</code></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>
+                <code>Microsoft.PowerShell.PSResourceGet</code> est le remplaçant, livré avec
+                PowerShell 7 : plus rapide et mieux conçu. Les deux fonctionnent — les exemples de
+                ce cours utilisent les anciennes cmdlets, encore majoritaires dans la documentation
+                existante.
+              </p>
+              <h2>Atelier : les modules à connaître</h2>
+              <p>Voici l'état <strong>réel</strong> de ces modules, relevé sur la Gallery :</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Module</th>
+                    <th>Version</th>
+                    <th>Dernière publication</th>
+                    <th>Verdict</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Carbon</code></td>
+                    <td>2.16.0</td>
+                    <td>2026-08</td>
+                    <td>maintenu</td>
+                  </tr>
+                  <tr>
+                    <td><code>PSWindowsUpdate</code></td>
+                    <td>2.2.1.5</td>
+                    <td>2024-07</td>
+                    <td>maintenu</td>
+                  </tr>
+                  <tr>
+                    <td><code>ImportExcel</code></td>
+                    <td>7.8.10</td>
+                    <td>2024-10</td>
+                    <td>maintenu</td>
+                  </tr>
+                  <tr>
+                    <td><code>NTFSSecurity</code></td>
+                    <td>4.2.6</td>
+                    <td>2019-07</td>
+                    <td><strong>abandonné</strong></td>
+                  </tr>
+                  <tr>
+                    <td><code>PSExcel</code></td>
+                    <td>1.0.2</td>
+                    <td>2016-08</td>
+                    <td><strong>abandonné</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>PSWindowsUpdate — les mises à jour</h3>
+              <pre><code class="language-powershell">Install-Module PSWindowsUpdate -Scope CurrentUser
+
+Get-WindowsUpdate                              # ce qui est disponible
+Install-WindowsUpdate -AcceptAll -AutoReboot   # tout installer
+Get-WUHistory                                  # historique
+</code></pre>
+              <h3>ImportExcel — Excel sans Excel</h3>
+              <p>
+                Le remplaçant moderne de <code>PSExcel</code>. Il ne nécessite
+                <strong>pas</strong> Office installé.
+              </p>
+              <pre><code class="language-powershell">Install-Module ImportExcel -Scope CurrentUser
+
+Get-Process | Select-Object Name, Id, WorkingSet |
+    Export-Excel &quot;C:\Temp\processus.xlsx&quot; -AutoSize -TableName &quot;Processus&quot;
+
+$donnees = Import-Excel &quot;C:\Temp\processus.xlsx&quot;
+</code></pre>
+              <blockquote class="callout callout-warning">
+                <p>
+                  <strong><code>PSExcel</code> est obsolète</strong> Le programme de formation
+                  mentionne <code>PSExcel</code>, mais sa dernière publication date de
+                  <strong>2016</strong>. Utilisez <code>ImportExcel</code>, activement maintenu et
+                  bien plus riche.
+                </p>
+              </blockquote>
+              <h3>NTFSSecurity — les permissions</h3>
+              <pre><code class="language-powershell">Get-NTFSAccess &quot;C:\Partage&quot;
+Add-NTFSAccess -Path &quot;C:\Partage&quot; -Account &quot;DOMAINE\CP-Agents&quot; -AccessRights Modify
+</code></pre>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong>Module figé depuis 2019</strong> <code>NTFSSecurity</code> reste très
+                  pratique, mais n'évolue plus. L'alternative native existe et ne dépend de personne
+                  :
+                </p>
+                <p>
+                  <code
+                    >powershell $acl = Get-Acl "C:\Partage" $regle = New-Object
+                    System.Security.AccessControl.FileSystemAccessRule( "DOMAINE\CP-Agents",
+                    "Modify", "ContainerInherit,ObjectInherit", "None", "Allow")
+                    $acl.SetAccessRule($regle) Set-Acl "C:\Partage" $acl</code
+                  >
+                </p>
+                <p>Plus verbeux, mais garanti dans le temps.</p>
+              </blockquote>
+              <h3>Carbon — configuration système</h3>
+              <p>
+                Boîte à outils pour l'automatisation de configuration : permissions, services, IIS,
+                tâches planifiées, registre.
+              </p>
+              <pre><code class="language-powershell">Install-Module Carbon -Scope CurrentUser
+Get-Command -Module Carbon | Measure-Object
+</code></pre>
+              <h2>À retenir</h2>
+              <ul>
+                <li>
+                  ✅ <strong>RSAT</strong> installe sur un poste client les outils de gestion des
+                  serveurs
+                </li>
+                <li>
+                  ✅ <code>Get-WindowsCapability -Online -Name Rsat*</code> +
+                  <code>Add-WindowsCapability</code>, <strong>en admin</strong>
+                </li>
+                <li>
+                  ✅ <code>Get-WindowsFeature</code> / <code>Install-WindowsFeature</code> :
+                  <strong>Windows Server uniquement</strong>
+                </li>
+                <li>
+                  ✅ Côté client, l'équivalent est <code>Get-WindowsOptionalFeature -Online</code>
+                </li>
+                <li>
+                  ✅ <code>Find-Module</code> <strong>avant</strong> <code>Install-Module</code> —
+                  vérifiez <code>PublishedDate</code>
+                </li>
+                <li>
+                  ✅ <code>-Scope CurrentUser</code> évite d'avoir besoin des droits administrateur
+                </li>
+                <li>
+                  ✅ PSGallery est <code>Untrusted</code> par défaut : d'où la demande de
+                  confirmation
+                </li>
+                <li>
+                  ✅ <code>Install-PSResource</code> remplace progressivement
+                  <code>Install-Module</code>
+                </li>
+                <li>
+                  ✅ Préférez <code>ImportExcel</code> à <code>PSExcel</code>, et
+                  <code>Get-Acl</code>/<code>Set-Acl</code> à <code>NTFSSecurity</code>
+                </li>
+              </ul>
+              <blockquote>
+                <p>
+                  <strong>Liens</strong> -
+                  <a href="https://www.powershellgallery.com/">PowerShell Gallery</a> -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/troubleshoot/windows-server/system-management-components/remote-server-administration-tools"
+                    >Installer RSAT</a
+                  >
+                  -
+                  <a
+                    href="https://learn.microsoft.com/fr-fr/powershell/gallery/powershellget/overview"
+                    >PSResourceGet</a
+                  >
+                </p>
+              </blockquote>
+            </article>
+            <aside class="learning-tools">
+              <section class="tool-card">
+                <span class="eyebrow">Schéma mental</span>
+                <h2>Le chemin de l’idée</h2>
+                <div class="mental-map">
+                  <div class="mental-node">Besoin d&#x27;outil</div>
+                  <div class="mental-node">Find-Module</div>
+                  <div class="mental-node">Vérifier la date</div>
+                  <div class="mental-node">Install-Module</div>
+                </div>
+              </section>
+              <section
+                class="tool-card quiz-card"
+                data-answer="1"
+                data-explanation="Un module abandonné depuis des années ne recevra aucun correctif."
+              >
+                <span class="eyebrow">Défi minute</span>
+                <h2>Que vérifier avant d&#x27;installer un module de la Gallery ?</h2>
+                <div class="quiz-options">
+                  <button type="button" class="quiz-option" data-index="0">Sa taille</button
+                  ><button type="button" class="quiz-option" data-index="1">
+                    Sa date de publication</button
+                  ><button type="button" class="quiz-option" data-index="2">
+                    Sa couleur d&#x27;icône
+                  </button>
+                </div>
+                <button class="quiz-check" type="button">Vérifier</button>
+                <p class="quiz-feedback" aria-live="polite"></p>
+              </section>
+            </aside>
+          </div>
+          <nav class="course-pager">
+            <a href="../23-modules/23-modules-interactif.html">← Chapitre précédent</a
+            ><a href="../25-profils/25-profils-interactif.html">Chapitre suivant →</a>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

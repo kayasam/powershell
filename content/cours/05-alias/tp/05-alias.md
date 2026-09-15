@@ -1,3 +1,7 @@
+---
+title: "Exercice 05 - Les Noms de Code de la Marine"
+---
+
 # Exercice 05 - Les Noms de Code de la Marine 🏷️
 
 ## Contexte
