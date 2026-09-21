@@ -67,3 +67,9 @@ $fichier.N<Tab>  # Complète Name, etc.
 > **Lien**
 >
 > - [À propos de la complétion Tab](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_tab_expansion)
+
+---
+
+## Fiche récapitulative
+
+![04_Completion](https://kayasam.github.io/powershell/ressources/images/04_Completion.png)

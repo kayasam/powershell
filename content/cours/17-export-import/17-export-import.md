@@ -136,3 +136,9 @@ Write-Host "Seuil CPU : $($configChargee.SeuilCPU)%"
 > **Lien**
 >
 > - [Export-Csv](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.utility/export-csv)
+
+---
+
+## Fiche récapitulative
+
+![17_Export_import](https://kayasam.github.io/powershell/ressources/images/17_Export_import.png)

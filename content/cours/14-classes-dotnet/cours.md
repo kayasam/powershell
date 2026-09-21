@@ -249,3 +249,9 @@ double antislash.
 >
 > - [Documentation .NET](https://learn.microsoft.com/fr-fr/dotnet/api/)
 > - [À propos des méthodes .NET](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_methods)
+
+---
+
+## Fiche récapitulative
+
+![14_Classes_DotNET](https://kayasam.github.io/powershell/ressources/images/14_Classes_DotNET.png)

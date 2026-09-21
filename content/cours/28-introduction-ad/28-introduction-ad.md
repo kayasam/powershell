@@ -121,3 +121,9 @@ whoami             # DOMAINE\login
 >
 > - [Module ActiveDirectory](https://learn.microsoft.com/fr-fr/powershell/module/activedirectory/)
 > - [Installer RSAT](https://learn.microsoft.com/fr-fr/troubleshoot/windows-server/system-management-components/remote-server-administration-tools)
+
+---
+
+## Fiche récapitulative
+
+![28_Introduction_Active_Directory](https://kayasam.github.io/powershell/ressources/images/28_Introduction_Active_Directory.png)

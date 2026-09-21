@@ -30,6 +30,8 @@ Toutes les cmdlets suivent ce modèle :
 - `Stop-Service` → **Arrêter** un service
 - `New-Item` → **Créer** un élément
 
+![schema cmdlet anatomie](https://kayasam.github.io/powershell/ressources/images/schema-cmdlet-anatomie.png)
+
 ## Verbes courants
 
 | Verbe  | Action    | Exemple         |
@@ -88,3 +90,9 @@ Clear-Host       # Effacer l'écran (comme cls)
 > **Lien**
 >
 > - [Liste des verbes approuvés](https://learn.microsoft.com/fr-fr/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands)
+
+---
+
+## Fiche récapitulative
+
+![02_Cmdlets](https://kayasam.github.io/powershell/ressources/images/02_Cmdlets.png)

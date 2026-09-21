@@ -273,3 +273,9 @@ La checklist :
 >
 > - [À propos de la signature](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_signing)
 > - [À propos des politiques d'exécution](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_execution_policies)
+
+---
+
+## Fiche récapitulative
+
+![19_Signature_des_scripts](https://kayasam.github.io/powershell/ressources/images/19_Signature_des_scripts.png)

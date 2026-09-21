@@ -259,3 +259,9 @@ que `Terminate`) : elles sont plus lisibles et gèrent `-WhatIf`.
 >
 > - [Get-CimInstance](https://learn.microsoft.com/fr-fr/powershell/module/cimcmdlets/get-ciminstance)
 > - [Classes WMI Win32](https://learn.microsoft.com/fr-fr/windows/win32/cimwin32prov/win32-provider)
+
+---
+
+## Fiche récapitulative
+
+![12_WMI_et_CIM](https://kayasam.github.io/powershell/ressources/images/12_WMI_et_CIM.png)

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Anatomie d'une cmdlet PowerShell</title>
+  <desc id="desc">Une cmdlet suit la forme Verbe-Nom, puis reçoit des paramètres et des valeurs. Get-Command permet de la trouver, Get-Help explique son utilisation et la cmdlet retourne des objets dans le pipeline.</desc>
+  <defs>
+    <linearGradient id="bg2" x2="1" y2="1"><stop stop-color="#0d192a"/><stop offset="1" stop-color="#173650"/></linearGradient>
+    <filter id="shadow2"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-opacity=".28"/></filter>
+    <marker id="arrVerb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#71e2ca"/></marker>
+    <marker id="arrNoun" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#b9a7ff"/></marker>
+    <marker id="arrParam" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#ffcb75"/></marker>
+    <marker id="arrValue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#ff9db8"/></marker>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#bg2)"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="52" y="58" fill="#fff" font-size="31" font-weight="700">Anatomie d’une cmdlet PowerShell</text>
+    <text x="52" y="91" fill="#aec5d9" font-size="17">Lis la commande de gauche à droite : action, cible, réglages puis valeur.</text>
+
+    <rect x="82" y="144" width="1036" height="112" rx="21" fill="#07111f" stroke="#526a82" stroke-width="2" filter="url(#shadow2)"/>
+    <text x="112" y="213" xml:space="preserve" font-family="Consolas, monospace" font-size="31" font-weight="700"><tspan fill="#71e2ca">Get</tspan><tspan fill="#fff">-</tspan><tspan fill="#b9a7ff">Process</tspan><tspan fill="#ffcb75"> -Name</tspan><tspan fill="#ff9db8"> powershell</tspan><tspan fill="#ffcb75"> -ErrorAction</tspan><tspan fill="#ff9db8"> Stop</tspan></text>
+
+    <!-- Chaque connecteur part exactement sous le mot coloré et arrive au centre de sa carte. -->
+    <circle cx="140" cy="236" r="4" fill="#71e2ca"/>
+    <circle cx="252" cy="236" r="4" fill="#b9a7ff"/>
+    <circle cx="374" cy="236" r="4" fill="#ffcb75"/>
+    <circle cx="505" cy="236" r="4" fill="#ff9db8"/>
+    <path d="M140 236 C140 276 155 282 155 322" fill="none" stroke="#71e2ca" stroke-width="3" stroke-linecap="round" marker-end="url(#arrVerb)"/>
+    <path d="M252 236 C252 276 385 282 385 322" fill="none" stroke="#b9a7ff" stroke-width="3" stroke-linecap="round" marker-end="url(#arrNoun)"/>
+    <path d="M374 236 C374 276 656 282 656 322" fill="none" stroke="#ffcb75" stroke-width="3" stroke-linecap="round" marker-end="url(#arrParam)"/>
+    <path d="M505 236 C505 276 986 282 986 322" fill="none" stroke="#ff9db8" stroke-width="3" stroke-linecap="round" marker-end="url(#arrValue)"/>
+
+    <g filter="url(#shadow2)">
+      <rect x="55" y="332" width="200" height="147" rx="18" fill="#16443f" stroke="#59e0c8" stroke-width="3"/>
+      <text x="78" y="371" fill="#75ead7" font-size="14" font-weight="700">VERBE</text>
+      <text x="78" y="407" fill="#fff" font-size="25" font-weight="700">Get</text>
+      <text x="78" y="437" fill="#d7f7ef" font-size="16">L’action : obtenir</text>
+      <text x="78" y="463" fill="#b5d7cf" font-size="14">Get, Set, New, Remove…</text>
+
+      <rect x="285" y="332" width="200" height="147" rx="18" fill="#453e73" stroke="#b9a7ff" stroke-width="3"/>
+      <text x="308" y="371" fill="#d1c6ff" font-size="14" font-weight="700">NOM (NOUN)</text>
+      <text x="308" y="407" fill="#fff" font-size="25" font-weight="700">Process</text>
+      <text x="308" y="437" fill="#ece8ff" font-size="16">La ressource ciblée</text>
+      <text x="308" y="463" fill="#c7c0e7" font-size="14">Process, Service, Item…</text>
+
+      <rect x="515" y="332" width="282" height="147" rx="18" fill="#604522" stroke="#ffcb75" stroke-width="3"/>
+      <text x="538" y="371" fill="#ffda9a" font-size="14" font-weight="700">PARAMÈTRE</text>
+      <text x="538" y="407" fill="#fff" font-size="25" font-weight="700">-Name</text>
+      <text x="538" y="437" fill="#fff0d5" font-size="16">Précise comment agir</text>
+      <text x="538" y="463" fill="#dac8a8" font-size="14">Commence toujours par un tiret</text>
+
+      <rect x="827" y="332" width="318" height="147" rx="18" fill="#593247" stroke="#ff91ae" stroke-width="3"/>
+      <text x="850" y="371" fill="#ffabc0" font-size="14" font-weight="700">VALEUR DU PARAMÈTRE</text>
+      <text x="850" y="407" fill="#fff" font-size="25" font-weight="700">powershell</text>
+      <text x="850" y="437" fill="#ffe2e9" font-size="16">La donnée fournie à -Name</text>
+      <text x="850" y="463" fill="#dfbbc5" font-size="14">Texte, nombre, chemin, objet…</text>
+    </g>
+
+    <text x="56" y="533" fill="#9eb8ce" font-size="16">Pour comprendre une cmdlet :</text>
+    <rect x="55" y="552" width="327" height="105" rx="17" fill="#173958" stroke="#70d9f6" stroke-width="2"/>
+    <text x="80" y="591" fill="#fff" font-family="Consolas, monospace" font-size="21" font-weight="700">Get-Command -Verb Get</text>
+    <text x="80" y="624" fill="#cae7f5" font-size="15">Trouver les cmdlets disponibles</text>
+    <rect x="436" y="552" width="327" height="105" rx="17" fill="#173958" stroke="#70d9f6" stroke-width="2"/>
+    <text x="461" y="591" fill="#fff" font-family="Consolas, monospace" font-size="21" font-weight="700">Get-Help Get-Process</text>
+    <text x="461" y="624" fill="#cae7f5" font-size="15">Voir syntaxe, paramètres et exemples</text>
+    <rect x="817" y="552" width="328" height="105" rx="17" fill="#17443f" stroke="#59e0c8" stroke-width="2"/>
+    <text x="842" y="591" fill="#fff" font-size="21" font-weight="700">Sortie → objets</text>
+    <text x="842" y="624" fill="#d7f7ef" font-size="15">Réutilisables dans le pipeline</text>
+  </g>
+</svg>

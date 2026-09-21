@@ -302,3 +302,9 @@ Get-AuthenticodeSignature .\MonScript.ps1 | Select-Object Status, SignerCertific
 > - [Get-WinEvent](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.diagnostics/get-winevent)
 > - [Travailler avec le registre](https://learn.microsoft.com/fr-fr/powershell/scripting/samples/working-with-registry-entries)
 > - [About Signing](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_signing)
+
+---
+
+## Fiche récapitulative
+
+![18_Registre_journaux_certificats](https://kayasam.github.io/powershell/ressources/images/18_Registre_journaux_certificats.png)

@@ -125,3 +125,9 @@ foreach ($fichier in Get-ChildItem "C:\Logs") {
 > **Lien**
 >
 > - [À propos des boucles](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_foreach)
+
+---
+
+## Fiche récapitulative
+
+![11_Boucles](https://kayasam.github.io/powershell/ressources/images/11_Boucles.png)

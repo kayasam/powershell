@@ -133,3 +133,9 @@ Get-Service |
 > **Lien**
 >
 > - [À propos du pipeline](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_pipelines)
+
+---
+
+## Fiche récapitulative
+
+![09_Pipeline](https://kayasam.github.io/powershell/ressources/images/09_Pipeline.png)

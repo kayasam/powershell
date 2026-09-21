@@ -172,3 +172,9 @@ foreach ($agent in $agents) {
 > **Lien**
 >
 > - [New-ADUser](https://learn.microsoft.com/fr-fr/powershell/module/activedirectory/new-aduser)
+
+---
+
+## Fiche récapitulative
+
+![29_Utilisateurs_Active_Directory](https://kayasam.github.io/powershell/ressources/images/29_Utilisateurs_Active_Directory.png)

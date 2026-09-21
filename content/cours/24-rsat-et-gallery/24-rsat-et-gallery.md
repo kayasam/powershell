@@ -266,3 +266,9 @@ Get-Command -Module Carbon | Measure-Object
 > - [PowerShell Gallery](https://www.powershellgallery.com/)
 > - [Installer RSAT](https://learn.microsoft.com/fr-fr/troubleshoot/windows-server/system-management-components/remote-server-administration-tools)
 > - [PSResourceGet](https://learn.microsoft.com/fr-fr/powershell/gallery/powershellget/overview)
+
+---
+
+## Fiche récapitulative
+
+![24_RSAT_et_Gallery](https://kayasam.github.io/powershell/ressources/images/24_RSAT_et_Gallery.png)

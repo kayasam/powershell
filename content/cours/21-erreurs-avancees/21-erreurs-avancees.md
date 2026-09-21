@@ -397,3 +397,9 @@ Les trois niveaux à remarquer :
 > - [À propos des préférences](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_preference_variables)
 > - [À propos des redirections](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_redirection)
 > - [À propos du débogueur](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_debuggers)
+
+---
+
+## Fiche récapitulative
+
+![21_Erreurs_avancees](https://kayasam.github.io/powershell/ressources/images/21_Erreurs_avancees.png)

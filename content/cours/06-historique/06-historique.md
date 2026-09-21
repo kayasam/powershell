@@ -80,3 +80,9 @@ Clear-History -Id 5
 > **Lien**
 >
 > - [À propos de l'historique](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_history)
+
+---
+
+## Fiche récapitulative
+
+![06_Historique](https://kayasam.github.io/powershell/ressources/images/06_Historique.png)

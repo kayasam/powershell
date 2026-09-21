@@ -32,6 +32,8 @@ Un objet = données organisées avec :
 - **Propriétés** : Les informations (nom, taille, date...)
 - **Méthodes** : Les actions possibles (ouvrir, fermer, copier...)
 
+![schema objet proprietes methodes](https://kayasam.github.io/powershell/ressources/images/schema-objet-proprietes-methodes.png)
+
 ## Exemple simple
 
 ```powershell
@@ -104,3 +106,9 @@ Get-Process firefox | Select-Object Id  # Simple!
 > **Lien**
 >
 > - [Comprendre les objets PowerShell](https://learn.microsoft.com/fr-fr/powershell/scripting/learn/ps101/03-discovering-objects)
+
+---
+
+## Fiche récapitulative
+
+![03_Objets](https://kayasam.github.io/powershell/ressources/images/03_Objets.png)

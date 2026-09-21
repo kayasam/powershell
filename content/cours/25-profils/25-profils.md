@@ -259,3 +259,9 @@ Deux autres points de vigilance :
 >
 > - [À propos des profils](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_profiles)
 > - [À propos du prompt](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_prompts)
+
+---
+
+## Fiche récapitulative
+
+![25_Profils](https://kayasam.github.io/powershell/ressources/images/25_Profils.png)

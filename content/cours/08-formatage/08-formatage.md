@@ -112,3 +112,9 @@ Get-Process | Format-Table | Select-Object -First 5
 > **Lien**
 >
 > - [Format-Table](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.utility/format-table)
+
+---
+
+## Fiche récapitulative
+
+![08_Formatage](https://kayasam.github.io/powershell/ressources/images/08_Formatage.png)

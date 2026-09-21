@@ -85,3 +85,9 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 > **Lien**
 >
 > - [Télécharger PowerShell](https://learn.microsoft.com/fr-fr/powershell/scripting/install/installing-powershell-on-windows)
+
+---
+
+## Fiche récapitulative
+
+![01_Installation_et_environnement](https://kayasam.github.io/powershell/ressources/images/01_Installation_et_environnement.png)

@@ -151,3 +151,9 @@ Get-ADUser -Filter "Title -eq 'Administrateur'" |
 > **Lien**
 >
 > - [New-ADGroup](https://learn.microsoft.com/fr-fr/powershell/module/activedirectory/new-adgroup)
+
+---
+
+## Fiche récapitulative
+
+![30_Groupes_Active_Directory](https://kayasam.github.io/powershell/ressources/images/30_Groupes_Active_Directory.png)

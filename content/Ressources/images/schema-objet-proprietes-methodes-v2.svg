@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">De la cmdlet à l'objet, ses propriétés et ses méthodes</title>
+  <desc id="desc">La cmdlet Get-Item produit un objet FileInfo. L'objet possède un type, des propriétés qui décrivent ses informations et des méthodes qui réalisent des actions. Get-Member révèle tous ses membres.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0d192a"/><stop offset="1" stop-color="#183650"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-opacity=".28"/></filter>
+    <marker id="cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#70d9f6"/></marker>
+    <marker id="mint" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#59e0c8"/></marker>
+    <marker id="pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#ff91ae"/></marker>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="52" y="58" fill="#fff" font-size="31" font-weight="700">PowerShell manipule des objets structurés</text>
+    <text x="52" y="91" fill="#aec5d9" font-size="17">Une cmdlet produit un objet ; le point donne ensuite accès à ses informations et à ses actions.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="70" y="157" width="265" height="148" rx="20" fill="#203f65" stroke="#70d9f6" stroke-width="3"/>
+      <text x="96" y="194" fill="#87e2fa" font-size="14" font-weight="700" letter-spacing="2">CMDLET</text>
+      <text x="96" y="237" fill="#fff" font-size="29" font-weight="700">Get-Item</text>
+      <text x="96" y="269" fill="#d3e8f7" font-family="Consolas, monospace" font-size="17">C:\Windows\notepad.exe</text>
+
+      <rect x="468" y="145" width="302" height="172" rx="22" fill="#4b427b" stroke="#baa9ff" stroke-width="3"/>
+      <text x="500" y="187" fill="#d9d0ff" font-size="14" font-weight="700" letter-spacing="2">OBJET PRODUIT</text>
+      <text x="500" y="232" fill="#fff" font-size="32" font-weight="700">FileInfo</text>
+      <text x="500" y="267" fill="#e9e4ff" font-size="17">Type : System.IO.FileInfo</text>
+      <text x="500" y="294" fill="#cfc5ff" font-size="15">Données + type + membres</text>
+    </g>
+    <path d="M346 231H448" stroke="#70d9f6" stroke-width="5" fill="none" marker-end="url(#cyan)"/>
+    <text x="367" y="215" fill="#90e8ff" font-size="15" font-weight="700">retourne</text>
+
+    <path d="M619 326V365H296V393" stroke="#59e0c8" stroke-width="4" fill="none" marker-end="url(#mint)"/>
+    <path d="M619 365H912V393" stroke="#ff91ae" stroke-width="4" fill="none" marker-end="url(#pink)"/>
+
+    <g filter="url(#shadow)">
+      <rect x="82" y="407" width="428" height="205" rx="21" fill="#16433f" stroke="#59e0c8" stroke-width="3"/>
+      <text x="110" y="447" fill="#75ead7" font-size="15" font-weight="700" letter-spacing="1.5">PROPRIÉTÉS = INFORMATIONS</text>
+      <text x="110" y="484" fill="#fff" font-size="23" font-weight="700">On les consulte sans parenthèses</text>
+      <text x="110" y="523" fill="#d8f9f2" font-family="Consolas, monospace" font-size="18">$fichier.Name</text>
+      <text x="329" y="523" fill="#b8d7d1" font-size="16">→ notepad.exe</text>
+      <text x="110" y="554" fill="#d8f9f2" font-family="Consolas, monospace" font-size="18">$fichier.Length</text>
+      <text x="329" y="554" fill="#b8d7d1" font-size="16">→ taille en octets</text>
+      <text x="110" y="585" fill="#d8f9f2" font-family="Consolas, monospace" font-size="18">$fichier.LastWriteTime</text>
+
+      <rect x="690" y="407" width="428" height="205" rx="21" fill="#563247" stroke="#ff91ae" stroke-width="3"/>
+      <text x="718" y="447" fill="#ffabc0" font-size="15" font-weight="700" letter-spacing="1.5">MÉTHODES = ACTIONS</text>
+      <text x="718" y="484" fill="#fff" font-size="23" font-weight="700">On les exécute avec ()</text>
+      <text x="718" y="523" fill="#ffe2e9" font-family="Consolas, monospace" font-size="18">$fichier.CopyTo(...)</text>
+      <text x="947" y="523" fill="#e6bdc7" font-size="16">→ copier</text>
+      <text x="718" y="554" fill="#ffe2e9" font-family="Consolas, monospace" font-size="18">$fichier.Delete()</text>
+      <text x="947" y="554" fill="#e6bdc7" font-size="16">→ supprimer</text>
+      <text x="718" y="585" fill="#ffe2e9" font-family="Consolas, monospace" font-size="18">$fichier.ToString()</text>
+    </g>
+
+    <rect x="70" y="650" width="1048" height="43" rx="12" fill="#07111f" stroke="#ffc66f" stroke-width="2"/>
+    <text x="92" y="678" fill="#ffc66f" font-size="16" font-weight="700">POUR EXPLORER</text>
+    <text x="252" y="678" fill="#fff" font-family="Consolas, monospace" font-size="17">$fichier | Get-Member</text>
+    <text x="481" y="678" fill="#afc6d9" font-size="16">révèle le type, les propriétés et les méthodes disponibles</text>
+  </g>
+</svg>

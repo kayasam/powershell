@@ -134,3 +134,9 @@ if ($ligne -match "\[(\d{4}-\d{2}-\d{2})\].*\[(\w+)\].*(\d+\.\d+\.\d+\.\d+)") {
 > **Lien**
 >
 > - [À propos des expressions régulières](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_regular_expressions)
+
+---
+
+## Fiche récapitulative
+
+![26_Expressions_regulieres](https://kayasam.github.io/powershell/ressources/images/26_Expressions_regulieres.png)

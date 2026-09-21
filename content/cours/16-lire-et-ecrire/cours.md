@@ -111,3 +111,9 @@ Set-Content "C:\Logs\rapport.txt" -Value $contenu -Encoding UTF8
 > **Lien**
 >
 > - [Get-Content](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.management/get-content)
+
+---
+
+## Fiche récapitulative
+
+![16_Lire_et_ecrire](https://kayasam.github.io/powershell/ressources/images/16_Lire_et_ecrire.png)

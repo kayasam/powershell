@@ -162,3 +162,9 @@ pwsh.exe -NonInteractive -File "C:\Scripts\MonScript.ps1"
 > **Lien**
 >
 > - [ScheduledTasks](https://learn.microsoft.com/fr-fr/powershell/module/scheduledtasks)
+
+---
+
+## Fiche récapitulative
+
+![27_Planification](https://kayasam.github.io/powershell/ressources/images/27_Planification.png)

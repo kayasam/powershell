@@ -156,3 +156,9 @@ if ($service.Status -eq "Running") {
 > **Lien**
 >
 > - [À propos des if](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_if)
+
+---
+
+## Fiche récapitulative
+
+![10_Conditions](https://kayasam.github.io/powershell/ressources/images/10_Conditions.png)

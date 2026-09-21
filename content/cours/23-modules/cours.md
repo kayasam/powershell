@@ -141,3 +141,9 @@ New-ModuleManifest -Path ".\MesOutils.psd1" `
 > **Lien**
 >
 > - [À propos des modules](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_modules)
+
+---
+
+## Fiche récapitulative
+
+![23_Modules](https://kayasam.github.io/powershell/ressources/images/23_Modules.png)

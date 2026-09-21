@@ -111,3 +111,9 @@ $fichier.Extension     # .txt
 > **Lien**
 >
 > - [À propos des fichiers](https://learn.microsoft.com/fr-fr/powershell/scripting/samples/working-with-files-and-folders)
+
+---
+
+## Fiche récapitulative
+
+![15_Fichiers_et_dossiers](https://kayasam.github.io/powershell/ressources/images/15_Fichiers_et_dossiers.png)

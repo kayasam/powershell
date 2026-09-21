@@ -190,3 +190,9 @@ Get-TableauBordAD | Format-List
 > **Lien**
 >
 > - [Search-ADAccount](https://learn.microsoft.com/fr-fr/powershell/module/activedirectory/search-adaccount)
+
+---
+
+## Fiche récapitulative
+
+![31_Recherche_et_rapports_AD](https://kayasam.github.io/powershell/ressources/images/31_Recherche_et_rapports_AD.png)

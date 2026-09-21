@@ -84,3 +84,9 @@ New-Alias monscript "C:\Scripts\test.ps1"
 > **Lien**
 >
 > - [À propos des alias](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_aliases)
+
+---
+
+## Fiche récapitulative
+
+![05_Alias](https://kayasam.github.io/powershell/ressources/images/05_Alias.png)

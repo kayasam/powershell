@@ -141,3 +141,9 @@ catch {
 > **Lien**
 >
 > - [À propos de Try/Catch](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_try_catch_finally)
+
+---
+
+## Fiche récapitulative
+
+![20_Gestion_des_erreurs](https://kayasam.github.io/powershell/ressources/images/20_Gestion_des_erreurs.png)

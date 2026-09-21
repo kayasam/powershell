@@ -184,3 +184,9 @@ Get-Help Get-Info -Examples
 > **Lien**
 >
 > - [À propos des fonctions avancées](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_functions_advanced)
+
+---
+
+## Fiche récapitulative
+
+![22_Parametres_des_scripts](https://kayasam.github.io/powershell/ressources/images/22_Parametres_des_scripts.png)

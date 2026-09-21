@@ -371,3 +371,9 @@ Pour un script d'admin : restez sur WinForms.
 >
 > - [Windows Forms](https://learn.microsoft.com/fr-fr/dotnet/desktop/winforms/)
 > - [Add-Type](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.utility/add-type)
+
+---
+
+## Fiche récapitulative
+
+![32_Interfaces_graphiques_WinForms](https://kayasam.github.io/powershell/ressources/images/32_Interfaces_graphiques_WinForms.png)

@@ -161,3 +161,9 @@ function Send-Alerte       { ... }
 > **Lien**
 >
 > - [À propos des fonctions](https://learn.microsoft.com/fr-fr/powershell/module/microsoft.powershell.core/about/about_functions)
+
+---
+
+## Fiche récapitulative
+
+![13_Fonctions](https://kayasam.github.io/powershell/ressources/images/13_Fonctions.png)

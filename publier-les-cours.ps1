@@ -149,13 +149,13 @@ if (Test-Path -LiteralPath $sourceMemo -PathType Leaf) {
 }
 
 # Obsidian retrouve les pièces jointes par leur nom dans Ressources/images.
-# Quartz ne résout pas ces inclusions si le SVG n'est pas voisin du Markdown :
+# Quartz ne résout pas ces inclusions si l'image n'est pas voisine du Markdown :
 # on conserve la syntaxe Obsidian dans le coffre et on la convertit seulement ici.
 Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Object {
   $document = [IO.File]::ReadAllText($_.FullName)
   $document = [regex]::Replace(
     $document,
-    '!\[\[([^\]|\\/]+\.svg)(?:\|[^\]]+)?\]\]',
+    '!\[\[([^\]|\\/]+\.(?:svg|png|webp|jpe?g))(?:\|[^\]]+)?\]\]',
     { param($match)
       $fileName = $match.Groups[1].Value
       $alt = [IO.Path]::GetFileNameWithoutExtension($fileName).Replace('-', ' ')
