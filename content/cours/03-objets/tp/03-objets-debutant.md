@@ -109,10 +109,13 @@ $nom.Split(" ")      # méthode   -> 3 morceaux
 
 **E1.** À partir de `Get-Process -Name explorer`, affichez **une seule ligne**
 contenant le nom du processus, son identifiant (PID), et sa mémoire de travail
-en **mégaoctets** arrondie.
+en **mégaoctets**.
 
 > 💡 **Indice** : la propriété `WorkingSet64` est en octets, et `1MB` est un
-> raccourci valide en PowerShell. `[math]::Round()` arrondit.
+> raccourci valide en PowerShell : `$p.WorkingSet64 / 1MB`. Peu importe le
+> nombre de décimales affichées. Pour coller les morceaux en une seule ligne
+> de texte, utilisez `+` (comme une addition, mais avec du texte) :
+> `"Nom : " + $p.Name`.
 
 ---
 

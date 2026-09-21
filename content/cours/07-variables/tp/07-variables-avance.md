@@ -55,9 +55,6 @@ partir d'une chaîne. Que se passe-t-il si vous tentez de convertir `"abc"` en e
 **B3.** À partir d'un nom complet, mettez-le en majuscules, vérifiez s'il contient
 `D.`, et comptez ses caractères.
 
-**B4.** Affichez la prime formatée avec des séparateurs de milliers
-(`3 000 000 000`) puis en milliards avec une décimale.
-
 ---
 
 ## Partie C : Tableaux (10 min)
@@ -68,9 +65,6 @@ partir d'une chaîne. Que se passe-t-il si vous tentez de convertir `"abc"` en e
 **C2.** Agrandissez-le de cinq membres. Combien après chaque ajout ?
 
 **C3.** Affichez les membres 2 à 4.
-
-**C4.** Mesurez le temps pour construire un tableau de 20 000 éléments avec `+=`,
-puis avec une liste générique .NET. Quel écart ? Expliquez la cause.
 
 ---
 
@@ -92,18 +86,11 @@ puis avec une liste générique .NET. Quel écart ? Expliquez la cause.
 **E1.** Créez un mini-rapport affichant la fiche complète d'un pirate, avec un
 encadré et des couleurs.
 
-**E2.** Faites-le fonctionner pour **plusieurs** pirates rangés dans une collection,
-sans dupliquer le code d'affichage.
-
-**E3.** Faites en sorte que la prime s'affiche en jaune au-dessus d'un milliard,
-en blanc en dessous.
-
 ---
 
 ## Validation
 
 ✅ Vous savez créer des variables de différents types et les contraindre
 ✅ Vous connaissez la règle de conversion de l'opérateur `+`
-✅ Vous savez choisir entre tableau, liste générique et table de hachage
-✅ Vous connaissez le coût de `+=` sur un tableau
+✅ Vous savez choisir entre tableau et table de hachage
 ✅ Vous distinguez table de hachage et `[PSCustomObject]`

@@ -60,7 +60,11 @@ np  # Lance notepad
 New-Alias monscript "C:\Scripts\test.ps1"
 ```
 
-**Note** : Les alias créés sont temporaires (disparaissent à la fermeture).
+> [!NOTE] Ces alias sont temporaires
+> `New-Alias` ne dure que le temps de la session : fermez PowerShell, l'alias
+> disparaît. Pour qu'un alias soit chargé **à chaque ouverture** de PowerShell,
+> il faut l'écrire dans votre **profil** (`$PROFILE`) — un fichier de script
+> qui s'exécute automatiquement au démarrage. C'est vu au chapitre 25.
 
 ## Pourquoi utiliser les alias ?
 

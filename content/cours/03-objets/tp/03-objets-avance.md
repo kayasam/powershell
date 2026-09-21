@@ -49,7 +49,7 @@ Rangez le fichier `C:\Windows\notepad.exe` dans une variable.
 
 **B3.** Quelle propriété donne le **chemin complet** ?
 
-**B4.** Affichez sa taille en **kilooctets**, arrondie à une décimale.
+**B4.** Affichez sa taille en **kilooctets**.
 
 ---
 
@@ -83,10 +83,16 @@ Soit `$nom = "Monkey D. Luffy"`.
 ## Mission finale E : la fiche du suspect 🔍
 
 **E1.** À partir du processus `explorer`, affichez **une seule ligne** contenant
-son nom, son identifiant (PID), et sa mémoire de travail en **mégaoctets** arrondie.
+son nom, son identifiant (PID), et sa mémoire de travail en **mégaoctets**.
 
-**E2.** Transformez le résultat en un objet exploitable (triable, filtrable,
-exportable en CSV) plutôt qu'en texte.
+> 💡 Pour coller plusieurs valeurs en une seule ligne de texte, `+` fonctionne
+> aussi entre du texte et un nombre.
+
+**E2 (bonus — notions vues aux chapitres 8 et 9).** Le résultat de E1 est du
+texte : une fois affiché, on ne peut plus le trier ni l'exporter. Si vous êtes
+curieux, cherchez comment `Select-Object` permet de garder un **objet**
+(plutôt qu'une ligne de texte) tout en ajoutant une colonne « mémoire en Mo ».
+Ce n'est pas exigé ici — la réponse est en correction.
 
 ---
 
@@ -96,4 +102,4 @@ exportable en CSV) plutôt qu'en texte.
 ✅ Vous utilisez `Get-Member` pour explorer un objet inconnu
 ✅ Vous accédez à une propriété avec `$objet.Propriete`
 ✅ Vous appelez une méthode avec `$objet.Methode()`
-✅ Vous savez produire un objet sur mesure plutôt qu'une chaîne formatée
+✅ (bonus) Vous entrevoyez la différence entre du texte et un objet exploitable

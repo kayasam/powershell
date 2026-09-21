@@ -44,6 +44,23 @@ $fichier.Length        # Taille en octets
 $fichier.LastWriteTime # Date de modification
 ```
 
+## Propriété ou méthode ?
+
+- **Propriété** : une information, on la lit — **sans parenthèses**.
+- **Méthode** : une action, on l'exécute — **avec parenthèses**, même vides.
+
+```powershell
+$nom = "Jean Dupont"
+
+$nom.Length       # Propriété -> 11 (le nombre de caractères)
+$nom.ToUpper()    # Méthode   -> JEAN DUPONT
+```
+
+> [!TIP] Le réflexe
+> Pas de parenthèses = propriété. Des parenthèses = méthode. Si vous tapez
+> `$nom.ToUpper` sans les `()`, PowerShell affiche la définition de la
+> méthode au lieu de l'exécuter — c'est l'erreur la plus fréquente.
+
 ## Découvrir un objet avec Get-Member
 
 ```powershell
@@ -54,6 +71,13 @@ Cela montre :
 
 - Toutes les propriétés disponibles
 - Toutes les méthodes disponibles
+
+La liste peut être longue. Pour filtrer :
+
+```powershell
+Get-Process | Get-Member -MemberType Property   # Uniquement les propriétés
+Get-Process | Get-Member -MemberType Method      # Uniquement les méthodes
+```
 
 ## Pourquoi c'est utile ?
 
@@ -72,8 +96,9 @@ Get-Process firefox | Select-Object Id  # Simple!
 ## À retenir
 
 ✅ PowerShell travaille avec des objets, pas du texte
-✅ Chaque objet a des propriétés et des méthodes
-✅ Utilisez `Get-Member` pour explorer un objet
+✅ Chaque objet a des propriétés (infos) et des méthodes (actions)
+✅ Propriété = sans parenthèses, méthode = avec parenthèses `()`
+✅ Utilisez `Get-Member` pour explorer un objet, `-MemberType Property`/`Method` pour filtrer
 ✅ Accédez aux propriétés avec le point : `$objet.Propriete`
 
 > **Lien**
