@@ -238,7 +238,9 @@
                 <p>
                   <strong>Ressources du chapitre</strong> -
                   <a href="tp/index.md">Exercices pratiques</a> -
-                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                  <a href="https://kayasam.github.io/powershell/memo-commandes"
+                    >Mémo des commandes</a
+                  >
                 </p>
               </blockquote>
               <h2>PowerShell manipule des objets</h2>
@@ -261,12 +263,40 @@ $fichier.Name          # notepad.exe
 $fichier.Length        # Taille en octets
 $fichier.LastWriteTime # Date de modification
 </code></pre>
+              <h2>Propriété ou méthode ?</h2>
+              <ul>
+                <li>
+                  <strong>Propriété</strong> : une information, on la lit —
+                  <strong>sans parenthèses</strong>.
+                </li>
+                <li>
+                  <strong>Méthode</strong> : une action, on l'exécute —
+                  <strong>avec parenthèses</strong>, même vides.
+                </li>
+              </ul>
+              <pre><code class="language-powershell">$nom = &quot;Jean Dupont&quot;
+
+$nom.Length       # Propriété -&gt; 11 (le nombre de caractères)
+$nom.ToUpper()    # Méthode   -&gt; JEAN DUPONT
+</code></pre>
+              <blockquote class="callout callout-tip">
+                <p>
+                  <strong>Le réflexe</strong>
+                  Pas de parenthèses = propriété. Des parenthèses = méthode. Si vous tapez
+                  <code>$nom.ToUpper</code> sans les <code>()</code>, PowerShell affiche la
+                  définition de la méthode au lieu de l'exécuter — c'est l'erreur la plus fréquente.
+                </p>
+              </blockquote>
               <h2>Découvrir un objet avec Get-Member</h2>
               <pre><code class="language-powershell">Get-Process | Get-Member
 </code></pre>
               <p>
                 Cela montre : - Toutes les propriétés disponibles - Toutes les méthodes disponibles
               </p>
+              <p>La liste peut être longue. Pour filtrer :</p>
+              <pre><code class="language-powershell">Get-Process | Get-Member -MemberType Property   # Uniquement les propriétés
+Get-Process | Get-Member -MemberType Method      # Uniquement les méthodes
+</code></pre>
               <h2>Pourquoi c'est utile ?</h2>
               <p><strong>Avant (Bash)</strong> :</p>
               <pre><code class="language-bash">ps aux | grep firefox | awk '{print $2}'  # Compliqué!
@@ -277,8 +307,10 @@ $fichier.LastWriteTime # Date de modification
               <h2>À retenir</h2>
               <p>
                 ✅ PowerShell travaille avec des objets, pas du texte ✅ Chaque objet a des
-                propriétés et des méthodes ✅ Utilisez <code>Get-Member</code> pour explorer un
-                objet ✅ Accédez aux propriétés avec le point : <code>$objet.Propriete</code>
+                propriétés (infos) et des méthodes (actions) ✅ Propriété = sans parenthèses,
+                méthode = avec parenthèses <code>()</code> ✅ Utilisez <code>Get-Member</code> pour
+                explorer un objet, <code>-MemberType Property</code>/<code>Method</code> pour
+                filtrer ✅ Accédez aux propriétés avec le point : <code>$objet.Propriete</code>
               </p>
               <blockquote>
                 <p>

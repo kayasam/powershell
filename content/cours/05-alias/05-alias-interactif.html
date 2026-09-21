@@ -238,7 +238,9 @@
                 <p>
                   <strong>Ressources du chapitre</strong> -
                   <a href="tp/index.md">Exercices pratiques</a> -
-                  <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
+                  <a href="https://kayasam.github.io/powershell/memo-commandes"
+                    >Mémo des commandes</a
+                  >
                 </p>
               </blockquote>
               <h2>Qu'est-ce qu'un alias ?</h2>
@@ -322,10 +324,15 @@ np  # Lance notepad
 # Créer un alias pour un script
 New-Alias monscript &quot;C:\Scripts\test.ps1&quot;
 </code></pre>
-              <p>
-                <strong>Note</strong> : Les alias créés sont temporaires (disparaissent à la
-                fermeture).
-              </p>
+              <blockquote class="callout callout-note">
+                <p>
+                  <strong>Ces alias sont temporaires</strong> <code>New-Alias</code> ne dure que le
+                  temps de la session : fermez PowerShell, l'alias disparaît. Pour qu'un alias soit
+                  chargé <strong>à chaque ouverture</strong> de PowerShell, il faut l'écrire dans
+                  votre <strong>profil</strong> (<code>$PROFILE</code>) — un fichier de script qui
+                  s'exécute automatiquement au démarrage. C'est vu au chapitre 25.
+                </p>
+              </blockquote>
               <h2>Pourquoi utiliser les alias ?</h2>
               <p>
                 ✅ <strong>Rapidité</strong> : <code>dir</code> au lieu de

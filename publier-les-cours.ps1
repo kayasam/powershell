@@ -143,6 +143,11 @@ if (Test-Path -LiteralPath $sourceImages -PathType Container) {
   Mirror-Directory $sourceImages (Join-Path $stageRoot "Ressources\images")
 }
 
+$sourceMemo = Join-Path $sourceRoot "Ressources\Memo-Commandes.md"
+if (Test-Path -LiteralPath $sourceMemo -PathType Leaf) {
+  Copy-Item -LiteralPath $sourceMemo -Destination (Join-Path $stageRoot "memo-commandes.md") -Force
+}
+
 Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Object {
   $document = [IO.File]::ReadAllText($_.FullName)
   if ($document -match '(?m)^publier:\s*false\s*$') {
