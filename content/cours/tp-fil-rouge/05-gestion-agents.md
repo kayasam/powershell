@@ -1,4 +1,29 @@
+---
+title: "TP5 - Le Système d'Administration des Agents"
+parcours-tssr: true
+parcours-pro: true
+---
+
 # TP5 - Le Système d'Administration des Agents 🕵️
+
+## Choisissez votre mode
+
+Les deux modes utilisent le même CSV et le même rapport. **Simulation par défaut** : la présence du module AD ne doit jamais suffire à autoriser une écriture.
+
+### Débutant — indices progressifs
+
+- Testez d'abord `Import-Csv` sur cinq recrues fictives ; vérifiez colonnes et valeurs obligatoires avant la boucle.
+- Séparez lecture, création/simulation, ajout aux groupes et rapport ; un `try/catch` **par recrue** évite qu'un échec arrête les suivantes.
+- `-Simulation` est explicite mais facultatif dans la solution sécurisée : un lancement sans `-Executer` ne touche pas à AD.
+- Vérifiez le CSV du rapport après `Import-Csv`, puis le journal ; ne journalisez jamais un mot de passe.
+
+### Avancé — défi autonome
+
+- Sur un domaine de **laboratoire autorisé seulement**, exigez `-Executer`, une OU de labo et une prévisualisation `-WhatIf` avant les écritures.
+- Rendez le traitement relançable : détectez logins et appartenances déjà présents, puis classez `Créé`, `Ignoré`, `Erreur` sans doublons.
+- Les secrets doivent venir d'une source cryptographique ; un échec d'utilisateur interdit l'ajout aux groupes pour cet utilisateur.
+
+**Correction formateur :** [[tp-fil-rouge/05-gestion-agents-correction|énoncé et solution réunis]].
 
 ## Contexte
 
@@ -16,8 +41,8 @@ en utilisant les paramètres, le module CipherPol, et la gestion d'erreurs.
 
 ---
 
-> **Note** : Ce TP peut s'exécuter en **mode simulation** (sans AD) ou avec un **vrai domaine**.
-> Le script détecte automatiquement si le module AD est disponible.
+> **Note** : Ce TP s'exécute en **simulation par défaut**, même si le module AD est disponible.
+> Un vrai domaine de **laboratoire autorisé** requiert `-Executer` et les paramètres explicites du domaine/des OU. `-WhatIf` garde la simulation.
 
 ---
 
@@ -62,7 +87,7 @@ Import-Csv "$dossier\recrues.csv" | Format-Table -AutoSize
 Créez `Invoke-IntegrationAgents.ps1` avec ces paramètres :
 
 ```powershell
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess)]
 param(
     [Parameter(Mandatory)]
     [string]$FichierCSV,
@@ -72,11 +97,21 @@ param(
     [string]$OUGroupes      = "OU=Groupes,DC=cipher-pol,DC=org",
     [string]$DossierSortie  = "C:\Temp\CipherPol",
 
-    [switch]$Simulation
+    [switch]$Simulation,
+    [switch]$Executer
 )
+if ($Simulation -and $Executer) { throw 'Choisissez un seul mode.' }
+if ($Executer -and -not $WhatIfPreference) {
+    foreach ($nom in 'DomaineDNS','OUUtilisateurs','OUGroupes') {
+        if (-not $PSBoundParameters.ContainsKey($nom)) {
+            throw "Écriture refusée : fournissez explicitement -$nom pour le laboratoire."
+        }
+    }
+}
+$Simulation = (-not $Executer.IsPresent) -or [bool]$WhatIfPreference
 ```
 
-**Paramètre clé** : `-Simulation` — si activé, le script fait tout **sans modifier l'AD**.
+**Paramètres clés** : sans `-Executer`, le script simule ; `-Simulation` l'indique explicitement. `-Executer` est réservé au domaine de laboratoire autorisé, après un passage `-WhatIf`. Les deux switches ne doivent pas être employés ensemble.
 
 ---
 
@@ -132,9 +167,9 @@ fonctionne quel que soit l'endroit depuis lequel vous le lancez.
 $adDisponible = Get-Module -ListAvailable -Name ActiveDirectory
 
 if (-not $adDisponible) {
-    Write-Log -Message "Module ActiveDirectory non disponible — mode simulation forcé" `
+    if (-not $Simulation) { throw 'Module ActiveDirectory absent : écriture impossible' }
+    Write-Log -Message "Module ActiveDirectory absent — simulation uniquement" `
               -Niveau "WARN" -FichierLog $fichierLog
-    $Simulation = $true
 }
 
 if ($Simulation) {
@@ -153,6 +188,21 @@ if ($Simulation) {
 ```powershell
 try {
     $recrues = Import-Csv -Path $FichierCSV -Encoding UTF8 -ErrorAction Stop
+    if (@($recrues).Count -eq 0) { throw 'CSV vide : aucune recrue à traiter.' }
+    $colonnes = @($recrues[0].PSObject.Properties.Name)
+    foreach ($nom in 'Prenom','Nom','Login','Departement','Title','Unite') {
+        if ($colonnes -notcontains $nom) { throw "Colonne obligatoire absente : $nom" }
+    }
+    foreach ($recrue in $recrues) {
+        foreach ($nom in 'Prenom','Nom','Login','Unite') {
+            if ([string]::IsNullOrWhiteSpace($recrue.$nom)) {
+                throw "Valeur obligatoire vide ($nom), ligne $($recrue.Login)"
+            }
+        }
+    }
+    if (@($recrues | Group-Object Login | Where-Object Count -gt 1).Count -gt 0) {
+        throw 'Login présent plusieurs fois dans le CSV.'
+    }
     Write-Log -Message "$($recrues.Count) recrues chargées depuis $FichierCSV" `
               -FichierLog $fichierLog
 }
@@ -202,7 +252,7 @@ function New-AgentAD {
             -Department        $Recrue.Departement `
             -Title             $Recrue.Title `
             -Path              $OU `
-            -AccountPassword   (ConvertTo-SecureString "CP@2024!" -AsPlainText -Force) `
+            -AccountPassword   (Read-Host "Secret initial UNIQUE pour $($Recrue.Login)" -AsSecureString) `
             -Enabled           $true `
             -ChangePasswordAtLogon $true `
             -ErrorAction       Stop
@@ -225,7 +275,8 @@ function New-AgentAD {
             Nom    = $nomComplet
             Login  = $Recrue.Login
             Unite  = $Recrue.Unite
-            Status = "ERREUR : $($_.Exception.Message)"
+            Status = "ERREUR"
+            Erreur = $_.Exception.Message
         }
     }
 }
@@ -277,6 +328,12 @@ $resultats = foreach ($recrue in $recrues) {
                             -SimulationMode $Simulation `
                             -FichierLog $fichierLog
 
+    if ($resultat.Status -eq 'ERREUR') {
+        # Ne pas rattacher aux groupes un compte qui n'a pas été créé.
+        $resultat
+        continue
+    }
+
     # Ajouter au groupe de l'unité
     $nomGroupe = "CP-Unite-$($recrue.Unite)"
     Add-MembreGroupe -Login $recrue.Login `
@@ -303,8 +360,8 @@ $resultats | Export-Csv $rapportPath -NoTypeInformation -Encoding UTF8
 Write-Log -Message "Rapport exporté : $rapportPath" -FichierLog $fichierLog
 
 # Résumé
-$succes  = ($resultats | Where-Object Status -like "CR*" -or Status -eq "SIMULÉ").Count
-$erreurs = ($resultats | Where-Object Status -like "ERREUR*").Count
+$succes  = @($resultats | Where-Object { $_.Status -in @('CRÉÉ','SIMULÉ') }).Count
+$erreurs = @($resultats | Where-Object { $_.Status -eq 'ERREUR' }).Count
 Write-Host "`n  Créés/Simulés : $succes" -ForegroundColor Green
 Write-Host "  Erreurs       : $erreurs" -ForegroundColor $(if ($erreurs -gt 0) {"Red"} else {"Green"})
 Write-Log -Message "=== Fin intégration : $succes OK, $erreurs erreurs ===" -FichierLog $fichierLog
@@ -318,12 +375,15 @@ Write-Log -Message "=== Fin intégration : $succes OK, $erreurs erreurs ===" -Fi
 # Test en mode simulation (sûr, sans modification AD)
 .\Invoke-IntegrationAgents.ps1 -FichierCSV "C:\Temp\CipherPol\recrues.csv" -Simulation
 
-# Si vous avez un vrai domaine de test :
+# Si vous avez un domaine de laboratoire autorisé : prévisualisez d'abord.
 .\Invoke-IntegrationAgents.ps1 `
     -FichierCSV      "C:\Temp\CipherPol\recrues.csv" `
     -DomaineDNS      "mondomaine.local" `
-    -OUUtilisateurs  "OU=Agents,DC=mondomaine,DC=local" `
-    -DossierSortie   "C:\Temp\CipherPol"
+    -OUUtilisateurs  "OU=Formation-Agents,DC=mondomaine,DC=local" `
+    -OUGroupes       "OU=Formation-Groupes,DC=mondomaine,DC=local" `
+    -DossierSortie   "C:\Temp\CipherPol" -Executer -WhatIf
+
+# Retirez -WhatIf seulement après vérification de l'OU, des recrues et du rapport simulé.
 ```
 
 ---
@@ -363,3 +423,5 @@ Ajoutez un paramètre `-Supprimer` qui, au lieu de créer, désactive tous les c
 - ✅ Utiliser `$PSScriptRoot` pour des chemins relatifs fiables
 - ✅ Implémenter un mode simulation pour tester sans risque
 - ✅ Générer un rapport d'exécution exportable
+
+La correction formateur réunit l'énoncé et le script de référence ; le lien est en haut de cette mission.

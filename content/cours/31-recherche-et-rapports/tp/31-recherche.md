@@ -43,21 +43,25 @@ $agentsAD = @(
 
 ### Avec AD réel
 
+Uniquement dans un **domaine de laboratoire autorisé** : renseignez une OU précise dans `$ou` avant toute requête. Ne lancez pas ces exemples sur tout un domaine de production.
+
 ```powershell
 # Comptes bloqués
 Write-Host "=== COMPTES BLOQUÉS ===" -ForegroundColor Red
-Search-ADAccount -LockedOut | Select-Object Name, SamAccountName, LastLogonDate
+if ([string]::IsNullOrWhiteSpace($ou)) { throw 'OU de laboratoire obligatoire.' }
+Search-ADAccount -LockedOut -UsersOnly -SearchBase $ou |
+    Select-Object Name, SamAccountName, LastLogonDate
 
 # Comptes dont le mot de passe n'expire jamais
 Write-Host "`n=== MOT DE PASSE PERMANENT ===" -ForegroundColor Yellow
-Get-ADUser -Filter "PasswordNeverExpires -eq $true" -Properties PasswordNeverExpires, Department |
+Get-ADUser -SearchBase $ou -Filter 'PasswordNeverExpires -eq $true' -Properties PasswordNeverExpires, Department |
     Select-Object Name, SamAccountName, Department
 
 # Comptes inactifs depuis 60 jours
 $seuil = (Get-Date).AddDays(-60)
 Write-Host "`n=== INACTIFS (>60 jours) ===" -ForegroundColor Yellow
-Get-ADUser -Filter "LastLogonDate -lt '$seuil' -and Enabled -eq $true" `
-           -Properties LastLogonDate |
+Get-ADUser -SearchBase $ou -Filter 'Enabled -eq $true' -Properties LastLogonDate |
+    Where-Object { $null -ne $_.LastLogonDate -and $_.LastLogonDate -lt $seuil } |
     Select-Object Name, SamAccountName, LastLogonDate |
     Sort-Object LastLogonDate
 ```
@@ -147,6 +151,8 @@ Get-ChildItem $dossier | Format-Table Name, Length, LastWriteTime -AutoSize
 ## Mission Bonus : Tableau de bord complet 🌟
 
 Créez une fonction `Get-RapportAD` qui affiche en couleur un résumé du domaine.
+
+> Solution complète : voir la correction de ce TP.
 
 ---
 

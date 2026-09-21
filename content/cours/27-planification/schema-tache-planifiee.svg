@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">De l'enregistrement d'une tâche planifiée à l'exécution du script</title>
+  <desc id="desc">Une action définit pwsh et le script, un déclencheur définit l'heure, un compte définit le contexte d'exécution. Register-ScheduledTask remet ces paramètres au Planificateur, qui attend le déclencheur avant de lancer PowerShell. Le script produit un résultat ou un journal.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#8fddfa"/></marker></defs>
+  <rect width="900" height="430" rx="22" fill="#101b2d"/>
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <text x="32" y="45" fill="#f4f8ff" font-size="24" font-weight="700">Une tâche planifiée n'exécute pas le script tout de suite</text>
+    <text x="32" y="74" fill="#acc3d9" font-size="15">On enregistre une configuration ; le Planificateur agit quand le déclencheur survient.</text>
+    <rect x="35" y="112" width="178" height="58" rx="12" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="51" y="136" fill="#fff" font-size="17" font-weight="700">Action</text><text x="51" y="158" fill="#d1e5f5" font-size="13">pwsh + chemin du script</text>
+    <rect x="35" y="185" width="178" height="58" rx="12" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="51" y="209" fill="#fff" font-size="17" font-weight="700">Déclencheur</text><text x="51" y="231" fill="#d8f9f2" font-size="13">date ou périodicité</text>
+    <rect x="35" y="258" width="178" height="58" rx="12" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="51" y="282" fill="#fff" font-size="17" font-weight="700">Compte</text><text x="51" y="304" fill="#e8e2ff" font-size="13">identité et droits</text>
+    <rect x="284" y="169" width="181" height="91" rx="14" fill="#6a4427" stroke="#ffc36f" stroke-width="2"/>
+    <text x="298" y="204" fill="#fff" font-size="17" font-weight="700">Register-</text>
+    <text x="298" y="230" fill="#fff" font-size="17" font-weight="700">ScheduledTask</text>
+    <rect x="536" y="169" width="173" height="91" rx="14" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="550" y="202" fill="#fff" font-size="17" font-weight="700">Planificateur</text>
+    <text x="550" y="229" fill="#d1e5f5" font-size="14">Attend l'heure prévue</text>
+    <rect x="780" y="169" width="90" height="91" rx="14" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="793" y="202" fill="#fff" font-size="16" font-weight="700">pwsh</text>
+    <text x="793" y="228" fill="#d8f9f2" font-size="13">script</text>
+    <g fill="none" stroke="#8fddfa" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M219 140H247V193H277"/><path d="M219 214H277"/><path d="M219 287H247V238H277"/>
+      <path d="M471 214H529"/><path d="M715 214H773"/>
+    </g>
+    <text x="721" y="194" fill="#f4d08f" font-size="13" font-weight="700">Déclenchement</text>
+    <rect x="536" y="327" width="334" height="51" rx="12" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="552" y="359" fill="#fff" font-size="16" font-weight="700">Résultat, fichier de rapport ou journal</text>
+    <path d="M825 266V320" fill="none" stroke="#8fddfa" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+</svg>

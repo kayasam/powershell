@@ -250,6 +250,17 @@
               <p>
                 La création se fait en 3 étapes : l'action, le déclencheur, et l'enregistrement.
               </p>
+              <p>
+                <img
+                  alt="Flux entre action, déclencheur, enregistrement de la tâche et exécution du script"
+                  src="schema-tache-planifiee.svg"
+                />
+              </p>
+              <p>
+                Enregistrer la tâche ne lance pas encore le script : le Planificateur attend le
+                déclencheur, puis démarre <code>pwsh.exe</code> avec le compte prévu et conserve un
+                résultat à contrôler.
+              </p>
               <pre><code class="language-powershell"># 1. Définir l'action (quel script lancer)
 $action = New-ScheduledTaskAction `
     -Execute &quot;C:\Program Files\PowerShell\7\pwsh.exe&quot; `

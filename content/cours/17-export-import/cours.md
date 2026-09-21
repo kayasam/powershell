@@ -18,6 +18,12 @@ parcours-pro: true
 > - [[17-export-import/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
+## Du pipeline au fichier, puis retour aux objets
+
+![Deux chemins aller-retour entre objets PowerShell et fichiers CSV ou JSON](schema-export-import.svg)
+
+Un fichier stocke du **texte structuré**, pas des objets PowerShell vivants. À la lecture, `Import-Csv` ou `ConvertFrom-Json` recrée des objets que l'on peut filtrer dans le pipeline.
+
 ## CSV : Le format tableur
 
 ### Exporter en CSV
@@ -86,7 +92,7 @@ Get-Service | Select-Object Name, Status |
 
 ```powershell
 # Lire et convertir
-$donnees = Get-Content "C:\Logs\services.json" | ConvertFrom-Json
+$donnees = Get-Content "C:\Logs\services.json" -Raw | ConvertFrom-Json
 
 # Accéder aux données
 $donnees[0].Name
@@ -109,7 +115,7 @@ $config = @{
 $config | ConvertTo-Json | Out-File "config.json"
 
 # Recharger plus tard
-$configChargee = Get-Content "config.json" | ConvertFrom-Json
+$configChargee = Get-Content "config.json" -Raw | ConvertFrom-Json
 Write-Host "Seuil CPU : $($configChargee.SeuilCPU)%"
 ```
 

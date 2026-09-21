@@ -82,6 +82,10 @@ Search-ADAccount -AccountDisabled
 
 ## Construire des rapports
 
+![Flux d'un rapport Active Directory entre filtre sur l'annuaire, objets PowerShell et export CSV](schema-rapport-ad.svg)
+
+`-SearchBase`, `-Filter` et `-Properties` limitent ou précisent la recherche auprès de l'annuaire. `Select-Object` et `Sort-Object` travaillent ensuite sur les objets reçus ; `Export-Csv` écrit enfin le rapport.
+
 ### Rapport : tous les utilisateurs avec leur département
 
 ```powershell

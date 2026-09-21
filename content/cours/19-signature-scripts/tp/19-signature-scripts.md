@@ -40,7 +40,7 @@ CurrentUser` changerait-il quelque chose ?
 Créez un script, puis simulez un téléchargement :
 
 ```powershell
-$s = Join-Path $env:TEMP "ordre-marijoa.ps1"
+$s = Join-Path $env:TEMP ("ordre-marijoa-" + [guid]::NewGuid().ToString('N') + ".ps1")
 'Write-Host "Ordre execute"' | Set-Content $s -Encoding UTF8
 
 # Simuler la marque d'un fichier telecharge
@@ -85,8 +85,8 @@ foreach ($magasin in 'Root', 'TrustedPublisher') {
     $store = [System.Security.Cryptography.X509Certificates.X509Store]::new(
         $magasin, "CurrentUser")
     $store.Open("ReadWrite")
-    $store.Add($cert)
-    $store.Close()
+    try { $store.Add($cert) }
+    finally { $store.Close() }
 }
 ```
 
@@ -125,15 +125,26 @@ signé. Que devez-vous faire ?
 ## Nettoyage obligatoire 🧹
 
 ```powershell
+if ($null -eq $cert -or [string]::IsNullOrWhiteSpace($cert.Thumbprint)) {
+    throw 'Certificat du TP absent : nettoyage refusé.'
+}
+if ((Split-Path -Path $s -Parent) -ne $env:TEMP -or
+    (Split-Path -Path $s -Leaf) -notmatch '^ordre-marijoa-[0-9a-f]{32}\.ps1$') {
+    throw 'Chemin du script de test inattendu : nettoyage refusé.'
+}
+$empreinteTP = $cert.Thumbprint
 foreach ($magasin in 'My', 'Root', 'TrustedPublisher') {
     $store = [System.Security.Cryptography.X509Certificates.X509Store]::new(
         $magasin, "CurrentUser")
     $store.Open("ReadWrite")
-    $store.Certificates | Where-Object Subject -eq "CN=Sceau Marijoa TEST" |
-        ForEach-Object { $store.Remove($_) }
-    $store.Close()
+    try {
+        $cibles = @($store.Certificates | Where-Object Thumbprint -eq $empreinteTP)
+        if ($cibles.Count -gt 1) { throw "Empreinte dupliquée dans $magasin : arrêt." }
+        foreach ($cible in $cibles) { $store.Remove($cible) }
+    }
+    finally { $store.Close() }
 }
-Remove-Item $s -Force
+if (Test-Path -LiteralPath $s) { Remove-Item -LiteralPath $s }
 ```
 
 Vérifiez qu'il ne reste rien dans les trois magasins.

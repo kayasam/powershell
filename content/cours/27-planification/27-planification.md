@@ -25,6 +25,10 @@ PowerShell permet de créer des tâches planifiées directement depuis la consol
 
 La création se fait en 3 étapes : l'action, le déclencheur, et l'enregistrement.
 
+![Flux entre action, déclencheur, enregistrement de la tâche et exécution du script](schema-tache-planifiee.svg)
+
+Enregistrer la tâche ne lance pas encore le script : le Planificateur attend le déclencheur, puis démarre `pwsh.exe` avec le compte prévu et conserve un résultat à contrôler.
+
 ```powershell
 # 1. Définir l'action (quel script lancer)
 $action = New-ScheduledTaskAction `

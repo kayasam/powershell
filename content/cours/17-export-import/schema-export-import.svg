@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Exporter puis réimporter des données en CSV ou JSON</title>
+  <desc id="desc">Deux chemins partent d'objets PowerShell. Le CSV utilise Export-Csv puis Import-Csv. Le JSON utilise ConvertTo-Json et Out-File, puis Get-Content -Raw et ConvertFrom-Json. Les fichiers contiennent du texte structuré, les commandes d'import reconstruisent des objets.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#8fddfa"/></marker></defs>
+  <rect width="900" height="420" rx="22" fill="#101b2d"/>
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <text x="32" y="46" fill="#f4f8ff" font-size="24" font-weight="700">Des objets au fichier, puis retour</text>
+    <text x="32" y="75" fill="#acc3d9" font-size="15">Le fichier conserve des données structurées ; ce n'est pas un objet PowerShell vivant.</text>
+    <text x="32" y="145" fill="#7be0cf" font-size="20" font-weight="700">CSV</text>
+    <text x="32" y="274" fill="#d2b2ff" font-size="20" font-weight="700">JSON</text>
+    <rect x="100" y="105" width="130" height="86" rx="13" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="118" y="139" fill="#fff" font-size="17" font-weight="700">Objets</text><text x="118" y="165" fill="#d1e5f5" font-size="14">PowerShell</text>
+    <rect x="277" y="105" width="132" height="86" rx="13" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="290" y="139" fill="#fff" font-size="16" font-weight="700">Export-Csv</text><text x="290" y="165" fill="#d8f9f2" font-size="14">Écrit les lignes</text>
+    <rect x="456" y="105" width="118" height="86" rx="13" fill="#6a4427" stroke="#ffc36f" stroke-width="2"/>
+    <text x="476" y="139" fill="#fff" font-size="17" font-weight="700">.csv</text><text x="476" y="165" fill="#ffe9cf" font-size="14">Fichier texte</text>
+    <rect x="621" y="105" width="131" height="86" rx="13" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="634" y="139" fill="#fff" font-size="16" font-weight="700">Import-Csv</text><text x="634" y="165" fill="#d8f9f2" font-size="14">Relit les lignes</text>
+    <rect x="799" y="105" width="76" height="86" rx="13" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="807" y="138" fill="#fff" font-size="14" font-weight="700">Objets</text><text x="807" y="164" fill="#d1e5f5" font-size="13">recréés</text>
+    <rect x="100" y="233" width="130" height="86" rx="13" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="118" y="267" fill="#fff" font-size="17" font-weight="700">Objets</text><text x="118" y="293" fill="#d1e5f5" font-size="14">PowerShell</text>
+    <rect x="277" y="233" width="132" height="86" rx="13" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="288" y="263" fill="#fff" font-size="15" font-weight="700">ConvertTo-Json</text><text x="288" y="288" fill="#e8e2ff" font-size="13">puis Out-File</text>
+    <rect x="456" y="233" width="118" height="86" rx="13" fill="#6a4427" stroke="#ffc36f" stroke-width="2"/>
+    <text x="476" y="267" fill="#fff" font-size="17" font-weight="700">.json</text><text x="476" y="293" fill="#ffe9cf" font-size="14">Fichier texte</text>
+    <rect x="621" y="233" width="131" height="86" rx="13" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="632" y="260" fill="#fff" font-size="14" font-weight="700">Get-Content -Raw</text><text x="632" y="284" fill="#e8e2ff" font-size="13">ConvertFrom-Json</text>
+    <rect x="799" y="233" width="76" height="86" rx="13" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="807" y="266" fill="#fff" font-size="14" font-weight="700">Objets</text><text x="807" y="292" fill="#d1e5f5" font-size="13">recréés</text>
+    <g fill="none" stroke="#8fddfa" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M235 148H270"/><path d="M414 148H449"/><path d="M579 148H614"/><path d="M757 148H792"/>
+      <path d="M235 276H270"/><path d="M414 276H449"/><path d="M579 276H614"/><path d="M757 276H792"/>
+    </g>
+    <text x="32" y="371" fill="#f4d08f" font-size="15" font-weight="600">À retenir : Export-Csv et Import-Csv sont symétriques ; JSON demande une conversion explicite.</text>
+  </g>
+</svg>

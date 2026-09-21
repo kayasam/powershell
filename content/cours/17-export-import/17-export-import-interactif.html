@@ -241,6 +241,19 @@
                   <a href="../../Ressources/Memo-Commandes.md">Mémo des commandes</a>
                 </p>
               </blockquote>
+              <h2>Du pipeline au fichier, puis retour aux objets</h2>
+              <p>
+                <img
+                  alt="Deux chemins aller-retour entre objets PowerShell et fichiers CSV ou JSON"
+                  src="schema-export-import.svg"
+                />
+              </p>
+              <p>
+                Un fichier stocke du <strong>texte structuré</strong>, pas des objets PowerShell
+                vivants. À la lecture, <code>Import-Csv</code> ou
+                <code>ConvertFrom-Json</code> recrée des objets que l'on peut filtrer dans le
+                pipeline.
+              </p>
               <h2>CSV : Le format tableur</h2>
               <h3>Exporter en CSV</h3>
               <pre><code class="language-powershell"># Exporter des processus dans un CSV
@@ -297,7 +310,7 @@ Get-Service | Select-Object Name, Status |
 </code></pre>
               <h3>Importer un JSON</h3>
               <pre><code class="language-powershell"># Lire et convertir
-$donnees = Get-Content &quot;C:\Logs\services.json&quot; | ConvertFrom-Json
+$donnees = Get-Content &quot;C:\Logs\services.json&quot; -Raw | ConvertFrom-Json
 
 # Accéder aux données
 $donnees[0].Name
@@ -317,7 +330,7 @@ $config = @{
 $config | ConvertTo-Json | Out-File &quot;config.json&quot;
 
 # Recharger plus tard
-$configChargee = Get-Content &quot;config.json&quot; | ConvertFrom-Json
+$configChargee = Get-Content &quot;config.json&quot; -Raw | ConvertFrom-Json
 Write-Host &quot;Seuil CPU : $($configChargee.SeuilCPU)%&quot;
 </code></pre>
               <h2>Comparaison CSV vs JSON</h2>

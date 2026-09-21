@@ -1,4 +1,29 @@
+---
+title: "TP1 - L'Enrôlement à la Marine"
+parcours-tssr: true
+parcours-pro: true
+---
+
 # TP1 - L'Enrôlement à la Marine 🌊
+
+## Choisissez votre mode
+
+Le même énoncé ci-dessous sert aux deux modes : choisissez **un** niveau, sans refaire la mission deux fois.
+
+### Débutant — indices progressifs
+
+- Fiche : `$nom.GetType().Name` pour le type, `$nom.ToUpper()` pour les majuscules.
+- Solde : partez de `50000`, ajoutez `2000 * [math]::Max(0, $age - 18)`, puis `10000` seulement si le fruit est présent.
+- Escouade : `$escouade=@('Luffy','Zoro',...)`, puis `[0]`, `[-1]`, `.Count` et `+=` pour les recrues.
+- Badge : commencez par `Write-Host ('=' * 30) -ForegroundColor Blue`, puis ajoutez une couleur à la fois. Testez le fichier avec `.\Badge-Marine.ps1`.
+
+### Avancé — défi autonome
+
+- Construisez le badge **sans recopier** les exemples de l'énoncé ; séparez calcul de solde et affichage.
+- Validez âge positif et division entre 1 et 12 avant le calcul ; testez deux valeurs invalides.
+- N'inscrivez ni nom, ni date, ni solde en dur dans le badge : le résultat doit changer quand la fiche change.
+
+**Correction formateur :** [[tp-fil-rouge/01-enrolement-marine-correction|énoncé et solution réunis]].
 
 ## Contexte
 
@@ -253,7 +278,7 @@ $avisRecherche[1].Prime   # Prime du deuxième
 - ✅ Utiliser `Get-Command`, `Get-Help` et `Get-Member`
 - ✅ Afficher du texte coloré avec `Write-Host`
 
-## Pour la suite — Jour 2
+## Pour la suite — Mission 2
 
-Demain vous apprendrez le **pipeline** (`|`), qui permet d'enchaîner les commandes entre elles.
+La mission suivante introduit le **pipeline** (`|`), qui permet d'enchaîner les commandes entre elles.
 Vous verrez aussi les **conditions**, les **boucles** et les **fonctions**.

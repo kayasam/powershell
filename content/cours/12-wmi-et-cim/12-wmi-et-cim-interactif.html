@@ -253,9 +253,11 @@
               <h2>WMI, CIM : de quoi parle-t-on ?</h2>
               <ul>
                 <li>
-                  <strong>WMI</strong> (<em>Windows Management Instrumentation</em>) est la
-                  <strong>base de données</strong> : Windows y publie en permanence l'état du
-                  matériel, du système et des logiciels installés.
+                  <strong>WMI</strong> (<em>Windows Management Instrumentation</em>) est l'<strong
+                    >infrastructure de gestion de Windows</strong
+                  >
+                  : elle décrit les classes dans un dépôt et demande souvent les valeurs actuelles à
+                  des fournisseurs de données au moment où vous les interrogez.
                 </li>
                 <li>
                   <strong>CIM</strong> (<em>Common Information Model</em>) est le
@@ -264,7 +266,19 @@
                 </li>
               </ul>
               <p>
-                Autrement dit : WMI est l'entrepôt, CIM est la langue dans laquelle on lui parle.
+                Autrement dit : CIM donne le modèle commun ; WMI est la mise en œuvre de Windows qui
+                répond à la requête. La cmdlet CIM est votre porte d'entrée depuis PowerShell.
+              </p>
+              <p>
+                <img
+                  alt="Flux d'une requête CIM vers WMI sur un ordinateur distant, avec comparaison de l'ancien accès DCOM"
+                  src="schema-cim-wmi.svg"
+                />
+              </p>
+              <p>
+                Le chemin bleu est celui d'une requête distante <strong>par défaut</strong>. Une
+                session CIM configurée explicitement peut aussi utiliser DCOM ; ce n'est pas le
+                chemin recommandé pour un nouveau script.
               </p>
               <h2>Une seule cmdlet à retenir</h2>
               <pre><code class="language-powershell">Get-CimInstance &lt;NomDeClasse&gt;
@@ -368,6 +382,17 @@ Get-CimInstance Win32_Service -Filter &quot;State='Running'&quot;
                 C'est plus efficace que <code>| Where-Object</code> : on ne transporte que ce dont
                 on a besoin. La différence est invisible en local, mais très nette sur une machine
                 distante.
+              </p>
+              <p>
+                <img
+                  alt="Comparaison du filtrage CIM sur la cible et du filtrage Where-Object après transfert"
+                  src="schema-filtrage-cim.svg"
+                />
+              </p>
+              <p>
+                Avec <code>-Filter</code>, la cible applique la condition avant le retour réseau.
+                Avec <code>Where-Object</code>, PowerShell reçoit d'abord les instances, puis les
+                trie localement.
               </p>
               <blockquote class="callout callout-note">
                 <p>

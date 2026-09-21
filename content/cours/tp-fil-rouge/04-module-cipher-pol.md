@@ -1,4 +1,29 @@
+---
+title: "TP4 - Le Module Officiel de la Cipher Pol"
+parcours-tssr: false
+parcours-pro: true
+---
+
 # TP4 - Le Module Officiel de la Cipher Pol 🕵️
+
+## Choisissez votre mode
+
+Le module et le script principal sont communs aux deux modes ; choisissez **un** niveau.
+
+### Débutant — indices progressifs
+
+- Commencez par un fichier `CipherPol.psm1` contenant une fonction, puis testez `Import-Module <chemin> -Force` avant d'ajouter les autres.
+- `Export-ModuleMember -Function ...` déclare les fonctions publiques ; `Get-Command -Module CipherPol` vérifie les exports.
+- Pour le script principal : `[ValidateSet(...)]` limite un mode, `[switch]` active un export optionnel, `Get-Help` lit l'aide commentée.
+- La tâche planifiée est un **bonus** : préparer action/déclencheur ne l'enregistre pas.
+
+### Avancé — défi autonome
+
+- Gardez les fonctions du module indépendantes des variables globales du script principal ; prouvez leur usage depuis une nouvelle session.
+- Retournez des objets pour les métriques et le score ; réservez `Write-Host` à la présentation.
+- Testez les paramètres valides/invalides et le rechargement du module ; planifiez seulement sur un Windows de laboratoire autorisé, avec nettoyage ciblé.
+
+**Correction formateur :** [[tp-fil-rouge/04-module-cipher-pol-correction|énoncé et solution réunis]].
 
 ## Contexte
 
@@ -160,7 +185,9 @@ Start-Sleep -Seconds 5
 - ✅ Structurer un script principal qui importe un module
 - ✅ Automatiser avec `Register-ScheduledTask`
 
-## Pour la suite — Jour 5
+## Pour la suite — Mission 5
 
 Dernier jour : **Active Directory**.
 Vous apprendrez à gérer les utilisateurs, groupes et permissions directement depuis PowerShell.
+
+La correction formateur réunit l'énoncé, le module et le script de référence ; le lien est en haut de cette mission.

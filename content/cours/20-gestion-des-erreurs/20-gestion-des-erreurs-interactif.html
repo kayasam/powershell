@@ -243,8 +243,21 @@
               </blockquote>
               <h2>Pourquoi gérer les erreurs ?</h2>
               <p>
-                Sans gestion d'erreur, un script s'arrête dès qu'il rencontre un problème. Avec
-                <code>try/catch</code>, il peut continuer et vous informer proprement.
+                Sans gestion d'erreur, certaines erreurs arrêtent le traitement ; d'autres affichent
+                un message puis laissent le script continuer. Avec <code>try/catch</code> et,
+                lorsque c'est nécessaire, <code>-ErrorAction Stop</code>, vous décidez comment
+                réagir proprement.
+              </p>
+              <p>
+                <img
+                  alt="Les branches réussite et erreur terminante dans try, catch et finally"
+                  src="schema-gestion-erreurs.svg"
+                />
+              </p>
+              <p>
+                <code>catch</code> ne reçoit que les <strong>erreurs terminantes</strong>.
+                <code>finally</code> s'exécute dans les deux chemins pour nettoyer ou signaler la
+                fin de la tentative.
               </p>
               <h2>Try / Catch / Finally</h2>
               <pre><code class="language-powershell">try {

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="430" viewBox="0 0 820 430" role="img" aria-labelledby="title desc">
+  <title id="title">Filtrer sur la cible évite de transporter toutes les instances CIM</title>
+  <desc id="desc">Dans la première ligne, Get-CimInstance avec -Filter en WQL fait filtrer les données par WMI sur la machine cible, puis ne reçoit que les résultats. Dans la seconde, Get-CimInstance sans filtre reçoit toutes les instances avant que Where-Object les filtre dans PowerShell.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#76d6f2"/></marker></defs>
+  <rect width="820" height="430" rx="22" fill="#101b2d"/>
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <text x="30" y="45" fill="#f4f8ff" font-size="24" font-weight="700">Où placer le filtre ?</text>
+    <text x="30" y="75" fill="#acc3d9" font-size="15">Sur une machine distante, le volume transféré change.</text>
+    <text x="30" y="114" fill="#70e5dc" font-size="14" font-weight="700">SUR LA CIBLE · -Filter utilise WQL</text>
+    <rect x="30" y="128" width="225" height="90" rx="14" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="45" y="163" fill="#fff" font-size="17" font-weight="700">Get-CimInstance</text>
+    <text x="45" y="190" fill="#d8f9f2" font-size="14">-Filter "State='Running'"</text>
+    <rect x="298" y="128" width="225" height="90" rx="14" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="313" y="163" fill="#fff" font-size="17" font-weight="700">WMI filtre d'abord</text>
+    <text x="313" y="190" fill="#d1e5f5" font-size="14">sur le serveur cible</text>
+    <rect x="566" y="128" width="224" height="90" rx="14" fill="#6a4427" stroke="#ffc36f" stroke-width="2"/>
+    <text x="581" y="163" fill="#fff" font-size="17" font-weight="700">Peu de résultats</text>
+    <text x="581" y="190" fill="#ffe9cf" font-size="14">traversent le réseau</text>
+    <text x="30" y="268" fill="#c9b7ee" font-size="14" font-weight="700">SUR LE POSTE · Where-Object utilise PowerShell</text>
+    <rect x="30" y="282" width="225" height="90" rx="14" fill="#293448" stroke="#72839b" stroke-width="2"/>
+    <text x="45" y="317" fill="#fff" font-size="17" font-weight="700">Get-CimInstance</text>
+    <text x="45" y="344" fill="#c5d0e0" font-size="14">sans -Filter</text>
+    <rect x="298" y="282" width="225" height="90" rx="14" fill="#293448" stroke="#72839b" stroke-width="2"/>
+    <text x="313" y="317" fill="#fff" font-size="17" font-weight="700">Toutes les instances</text>
+    <text x="313" y="344" fill="#c5d0e0" font-size="14">reviennent d'abord</text>
+    <rect x="566" y="282" width="224" height="90" rx="14" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="581" y="317" fill="#fff" font-size="17" font-weight="700">Where-Object</text>
+    <text x="581" y="344" fill="#e8e2ff" font-size="14">filtre localement</text>
+    <text x="30" y="407" fill="#f4d08f" font-size="14" font-weight="600">Même résultat final, mais pas le même coût réseau.</text>
+  </g>
+  <g fill="none" stroke="#76d6f2" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M258 173H290"/><path d="M526 173H558"/><path d="M258 327H290"/><path d="M526 327H558"/>
+  </g>
+</svg>

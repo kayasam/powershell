@@ -25,12 +25,18 @@ avec les cmdlets **CIM**.
 
 ## WMI, CIM : de quoi parle-t-on ?
 
-- **WMI** (_Windows Management Instrumentation_) est la **base de données** : Windows y
-  publie en permanence l'état du matériel, du système et des logiciels installés.
+- **WMI** (_Windows Management Instrumentation_) est l'**infrastructure de gestion de Windows** :
+  elle décrit les classes dans un dépôt et demande souvent les valeurs actuelles à des
+  fournisseurs de données au moment où vous les interrogez.
 - **CIM** (_Common Information Model_) est le **standard** qui décrit comment ranger
   et interroger ces informations. C'est une norme ouverte, pas une invention Microsoft.
 
-Autrement dit : WMI est l'entrepôt, CIM est la langue dans laquelle on lui parle.
+Autrement dit : CIM donne le modèle commun ; WMI est la mise en œuvre de Windows qui
+répond à la requête. La cmdlet CIM est votre porte d'entrée depuis PowerShell.
+
+![Flux d'une requête CIM vers WMI sur un ordinateur distant, avec comparaison de l'ancien accès DCOM](schema-cim-wmi.svg)
+
+Le chemin bleu est celui d'une requête distante **par défaut**. Une session CIM configurée explicitement peut aussi utiliser DCOM ; ce n'est pas le chemin recommandé pour un nouveau script.
 
 ## Une seule cmdlet à retenir
 
@@ -107,6 +113,10 @@ Get-CimInstance Win32_Service -Filter "State='Running'"
 
 C'est plus efficace que `| Where-Object` : on ne transporte que ce dont on a besoin.
 La différence est invisible en local, mais très nette sur une machine distante.
+
+![Comparaison du filtrage CIM sur la cible et du filtrage Where-Object après transfert](schema-filtrage-cim.svg)
+
+Avec `-Filter`, la cible applique la condition avant le retour réseau. Avec `Where-Object`, PowerShell reçoit d'abord les instances, puis les trie localement.
 
 > [!NOTE] La syntaxe de `-Filter` n'est pas du PowerShell
 > C'est du **WQL**, un mini-langage proche du SQL. Il a ses propres règles :

@@ -165,6 +165,8 @@ Créez une fonction `Get-MenuDuJour` qui :
 3. Prend un switch `-VegetarienSeulement`
 4. Filtre les plats selon le budget et l'option végétarienne
 
+> Solution complète : voir la correction de ce TP.
+
 ## Validation
 
 - ✅ Vous savez rendre un paramètre obligatoire avec `[Parameter(Mandatory)]`

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="350" viewBox="0 0 900 350" role="img" aria-labelledby="title desc">
+  <title id="title">Flux de création d'un rapport Active Directory</title>
+  <desc id="desc">Get-ADUser limite la recherche côté annuaire avec SearchBase, Filter et Properties. Les objets utilisateurs reçus sont transformés localement avec Select-Object et Sort-Object, puis Export-Csv crée un fichier de rapport.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#8fddfa"/></marker></defs>
+  <rect width="900" height="350" rx="22" fill="#101b2d"/>
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <text x="32" y="46" fill="#f4f8ff" font-size="24" font-weight="700">Un rapport AD : chercher, transformer, exporter</text>
+    <rect x="32" y="104" width="180" height="139" rx="14" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="47" y="138" fill="#fff" font-size="19" font-weight="700">Get-ADUser</text>
+    <text x="47" y="167" fill="#d1e5f5" font-size="14">-SearchBase</text>
+    <text x="47" y="190" fill="#d1e5f5" font-size="14">-Filter</text>
+    <text x="47" y="213" fill="#d1e5f5" font-size="14">-Properties</text>
+    <rect x="274" y="104" width="144" height="139" rx="14" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="290" y="138" fill="#fff" font-size="18" font-weight="700">Annuaire AD</text>
+    <text x="290" y="171" fill="#d8f9f2" font-size="14">Recherche ciblée</text>
+    <text x="290" y="194" fill="#d8f9f2" font-size="14">côté serveur</text>
+    <rect x="480" y="104" width="146" height="139" rx="14" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="496" y="138" fill="#fff" font-size="17" font-weight="700">Objets reçus</text>
+    <text x="496" y="170" fill="#e8e2ff" font-size="14">Select-Object</text>
+    <text x="496" y="194" fill="#e8e2ff" font-size="14">Sort-Object</text>
+    <text x="496" y="218" fill="#e8e2ff" font-size="13">traitement local</text>
+    <rect x="688" y="104" width="180" height="139" rx="14" fill="#6a4427" stroke="#ffc36f" stroke-width="2"/>
+    <text x="704" y="138" fill="#fff" font-size="18" font-weight="700">Export-Csv</text>
+    <text x="704" y="170" fill="#ffe9cf" font-size="14">Rapport .csv</text>
+    <text x="704" y="194" fill="#ffe9cf" font-size="14">partageable</text>
+    <g fill="none" stroke="#8fddfa" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M218 173H267"/><path d="M424 173H473"/><path d="M632 173H681"/>
+    </g>
+    <text x="32" y="291" fill="#f4d08f" font-size="15" font-weight="600">À retenir : restreindre la recherche dans AD avant de trier et d'exporter localement.</text>
+  </g>
+</svg>

@@ -1,4 +1,29 @@
+---
+title: "TP3 - Le Système d'Archives de la Cipher Pol"
+parcours-tssr: false
+parcours-pro: true
+---
+
 # TP3 - Le Système d'Archives de la Cipher Pol 🕵️
+
+## Choisissez votre mode
+
+Les deux modes produisent les mêmes exports ; choisissez **un** niveau.
+
+### Débutant — indices progressifs
+
+- Créez un dossier de laboratoire avec `Join-Path`/`New-Item`, puis testez `Test-Path` avant d'écrire.
+- Journal : `Add-Content` ajoute une ligne horodatée. Exportez d'abord `Get-Process | Select-Object ... | Export-Csv -NoTypeInformation`.
+- Pour la synthèse : `[PSCustomObject]@{ ... } | ConvertTo-Json -Depth 5` ; relisez avec `Get-Content -Raw | ConvertFrom-Json`.
+- Entourez **chaque export** d'un `try/catch`, et vérifiez le fichier créé avant l'archivage.
+
+### Avancé — défi autonome
+
+- Rendez l'exécution relançable : noms datés ou contrôle explicite avant tout remplacement de rapport.
+- Renvoyez un objet de bilan (`ExportsOK`, `Echecs`, `Dossier`, `Horodatage`) et testez un export qui échoue sans interrompre les autres.
+- Un fichier source doit rester récupérable si l'archivage échoue ; prouvez-le sur des fichiers d'essai.
+
+**Correction formateur :** [[tp-fil-rouge/03-archives-cipher-pol-correction|énoncé et solution réunis]].
 
 ## Contexte
 
@@ -149,11 +174,13 @@ Au moment de la synthèse, si plus de 50% des services sont arrêtés, loguez un
 - ✅ Protéger chaque opération avec `try/catch`
 - ✅ Assembler des fonctions en un script cohérent
 
-## Pour la suite — Jour 4
+## Pour la suite — Mission 4
 
 Vos trois scripts fonctionnent, mais ils se répètent : les mêmes fonctions
 (`Write-Log`, `Write-Section`…) sont recopiées dans chacun.
 
-Demain vous apprendrez à **industrialiser** : paramètres validés, regroupement en
+La mission suivante vous fera **industrialiser** : paramètres validés, regroupement en
 **module** réutilisable, installation d'outils depuis la **PowerShell Gallery**,
 et **planification** automatique de l'exécution.
+
+La correction formateur réunit l'énoncé et le script de référence ; le lien est en haut de cette mission.

@@ -133,6 +133,8 @@ Le script doit :
 2. Recréer toutes les tâches proprement
 3. Afficher un résumé de ce qui a été planifié
 
+> Solution complète : voir la correction de ce TP.
+
 ## Nettoyage final
 
 ```powershell

@@ -4,4 +4,11 @@ title: "Exercices pratiques — Complétion"
 
 # Exercices pratiques — Complétion
 
-- [[04-completion/tp/04-completion|Exercice 04 - Le Reflexe Tab ⚡]]
+Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
+
+| Niveau                                          | Fichier                                                                                 |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------- |
+| 🟢 Débutant — commandes données, indices        | [[04-completion/tp/04-completion-debutant\|Exercice 04 - Le Reflexe Tab ⚡ — Débutant]] |
+| 🔵 Avancé — mêmes exercices, sans les commandes | [[04-completion/tp/04-completion-avance\|Exercice 04 - Le Reflexe Tab ⚡ — Avancé]]     |
+
+Commandes complètes, réponses et explications, pour les deux niveaux.

@@ -145,6 +145,8 @@ Select-String -Path "C:\Temp\*.log" -Pattern "CRITIQUE"
 
 Créez un script qui analyse les transmissions et affiche un résumé coloré.
 
+> Solution complète : voir la correction de ce TP.
+
 ---
 
 ## Les motifs essentiels à retenir

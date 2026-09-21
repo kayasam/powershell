@@ -20,8 +20,11 @@ parcours-pro: true
 
 ## Pourquoi gérer les erreurs ?
 
-Sans gestion d'erreur, un script s'arrête dès qu'il rencontre un problème.
-Avec `try/catch`, il peut continuer et vous informer proprement.
+Sans gestion d'erreur, certaines erreurs arrêtent le traitement ; d'autres affichent un message puis laissent le script continuer. Avec `try/catch` et, lorsque c'est nécessaire, `-ErrorAction Stop`, vous décidez comment réagir proprement.
+
+![Les branches réussite et erreur terminante dans try, catch et finally](schema-gestion-erreurs.svg)
+
+`catch` ne reçoit que les **erreurs terminantes**. `finally` s'exécute dans les deux chemins pour nettoyer ou signaler la fin de la tentative.
 
 ## Try / Catch / Finally
 

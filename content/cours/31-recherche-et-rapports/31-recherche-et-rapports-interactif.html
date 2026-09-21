@@ -296,6 +296,18 @@ Search-ADAccount -AccountInactive -TimeSpan (New-TimeSpan -Days 90)
 Search-ADAccount -AccountDisabled
 </code></pre>
               <h2>Construire des rapports</h2>
+              <p>
+                <img
+                  alt="Flux d'un rapport Active Directory entre filtre sur l'annuaire, objets PowerShell et export CSV"
+                  src="schema-rapport-ad.svg"
+                />
+              </p>
+              <p>
+                <code>-SearchBase</code>, <code>-Filter</code> et <code>-Properties</code> limitent
+                ou précisent la recherche auprès de l'annuaire. <code>Select-Object</code> et
+                <code>Sort-Object</code> travaillent ensuite sur les objets reçus ;
+                <code>Export-Csv</code> écrit enfin le rapport.
+              </p>
               <h3>Rapport : tous les utilisateurs avec leur département</h3>
               <pre><code class="language-powershell">Get-ADUser -Filter * -Properties Department, Title, EmailAddress, Enabled |
     Select-Object Name, SamAccountName, Department, Title, EmailAddress, Enabled |

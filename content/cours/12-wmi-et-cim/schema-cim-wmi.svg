@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="540" viewBox="0 0 820 540" role="img" aria-labelledby="title desc">
+  <title id="title">CIM est le modèle, WMI fournit les données Windows</title>
+  <desc id="desc">La requête PowerShell Get-CimInstance passe par WS-Man et WinRM par défaut vers WMI sur la machine cible. L'ancien Get-WmiObject passait par DCOM. WMI lit ses classes et interroge des fournisseurs pour obtenir des valeurs actuelles, puis retourne des instances exploitables dans le pipeline.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#76d6f2"/></marker></defs>
+  <rect width="820" height="540" rx="22" fill="#101b2d"/>
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <text x="30" y="44" fill="#f4f8ff" font-size="25" font-weight="700">CIM décrit · WMI répond</text>
+    <text x="30" y="72" fill="#acc3d9" font-size="15">Deux chemins d'accès distant à la même infrastructure Windows.</text>
+    <text x="30" y="105" fill="#70e5dc" font-size="14" font-weight="700">CHEMIN MODERNE PAR DÉFAUT</text>
+    <rect x="30" y="119" width="165" height="98" rx="14" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="45" y="154" fill="#fff" font-size="17" font-weight="700">PowerShell</text>
+    <text x="45" y="181" fill="#d1e5f5" font-size="13">Demande une classe</text>
+    <text x="45" y="201" fill="#d1e5f5" font-size="13">Win32_...</text>
+    <rect x="228" y="119" width="165" height="98" rx="14" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="243" y="154" fill="#fff" font-size="17" font-weight="700">Get-CimInstance</text>
+    <text x="243" y="181" fill="#d8f9f2" font-size="13">Classe + éventuel</text>
+    <text x="243" y="201" fill="#d8f9f2" font-size="13">-Filter WQL</text>
+    <rect x="426" y="119" width="165" height="98" rx="14" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="441" y="154" fill="#fff" font-size="17" font-weight="700">WS-Man / WinRM</text>
+    <text x="441" y="181" fill="#e8e2ff" font-size="13">Transport réseau</text>
+    <text x="441" y="201" fill="#e8e2ff" font-size="13">par défaut</text>
+    <rect x="624" y="119" width="166" height="98" rx="14" fill="#6a4427" stroke="#ffc36f" stroke-width="2"/>
+    <text x="639" y="154" fill="#fff" font-size="17" font-weight="700">WMI sur la cible</text>
+    <text x="639" y="181" fill="#ffe9cf" font-size="13">Service + classes</text>
+    <text x="639" y="201" fill="#ffe9cf" font-size="13">+ fournisseurs</text>
+    <text x="30" y="257" fill="#c9b7ee" font-size="14" font-weight="700">ANCIEN CHEMIN</text>
+    <rect x="30" y="271" width="165" height="80" rx="14" fill="#293448" stroke="#72839b" stroke-width="2"/>
+    <text x="45" y="306" fill="#fff" font-size="17" font-weight="700">Ancien script</text>
+    <text x="45" y="329" fill="#c5d0e0" font-size="13">Windows PowerShell</text>
+    <rect x="228" y="271" width="165" height="80" rx="14" fill="#293448" stroke="#72839b" stroke-width="2"/>
+    <text x="243" y="306" fill="#fff" font-size="17" font-weight="700">Get-WmiObject</text>
+    <text x="243" y="329" fill="#c5d0e0" font-size="13">Commande héritée</text>
+    <rect x="426" y="271" width="165" height="80" rx="14" fill="#293448" stroke="#72839b" stroke-width="2"/>
+    <text x="441" y="306" fill="#fff" font-size="17" font-weight="700">DCOM / RPC</text>
+    <text x="441" y="329" fill="#c5d0e0" font-size="13">Transport historique</text>
+    <rect x="624" y="271" width="166" height="80" rx="14" fill="#293448" stroke="#72839b" stroke-width="2"/>
+    <text x="639" y="306" fill="#fff" font-size="17" font-weight="700">Même WMI</text>
+    <text x="639" y="329" fill="#c5d0e0" font-size="13">sur la cible</text>
+    <rect x="30" y="398" width="760" height="80" rx="14" fill="#172c45" stroke="#5b86b0" stroke-width="2"/>
+    <text x="48" y="430" fill="#f4f8ff" font-size="17" font-weight="700">Ce que WMI fait réellement</text>
+    <text x="48" y="458" fill="#d3e4f3" font-size="14">Le dépôt décrit les classes ; les fournisseurs lisent souvent les valeurs actuelles à la demande.</text>
+    <text x="30" y="510" fill="#f4d08f" font-size="14" font-weight="600">Retour : instances CIM → objets PowerShell. DCOM reste possible avec une session CIM configurée.</text>
+  </g>
+  <g fill="none" stroke="#76d6f2" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M198 168H220"/><path d="M396 168H418"/><path d="M594 168H616"/>
+  </g>
+  <g fill="none" stroke="#8797ac" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)">
+    <path d="M198 311H220"/><path d="M396 311H418"/><path d="M594 311H616"/>
+  </g>
+</svg>

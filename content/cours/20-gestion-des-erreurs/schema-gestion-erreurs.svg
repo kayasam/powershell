@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420" role="img" aria-labelledby="title desc">
+  <title id="title">Chemins d'exécution de try, catch et finally</title>
+  <desc id="desc">Une commande dans try continue vers le résultat en cas de succès. Une erreur bloquante, ou une erreur non bloquante convertie par ErrorAction Stop, rejoint catch. Les deux chemins rejoignent finally, exécuté dans tous les cas.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#8fddfa"/></marker></defs>
+  <rect width="820" height="420" rx="22" fill="#101b2d"/>
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <text x="32" y="46" fill="#f4f8ff" font-size="24" font-weight="700">Que se passe-t-il quand une commande échoue ?</text>
+    <rect x="34" y="117" width="172" height="103" rx="14" fill="#203d63" stroke="#62b8ed" stroke-width="2"/>
+    <text x="50" y="152" fill="#fff" font-size="21" font-weight="700">try</text>
+    <text x="50" y="179" fill="#d1e5f5" font-size="14">Lance la commande</text>
+    <text x="50" y="201" fill="#d1e5f5" font-size="14">à surveiller</text>
+    <rect x="301" y="94" width="182" height="85" rx="14" fill="#215453" stroke="#49d4c7" stroke-width="2"/>
+    <text x="317" y="129" fill="#fff" font-size="18" font-weight="700">Succès</text><text x="317" y="154" fill="#d8f9f2" font-size="14">Continue dans try</text>
+    <rect x="301" y="223" width="182" height="101" rx="14" fill="#6a3342" stroke="#fa819c" stroke-width="2"/>
+    <text x="317" y="257" fill="#fff" font-size="19" font-weight="700">catch</text>
+    <text x="317" y="281" fill="#ffe0e7" font-size="13">Erreur bloquante :</text>
+    <text x="317" y="303" fill="#ffe0e7" font-size="13">la traiter ou la signaler</text>
+    <rect x="580" y="154" width="195" height="108" rx="14" fill="#49417a" stroke="#b5a0ff" stroke-width="2"/>
+    <text x="596" y="190" fill="#fff" font-size="20" font-weight="700">finally</text>
+    <text x="596" y="216" fill="#e8e2ff" font-size="14">Nettoie les ressources</text>
+    <text x="596" y="239" fill="#e8e2ff" font-size="14">dans les deux cas</text>
+    <g fill="none" stroke="#8fddfa" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M211 153H260V137H294"/><path d="M211 184H259V274H294"/>
+      <path d="M488 137H535V185H573"/><path d="M488 274H535V230H573"/>
+    </g>
+    <text x="218" y="139" fill="#7be0cf" font-size="13" font-weight="700">OK</text>
+    <text x="218" y="247" fill="#ff9db1" font-size="13" font-weight="700">Erreur</text>
+    <text x="34" y="364" fill="#f4d08f" font-size="15" font-weight="600">Une erreur non bloquante n'entre dans catch que si -ErrorAction Stop la convertit.</text>
+  </g>
+</svg>

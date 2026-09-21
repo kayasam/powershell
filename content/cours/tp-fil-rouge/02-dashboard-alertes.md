@@ -1,11 +1,36 @@
+---
+title: "TP2 - Le Dashboard d'Alerte de la Cipher Pol"
+parcours-tssr: true
+parcours-pro: true
+---
+
 # TP2 - Le Dashboard d'Alerte de la Cipher Pol 🕵️
+
+## Choisissez votre mode
+
+Le même dashboard est à construire dans les deux modes ; choisissez **un** niveau.
+
+### Débutant — indices progressifs
+
+- Découpez le script : une fonction d'affichage, puis une fonction ou section par métrique CPU, RAM et disque.
+- `Get-CimInstance Win32_Processor` aide pour le CPU ; `Win32_OperatingSystem` pour la RAM ; `Win32_LogicalDisk -Filter "DeviceID='C:'"` pour le disque.
+- Vérifiez les **unités** avant de diviser : mémoire OS en Ko, disque en octets. Calculez le score à partir de variables intermédiaires, pas d'une très longue condition.
+- Testez d'abord chaque indicateur séparément ; assemblez-les seulement quand leurs valeurs sont cohérentes.
+
+### Avancé — défi autonome
+
+- Ne recopiez pas les blocs de solution de l'énoncé : créez des fonctions qui **renvoient des objets** de métriques, puis une seule fonction de verdict.
+- Rendez les seuils paramétrables et testez le verdict avec trois jeux de données simulées, sans dépendre du poste.
+- Le bonus live doit avoir un arrêt contrôlé ; évitez une boucle infinie sans délai ni sortie.
+
+**Correction formateur :** [[tp-fil-rouge/02-dashboard-alertes-correction|énoncé et solution réunis]].
 
 ## Contexte
 
 Vous êtes recruté(e) par **Rob Lucci** dans la **Cipher Pol n°9**.
 Votre première mission : automatiser la surveillance des serveurs d'Enies Lobby.
 
-Le script du Jour 1 affichait des données brutes. C'était un début.
+Le script de la Mission 1 affichait des données brutes. C'était un début.
 Maintenant, il faut qu'il soit **intelligent** : qu'il détecte les anomalies, classe les alertes, et présente un tableau de bord clair.
 
 > _"La perfection ou rien."_ — Rob Lucci
@@ -233,3 +258,5 @@ while ($true) {
 ✅ Créer des indicateurs visuels avec des couleurs
 ✅ Calculer des scores à partir de conditions
 ✅ Récupérer des métriques système réelles
+
+La correction formateur réunit l'énoncé et le script de référence ; le lien est en haut de cette mission.

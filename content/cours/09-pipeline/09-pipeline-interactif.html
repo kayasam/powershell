@@ -249,6 +249,17 @@
                 Lisez-le comme une phrase : "Obtiens les processus, trie-les par CPU, garde les 5
                 premiers."
               </p>
+              <p>
+                <img
+                  alt="Flux des objets à travers quatre étapes du pipeline PowerShell"
+                  src="schema-pipeline.svg"
+                />
+              </p>
+              <p>
+                Le trait entre deux étapes représente des <strong>objets transmis</strong>, pas une
+                ligne de texte déjà affichée. Chaque commande reçoit le résultat de la précédente et
+                peut encore le filtrer ou le transformer.
+              </p>
               <h2>Where-Object : filtrer</h2>
               <pre><code class="language-powershell"># Processus qui consomment plus de 100 MB
 Get-Process | Where-Object WorkingSet -gt 100MB
