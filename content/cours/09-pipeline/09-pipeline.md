@@ -26,7 +26,9 @@ Get-Process | Sort-Object CPU -Descending | Select-Object -First 5
 
 Lisez-le comme une phrase : "Obtiens les processus, trie-les par CPU, garde les 5 premiers."
 
-![Flux des objets à travers quatre étapes du pipeline PowerShell](schema-pipeline.svg)
+![[schema-pipeline.svg]]
+
+[Explorer le pipeline en mouvement →](https://kayasam.github.io/powershell/cours/09-pipeline/schema-pipeline-interactif.html)
 
 Le trait entre deux étapes représente des **objets transmis**, pas une ligne de texte déjà affichée. Chaque commande reçoit le résultat de la précédente et peut encore le filtrer ou le transformer.
 

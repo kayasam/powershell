@@ -20,7 +20,9 @@ parcours-pro: true
 
 Sans gestion d'erreur, certaines erreurs arrêtent le traitement ; d'autres affichent un message puis laissent le script continuer. Avec `try/catch` et, lorsque c'est nécessaire, `-ErrorAction Stop`, vous décidez comment réagir proprement.
 
-![Les branches réussite et erreur terminante dans try, catch et finally](schema-gestion-erreurs.svg)
+![[schema-gestion-erreurs.svg]]
+
+[Suivre les chemins try, catch et finally →](https://kayasam.github.io/powershell/cours/20-gestion-des-erreurs/schema-gestion-erreurs-interactif.html)
 
 `catch` ne reçoit que les **erreurs terminantes**. `finally` s'exécute dans les deux chemins pour nettoyer ou signaler la fin de la tentative.
 

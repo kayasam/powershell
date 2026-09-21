@@ -271,11 +271,12 @@
                 Autrement dit : CIM donne le modèle commun ; WMI est la mise en œuvre de Windows qui
                 répond à la requête. La cmdlet CIM est votre porte d'entrée depuis PowerShell.
               </p>
+              <p><img alt="schema cim wmi" src="../../Ressources/images/schema-cim-wmi.svg" /></p>
               <p>
-                <img
-                  alt="Flux d'une requête CIM vers WMI sur un ordinateur distant, avec comparaison de l'ancien accès DCOM"
-                  src="schema-cim-wmi.svg"
-                />
+                <a
+                  href="https://kayasam.github.io/powershell/cours/12-wmi-et-cim/schema-cim-wmi-interactif.html"
+                  >Suivre une requête CIM vers WMI →</a
+                >
               </p>
               <p>
                 Le chemin bleu est celui d'une requête distante <strong>par défaut</strong>. Une
@@ -387,9 +388,15 @@ Get-CimInstance Win32_Service -Filter &quot;State='Running'&quot;
               </p>
               <p>
                 <img
-                  alt="Comparaison du filtrage CIM sur la cible et du filtrage Where-Object après transfert"
-                  src="schema-filtrage-cim.svg"
+                  alt="schema filtrage cim"
+                  src="../../Ressources/images/schema-filtrage-cim.svg"
                 />
+              </p>
+              <p>
+                <a
+                  href="https://kayasam.github.io/powershell/cours/12-wmi-et-cim/schema-filtrage-cim-interactif.html"
+                  >Comparer les deux stratégies de filtrage →</a
+                >
               </p>
               <p>
                 Avec <code>-Filter</code>, la cible applique la condition avant le retour réseau.

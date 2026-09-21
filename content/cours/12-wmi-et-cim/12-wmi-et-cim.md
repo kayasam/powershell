@@ -34,7 +34,9 @@ avec les cmdlets **CIM**.
 Autrement dit : CIM donne le modèle commun ; WMI est la mise en œuvre de Windows qui
 répond à la requête. La cmdlet CIM est votre porte d'entrée depuis PowerShell.
 
-![Flux d'une requête CIM vers WMI sur un ordinateur distant, avec comparaison de l'ancien accès DCOM](schema-cim-wmi.svg)
+![[schema-cim-wmi.svg]]
+
+[Suivre une requête CIM vers WMI →](https://kayasam.github.io/powershell/cours/12-wmi-et-cim/schema-cim-wmi-interactif.html)
 
 Le chemin bleu est celui d'une requête distante **par défaut**. Une session CIM configurée explicitement peut aussi utiliser DCOM ; ce n'est pas le chemin recommandé pour un nouveau script.
 
@@ -114,7 +116,9 @@ Get-CimInstance Win32_Service -Filter "State='Running'"
 C'est plus efficace que `| Where-Object` : on ne transporte que ce dont on a besoin.
 La différence est invisible en local, mais très nette sur une machine distante.
 
-![Comparaison du filtrage CIM sur la cible et du filtrage Where-Object après transfert](schema-filtrage-cim.svg)
+![[schema-filtrage-cim.svg]]
+
+[Comparer les deux stratégies de filtrage →](https://kayasam.github.io/powershell/cours/12-wmi-et-cim/schema-filtrage-cim-interactif.html)
 
 Avec `-Filter`, la cible applique la condition avant le retour réseau. Avec `Where-Object`, PowerShell reçoit d'abord les instances, puis les trie localement.
 

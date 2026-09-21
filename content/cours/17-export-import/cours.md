@@ -20,7 +20,9 @@ parcours-pro: true
 
 ## Du pipeline au fichier, puis retour aux objets
 
-![Deux chemins aller-retour entre objets PowerShell et fichiers CSV ou JSON](schema-export-import.svg)
+![[schema-export-import.svg]]
+
+[Tester le laboratoire CSV ou JSON →](https://kayasam.github.io/powershell/cours/17-export-import/schema-export-import-interactif.html)
 
 Un fichier stocke du **texte structuré**, pas des objets PowerShell vivants. À la lecture, `Import-Csv` ou `ConvertFrom-Json` recrée des objets que l'on peut filtrer dans le pipeline.
 
