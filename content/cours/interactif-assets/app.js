@@ -101,6 +101,23 @@
 
   const chapterId = document.body.dataset.chapter
   if (chapterId) {
+    let isStandalone = true
+    try {
+      isStandalone = window.self === window.top
+    } catch {
+      isStandalone = true
+    }
+    if (isStandalone) {
+      const headerActions = document.querySelector(".header-actions")
+      if (headerActions) {
+        const exitLink = document.createElement("a")
+        exitLink.className = "header-link exit-fullscreen"
+        exitLink.href = `https://kayasam.github.io/powershell/cours/${chapterId}/cours-interactif`
+        exitLink.textContent = "← Quitter le plein écran"
+        exitLink.setAttribute("aria-label", "Quitter le plein écran et revenir au chapitre")
+        headerActions.prepend(exitLink)
+      }
+    }
     const button = document.querySelector("[data-complete]")
     const paintCompletion = () => {
       const done = state.completed.includes(chapterId)

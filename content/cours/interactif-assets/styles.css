@@ -120,6 +120,12 @@ input:focus-visible {
   color: white;
   text-decoration: none;
 }
+.exit-fullscreen {
+  background: #fff;
+  color: #12304a;
+  border-color: #fff;
+  font-weight: 800;
+}
 .icon-button {
   display: none;
   min-width: 42px;
@@ -1102,8 +1108,12 @@ input:focus-visible {
   .progress-panel {
     margin-top: -1.5rem;
   }
-  .header-link {
+  .header-link:not(.exit-fullscreen) {
     display: none;
+  }
+  .exit-fullscreen {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.82rem;
   }
   .course-head h1 {
     font-size: 2.7rem;
