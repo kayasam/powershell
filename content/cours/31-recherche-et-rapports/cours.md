@@ -82,7 +82,7 @@ Search-ADAccount -AccountDisabled
 
 ## Construire des rapports
 
-![[schema-rapport-ad.svg]]
+![schema rapport ad](https://kayasam.github.io/powershell/ressources/images/schema-rapport-ad.svg)
 
 [Construire un rapport Active Directory →](https://kayasam.github.io/powershell/cours/31-recherche-et-rapports/schema-rapport-ad-interactif.html)
 

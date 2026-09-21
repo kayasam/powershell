@@ -25,7 +25,7 @@ PowerShell permet de créer des tâches planifiées directement depuis la consol
 
 La création se fait en 3 étapes : l'action, le déclencheur, et l'enregistrement.
 
-![[schema-tache-planifiee.svg]]
+![schema tache planifiee](https://kayasam.github.io/powershell/ressources/images/schema-tache-planifiee.svg)
 
 [Assembler une tâche planifiée →](https://kayasam.github.io/powershell/cours/27-planification/schema-tache-planifiee-interactif.html)
 

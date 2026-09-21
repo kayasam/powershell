@@ -148,6 +148,24 @@ if (Test-Path -LiteralPath $sourceMemo -PathType Leaf) {
   Copy-Item -LiteralPath $sourceMemo -Destination (Join-Path $stageRoot "memo-commandes.md") -Force
 }
 
+# Obsidian retrouve les pièces jointes par leur nom dans Ressources/images.
+# Quartz ne résout pas ces inclusions si le SVG n'est pas voisin du Markdown :
+# on conserve la syntaxe Obsidian dans le coffre et on la convertit seulement ici.
+Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Object {
+  $document = [IO.File]::ReadAllText($_.FullName)
+  $document = [regex]::Replace(
+    $document,
+    '!\[\[([^\]|\\/]+\.svg)(?:\|[^\]]+)?\]\]',
+    { param($match)
+      $fileName = $match.Groups[1].Value
+      $alt = [IO.Path]::GetFileNameWithoutExtension($fileName).Replace('-', ' ')
+      "![$alt](https://kayasam.github.io/powershell/ressources/images/$fileName)"
+    },
+    [Text.RegularExpressions.RegexOptions]::IgnoreCase
+  )
+  [IO.File]::WriteAllText($_.FullName, $document, [Text.UTF8Encoding]::new($false))
+}
+
 Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Object {
   $document = [IO.File]::ReadAllText($_.FullName)
   if ($document -match '(?m)^publier:\s*false\s*$') {

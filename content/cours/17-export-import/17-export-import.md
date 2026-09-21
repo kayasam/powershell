@@ -18,7 +18,7 @@ parcours-pro: true
 
 ## Du pipeline au fichier, puis retour aux objets
 
-![[schema-export-import.svg]]
+![schema export import](https://kayasam.github.io/powershell/ressources/images/schema-export-import.svg)
 
 [Tester le laboratoire CSV ou JSON →](https://kayasam.github.io/powershell/cours/17-export-import/schema-export-import-interactif.html)
 

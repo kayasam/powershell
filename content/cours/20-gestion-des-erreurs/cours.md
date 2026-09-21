@@ -22,7 +22,7 @@ parcours-pro: true
 
 Sans gestion d'erreur, certaines erreurs arrêtent le traitement ; d'autres affichent un message puis laissent le script continuer. Avec `try/catch` et, lorsque c'est nécessaire, `-ErrorAction Stop`, vous décidez comment réagir proprement.
 
-![[schema-gestion-erreurs.svg]]
+![schema gestion erreurs](https://kayasam.github.io/powershell/ressources/images/schema-gestion-erreurs.svg)
 
 [Suivre les chemins try, catch et finally →](https://kayasam.github.io/powershell/cours/20-gestion-des-erreurs/schema-gestion-erreurs-interactif.html)
 

@@ -36,7 +36,7 @@ avec les cmdlets **CIM**.
 Autrement dit : CIM donne le modèle commun ; WMI est la mise en œuvre de Windows qui
 répond à la requête. La cmdlet CIM est votre porte d'entrée depuis PowerShell.
 
-![[schema-cim-wmi.svg]]
+![schema cim wmi](https://kayasam.github.io/powershell/ressources/images/schema-cim-wmi.svg)
 
 [Suivre une requête CIM vers WMI →](https://kayasam.github.io/powershell/cours/12-wmi-et-cim/schema-cim-wmi-interactif.html)
 
@@ -118,7 +118,7 @@ Get-CimInstance Win32_Service -Filter "State='Running'"
 C'est plus efficace que `| Where-Object` : on ne transporte que ce dont on a besoin.
 La différence est invisible en local, mais très nette sur une machine distante.
 
-![[schema-filtrage-cim.svg]]
+![schema filtrage cim](https://kayasam.github.io/powershell/ressources/images/schema-filtrage-cim.svg)
 
 [Comparer les deux stratégies de filtrage →](https://kayasam.github.io/powershell/cours/12-wmi-et-cim/schema-filtrage-cim-interactif.html)
 

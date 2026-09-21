@@ -26,7 +26,7 @@ Get-Process | Sort-Object CPU -Descending | Select-Object -First 5
 
 Lisez-le comme une phrase : "Obtiens les processus, trie-les par CPU, garde les 5 premiers."
 
-![[schema-pipeline.svg]]
+![schema pipeline](https://kayasam.github.io/powershell/ressources/images/schema-pipeline.svg)
 
 [Explorer le pipeline en mouvement →](https://kayasam.github.io/powershell/cours/09-pipeline/schema-pipeline-interactif.html)
 
