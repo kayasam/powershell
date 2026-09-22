@@ -416,12 +416,12 @@ Ajoutez un paramètre `-Supprimer` qui, au lieu de créer, désactive tous les c
 
 ---
 
-## Ce que vous avez appris
-
-- ✅ Orchestrer une intégration complète avec PowerShell
-- ✅ Combiner lecture CSV, création AD, ajout aux groupes et logging
-- ✅ Utiliser `$PSScriptRoot` pour des chemins relatifs fiables
-- ✅ Implémenter un mode simulation pour tester sans risque
-- ✅ Générer un rapport d'exécution exportable
+> [!success] Ce que vous avez appris
+>
+> - Orchestrer une intégration complète avec PowerShell
+> - Combiner lecture CSV, création AD, ajout aux groupes et logging
+> - Utiliser `$PSScriptRoot` pour des chemins relatifs fiables
+> - Implémenter un mode simulation pour tester sans risque
+> - Générer un rapport d'exécution exportable
 
 La correction formateur réunit l'énoncé et le script de référence ; le lien est en haut de cette mission.

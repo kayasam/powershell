@@ -356,16 +356,16 @@ Add-Type -AssemblyName PresentationFramework
 
 Pour un script d'admin : restez sur WinForms.
 
-## À retenir
-
-- ✅ `Add-Type -AssemblyName System.Windows.Forms` et `System.Drawing` d'abord
-- ✅ Trois temps par contrôle : créer, positionner (`Location`), `Controls.Add()`
-- ✅ Les événements s'attachent avec `Add_Click { }`, `Add_TextChanged { }`…
-- ✅ `ShowDialog()` **bloque** — jamais dans un script planifié
-- ✅ `DialogResult` + `AcceptButton` / `CancelButton` : la façon propre de valider
-- ✅ On lit les valeurs **après** la fermeture, puis on appelle `Dispose()`
-- ✅ `MessageBox::Show` et `OpenFileDialog` pour les cas simples
-- ✅ WinForms est **Windows uniquement**, même en PowerShell 7
+> [!success] À retenir
+>
+> - `Add-Type -AssemblyName System.Windows.Forms` et `System.Drawing` d'abord
+> - Trois temps par contrôle : créer, positionner (`Location`), `Controls.Add()`
+> - Les événements s'attachent avec `Add_Click { }`, `Add_TextChanged { }`…
+> - `ShowDialog()` **bloque** — jamais dans un script planifié
+> - `DialogResult` + `AcceptButton` / `CancelButton` : la façon propre de valider
+> - On lit les valeurs **après** la fermeture, puis on appelle `Dispose()`
+> - `MessageBox::Show` et `OpenFileDialog` pour les cas simples
+> - WinForms est **Windows uniquement**, même en PowerShell 7
 
 > **Liens**
 >

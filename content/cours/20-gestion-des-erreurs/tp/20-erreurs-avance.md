@@ -106,10 +106,10 @@ pour une tâche planifiée ?
 
 ---
 
-## Validation
-
-✅ Vous distinguez erreur **terminante** et **non terminante**
-✅ Vous savez qu'il faut `-ErrorAction Stop` pour attraper la seconde
-✅ Vous écrivez des `catch` typés, dans le bon ordre
-✅ Vous produisez un journal d'erreur exploitable
-✅ Vous terminez vos scripts par un `exit` explicite
+> [!success] Validation
+>
+> - Vous distinguez erreur **terminante** et **non terminante**
+> - Vous savez qu'il faut `-ErrorAction Stop` pour attraper la seconde
+> - Vous écrivez des `catch` typés, dans le bon ordre
+> - Vous produisez un journal d'erreur exploitable
+> - Vous terminez vos scripts par un `exit` explicite

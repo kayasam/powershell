@@ -93,10 +93,10 @@ de libre. Le résultat doit s'exporter en CSV sans retouche.
 
 ---
 
-## Validation
-
-✅ Vous distinguez mise en forme et sélection de données
-✅ Vous placez les `Format-*` **en fin de pipeline**
-✅ Vous savez construire une colonne calculée
-✅ Vous savez pourquoi trier **avant** de couper
-✅ Vous produisez une sortie réutilisable, pas seulement lisible
+> [!success] Validation
+>
+> - Vous distinguez mise en forme et sélection de données
+> - Vous placez les `Format-*` **en fin de pipeline**
+> - Vous savez construire une colonne calculée
+> - Vous savez pourquoi trier **avant** de couper
+> - Vous produisez une sortie réutilisable, pas seulement lisible

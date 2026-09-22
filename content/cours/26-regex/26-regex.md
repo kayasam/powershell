@@ -121,13 +121,13 @@ if ($ligne -match "\[(\d{4}-\d{2}-\d{2})\].*\[(\w+)\].*(\d+\.\d+\.\d+\.\d+)") {
 }
 ```
 
-## À retenir
-
-- ✅ `-match` pour tester un motif regex, `-like` pour les motifs simples
-- ✅ `$Matches` contient les groupes capturés après `-match`
-- ✅ `Select-String` pour chercher dans des fichiers (comme grep)
-- ✅ `-replace` accepte des regex pour des remplacements puissants
-- ✅ `\d` = chiffre, `\w` = mot, `\s` = espace, `^` = début, `$` = fin
+> [!success] À retenir
+>
+> - `-match` pour tester un motif regex, `-like` pour les motifs simples
+> - `$Matches` contient les groupes capturés après `-match`
+> - `Select-String` pour chercher dans des fichiers (comme grep)
+> - `-replace` accepte des regex pour des remplacements puissants
+> - `\d` = chiffre, `\w` = mot, `\s` = espace, `^` = début, `$` = fin
 
 > **Lien**
 >

@@ -139,12 +139,12 @@ d'un `Write-Host` ?
 Testez avec un dossier valide, puis avec un dossier inexistant, en vérifiant
 `$LASTEXITCODE` à chaque fois.
 
-## Validation
-
-✅ Vous distinguez erreur **non terminante** (`Write-Error`) et **terminante** (`throw`)
-✅ Vous savez qu'il faut `-ErrorAction Stop` pour attraper la première
-✅ Vous connaissez les numéros des flux et savez les rediriger
-✅ Vous savez transformer une erreur en objet avec `2>&1`
-✅ Vous terminez vos scripts par un `exit` explicite
-✅ Vous savez lire `$LASTEXITCODE` côté appelant
-✅ Vous imbriquez les `try/catch` pour isoler un échec sans tout arrêter
+> [!success] Validation
+>
+> - Vous distinguez erreur **non terminante** (`Write-Error`) et **terminante** (`throw`)
+> - Vous savez qu'il faut `-ErrorAction Stop` pour attraper la première
+> - Vous connaissez les numéros des flux et savez les rediriger
+> - Vous savez transformer une erreur en objet avec `2>&1`
+> - Vous terminez vos scripts par un `exit` explicite
+> - Vous savez lire `$LASTEXITCODE` côté appelant
+> - Vous imbriquez les `try/catch` pour isoler un échec sans tout arrêter

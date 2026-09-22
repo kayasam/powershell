@@ -175,13 +175,13 @@ Get-Help Get-Info
 Get-Help Get-Info -Examples
 ```
 
-## À retenir
-
-- ✅ `[CmdletBinding()]` pour activer les paramètres avancés
-- ✅ `[Parameter(Mandatory)]` pour les paramètres obligatoires
-- ✅ `[ValidateSet(...)]` pour limiter les valeurs autorisées
-- ✅ `[ValidateRange(min, max)]` pour les plages numériques
-- ✅ `[switch]` pour les flags booléens (`-ExporterCSV`)
+> [!success] À retenir
+>
+> - `[CmdletBinding()]` pour activer les paramètres avancés
+> - `[Parameter(Mandatory)]` pour les paramètres obligatoires
+> - `[ValidateSet(...)]` pour limiter les valeurs autorisées
+> - `[ValidateRange(min, max)]` pour les plages numériques
+> - `[switch]` pour les flags booléens (`-ExporterCSV`)
 
 > **Lien**
 >

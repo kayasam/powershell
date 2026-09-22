@@ -166,13 +166,13 @@ Au moment de la synthèse, si plus de 50% des services sont arrêtés, loguez un
 
 ---
 
-## Ce que vous avez appris
-
-- ✅ Créer une arborescence de dossiers automatiquement
-- ✅ Écrire dans des fichiers log avec `Add-Content`
-- ✅ Exporter des données structurées en CSV et JSON
-- ✅ Protéger chaque opération avec `try/catch`
-- ✅ Assembler des fonctions en un script cohérent
+> [!success] Ce que vous avez appris
+>
+> - Créer une arborescence de dossiers automatiquement
+> - Écrire dans des fichiers log avec `Add-Content`
+> - Exporter des données structurées en CSV et JSON
+> - Protéger chaque opération avec `try/catch`
+> - Assembler des fonctions en un script cohérent
 
 ## Pour la suite — Mission 4
 

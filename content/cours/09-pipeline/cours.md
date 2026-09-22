@@ -122,13 +122,13 @@ Get-Service |
     Select-Object -First 3 DisplayName, Status
 ```
 
-## À retenir
-
-✅ `|` passe les objets d'une cmdlet à l'autre
-✅ `Where-Object` (ou `?`) pour filtrer
-✅ `Sort-Object` pour trier
-✅ `Select-Object` pour choisir les colonnes
-✅ `Measure-Object` pour compter/calculer
+> [!success] À retenir
+>
+> - `|` passe les objets d'une cmdlet à l'autre
+> - `Where-Object` (ou `?`) pour filtrer
+> - `Sort-Object` pour trier
+> - `Select-Object` pour choisir les colonnes
+> - `Measure-Object` pour compter/calculer
 
 > **Lien**
 >

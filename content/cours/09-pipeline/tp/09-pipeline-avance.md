@@ -109,9 +109,9 @@ filtrage de la cmdlet. Quel écart ? Formulez la règle.
 
 ---
 
-## Validation
-
-✅ Vous filtrez, triez, groupez et mesurez dans un même pipeline
-✅ Vous connaissez les deux écritures de `Where-Object`
-✅ Vous savez construire une colonne calculée conditionnelle
-✅ Vous savez pourquoi filtrer **à la source** plutôt que dans le pipeline
+> [!success] Validation
+>
+> - Vous filtrez, triez, groupez et mesurez dans un même pipeline
+> - Vous connaissez les deux écritures de `Where-Object`
+> - Vous savez construire une colonne calculée conditionnelle
+> - Vous savez pourquoi filtrer **à la source** plutôt que dans le pipeline

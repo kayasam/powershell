@@ -152,10 +152,10 @@ le nombre de comptes créés, combien sont actifs, et la répartition par servic
 
 ---
 
-## Validation
-
-✅ Vous savez lire un utilisateur et demander ses propriétés manquantes
-✅ Vous savez créer un compte complet avec `New-ADUser`
-✅ Vous savez que le mot de passe doit être un `SecureString`
-✅ Vous savez créer plusieurs comptes dans une boucle
-✅ Vous distinguez désactiver et supprimer
+> [!success] Validation
+>
+> - Vous savez lire un utilisateur et demander ses propriétés manquantes
+> - Vous savez créer un compte complet avec `New-ADUser`
+> - Vous savez que le mot de passe doit être un `SecureString`
+> - Vous savez créer plusieurs comptes dans une boucle
+> - Vous distinguez désactiver et supprimer

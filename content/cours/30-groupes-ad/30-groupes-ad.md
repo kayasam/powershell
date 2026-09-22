@@ -140,13 +140,13 @@ Get-ADUser -Filter "Title -eq 'Administrateur'" |
     ForEach-Object { Add-ADGroupMember -Identity "CP-Admins" -Members $_ }
 ```
 
-## À retenir
-
-- ✅ Deux dimensions : `GroupScope` (portée) et `GroupCategory` (sécurité ou distribution)
-- ✅ `Get-ADGroupMember` liste les membres d'un groupe
-- ✅ `Add-ADGroupMember -Members` accepte une liste de logins
-- ✅ `Get-ADPrincipalGroupMembership` donne tous les groupes d'un utilisateur
-- ✅ `-Recursive` pour inclure les membres des sous-groupes
+> [!success] À retenir
+>
+> - Deux dimensions : `GroupScope` (portée) et `GroupCategory` (sécurité ou distribution)
+> - `Get-ADGroupMember` liste les membres d'un groupe
+> - `Add-ADGroupMember -Members` accepte une liste de logins
+> - `Get-ADPrincipalGroupMembership` donne tous les groupes d'un utilisateur
+> - `-Recursive` pour inclure les membres des sous-groupes
 
 > **Lien**
 >

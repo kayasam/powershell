@@ -135,10 +135,10 @@ automatiquement, écrire dans le fichier **et** afficher à l'écran.
 
 ---
 
-## Validation
-
-✅ Vous savez lire tout un fichier, son début ou sa fin
-✅ Vous distinguez `Set-Content` (écrase) et `Add-Content` (ajoute)
-✅ Vous savez chercher des lignes dans un fichier
-✅ Vous savez remplacer du texte et réenregistrer
-✅ Vous savez pourquoi les parenthèses sont nécessaires avant de réécrire
+> [!success] Validation
+>
+> - Vous savez lire tout un fichier, son début ou sa fin
+> - Vous distinguez `Set-Content` (écrase) et `Add-Content` (ajoute)
+> - Vous savez chercher des lignes dans un fichier
+> - Vous savez remplacer du texte et réenregistrer
+> - Vous savez pourquoi les parenthèses sont nécessaires avant de réécrire

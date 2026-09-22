@@ -144,12 +144,12 @@ if ($service.Status -eq "Running") {
 }
 ```
 
-## À retenir
-
-✅ `if / elseif / else` pour les décisions
-✅ `switch` pour tester de nombreuses valeurs
-✅ `-eq`, `-gt`, `-lt`, `-like` pour comparer
-✅ `-and`, `-or`, `-not` pour combiner
+> [!success] À retenir
+>
+> - `if / elseif / else` pour les décisions
+> - `switch` pour tester de nombreuses valeurs
+> - `-eq`, `-gt`, `-lt`, `-like` pour comparer
+> - `-and`, `-or`, `-not` pour combiner
 
 > **Lien**
 >

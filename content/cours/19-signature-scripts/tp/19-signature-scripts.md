@@ -149,13 +149,13 @@ if (Test-Path -LiteralPath $s) { Remove-Item -LiteralPath $s }
 
 Vérifiez qu'il ne reste rien dans les trois magasins.
 
-## Validation
-
-✅ Vous lisez `Get-ExecutionPolicy -List` et comprenez l'ordre des portées
-✅ Vous savez que la politique d'exécution n'est **pas** une sécurité
-✅ Vous utilisez `Unblock-File` sur un fichier marqué comme téléchargé
-✅ Vous créez un certificat de signature avec `New-SelfSignedCertificate`
-✅ Vous signez avec `Set-AuthenticodeSignature` et vérifiez avec `Get-AuthenticodeSignature`
-✅ Vous savez que signer ne suffit pas : il faut `Root` **et** `TrustedPublisher`
-✅ Vous savez qu'une modification invalide la signature → signer en dernier
-✅ Vous connaissez la checklist d'un script livrable
+> [!success] Validation
+>
+> - Vous lisez `Get-ExecutionPolicy -List` et comprenez l'ordre des portées
+> - Vous savez que la politique d'exécution n'est **pas** une sécurité
+> - Vous utilisez `Unblock-File` sur un fichier marqué comme téléchargé
+> - Vous créez un certificat de signature avec `New-SelfSignedCertificate`
+> - Vous signez avec `Set-AuthenticodeSignature` et vérifiez avec `Get-AuthenticodeSignature`
+> - Vous savez que signer ne suffit pas : il faut `Root` **et** `TrustedPublisher`
+> - Vous savez qu'une modification invalide la signature → signer en dernier
+> - Vous connaissez la checklist d'un script livrable

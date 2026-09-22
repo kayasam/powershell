@@ -104,10 +104,10 @@ journalise en continu ?
 
 ---
 
-## Validation
-
-✅ Vous lisez un fichier en entier, par le début ou par la fin
-✅ Vous distinguez écraser et ajouter
-✅ Vous transformez un fichier texte en objets exploitables
-✅ Vous maîtrisez les encodages et leurs pièges
-✅ Vous savez traiter un gros fichier sans saturer la mémoire
+> [!success] Validation
+>
+> - Vous lisez un fichier en entier, par le début ou par la fin
+> - Vous distinguez écraser et ajouter
+> - Vous transformez un fichier texte en objets exploitables
+> - Vous maîtrisez les encodages et leurs pièges
+> - Vous savez traiter un gros fichier sans saturer la mémoire

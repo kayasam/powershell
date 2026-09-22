@@ -107,10 +107,10 @@ Quelles sont les **deux** causes possibles, et comment trancher entre elles ?
 
 ---
 
-## Validation
-
-✅ Vous savez afficher votre version de PowerShell
-✅ Vous distinguez Windows PowerShell 5.1 de PowerShell 7
-✅ Vous savez lire la politique d'exécution par portée et la modifier au bon niveau
-✅ Vous avez créé et exécuté un premier script `.ps1`
-✅ Vous savez retrouver une commande sans la connaître à l'avance
+> [!success] Validation
+>
+> - Vous savez afficher votre version de PowerShell
+> - Vous distinguez Windows PowerShell 5.1 de PowerShell 7
+> - Vous savez lire la politique d'exécution par portée et la modifier au bon niveau
+> - Vous avez créé et exécuté un premier script `.ps1`
+> - Vous savez retrouver une commande sans la connaître à l'avance

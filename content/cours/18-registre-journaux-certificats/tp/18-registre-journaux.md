@@ -109,12 +109,12 @@ Assemblez le tout dans un `[PSCustomObject]` et exportez-le en CSV.
 
 > Indice : `@(...).Count` pour compter de façon fiable (chapitre 21).
 
-## Validation
-
-✅ Vous savez que registre, certificats et variables sont des **PSDrives**
-✅ Vous naviguez dedans avec `Get-ChildItem` et `Test-Path`
-✅ Vous distinguez une **clé** (dossier) d'une **valeur** (propriété)
-✅ Vous créez, modifiez et supprimez des valeurs dans `HKCU:`
-✅ Vous filtrez les journaux avec `-FilterHashtable`, pas avec `Where-Object`
-✅ Vous connaissez les niveaux (`2` erreur, `3` avertissement)
-✅ Vous savez auditer les certificats qui vont expirer
+> [!success] Validation
+>
+> - Vous savez que registre, certificats et variables sont des **PSDrives**
+> - Vous naviguez dedans avec `Get-ChildItem` et `Test-Path`
+> - Vous distinguez une **clé** (dossier) d'une **valeur** (propriété)
+> - Vous créez, modifiez et supprimez des valeurs dans `HKCU:`
+> - Vous filtrez les journaux avec `-FilterHashtable`, pas avec `Where-Object`
+> - Vous connaissez les niveaux (`2` erreur, `3` avertissement)
+> - Vous savez auditer les certificats qui vont expirer

@@ -152,13 +152,13 @@ function Send-Alerte       { ... }
 > `Remove` (supprimer), `Test` (vérifier), `ConvertTo` / `ConvertFrom` (convertir),
 > `Invoke` (exécuter), `Write` (émettre), `Send` (envoyer).
 
-## À retenir
-
-✅ `function Nom { ... }` pour définir
-✅ `param($A, $B)` pour les paramètres
-✅ `return $valeur` pour retourner
-✅ Suivez la convention **Verbe-Nom**
-✅ Définissez toujours avant d'appeler
+> [!success] À retenir
+>
+> - `function Nom { ... }` pour définir
+> - `param($A, $B)` pour les paramètres
+> - `return $valeur` pour retourner
+> - Suivez la convention **Verbe-Nom**
+> - Définissez toujours avant d'appeler
 
 > **Lien**
 >

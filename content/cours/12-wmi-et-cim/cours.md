@@ -244,16 +244,16 @@ Get-CimInstance Win32_Process -Filter "Name='notepad.exe'" | Invoke-CimMethod -M
 En pratique on préfère les cmdlets natives quand elles existent (`Stop-Process` plutôt
 que `Terminate`) : elles sont plus lisibles et gèrent `-WhatIf`.
 
-## À retenir
-
-- ✅ WMI est l'inventaire de Windows, CIM est la façon standard de l'interroger
-- ✅ `Get-CimInstance <Classe>` : une seule cmdlet pour tout le matériel et le système
-- ✅ Les noms de classes commencent par `Win32_`
-- ✅ `-Filter` utilise du **WQL** (`=`, guillemets simples, `AND`), pas de la syntaxe PowerShell
-- ✅ `Get-CimClass` pour découvrir classes et propriétés avant de les utiliser
-- ✅ Attention aux unités : Ko pour la RAM, octets pour les disques
-- ✅ `-ComputerName` / `New-CimSession` pour interroger des machines distantes
-- ✅ `Get-CimInstance` remplace `Get-WmiObject` : n'écrivez plus de `*-WmiObject`
+> [!success] À retenir
+>
+> - WMI est l'inventaire de Windows, CIM est la façon standard de l'interroger
+> - `Get-CimInstance <Classe>` : une seule cmdlet pour tout le matériel et le système
+> - Les noms de classes commencent par `Win32_`
+> - `-Filter` utilise du **WQL** (`=`, guillemets simples, `AND`), pas de la syntaxe PowerShell
+> - `Get-CimClass` pour découvrir classes et propriétés avant de les utiliser
+> - Attention aux unités : Ko pour la RAM, octets pour les disques
+> - `-ComputerName` / `New-CimSession` pour interroger des machines distantes
+> - `Get-CimInstance` remplace `Get-WmiObject` : n'écrivez plus de `*-WmiObject`
 
 > **Liens**
 >

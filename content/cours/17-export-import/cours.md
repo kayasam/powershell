@@ -128,12 +128,12 @@ Write-Host "Seuil CPU : $($configChargee.SeuilCPU)%"
 | CSV    | Lisible dans Excel, simple | Listes de données tabulaires   |
 | JSON   | Données imbriquées, web    | Config, APIs, objets complexes |
 
-## À retenir
-
-- ✅ `Export-Csv` : `-NoTypeInformation` est **déjà le défaut en PowerShell 7**
-- ✅ `Import-Csv` retourne des objets directement manipulables
-- ✅ `ConvertTo-Json` / `ConvertFrom-Json` pour le JSON
-- ✅ Combinez `ConvertTo-Json` avec `Out-File` pour sauvegarder
+> [!success] À retenir
+>
+> - `Export-Csv` : `-NoTypeInformation` est **déjà le défaut en PowerShell 7**
+> - `Import-Csv` retourne des objets directement manipulables
+> - `ConvertTo-Json` / `ConvertFrom-Json` pour le JSON
+> - Combinez `ConvertTo-Json` avec `Out-File` pour sauvegarder
 
 > **Lien**
 >

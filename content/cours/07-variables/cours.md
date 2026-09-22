@@ -155,13 +155,14 @@ Très utile en dépannage : un script qui doit écrire un log ira dans
 > fermeture**. Pour qu'une variable d'environnement soit permanente, il faut
 > la définir dans les paramètres système de Windows — pas depuis la console.
 
-## À retenir
-
-✅ Les variables commencent par **$**
-✅ Pas sensibles à la casse : `$nom`=`$Nom` = `$NOM`✅ PowerShell devine le type automatiquement
-✅`$variable.GetType().Name` pour connaître le type réel
-✅ Types principaux : String, Int, Bool, Array, Hashtable
-✅ `$env:NOM`pour les variables Windows,`Get-ChildItem Env:` pour les lister
+> [!success] À retenir
+>
+> - Les variables commencent par **$**
+> - Pas sensibles à la casse : `$nom` = `$Nom` = `$NOM`
+> - PowerShell devine le type automatiquement
+> - `$variable.GetType().Name` pour connaître le type réel
+> - Types principaux : String, Int, Bool, Array, Hashtable
+> - `$env:NOM` pour les variables Windows, `Get-ChildItem Env:` pour les lister
 
 > **Lien**
 >

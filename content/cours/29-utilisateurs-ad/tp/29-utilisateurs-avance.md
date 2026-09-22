@@ -121,10 +121,10 @@ fonctionne-t-il pas ? Donnez deux façons correctes d'obtenir le même résultat
 
 ---
 
-## Validation
-
-✅ Vous créez des comptes complets et correctement rangés
-✅ Vous générez des logins normalisés et gérez les collisions
-✅ Vous écrivez un script d'import **idempotent** et traçable
-✅ Vous ne journalisez jamais un mot de passe en clair
-✅ Vous savez auditer les comptes à risque d'un annuaire
+> [!success] Validation
+>
+> - Vous créez des comptes complets et correctement rangés
+> - Vous générez des logins normalisés et gérez les collisions
+> - Vous écrivez un script d'import **idempotent** et traçable
+> - Vous ne journalisez jamais un mot de passe en clair
+> - Vous savez auditer les comptes à risque d'un annuaire

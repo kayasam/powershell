@@ -149,9 +149,9 @@ if ($connexion.Tentatives -gt 100 -and $connexion.Port -eq 22) {
 
 ---
 
-## Validation
-
-✅ Vous savez utiliser `if / elseif / else`
-✅ Vous savez utiliser `switch` et pourquoi il faut `break`
-✅ Vous connaissez les opérateurs `-lt`, `-ge`, `-eq`, `-and`
-✅ Vous savez qu'un `if` renvoie une valeur affectable
+> [!success] Validation
+>
+> - Vous savez utiliser `if / elseif / else`
+> - Vous savez utiliser `switch` et pourquoi il faut `break`
+> - Vous connaissez les opérateurs `-lt`, `-ge`, `-eq`, `-and`
+> - Vous savez qu'un `if` renvoie une valeur affectable

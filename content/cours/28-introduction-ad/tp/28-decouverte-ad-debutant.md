@@ -145,10 +145,10 @@ désactivés, et répartition par service.
 
 ---
 
-## Validation
-
-✅ Vous savez vérifier la présence du module `ActiveDirectory`
-✅ Vous connaissez le vocabulaire : DC, OU, DN, SAMAccountName, UPN
-✅ Vous savez lire les utilisateurs d'un domaine
-✅ Vous savez filtrer sur les propriétés d'un compte
-✅ Vous savez proposer une arborescence d'OU justifiée
+> [!success] Validation
+>
+> - Vous savez vérifier la présence du module `ActiveDirectory`
+> - Vous connaissez le vocabulaire : DC, OU, DN, SAMAccountName, UPN
+> - Vous savez lire les utilisateurs d'un domaine
+> - Vous savez filtrer sur les propriétés d'un compte
+> - Vous savez proposer une arborescence d'OU justifiée

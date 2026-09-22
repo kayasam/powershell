@@ -113,10 +113,10 @@ if (((Get-Service W32Time).Status -eq "Running") -and ((Get-CimInstance Win32_Lo
 
 ---
 
-## Validation
-
-✅ Vous maîtrisez `if / elseif / else` et l'ordre des tests
-✅ Vous savez pourquoi un `switch` a besoin de `break`
-✅ Vous connaissez les valeurs que PowerShell considère comme vraies
-✅ Vous savez tester une saisie vide de façon fiable
-✅ Vous savez rendre lisible une condition complexe
+> [!success] Validation
+>
+> - Vous maîtrisez `if / elseif / else` et l'ordre des tests
+> - Vous savez pourquoi un `switch` a besoin de `break`
+> - Vous connaissez les valeurs que PowerShell considère comme vraies
+> - Vous savez tester une saisie vide de façon fiable
+> - Vous savez rendre lisible une condition complexe

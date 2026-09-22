@@ -130,13 +130,13 @@ catch {
 }
 ```
 
-## À retenir
-
-- ✅ `try/catch` pour intercepter les erreurs
-- ✅ `-ErrorAction Stop` pour que `catch` fonctionne
-- ✅ `$_.Exception.Message` pour lire le message d'erreur
-- ✅ `Test-Path` pour éviter les erreurs prévisibles
-- ✅ `finally` pour le code qui s'exécute toujours
+> [!success] À retenir
+>
+> - `try/catch` pour intercepter les erreurs
+> - `-ErrorAction Stop` pour que `catch` fonctionne
+> - `$_.Exception.Message` pour lire le message d'erreur
+> - `Test-Path` pour éviter les erreurs prévisibles
+> - `finally` pour le code qui s'exécute toujours
 
 > **Lien**
 >

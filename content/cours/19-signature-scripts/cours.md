@@ -257,17 +257,17 @@ La checklist :
 > #   Impossible de récupérer la variable « $comtpeur », car elle n’a pas été définie.
 > ```
 
-## À retenir
-
-- ✅ `Get-ExecutionPolicy -List` : la politique dépend de **cinq portées**, GPO prioritaire
-- ✅ La politique d'exécution est un garde-fou, **pas** une sécurité
-- ✅ `Unblock-File` retire la marque du web sur un fichier téléchargé
-- ✅ `New-SelfSignedCertificate -Type CodeSigningCert` pour un certificat de test
-- ✅ `Set-AuthenticodeSignature` signe, `Get-AuthenticodeSignature` vérifie
-- ✅ Signé mais non approuvé → `UnknownError`. Il faut `Root` **et** `TrustedPublisher`
-- ✅ Toute modification après signature invalide le script → signer **en dernier**
-- ✅ `AllSigned` + certificat déployé par GPO = le vrai modèle d'entreprise
-- ✅ Un script livrable a une aide, des paramètres validés, `Set-StrictMode` et des codes de sortie
+> [!success] À retenir
+>
+> - `Get-ExecutionPolicy -List` : la politique dépend de **cinq portées**, GPO prioritaire
+> - La politique d'exécution est un garde-fou, **pas** une sécurité
+> - `Unblock-File` retire la marque du web sur un fichier téléchargé
+> - `New-SelfSignedCertificate -Type CodeSigningCert` pour un certificat de test
+> - `Set-AuthenticodeSignature` signe, `Get-AuthenticodeSignature` vérifie
+> - Signé mais non approuvé → `UnknownError`. Il faut `Root` **et** `TrustedPublisher`
+> - Toute modification après signature invalide le script → signer **en dernier**
+> - `AllSigned` + certificat déployé par GPO = le vrai modèle d'entreprise
+> - Un script livrable a une aide, des paramètres validés, `Set-StrictMode` et des codes de sortie
 
 > **Liens**
 >

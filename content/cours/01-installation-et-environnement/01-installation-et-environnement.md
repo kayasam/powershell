@@ -73,12 +73,12 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - **VS Code** : Éditeur recommandé pour les scripts
 - **Windows Terminal** : Console moderne (optionnel)
 
-## À retenir
-
-- ✅ PowerShell 7 est la version moderne
-- ✅ Vérifiez votre version avec `$PSVersionTable`
-- ✅ Utilisez VS Code pour écrire vos scripts
-- ✅ `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` pour autoriser vos scripts (à faire une fois)
+> [!success] À retenir
+>
+> - PowerShell 7 est la version moderne
+> - Vérifiez votre version avec `$PSVersionTable`
+> - Utilisez VS Code pour écrire vos scripts
+> - `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` pour autoriser vos scripts (à faire une fois)
 
 > **Lien**
 >

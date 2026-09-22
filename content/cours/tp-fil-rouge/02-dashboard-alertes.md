@@ -251,12 +251,12 @@ while ($true) {
 
 ---
 
-## Ce que vous avez appris
-
-✅ Structurer un script avec des fonctions
-✅ Utiliser des variables globales pour les seuils
-✅ Créer des indicateurs visuels avec des couleurs
-✅ Calculer des scores à partir de conditions
-✅ Récupérer des métriques système réelles
+> [!success] Ce que vous avez appris
+>
+> - Structurer un script avec des fonctions
+> - Utiliser des variables globales pour les seuils
+> - Créer des indicateurs visuels avec des couleurs
+> - Calculer des scores à partir de conditions
+> - Récupérer des métriques système réelles
 
 La correction formateur réunit l'énoncé et le script de référence ; le lien est en haut de cette mission.

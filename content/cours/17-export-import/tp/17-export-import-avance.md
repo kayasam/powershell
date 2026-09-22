@@ -120,10 +120,10 @@ exactement les mêmes valeurs et les mêmes types.
 
 ---
 
-## Validation
-
-✅ Vous exportez et réimportez en CSV et en JSON
-✅ Vous savez qu'un import CSV rend **tout** en texte, et comment y remédier
-✅ Vous connaissez les limites du CSV sur les données imbriquées
-✅ Vous maîtrisez la profondeur de sérialisation JSON
-✅ Vous savez quel format conserve les types
+> [!success] Validation
+>
+> - Vous exportez et réimportez en CSV et en JSON
+> - Vous savez qu'un import CSV rend **tout** en texte, et comment y remédier
+> - Vous connaissez les limites du CSV sur les données imbriquées
+> - Vous maîtrisez la profondeur de sérialisation JSON
+> - Vous savez quel format conserve les types

@@ -115,10 +115,10 @@ désactivés, bloqués, groupes, ordinateurs.
 
 ---
 
-## Validation
-
-✅ Vous savez installer et vérifier les outils AD
-✅ Vous maîtrisez le vocabulaire de l'annuaire
-✅ Vous écrivez des requêtes AD **efficaces**, ciblées et limitées en propriétés
-✅ Vous connaissez les pièges du `-Filter` AD
-✅ Vous savez concevoir et défendre une arborescence d'OU
+> [!success] Validation
+>
+> - Vous savez installer et vérifier les outils AD
+> - Vous maîtrisez le vocabulaire de l'annuaire
+> - Vous écrivez des requêtes AD **efficaces**, ciblées et limitées en propriétés
+> - Vous connaissez les pièges du `-Filter` AD
+> - Vous savez concevoir et défendre une arborescence d'OU

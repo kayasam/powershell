@@ -161,10 +161,10 @@ Par exemple :
 
 Importez le module, testez `Get-Help` sur vos nouvelles fonctions.
 
-## Validation
-
-- ✅ Vous savez créer un fichier `.psm1`
-- ✅ Vous savez importer un module avec `Import-Module`
-- ✅ Vous savez contrôler les exports avec `Export-ModuleMember`
-- ✅ Vous comprenez la différence entre fonctions publiques et privées
-- ✅ Vous savez documenter avec `.SYNOPSIS`
+> [!success] Validation
+>
+> - Vous savez créer un fichier `.psm1`
+> - Vous savez importer un module avec `Import-Module`
+> - Vous savez contrôler les exports avec `Export-ModuleMember`
+> - Vous comprenez la différence entre fonctions publiques et privées
+> - Vous savez documenter avec `.SYNOPSIS`

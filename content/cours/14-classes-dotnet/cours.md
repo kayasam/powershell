@@ -233,17 +233,17 @@ double antislash.
 >
 > C'est la contrepartie de la puissance : vous sortez du filet de sécurité.
 
-## À retenir
-
-- ✅ PowerShell repose sur .NET : ses classes sont accessibles directement
-- ✅ `[Classe]::Membre` = statique, `$objet.Membre` = instance
-- ✅ `Get-Member -Static` pour explorer une classe
-- ✅ `[Classe]::new()` remplace avantageusement `New-Object`
-- ✅ `[math]::Round` fait de l'**arrondi bancaire** — `AwayFromZero` pour l'arrondi scolaire
-- ✅ `[System.IO.Path]` manipule des chemins sans toucher au disque
-- ✅ `[System.IO.File]` est ~9× plus rapide que `Get-Content` sur gros volumes
-- ✅ `[string]::IsNullOrWhiteSpace` pour valider une saisie
-- ✅ .NET ignore `-WhatIf`, `-ErrorAction` et les PSDrives : prudence
+> [!success] À retenir
+>
+> - PowerShell repose sur .NET : ses classes sont accessibles directement
+> - `[Classe]::Membre` = statique, `$objet.Membre` = instance
+> - `Get-Member -Static` pour explorer une classe
+> - `[Classe]::new()` remplace avantageusement `New-Object`
+> - `[math]::Round` fait de l'**arrondi bancaire** — `AwayFromZero` pour l'arrondi scolaire
+> - `[System.IO.Path]` manipule des chemins sans toucher au disque
+> - `[System.IO.File]` est ~9× plus rapide que `Get-Content` sur gros volumes
+> - `[string]::IsNullOrWhiteSpace` pour valider une saisie
+> - .NET ignore `-WhatIf`, `-ErrorAction` et les PSDrives : prudence
 
 > **Liens**
 >

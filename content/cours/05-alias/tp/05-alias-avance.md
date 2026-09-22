@@ -89,10 +89,10 @@ gci C:\Logs | ? { $_.Length -gt 1mb } | % { $_.Name }
 
 ---
 
-## Validation
-
-✅ Vous savez retrouver la cmdlet derrière un alias, et l'inverse
-✅ Vous savez créer et supprimer un alias
-✅ Vous savez que les alias créés sont **temporaires**
-✅ Vous savez qu'un alias peut être **détourné**, et pourquoi c'est un risque
-✅ Vous savez réécrire un script en noms complets
+> [!success] Validation
+>
+> - Vous savez retrouver la cmdlet derrière un alias, et l'inverse
+> - Vous savez créer et supprimer un alias
+> - Vous savez que les alias créés sont **temporaires**
+> - Vous savez qu'un alias peut être **détourné**, et pourquoi c'est un risque
+> - Vous savez réécrire un script en noms complets

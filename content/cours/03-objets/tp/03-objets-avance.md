@@ -96,10 +96,10 @@ Ce n'est pas exigé ici — la réponse est en correction.
 
 ---
 
-## Validation
-
-✅ Vous savez que PowerShell renvoie des **objets**, pas du texte
-✅ Vous utilisez `Get-Member` pour explorer un objet inconnu
-✅ Vous accédez à une propriété avec `$objet.Propriete`
-✅ Vous appelez une méthode avec `$objet.Methode()`
-✅ (bonus) Vous entrevoyez la différence entre du texte et un objet exploitable
+> [!success] Validation
+>
+> - Vous savez que PowerShell renvoie des **objets**, pas du texte
+> - Vous utilisez `Get-Member` pour explorer un objet inconnu
+> - Vous accédez à une propriété avec `$objet.Propriete`
+> - Vous appelez une méthode avec `$objet.Methode()`
+> - (bonus) Vous entrevoyez la différence entre du texte et un objet exploitable

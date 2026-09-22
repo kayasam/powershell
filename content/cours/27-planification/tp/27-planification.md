@@ -142,10 +142,10 @@ Le script doit :
 Unregister-ScheduledTask -TaskName "Archivage-Cipher-Pol-Quotidien" -Confirm:$false
 ```
 
-## Validation
-
-- ✅ Vous savez créer une tâche planifiée avec `Register-ScheduledTask`
-- ✅ Vous savez configurer différents types de déclencheurs
-- ✅ Vous savez lancer, désactiver et supprimer des tâches
-- ✅ Vous savez vérifier le résultat d'une exécution
-- ✅ Vous savez tester un script en mode non-interactif
+> [!success] Validation
+>
+> - Vous savez créer une tâche planifiée avec `Register-ScheduledTask`
+> - Vous savez configurer différents types de déclencheurs
+> - Vous savez lancer, désactiver et supprimer des tâches
+> - Vous savez vérifier le résultat d'une exécution
+> - Vous savez tester un script en mode non-interactif

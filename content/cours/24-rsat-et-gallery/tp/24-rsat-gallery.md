@@ -113,12 +113,12 @@ Triez du plus récent au plus ancien et exportez en CSV.
 > Indices : `Find-Module`, `Get-Module -ListAvailable`, `switch` (chapitre 10),
 > `try/catch` pour les modules introuvables (chapitre 21).
 
-## Validation
-
-✅ Vous installez RSAT avec `Add-WindowsCapability`, en **administrateur**
-✅ Vous savez que `Get-WindowsFeature` est réservé à **Windows Server**
-✅ Vous connaissez l'équivalent client `Get-WindowsOptionalFeature -Online`
-✅ Vous vérifiez `PublishedDate` **avant** d'installer un module
-✅ Vous utilisez `-Scope CurrentUser` quand vous n'êtes pas administrateur
-✅ Vous savez pourquoi PSGallery demande une confirmation
-✅ Vous savez que `PSExcel` et `NTFSSecurity` ne sont plus maintenus
+> [!success] Validation
+>
+> - Vous installez RSAT avec `Add-WindowsCapability`, en **administrateur**
+> - Vous savez que `Get-WindowsFeature` est réservé à **Windows Server**
+> - Vous connaissez l'équivalent client `Get-WindowsOptionalFeature -Online`
+> - Vous vérifiez `PublishedDate` **avant** d'installer un module
+> - Vous utilisez `-Scope CurrentUser` quand vous n'êtes pas administrateur
+> - Vous savez pourquoi PSGallery demande une confirmation
+> - Vous savez que `PSExcel` et `NTFSSecurity` ne sont plus maintenus

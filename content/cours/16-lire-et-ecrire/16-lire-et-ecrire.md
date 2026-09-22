@@ -98,13 +98,13 @@ Get-Content "C:\Logs\rapport.txt" -Encoding UTF8
 Set-Content "C:\Logs\rapport.txt" -Value $contenu -Encoding UTF8
 ```
 
-## À retenir
-
-✅ `Get-Content` pour lire un fichier ligne par ligne
-✅ `Set-Content` pour écrire (écrase)
-✅ `Add-Content` pour ajouter à la fin
-✅ `Out-File` pour rediriger la sortie d'une commande
-✅ `-Tail` pour lire les dernières lignes (utile pour les logs)
+> [!success] À retenir
+>
+> - `Get-Content` pour lire un fichier ligne par ligne
+> - `Set-Content` pour écrire (écrase)
+> - `Add-Content` pour ajouter à la fin
+> - `Out-File` pour rediriger la sortie d'une commande
+> - `-Tail` pour lire les dernières lignes (utile pour les logs)
 
 > **Lien**
 >

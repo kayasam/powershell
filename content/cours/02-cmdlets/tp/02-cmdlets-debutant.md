@@ -147,9 +147,9 @@ Get-Service | Format-Table Name, Status, DisplayName -AutoSize
 
 ---
 
-## Validation
-
-✅ Vous savez chercher une commande avec `Get-Command`
-✅ Vous savez lire l'aide avec `Get-Help`
-✅ Vous savez explorer un objet avec `Get-Member`
-✅ Vous comprenez la différence entre propriétés et méthodes
+> [!success] Validation
+>
+> - Vous savez chercher une commande avec `Get-Command`
+> - Vous savez lire l'aide avec `Get-Help`
+> - Vous savez explorer un objet avec `Get-Member`
+> - Vous comprenez la différence entre propriétés et méthodes

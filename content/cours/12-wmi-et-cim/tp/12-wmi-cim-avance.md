@@ -111,10 +111,10 @@ existe ?
 
 ---
 
-## Validation
-
-✅ Vous découvrez une classe et ses propriétés sans documentation
-✅ Vous filtrez en WQL plutôt qu'avec `Where-Object`
-✅ Vous maîtrisez les unités (Ko pour la RAM, octets pour les disques)
-✅ Vous savez interroger des machines distantes, avec ou sans session
-✅ Vous connaissez les classes à éviter
+> [!success] Validation
+>
+> - Vous découvrez une classe et ses propriétés sans documentation
+> - Vous filtrez en WQL plutôt qu'avec `Where-Object`
+> - Vous maîtrisez les unités (Ko pour la RAM, octets pour les disques)
+> - Vous savez interroger des machines distantes, avec ou sans session
+> - Vous connaissez les classes à éviter

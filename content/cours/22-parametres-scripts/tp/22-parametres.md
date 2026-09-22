@@ -167,10 +167,10 @@ Créez une fonction `Get-MenuDuJour` qui :
 
 > Solution complète : voir la correction de ce TP.
 
-## Validation
-
-- ✅ Vous savez rendre un paramètre obligatoire avec `[Parameter(Mandatory)]`
-- ✅ Vous savez limiter les valeurs avec `[ValidateSet()]`
-- ✅ Vous savez limiter les plages avec `[ValidateRange()]`
-- ✅ Vous savez créer des flags avec `[switch]`
-- ✅ Vous savez documenter avec les commentaires d'aide
+> [!success] Validation
+>
+> - Vous savez rendre un paramètre obligatoire avec `[Parameter(Mandatory)]`
+> - Vous savez limiter les valeurs avec `[ValidateSet()]`
+> - Vous savez limiter les plages avec `[ValidateRange()]`
+> - Vous savez créer des flags avec `[switch]`
+> - Vous savez documenter avec les commentaires d'aide

@@ -93,13 +93,13 @@ ps aux | grep firefox | awk '{print $2}'  # Compliqué!
 Get-Process firefox | Select-Object Id  # Simple!
 ```
 
-## À retenir
-
-✅ PowerShell travaille avec des objets, pas du texte
-✅ Chaque objet a des propriétés (infos) et des méthodes (actions)
-✅ Propriété = sans parenthèses, méthode = avec parenthèses `()`
-✅ Utilisez `Get-Member` pour explorer un objet, `-MemberType Property`/`Method` pour filtrer
-✅ Accédez aux propriétés avec le point : `$objet.Propriete`
+> [!success] À retenir
+>
+> - PowerShell travaille avec des objets, pas du texte
+> - Chaque objet a des propriétés (infos) et des méthodes (actions)
+> - Propriété = sans parenthèses, méthode = avec parenthèses `()`
+> - `Get-Member` pour explorer un objet, `-MemberType Property`/`Method` pour filtrer
+> - Accédez aux propriétés avec le point : `$objet.Propriete`
 
 > **Lien**
 >

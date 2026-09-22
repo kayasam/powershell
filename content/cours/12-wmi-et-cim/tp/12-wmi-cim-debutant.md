@@ -136,10 +136,10 @@ Le tout dans un seul `[PSCustomObject]`, affiché avec `Format-List`.
 
 ---
 
-## Validation
-
-✅ Vous savez qu'une classe WMI commence par `Win32_`
-✅ Vous utilisez `Get-CimClass` pour découvrir classes et propriétés
-✅ Vous filtrez avec `-Filter` en syntaxe **WQL**
-✅ Vous connaissez la différence d'unité entre RAM (Ko) et disques (octets)
-✅ Vous écrivez `Get-CimInstance`, jamais `Get-WmiObject`
+> [!success] Validation
+>
+> - Vous savez qu'une classe WMI commence par `Win32_`
+> - Vous utilisez `Get-CimClass` pour découvrir classes et propriétés
+> - Vous filtrez avec `-Filter` en syntaxe **WQL**
+> - Vous connaissez la différence d'unité entre RAM (Ko) et disques (octets)
+> - Vous écrivez `Get-CimInstance`, jamais `Get-WmiObject`

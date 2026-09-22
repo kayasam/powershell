@@ -78,12 +78,12 @@ Set-Location     # Changer de dossier (comme cd)
 Clear-Host       # Effacer l'écran (comme cls)
 ```
 
-## À retenir
-
-✅ Format : **Verbe-Nom** (Get-Process, Stop-Service)
-✅ Utilisez `Get-Command` pour trouver des cmdlets
-✅ Utilisez `Get-Help` pour apprendre à les utiliser
-✅ Les cmdlets retournent des objets
+> [!success] À retenir
+>
+> - Format : **Verbe-Nom** (Get-Process, Stop-Service)
+> - Utilisez `Get-Command` pour trouver des cmdlets
+> - Utilisez `Get-Help` pour apprendre à les utiliser
+> - Les cmdlets retournent des objets
 
 > **Lien**
 >

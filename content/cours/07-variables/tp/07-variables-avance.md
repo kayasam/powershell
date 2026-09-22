@@ -88,9 +88,9 @@ encadré et des couleurs.
 
 ---
 
-## Validation
-
-✅ Vous savez créer des variables de différents types et les contraindre
-✅ Vous connaissez la règle de conversion de l'opérateur `+`
-✅ Vous savez choisir entre tableau et table de hachage
-✅ Vous distinguez table de hachage et `[PSCustomObject]`
+> [!success] Validation
+>
+> - Vous savez créer des variables de différents types et les contraindre
+> - Vous connaissez la règle de conversion de l'opérateur `+`
+> - Vous savez choisir entre tableau et table de hachage
+> - Vous distinguez table de hachage et `[PSCustomObject]`

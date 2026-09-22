@@ -109,13 +109,13 @@ $env:USERNAME      # Mon login
 whoami             # DOMAINE\login
 ```
 
-## À retenir
-
-- ✅ AD = annuaire central : utilisateurs, groupes, ordinateurs, politiques
-- ✅ Une OU est un conteneur de rangement (comme un dossier)
-- ✅ Le module `ActiveDirectory` est nécessaire (inclus avec RSAT)
-- ✅ Toutes les cmdlets AD suivent la convention `Verbe-ADObjet`
-- ✅ Le `SAMAccountName` est le login court, le `DN` est l'adresse complète
+> [!success] À retenir
+>
+> - AD = annuaire central : utilisateurs, groupes, ordinateurs, politiques
+> - Une OU est un conteneur de rangement (comme un dossier)
+> - Le module `ActiveDirectory` est nécessaire (inclus avec RSAT)
+> - Toutes les cmdlets AD suivent la convention `Verbe-ADObjet`
+> - Le `SAMAccountName` est le login court, le `DN` est l'adresse complète
 
 > **Liens**
 >

@@ -119,10 +119,10 @@ suffit-il ? Sinon, quelle syntaxe l'permet ?
 
 ---
 
-## Validation
-
-✅ Vous choisissez la boucle adaptée au besoin
-✅ Vous connaissez le coût relatif des différentes boucles
-✅ Vous distinguez chargement en mémoire et traitement au fil de l'eau
-✅ Vous savez sortir de boucles imbriquées
-✅ Vous savez borner une attente dans le temps
+> [!success] Validation
+>
+> - Vous choisissez la boucle adaptée au besoin
+> - Vous connaissez le coût relatif des différentes boucles
+> - Vous distinguez chargement en mémoire et traitement au fil de l'eau
+> - Vous savez sortir de boucles imbriquées
+> - Vous savez borner une attente dans le temps

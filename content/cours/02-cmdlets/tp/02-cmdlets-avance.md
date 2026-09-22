@@ -90,10 +90,10 @@ mémoire exprimée en **mégaoctets** arrondis.
 
 ---
 
-## Validation
-
-✅ Vous savez chercher une commande avec la cmdlet dédiée
-✅ Vous savez lire l'aide et en tirer un exemple utilisable
-✅ Vous savez explorer un objet inconnu
-✅ Vous distinguez propriété et méthode
-✅ Vous savez trier et limiter un résultat avant de l'afficher
+> [!success] Validation
+>
+> - Vous savez chercher une commande avec la cmdlet dédiée
+> - Vous savez lire l'aide et en tirer un exemple utilisable
+> - Vous savez explorer un objet inconnu
+> - Vous distinguez propriété et méthode
+> - Vous savez trier et limiter un résultat avant de l'afficher

@@ -120,12 +120,12 @@ Reprenez le TP fil rouge 05 (création d'agents) et donnez-lui une interface :
 **Contrainte** : l'appel de création ne doit **pas** être dans un `Add_Click`.
 Le script doit rester linéaire : saisir → fermer → valider → agir.
 
-## Validation
-
-✅ Vous chargez les assemblies avec `Add-Type` avant tout
-✅ Vous créez un contrôle en trois temps : créer, positionner, `Controls.Add()`
-✅ Vous savez que `ShowDialog()` **bloque** et `Show()` non
-✅ Vous utilisez `DialogResult` plutôt que des variables globales
-✅ Vous lisez les valeurs **après** la fermeture, puis `Dispose()`
-✅ Vous validez les saisies **avant** d'agir sur le système
-✅ Vous savez qu'une interface n'a pas sa place dans un script planifié
+> [!success] Validation
+>
+> - Vous chargez les assemblies avec `Add-Type` avant tout
+> - Vous créez un contrôle en trois temps : créer, positionner, `Controls.Add()`
+> - Vous savez que `ShowDialog()` **bloque** et `Show()` non
+> - Vous utilisez `DialogResult` plutôt que des variables globales
+> - Vous lisez les valeurs **après** la fermeture, puis `Dispose()`
+> - Vous validez les saisies **avant** d'agir sur le système
+> - Vous savez qu'une interface n'a pas sa place dans un script planifié

@@ -70,16 +70,16 @@ New-Alias monscript "C:\Scripts\test.ps1"
 
 ## Pourquoi utiliser les alias ?
 
-✅ **Rapidité** : `dir` au lieu de `Get-ChildItem`
-✅ **Familiarité** : Si vous venez de CMD ou Bash
-✅ **Productivité** : Moins de caractères à taper
+- **Rapidité** : `dir` au lieu de `Get-ChildItem`
+- **Familiarité** : Si vous venez de CMD ou Bash
+- **Productivité** : Moins de caractères à taper
 
-## À retenir
-
-✅ Un alias = un raccourci pour une cmdlet
-✅ `dir`, `ls`, `cd`, `cls` sont des alias courants
-✅ `Get-Alias` pour découvrir les alias
-✅ `New-Alias` pour créer les vôtres
+> [!success] À retenir
+>
+> - Un alias = un raccourci pour une cmdlet
+> - `dir`, `ls`, `cd`, `cls` sont des alias courants
+> - `Get-Alias` pour découvrir les alias
+> - `New-Alias` pour créer les vôtres (temporaires)
 
 > **Lien**
 >

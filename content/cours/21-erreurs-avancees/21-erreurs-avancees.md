@@ -380,17 +380,17 @@ Les trois niveaux à remarquer :
 - le `try` **extérieur** attrape ce qui empêche de continuer, et sort en code 2 ;
 - le `finally` s'exécute dans tous les cas — même après un `throw`.
 
-## À retenir
-
-- ✅ `Write-Error` = non terminante (le script continue), `throw` = terminante
-- ✅ `try/catch` n'attrape une erreur non terminante **que** avec `-ErrorAction Stop`
-- ✅ `$ErrorActionPreference = 'Stop'` applique la règle à tout le script
-- ✅ Six flux numérotés : `2` erreur, `3` warning, `4` verbose, `5` debug, `6` information
-- ✅ `2>$null` pour jeter, `2>&1` pour transformer l'erreur en objet manipulable
-- ✅ `exit 0` / `exit 1` : c'est ce que lit une tâche planifiée ou un pipeline CI
-- ✅ `$LASTEXITCODE` côté appelant, `$Error` pour l'historique de session
-- ✅ `Set-PSBreakpoint -Variable ... -Mode Write` pour espionner une variable
-- ✅ `Write-Verbose` / `Write-Debug` : des traces qu'on rallume à la demande
+> [!success] À retenir
+>
+> - `Write-Error` = non terminante (le script continue), `throw` = terminante
+> - `try/catch` n'attrape une erreur non terminante **que** avec `-ErrorAction Stop`
+> - `$ErrorActionPreference = 'Stop'` applique la règle à tout le script
+> - Six flux numérotés : `2` erreur, `3` warning, `4` verbose, `5` debug, `6` information
+> - `2>$null` pour jeter, `2>&1` pour transformer l'erreur en objet manipulable
+> - `exit 0` / `exit 1` : c'est ce que lit une tâche planifiée ou un pipeline CI
+> - `$LASTEXITCODE` côté appelant, `$Error` pour l'historique de session
+> - `Set-PSBreakpoint -Variable ... -Mode Write` pour espionner une variable
+> - `Write-Verbose` / `Write-Debug` : des traces qu'on rallume à la demande
 
 > **Liens**
 >

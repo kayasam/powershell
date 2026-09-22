@@ -132,10 +132,10 @@ Gouvernement Mondial :
 
 ---
 
-## Validation
-
-✅ Vous savez filtrer avec `Where-Object`
-✅ Vous savez trier avec `Sort-Object`
-✅ Vous savez créer des colonnes calculées avec `Select-Object`
-✅ Vous savez grouper avec `Group-Object`
-✅ Vous savez mesurer avec `Measure-Object`
+> [!success] Validation
+>
+> - Vous savez filtrer avec `Where-Object`
+> - Vous savez trier avec `Sort-Object`
+> - Vous savez créer des colonnes calculées avec `Select-Object`
+> - Vous savez grouper avec `Group-Object`
+> - Vous savez mesurer avec `Measure-Object`

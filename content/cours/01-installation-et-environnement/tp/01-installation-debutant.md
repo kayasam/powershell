@@ -150,9 +150,9 @@ Write-Host "Recrue $nom, engagee le $(Get-Date -Format 'dd/MM/yyyy')"
 
 ---
 
-## Validation
-
-✅ Vous savez afficher votre version de PowerShell
-✅ Vous distinguez Windows PowerShell 5.1 de PowerShell 7
-✅ Vous savez lire la politique d'exécution et la modifier
-✅ Vous avez créé et exécuté un premier script `.ps1`
+> [!success] Validation
+>
+> - Vous savez afficher votre version de PowerShell
+> - Vous distinguez Windows PowerShell 5.1 de PowerShell 7
+> - Vous savez lire la politique d'exécution et la modifier
+> - Vous avez créé et exécuté un premier script `.ps1`

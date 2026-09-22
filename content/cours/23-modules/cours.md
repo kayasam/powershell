@@ -130,13 +130,13 @@ New-ModuleManifest -Path ".\MesOutils.psd1" `
 | `Az`              | Azure PowerShell              | `Install-Module Az`          |
 | `PSReadLine`      | Meilleure console             | Inclus avec PS7              |
 
-## À retenir
-
-- ✅ Un module `.psm1` regroupe vos fonctions réutilisables
-- ✅ `Install-Module` pour installer depuis la PowerShell Gallery
-- ✅ `Import-Module` pour charger un module
-- ✅ `Export-ModuleMember` pour contrôler ce qui est public
-- ✅ `Get-Module -ListAvailable` pour voir ce qui est installé
+> [!success] À retenir
+>
+> - Un module `.psm1` regroupe vos fonctions réutilisables
+> - `Install-Module` pour installer depuis la PowerShell Gallery
+> - `Import-Module` pour charger un module
+> - `Export-ModuleMember` pour contrôler ce qui est public
+> - `Get-Module -ListAvailable` pour voir ce qui est installé
 
 > **Lien**
 >

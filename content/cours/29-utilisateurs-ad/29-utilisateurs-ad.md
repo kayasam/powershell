@@ -159,13 +159,13 @@ foreach ($agent in $agents) {
 }
 ```
 
-## À retenir
-
-- ✅ `Get-ADUser -Filter *` retourne tous les utilisateurs (attention au volume !)
-- ✅ `-Properties *` pour accéder aux attributs supplémentaires
-- ✅ `New-ADUser` requiert `-AccountPassword` en SecureString
-- ✅ `Enable-ADAccount` / `Disable-ADAccount` pour gérer l'accès
-- ✅ Toujours utiliser `-Confirm:$false` avec précaution dans les scripts
+> [!success] À retenir
+>
+> - `Get-ADUser -Filter *` retourne tous les utilisateurs (attention au volume !)
+> - `-Properties *` pour accéder aux attributs supplémentaires
+> - `New-ADUser` requiert `-AccountPassword` en SecureString
+> - `Enable-ADAccount` / `Disable-ADAccount` pour gérer l'accès
+> - Toujours utiliser `-Confirm:$false` avec précaution dans les scripts
 
 > **Lien**
 >

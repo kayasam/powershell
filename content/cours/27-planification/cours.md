@@ -151,13 +151,13 @@ pwsh.exe -NonInteractive -File "C:\Scripts\MonScript.ps1"
 # Vérifier qu'il n'y a pas de prompt (Read-Host, confirmations...)
 ```
 
-## À retenir
-
-- ✅ `New-ScheduledTaskAction` : quel script lancer
-- ✅ `New-ScheduledTaskTrigger` : quand le lancer
-- ✅ `Register-ScheduledTask` : enregistrer la tâche
-- ✅ `Start-ScheduledTask` : lancer manuellement pour tester
-- ✅ `Get-ScheduledTaskInfo` : voir le dernier résultat
+> [!success] À retenir
+>
+> - `New-ScheduledTaskAction` : quel script lancer
+> - `New-ScheduledTaskTrigger` : quand le lancer
+> - `Register-ScheduledTask` : enregistrer la tâche
+> - `Start-ScheduledTask` : lancer manuellement pour tester
+> - `Get-ScheduledTaskInfo` : voir le dernier résultat
 
 > **Lien**
 >

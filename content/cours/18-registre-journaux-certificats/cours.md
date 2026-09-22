@@ -283,19 +283,19 @@ Get-AuthenticodeSignature .\MonScript.ps1 | Select-Object Status, SignerCertific
 > `TrustedPublisher`, et la stratégie d'exécution passe à `AllSigned`. Seuls les
 > scripts signés par l'entreprise s'exécutent alors.
 
-## À retenir
-
-- ✅ Registre, certificats, variables d'environnement : des **PSDrives**, pilotés
-  par les cmdlets de fichiers (`Get-ChildItem`, `Test-Path`, `Remove-Item`…)
-- ✅ Registre : une **clé** est un dossier, une **valeur** est une propriété
-- ✅ `Get-ItemProperty` (tout) vs `Get-ItemPropertyValue` (une valeur précise)
-- ✅ `HKCU:` pour s'entraîner, `HKLM:` avec droits admin et sauvegarde préalable
-- ✅ Le registre peut être périmé (`ProductName` dit « Windows 10 » sur Windows 11) —
-  préférez CIM quand la donnée existe des deux côtés
-- ✅ `Get-WinEvent -FilterHashtable` et **jamais** `| Where-Object` sur un gros journal
-- ✅ Niveaux : `1` critique, `2` erreur, `3` avertissement, `4` information
-- ✅ `Get-WinEvent` remplace `Get-EventLog`
-- ✅ `Cert:` pour auditer les certificats ; `Set-AuthenticodeSignature` pour signer
+> [!success] À retenir
+>
+> - Registre, certificats, variables d'environnement : des **PSDrives**, pilotés
+>   par les cmdlets de fichiers (`Get-ChildItem`, `Test-Path`, `Remove-Item`…)
+> - Registre : une **clé** est un dossier, une **valeur** est une propriété
+> - `Get-ItemProperty` (tout) vs `Get-ItemPropertyValue` (une valeur précise)
+> - `HKCU:` pour s'entraîner, `HKLM:` avec droits admin et sauvegarde préalable
+> - Le registre peut être périmé (`ProductName` dit « Windows 10 » sur Windows 11) —
+>   préférez CIM quand la donnée existe des deux côtés
+> - `Get-WinEvent -FilterHashtable` et **jamais** `| Where-Object` sur un gros journal
+> - Niveaux : `1` critique, `2` erreur, `3` avertissement, `4` information
+> - `Get-WinEvent` remplace `Get-EventLog`
+> - `Cert:` pour auditer les certificats ; `Set-AuthenticodeSignature` pour signer
 
 > **Liens**
 >

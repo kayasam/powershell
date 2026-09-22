@@ -139,9 +139,9 @@ Write-Host "Seuil Cola : $($chargee.SeuilCola)"
 
 ---
 
-## Validation
-
-✅ Vous savez exporter des objets en CSV et en JSON
-✅ Vous savez les réimporter et les exploiter
-✅ Vous savez qu'après un import CSV, tout est du **texte**
-✅ Vous savez choisir entre CSV et JSON
+> [!success] Validation
+>
+> - Vous savez exporter des objets en CSV et en JSON
+> - Vous savez les réimporter et les exploiter
+> - Vous savez qu'après un import CSV, tout est du **texte**
+> - Vous savez choisir entre CSV et JSON

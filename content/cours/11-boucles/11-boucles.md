@@ -112,13 +112,13 @@ foreach ($fichier in Get-ChildItem "C:\Logs") {
 }
 ```
 
-## À retenir
-
-✅ `ForEach-Object` (ou `%`) dans le pipeline
-✅ `foreach` pour parcourir une collection
-✅ `for` quand vous avez besoin d'un compteur
-✅ `while` tant qu'une condition est vraie
-✅ `break` pour sortir, `continue` pour sauter
+> [!success] À retenir
+>
+> - `ForEach-Object` (ou `%`) dans le pipeline
+> - `foreach` pour parcourir une collection
+> - `for` quand vous avez besoin d'un compteur
+> - `while` tant qu'une condition est vraie
+> - `break` pour sortir, `continue` pour sauter
 
 > **Lien**
 >

@@ -111,10 +111,10 @@ une valeur.
 
 ---
 
-## Validation
-
-✅ Vous nommez vos fonctions en Verbe-Nom **approuvé**
-✅ Vous composez des fonctions entre elles
-✅ Vous distinguez afficher et retourner
-✅ Vous écrivez une fonction compatible pipeline
-✅ Vous documentez vos fonctions pour `Get-Help`
+> [!success] Validation
+>
+> - Vous nommez vos fonctions en Verbe-Nom **approuvé**
+> - Vous composez des fonctions entre elles
+> - Vous distinguez afficher et retourner
+> - Vous écrivez une fonction compatible pipeline
+> - Vous documentez vos fonctions pour `Get-Help`

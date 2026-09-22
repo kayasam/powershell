@@ -179,13 +179,13 @@ function Get-TableauBordAD {
 Get-TableauBordAD | Format-List
 ```
 
-## À retenir
-
-- ✅ `-Filter` AD a sa propre syntaxe (guillemets simples pour les valeurs texte)
-- ✅ `-Properties` pour demander les attributs supplémentaires
-- ✅ `-SearchBase` pour cibler une OU précise
-- ✅ `Search-ADAccount` pour trouver les comptes en anomalie (bloqués, expirés…)
-- ✅ Combiné à `Export-Csv`, on génère des rapports professionnels facilement
+> [!success] À retenir
+>
+> - `-Filter` AD a sa propre syntaxe (guillemets simples pour les valeurs texte)
+> - `-Properties` pour demander les attributs supplémentaires
+> - `-SearchBase` pour cibler une OU précise
+> - `Search-ADAccount` pour trouver les comptes en anomalie (bloqués, expirés…)
+> - Combiné à `Export-Csv`, on génère des rapports professionnels facilement
 
 > **Lien**
 >

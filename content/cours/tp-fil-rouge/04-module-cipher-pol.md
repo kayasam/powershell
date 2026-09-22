@@ -178,12 +178,12 @@ Start-Sleep -Seconds 5
 
 ---
 
-## Ce que vous avez appris
-
-- ✅ Créer un module `.psm1` avec des fonctions documentées
-- ✅ Utiliser `CmdletBinding`, `Mandatory`, `ValidateSet`, `ValidateRange`
-- ✅ Structurer un script principal qui importe un module
-- ✅ Automatiser avec `Register-ScheduledTask`
+> [!success] Ce que vous avez appris
+>
+> - Créer un module `.psm1` avec des fonctions documentées
+> - Utiliser `CmdletBinding`, `Mandatory`, `ValidateSet`, `ValidateRange`
+> - Structurer un script principal qui importe un module
+> - Automatiser avec `Register-ScheduledTask`
 
 ## Pour la suite — Mission 5
 

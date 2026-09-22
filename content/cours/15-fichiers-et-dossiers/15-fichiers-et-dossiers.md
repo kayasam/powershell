@@ -100,13 +100,13 @@ $fichier.LastWriteTime # Dernière modification
 $fichier.Extension     # .txt
 ```
 
-## À retenir
-
-✅ `New-Item` pour créer fichiers et dossiers
-✅ `Copy-Item` et `Move-Item` pour copier/déplacer
-✅ `Remove-Item` pour supprimer
-✅ `Test-Path` pour vérifier qu'un chemin existe
-✅ `Get-Item` pour obtenir les détails d'un fichier
+> [!success] À retenir
+>
+> - `New-Item` pour créer fichiers et dossiers
+> - `Copy-Item` et `Move-Item` pour copier/déplacer
+> - `Remove-Item` pour supprimer
+> - `Test-Path` pour vérifier qu'un chemin existe
+> - `Get-Item` pour obtenir les détails d'un fichier
 
 > **Lien**
 >

@@ -185,10 +185,10 @@ Write-Host "=============================" -ForegroundColor Red
 
 ---
 
-## Validation
-
-✅ Vous savez créer des variables de différents types
-✅ Vous savez faire des calculs et manipuler du texte
-✅ Vous savez créer et accéder à un tableau
-✅ Vous savez créer et accéder à une table de hachage
-✅ Vous savez afficher du texte coloré avec `Write-Host`
+> [!success] Validation
+>
+> - Vous savez créer des variables de différents types
+> - Vous savez faire des calculs et manipuler du texte
+> - Vous savez créer et accéder à un tableau
+> - Vous savez créer et accéder à une table de hachage
+> - Vous savez afficher du texte coloré avec `Write-Host`

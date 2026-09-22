@@ -85,9 +85,9 @@ Sans jamais taper un nom complet, produisez ces trois commandes :
 
 ---
 
-## Validation
-
-✅ Vous utilisez **Tab** systématiquement pour compléter
-✅ Vous savez que Tab fonctionne aussi sur les **paramètres**
-✅ Vous savez que Tab fonctionne aussi sur les **chemins**
-✅ Vous appuyez plusieurs fois sur Tab pour faire défiler les possibilités
+> [!success] Validation
+>
+> - Vous utilisez **Tab** systématiquement pour compléter
+> - Vous savez que Tab fonctionne aussi sur les **paramètres**
+> - Vous savez que Tab fonctionne aussi sur les **chemins**
+> - Vous appuyez plusieurs fois sur Tab pour faire défiler les possibilités

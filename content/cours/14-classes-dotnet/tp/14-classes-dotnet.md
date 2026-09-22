@@ -142,13 +142,13 @@ if ([string]::IsNullOrWhiteSpace($saisie)) { "vide (test .NET)" }
 
 Testez-la sur un fichier que vous créez dans `$env:TEMP`.
 
-## Validation
-
-✅ Vous distinguez membre **statique** (`::`) et membre **d'instance** (`.`)
-✅ Vous explorez une classe avec `Get-Member -Static`
-✅ Vous connaissez les méthodes clés de `[math]`
-✅ Vous savez que `[math]::Round` fait de l'**arrondi bancaire**
-✅ Vous manipulez des chemins avec `[System.IO.Path]` sans toucher au disque
-✅ Vous savez quand `[System.IO.File]` vaut mieux que `Get-Content`
-✅ Vous validez une saisie avec `[string]::IsNullOrWhiteSpace`
-✅ Vous savez que .NET ignore `-WhatIf` et les PSDrives
+> [!success] Validation
+>
+> - Vous distinguez membre **statique** (`::`) et membre **d'instance** (`.`)
+> - Vous explorez une classe avec `Get-Member -Static`
+> - Vous connaissez les méthodes clés de `[math]`
+> - Vous savez que `[math]::Round` fait de l'**arrondi bancaire**
+> - Vous manipulez des chemins avec `[System.IO.Path]` sans toucher au disque
+> - Vous savez quand `[System.IO.File]` vaut mieux que `Get-Content`
+> - Vous validez une saisie avec `[string]::IsNullOrWhiteSpace`
+> - Vous savez que .NET ignore `-WhatIf` et les PSDrives

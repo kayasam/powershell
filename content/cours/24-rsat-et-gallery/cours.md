@@ -251,17 +251,17 @@ Install-Module Carbon -Scope CurrentUser
 Get-Command -Module Carbon | Measure-Object
 ```
 
-## À retenir
-
-- ✅ **RSAT** installe sur un poste client les outils de gestion des serveurs
-- ✅ `Get-WindowsCapability -Online -Name Rsat*` + `Add-WindowsCapability`, **en admin**
-- ✅ `Get-WindowsFeature` / `Install-WindowsFeature` : **Windows Server uniquement**
-- ✅ Côté client, l'équivalent est `Get-WindowsOptionalFeature -Online`
-- ✅ `Find-Module` **avant** `Install-Module` — vérifiez `PublishedDate`
-- ✅ `-Scope CurrentUser` évite d'avoir besoin des droits administrateur
-- ✅ PSGallery est `Untrusted` par défaut : d'où la demande de confirmation
-- ✅ `Install-PSResource` remplace progressivement `Install-Module`
-- ✅ Préférez `ImportExcel` à `PSExcel`, et `Get-Acl`/`Set-Acl` à `NTFSSecurity`
+> [!success] À retenir
+>
+> - **RSAT** installe sur un poste client les outils de gestion des serveurs
+> - `Get-WindowsCapability -Online -Name Rsat*` + `Add-WindowsCapability`, **en admin**
+> - `Get-WindowsFeature` / `Install-WindowsFeature` : **Windows Server uniquement**
+> - Côté client, l'équivalent est `Get-WindowsOptionalFeature -Online`
+> - `Find-Module` **avant** `Install-Module` — vérifiez `PublishedDate`
+> - `-Scope CurrentUser` évite d'avoir besoin des droits administrateur
+> - PSGallery est `Untrusted` par défaut : d'où la demande de confirmation
+> - `Install-PSResource` remplace progressivement `Install-Module`
+> - Préférez `ImportExcel` à `PSExcel`, et `Get-Acl`/`Set-Acl` à `NTFSSecurity`
 
 > **Liens**
 >

@@ -103,13 +103,13 @@ Get-Process | Format-Table | Select-Object -First 5
 | Select-Object | Filtrer avant d'afficher             |
 | Out-GridView  | Explorer des données interactivement |
 
-## À retenir
-
-✅ `Format-Table` pour des tableaux
-✅ `Format-List` pour les détails
-✅ `Select-Object` pour choisir les colonnes
-✅ `Out-GridView` pour l'interactivité
-✅ Les `Format-*` vont toujours à la fin
+> [!success] À retenir
+>
+> - `Format-Table` pour des tableaux
+> - `Format-List` pour les détails
+> - `Select-Object` pour choisir les colonnes
+> - `Out-GridView` pour l'interactivité
+> - Les `Format-*` vont toujours à la fin
 
 > **Lien**
 >

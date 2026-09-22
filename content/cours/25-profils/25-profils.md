@@ -244,16 +244,16 @@ Deux autres points de vigilance :
 - **Une erreur dans le profil s'affiche à chaque lancement.** D'où le
   `-ErrorAction SilentlyContinue` sur les imports de modules qui peuvent manquer.
 
-## À retenir
-
-- ✅ Le profil est un `.ps1` exécuté automatiquement au démarrage de PowerShell
-- ✅ `$PROFILE` donne son chemin — le fichier n'existe pas par défaut, il faut le créer
-- ✅ Quatre profils : utilisateur ou machine, hôte courant ou tous les hôtes
-- ✅ Chaque hôte (console, VS Code, ISE) a son propre fichier de profil
-- ✅ PowerShell 7 (`Documents\PowerShell`) et 5.1 (`Documents\WindowsPowerShell`) sont séparés
-- ✅ `. $PROFILE` pour recharger, avec le **point** (dot-sourcing)
-- ✅ `pwsh -NoProfile` pour démarrer sans, et diagnostiquer
-- ✅ Vérifiez avec `Get-Command` qu'un nom de fonction est libre avant de l'utiliser
+> [!success] À retenir
+>
+> - Le profil est un `.ps1` exécuté automatiquement au démarrage de PowerShell
+> - `$PROFILE` donne son chemin — le fichier n'existe pas par défaut, il faut le créer
+> - Quatre profils : utilisateur ou machine, hôte courant ou tous les hôtes
+> - Chaque hôte (console, VS Code, ISE) a son propre fichier de profil
+> - PowerShell 7 (`Documents\PowerShell`) et 5.1 (`Documents\WindowsPowerShell`) sont séparés
+> - `. $PROFILE` pour recharger, avec le **point** (dot-sourcing)
+> - `pwsh -NoProfile` pour démarrer sans, et diagnostiquer
+> - Vérifiez avec `Get-Command` qu'un nom de fonction est libre avant de l'utiliser
 
 > **Liens**
 >

@@ -88,9 +88,9 @@ exécutées et identifiez les trois plus lentes.
 
 ---
 
-## Validation
-
-✅ Vous naviguez dans l'historique et savez le relancer par identifiant
-✅ Vous utilisez **Ctrl+R** pour rechercher
-✅ Vous distinguez historique de **session** et historique **persistant**
-✅ Vous savez exploiter l'historique comme une source de données
+> [!success] Validation
+>
+> - Vous naviguez dans l'historique et savez le relancer par identifiant
+> - Vous utilisez **Ctrl+R** pour rechercher
+> - Vous distinguez historique de **session** et historique **persistant**
+> - Vous savez exploiter l'historique comme une source de données

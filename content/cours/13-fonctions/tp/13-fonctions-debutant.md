@@ -162,10 +162,10 @@ $equipage = @(
 
 ---
 
-## Validation
-
-✅ Vous savez créer une fonction avec `param()`
-✅ Vous savez réutiliser une fonction dans une autre
-✅ Vous savez utiliser des valeurs par défaut
-✅ Vous savez retourner des objets structurés
-✅ Vous respectez la convention **Verbe-Nom**
+> [!success] Validation
+>
+> - Vous savez créer une fonction avec `param()`
+> - Vous savez réutiliser une fonction dans une autre
+> - Vous savez utiliser des valeurs par défaut
+> - Vous savez retourner des objets structurés
+> - Vous respectez la convention **Verbe-Nom**

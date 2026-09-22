@@ -125,9 +125,9 @@ Get-Process |
 
 ---
 
-## Validation
-
-✅ Vous utilisez `Format-Table` pour beaucoup d'objets, `Format-List` pour un seul
-✅ Vous savez que `Select-Object` filtre la **donnée** et `Format-*` l'**affichage**
-✅ Vous placez toujours les `Format-*` **en fin de pipeline**
-✅ Vous savez expliquer pourquoi on ne peut rien faire après un `Format-Table`
+> [!success] Validation
+>
+> - Vous utilisez `Format-Table` pour beaucoup d'objets, `Format-List` pour un seul
+> - Vous savez que `Select-Object` filtre la **donnée** et `Format-*` l'**affichage**
+> - Vous placez toujours les `Format-*` **en fin de pipeline**
+> - Vous savez expliquer pourquoi on ne peut rien faire après un `Format-Table`

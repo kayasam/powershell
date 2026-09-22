@@ -119,10 +119,10 @@ en **mégaoctets**.
 
 ---
 
-## Validation
-
-✅ Vous savez que PowerShell renvoie des **objets**, pas du texte
-✅ Vous utilisez `Get-Member` pour explorer un objet inconnu
-✅ Vous accédez à une propriété avec `$objet.Propriete`
-✅ Vous appelez une méthode avec `$objet.Methode()`
-✅ Vous savez faire la différence entre une **propriété** et une **méthode**
+> [!success] Validation
+>
+> - Vous savez que PowerShell renvoie des **objets**, pas du texte
+> - Vous utilisez `Get-Member` pour explorer un objet inconnu
+> - Vous accédez à une propriété avec `$objet.Propriete`
+> - Vous appelez une méthode avec `$objet.Methode()`
+> - Vous savez faire la différence entre une **propriété** et une **méthode**

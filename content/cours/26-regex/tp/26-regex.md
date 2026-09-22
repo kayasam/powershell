@@ -163,10 +163,10 @@ Créez un script qui analyse les transmissions et affiche un résumé coloré.
 
 ---
 
-## Validation
-
-- ✅ Vous savez utiliser `-match` pour filtrer avec `Where-Object`
-- ✅ Vous savez combiner des motifs avec `|` (ou)
-- ✅ Vous savez utiliser `-replace` pour transformer du texte
-- ✅ Vous savez chercher dans des fichiers avec `Select-String`
-- ✅ Vous connaissez `\d`, `\d+`, `\.` pour les motifs de base
+> [!success] Validation
+>
+> - Vous savez utiliser `-match` pour filtrer avec `Where-Object`
+> - Vous savez combiner des motifs avec `|` (ou)
+> - Vous savez utiliser `-replace` pour transformer du texte
+> - Vous savez chercher dans des fichiers avec `Select-String`
+> - Vous connaissez `\d`, `\d+`, `\.` pour les motifs de base

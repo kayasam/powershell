@@ -105,9 +105,9 @@ possible, en utilisant **Tab**, **alias** et **historique** :
 
 ---
 
-## Validation
-
-✅ Vous naviguez dans l'historique avec **↑** et **↓**
-✅ Vous savez lister l'historique avec `Get-History`
-✅ Vous savez relancer une commande avec `Invoke-History` (ou `r`)
-✅ Vous utilisez **Ctrl+R** pour rechercher dans l'historique
+> [!success] Validation
+>
+> - Vous naviguez dans l'historique avec **↑** et **↓**
+> - Vous savez lister l'historique avec `Get-History`
+> - Vous savez relancer une commande avec `Invoke-History` (ou `r`)
+> - Vous utilisez **Ctrl+R** pour rechercher dans l'historique

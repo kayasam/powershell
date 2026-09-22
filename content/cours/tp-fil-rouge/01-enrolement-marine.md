@@ -270,13 +270,13 @@ $avisRecherche[1].Prime   # Prime du deuxième
 
 ---
 
-## Ce que vous avez appris
-
-- ✅ Créer et exécuter un script `.ps1`
-- ✅ Manipuler des variables, tableaux et tables de hachage
-- ✅ Faire des calculs et manipuler du texte
-- ✅ Utiliser `Get-Command`, `Get-Help` et `Get-Member`
-- ✅ Afficher du texte coloré avec `Write-Host`
+> [!success] Ce que vous avez appris
+>
+> - Créer et exécuter un script `.ps1`
+> - Manipuler des variables, tableaux et tables de hachage
+> - Faire des calculs et manipuler du texte
+> - Utiliser `Get-Command`, `Get-Help` et `Get-Member`
+> - Afficher du texte coloré avec `Write-Host`
 
 ## Pour la suite — Mission 2
 

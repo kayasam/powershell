@@ -72,12 +72,12 @@ Clear-History -Id 5
 3. PowerShell trouve la dernière commande correspondante
 4. Appuyez sur **Entrée** pour l'exécuter
 
-## À retenir
-
-✅ **↑** et **↓** pour naviguer dans l'historique
-✅ **Ctrl+R** pour rechercher rapidement
-✅ `Get-History` pour voir toutes les commandes
-✅ `Invoke-History` pour réexécuter
+> [!success] À retenir
+>
+> - **↑** et **↓** pour naviguer dans l'historique
+> - **Ctrl+R** pour rechercher rapidement
+> - `Get-History` pour voir toutes les commandes
+> - `Invoke-History` pour réexécuter
 
 > **Lien**
 >

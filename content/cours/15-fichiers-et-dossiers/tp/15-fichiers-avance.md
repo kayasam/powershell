@@ -109,10 +109,10 @@ fichier de même nom existe déjà, et bilan final.
 
 ---
 
-## Validation
-
-✅ Vous créez une arborescence complète, parents compris
-✅ Vous copiez, déplacez et renommez, dossiers inclus
-✅ Vous filtrez **à la source** plutôt que dans le pipeline
-✅ Vous simulez systématiquement avant une suppression
-✅ Vous connaissez les cas limites du système de fichiers
+> [!success] Validation
+>
+> - Vous créez une arborescence complète, parents compris
+> - Vous copiez, déplacez et renommez, dossiers inclus
+> - Vous filtrez **à la source** plutôt que dans le pipeline
+> - Vous simulez systématiquement avant une suppression
+> - Vous connaissez les cas limites du système de fichiers

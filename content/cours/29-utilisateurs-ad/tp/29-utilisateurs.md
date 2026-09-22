@@ -195,10 +195,10 @@ Write-Host "Compte de Carrot désactivé (simulation)." -ForegroundColor Yellow
 
 ---
 
-## Validation
-
-- ✅ Vous savez créer des utilisateurs avec `New-ADUser`
-- ✅ Vous savez convertir un mot de passe avec `ConvertTo-SecureString`
-- ✅ Vous savez modifier des attributs avec `Set-ADUser`
-- ✅ Vous savez activer/désactiver avec `Enable-ADAccount` / `Disable-ADAccount`
-- ✅ Vous savez entourer les opérations dans un `try/catch`
+> [!success] Validation
+>
+> - Vous savez créer des utilisateurs avec `New-ADUser`
+> - Vous savez convertir un mot de passe avec `ConvertTo-SecureString`
+> - Vous savez modifier des attributs avec `Set-ADUser`
+> - Vous savez activer/désactiver avec `Enable-ADAccount` / `Disable-ADAccount`
+> - Vous savez entourer les opérations dans un `try/catch`

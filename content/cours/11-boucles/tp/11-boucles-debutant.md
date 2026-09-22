@@ -151,9 +151,9 @@ attend 2 secondes, et recommence. Arrêtez-le avec **Ctrl+C**.
 
 ---
 
-## Validation
-
-✅ Vous savez utiliser `for` avec un compteur
-✅ Vous savez utiliser `foreach` sur une collection
-✅ Vous savez utiliser `ForEach-Object` dans un pipeline
-✅ Vous savez contrôler une boucle avec `break` et `continue`
+> [!success] Validation
+>
+> - Vous savez utiliser `for` avec un compteur
+> - Vous savez utiliser `foreach` sur une collection
+> - Vous savez utiliser `ForEach-Object` dans un pipeline
+> - Vous savez contrôler une boucle avec `break` et `continue`

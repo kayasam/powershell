@@ -156,10 +156,10 @@ Créez une fonction `Get-RapportAD` qui affiche en couleur un résumé du domain
 
 ---
 
-## Validation
-
-- ✅ Vous savez utiliser `Search-ADAccount` pour trouver les anomalies
-- ✅ Vous savez filtrer avec `-Filter` et les conditions `-and`
-- ✅ Vous savez construire des rapports par département avec `Group-Object`
-- ✅ Vous savez exporter des rapports CSV avec `Export-Csv`
-- ✅ Vous savez afficher un tableau de bord coloré en console
+> [!success] Validation
+>
+> - Vous savez utiliser `Search-ADAccount` pour trouver les anomalies
+> - Vous savez filtrer avec `-Filter` et les conditions `-and`
+> - Vous savez construire des rapports par département avec `Group-Object`
+> - Vous savez exporter des rapports CSV avec `Export-Csv`
+> - Vous savez afficher un tableau de bord coloré en console

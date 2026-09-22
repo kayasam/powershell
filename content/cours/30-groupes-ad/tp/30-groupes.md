@@ -197,10 +197,10 @@ Write-Host "Membres restants : $($grpAdmins.Membres -join ', ')"
 
 ---
 
-## Validation
-
-- ✅ Vous savez créer des groupes avec `New-ADGroup` (Scope + Category)
-- ✅ Vous savez ajouter des membres depuis un pipeline ou manuellement
-- ✅ Vous savez lister les membres avec `Get-ADGroupMember`
-- ✅ Vous savez retirer un membre avec `Remove-ADGroupMember`
-- ✅ Vous savez faire un audit des groupes avec un rapport formaté
+> [!success] Validation
+>
+> - Vous savez créer des groupes avec `New-ADGroup` (Scope + Category)
+> - Vous savez ajouter des membres depuis un pipeline ou manuellement
+> - Vous savez lister les membres avec `Get-ADGroupMember`
+> - Vous savez retirer un membre avec `Remove-ADGroupMember`
+> - Vous savez faire un audit des groupes avec un rapport formaté

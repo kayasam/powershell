@@ -151,9 +151,9 @@ va-t-il jusqu'au bout dans les deux cas ?
 
 ---
 
-## Validation
-
-✅ Vous savez qu'une erreur non gérée affiche du rouge mais ne stoppe pas forcément
-✅ Vous utilisez `try / catch / finally`
-✅ Vous savez que `-ErrorAction Stop` est **indispensable** pour que `catch` parte
-✅ Vous connaissez les trois patterns : tester, replier, journaliser
+> [!success] Validation
+>
+> - Vous savez qu'une erreur non gérée affiche du rouge mais ne stoppe pas forcément
+> - Vous utilisez `try / catch / finally`
+> - Vous savez que `-ErrorAction Stop` est **indispensable** pour que `catch` parte
+> - Vous connaissez les trois patterns : tester, replier, journaliser

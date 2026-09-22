@@ -150,10 +150,10 @@ de fichiers** et la **taille totale**.
 
 ---
 
-## Validation
-
-✅ Vous savez créer une arborescence avec `New-Item`
-✅ Vous savez copier, déplacer et renommer
-✅ Vous savez chercher récursivement avec `-Recurse` et `-Filter`
-✅ Vous vérifiez avec `Test-Path` avant d'agir
-✅ Vous simulez une suppression avant de l'exécuter
+> [!success] Validation
+>
+> - Vous savez créer une arborescence avec `New-Item`
+> - Vous savez copier, déplacer et renommer
+> - Vous savez chercher récursivement avec `-Recurse` et `-Filter`
+> - Vous vérifiez avec `Test-Path` avant d'agir
+> - Vous simulez une suppression avant de l'exécuter

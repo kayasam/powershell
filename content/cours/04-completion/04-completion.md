@@ -55,12 +55,12 @@ $fichier.N<Tab>  # Complète Name, etc.
 - **Shift+Tab** : Revenir à l'option précédente
 - **Ctrl+Espace** : Afficher toutes les suggestions (VSCode/ISE)
 
-## À retenir
-
-✅ **Tab** est votre meilleur ami
-✅ Fonctionne pour les cmdlets, chemins et paramètres
-✅ Appuyez plusieurs fois pour parcourir les options
-✅ Utilisez **Shift+Tab** pour reculer
+> [!success] À retenir
+>
+> - **Tab** est votre meilleur ami
+> - Fonctionne pour les cmdlets, chemins et paramètres
+> - Appuyez plusieurs fois pour parcourir les options
+> - Utilisez **Shift+Tab** pour reculer
 
 > **Lien**
 >

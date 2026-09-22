@@ -82,9 +82,9 @@ et vérifiez que Tab propose ces quatre valeurs. Quel intérêt pour l'utilisate
 
 ---
 
-## Validation
-
-✅ Vous utilisez **Tab** systématiquement pour compléter
-✅ Vous savez que Tab fonctionne sur cmdlets, paramètres, valeurs et chemins
-✅ Vous savez activer le mode menu de PSReadLine
-✅ Vous savez qu'un attribut de validation alimente la complétion
+> [!success] Validation
+>
+> - Vous utilisez **Tab** systématiquement pour compléter
+> - Vous savez que Tab fonctionne sur cmdlets, paramètres, valeurs et chemins
+> - Vous savez activer le mode menu de PSReadLine
+> - Vous savez qu'un attribut de validation alimente la complétion

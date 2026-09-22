@@ -104,10 +104,10 @@ l'équipe ? Pourquoi ?
 
 ---
 
-## Validation
-
-✅ Vous connaissez les alias courants (`dir`, `ls`, `cd`, `cls`, `pwd`)
-✅ Vous savez retrouver la cmdlet derrière un alias avec `Get-Alias`
-✅ Vous savez créer un alias avec `New-Alias`
-✅ Vous savez que les alias créés sont **temporaires**
-✅ Vous savez qu'on n'utilise **pas** d'alias dans un script partagé
+> [!success] Validation
+>
+> - Vous connaissez les alias courants (`dir`, `ls`, `cd`, `cls`, `pwd`)
+> - Vous savez retrouver la cmdlet derrière un alias avec `Get-Alias`
+> - Vous savez créer un alias avec `New-Alias`
+> - Vous savez que les alias créés sont **temporaires**
+> - Vous savez qu'on n'utilise **pas** d'alias dans un script partagé

@@ -117,12 +117,12 @@ Depuis, une commande native de PowerShell ne fonctionne plus chez lui.
 2. Quelle commande lui aurait permis de s'en rendre compte **avant** d'écrire sa fonction ?
 3. Proposez-lui un nom de remplacement correct.
 
-## Validation
-
-✅ Vous savez trouver votre profil avec `$PROFILE` et le créer s'il manque
-✅ Vous connaissez les **quatre** profils et leur portée
-✅ Vous savez qu'un hôte (console, VS Code, ISE) a son propre fichier
-✅ Vous savez que PowerShell 7 et 5.1 ont des profils séparés
-✅ Vous rechargez avec `. $PROFILE` (**dot-sourcing**), pas `& $PROFILE`
-✅ Vous utilisez `pwsh -NoProfile` pour diagnostiquer
-✅ Vous vérifiez avec `Get-Command` qu'un nom de fonction est libre
+> [!success] Validation
+>
+> - Vous savez trouver votre profil avec `$PROFILE` et le créer s'il manque
+> - Vous connaissez les **quatre** profils et leur portée
+> - Vous savez qu'un hôte (console, VS Code, ISE) a son propre fichier
+> - Vous savez que PowerShell 7 et 5.1 ont des profils séparés
+> - Vous rechargez avec `. $PROFILE` (**dot-sourcing**), pas `& $PROFILE`
+> - Vous utilisez `pwsh -NoProfile` pour diagnostiquer
+> - Vous vérifiez avec `Get-Command` qu'un nom de fonction est libre
