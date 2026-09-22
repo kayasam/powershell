@@ -106,22 +106,14 @@ Get-Process | Format-Table | Get-Member
 
 ---
 
-## Mission finale E : le tableau de bord de l'Amiral 🏆
+## Mission finale E : le rapport de l'Amiral 🏆
 
-**E1.** Produisez **un seul tableau** affichant les **5 processus** consommant le
-plus de mémoire, avec trois colonnes : le nom, le PID, la mémoire en Mo.
-
-```powershell
-Get-Process |
-    Sort-Object WorkingSet64 -Descending |
-    Select-Object -First 5 Name, Id, @{Name='Mo'; Expression={[math]::Round($_.WorkingSet64/1MB)}} |
-    Format-Table -AutoSize
-```
+**E1.** Affichez les **10 premiers** processus avec uniquement le nom et le PID,
+dans un tableau aux colonnes bien ajustées.
 
 **E2.** Affichez le même résultat dans une fenêtre interactive.
 
 > 💡 **Indice** : `Out-GridView` remplace `Format-Table` en fin de pipeline.
-> `WorkingSet64` est en **octets** — `1MB` est un raccourci valide.
 
 ---
 

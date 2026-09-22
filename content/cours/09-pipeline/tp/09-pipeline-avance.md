@@ -44,7 +44,7 @@ $equipage = @(
 **A2.** Que se passe-t-il si vous triez dans l'autre sens ?
 
 **A3.** Triez sur **deux** critères : d'abord par présence d'un Devil Fruit,
-puis par prime décroissante.
+puis par prime.
 
 ---
 
@@ -60,15 +60,15 @@ est nécessaire.
 
 ---
 
-## Partie C : Les primes en milliards (5 min)
+## Partie C : Les grosses primes (5 min)
 
-**C1.** Affichez les membres dont la prime dépasse 500 millions, avec leur prime
-exprimée en **milliards** arrondie à deux décimales.
+**C1.** Affichez les membres dont la prime dépasse 500 millions, en ne gardant
+que le nom et la prime.
 
-**C2.** Comment crée-t-on une colonne qui n'existe pas dans les données d'origine ?
+**C2.** Affichez uniquement ceux qui dépassent **un milliard**, avec leur nom et
+leur rôle.
 
-**C3.** Ajoutez une colonne `Menace` valant `EXTREME` au-dessus d'un milliard,
-`Elevee` au-dessus de 500 millions, `Moderee` sinon.
+**C3.** Combien sont-ils ? Obtenez le nombre sans compter à la main.
 
 ---
 
@@ -81,7 +81,7 @@ exprimée en **milliards** arrondie à deux décimales.
 **D3.** La prime totale dépasse-t-elle 8 milliards ?
 
 **D4.** Obtenez somme, moyenne, minimum et maximum en **une seule** commande,
-puis affichez uniquement la somme formatée avec des séparateurs de milliers.
+puis affichez uniquement la somme.
 
 ---
 
@@ -91,15 +91,15 @@ puis affichez uniquement la somme formatée avec des séparateurs de milliers.
 
 **E2.** Regroupez par présence de Devil Fruit.
 
-**E3.** Pour chaque groupe de Devil Fruit, calculez la prime **totale** du groupe.
+**E3.** Calculez la prime **totale** des porteurs de Devil Fruit.
 
 ---
 
 ## Mission finale F : le rapport complet 🌟
 
 **F1.** Produisez le rapport destiné au Gouvernement Mondial : pirates au-dessus
-de 500 millions, colonnes nom / rôle / prime en milliards / Devil Fruit, trié par
-prime décroissante, en tableau.
+de 500 millions, colonnes nom / rôle / prime / Devil Fruit, trié par prime
+décroissante, en tableau.
 
 **F2.** Exportez le même rapport en CSV, exploitable sans retouche.
 
@@ -113,5 +113,5 @@ filtrage de la cmdlet. Quel écart ? Formulez la règle.
 >
 > - Vous filtrez, triez, groupez et mesurez dans un même pipeline
 > - Vous connaissez les deux écritures de `Where-Object`
-> - Vous savez construire une colonne calculée conditionnelle
+> - Vous savez choisir les colonnes avec `Select-Object`
 > - Vous savez pourquoi filtrer **à la source** plutôt que dans le pipeline

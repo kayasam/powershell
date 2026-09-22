@@ -51,6 +51,29 @@ Get-ChildItem | Where-Object LastWriteTime -gt (Get-Date).Date
 Get-Service | ? Status -eq "Running"
 ```
 
+### Les opérateurs de comparaison
+
+En PowerShell, on **n'écrit pas** `>` ou `==` : les comparaisons s'écrivent avec
+un tiret.
+
+| Opérateur | Signification         | Exemple                |
+| --------- | --------------------- | ---------------------- |
+| `-eq`     | égal à                | `Status -eq "Running"` |
+| `-ne`     | différent de          | `Name -ne "idle"`      |
+| `-gt`     | strictement supérieur | `WorkingSet -gt 100MB` |
+| `-ge`     | supérieur ou égal     | `Prime -ge 500000000`  |
+| `-lt`     | strictement inférieur | `CPU -lt 10`           |
+| `-le`     | inférieur ou égal     | `Count -le 5`          |
+
+> [!warning] `-gt` ou `-ge` ?
+> `-gt` est **strict** : une valeur pile sur le seuil est **exclue**. Un serveur
+> exactement à 90 % d'occupation ne sortira pas d'un filtre `-gt 90`.
+>
+> Dans un rapport d'alerte, c'est souvent `-ge` qu'il faut.
+
+La liste complète (dont `-like` et `-match`) et les opérateurs logiques
+`-and` / `-or` / `-not` sont détaillés au [[10-conditions/10-conditions|chapitre 10]].
+
 ### Filtres avec bloc de script
 
 Pour les conditions complexes :
@@ -83,9 +106,6 @@ Get-Process | Select-Object Name, Id, CPU
 # Premier / dernier
 Get-Process | Select-Object -First 10
 Get-Process | Select-Object -Last 5
-
-# Colonne calculée
-Get-Process | Select-Object Name, @{Name="RAM (MB)"; Expression={[math]::Round($_.WorkingSet/1MB,1)}}
 ```
 
 **Raccourci** : `select`
@@ -127,6 +147,7 @@ Get-Service |
 > - `Sort-Object` pour trier
 > - `Select-Object` pour choisir les colonnes
 > - `Measure-Object` pour compter/calculer
+> - Les comparaisons s'écrivent `-eq`, `-ne`, `-gt`, `-ge`, `-lt`, `-le`
 
 > **Lien**
 >

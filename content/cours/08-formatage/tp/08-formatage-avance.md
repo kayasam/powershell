@@ -77,19 +77,15 @@ celui de `Format-Table Name, Id`. Que constatez-vous ?
 
 ---
 
-## Mission finale E : le tableau de bord de l'Amiral 🏆
+## Mission finale E : le rapport de l'Amiral 🏆
 
-**E1.** Produisez un tableau des 5 processus les plus gourmands en mémoire, avec
-nom, PID et mémoire en Mo arrondie.
+**E1.** Affichez les 10 premiers processus avec le nom et le PID, dans un tableau
+aux colonnes bien ajustées.
 
 **E2.** Affichez le même résultat dans une fenêtre interactive.
 
-**E3.** Inversez l'ordre du tri et de la sélection des 5 premiers. Les résultats
-diffèrent-ils ? Pourquoi ? Quelle est la bonne séquence ?
-
-**E4.** Produisez un inventaire des disques locaux avec : lettre, taille en Go,
-libre en Go, pourcentage libre, et une colonne `Alerte` valant `OUI` sous 15 %
-de libre. Le résultat doit s'exporter en CSV sans retouche.
+**E3.** Produisez le même rapport sous forme de **fichier CSV** exploitable dans
+Excel, accents compris.
 
 ---
 
@@ -97,6 +93,5 @@ de libre. Le résultat doit s'exporter en CSV sans retouche.
 >
 > - Vous distinguez mise en forme et sélection de données
 > - Vous placez les `Format-*` **en fin de pipeline**
-> - Vous savez construire une colonne calculée
-> - Vous savez pourquoi trier **avant** de couper
+> - Vous savez pourquoi un `Format-Table` casse un `Export-Csv`
 > - Vous produisez une sortie réutilisable, pas seulement lisible

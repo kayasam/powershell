@@ -99,42 +99,48 @@ $logs | Where-Object { $_.Tentatives -ge 50 }
 
 ---
 
-## Partie C : Le rapport automatique (15 min)
+## Partie C : Analyser une connexion précise (15 min)
+
+On sort **une** connexion de la liste pour l'examiner :
 
 ```powershell
-foreach ($connexion in $logs) {
+# La 2e ligne du tableau (on compte à partir de 0)
+$connexion = $logs[1]
 
-    $niveau = if     ($connexion.Tentatives -lt 3)  { "Normal"   }
-              elseif ($connexion.Tentatives -lt 10) { "Suspect"  }
-              elseif ($connexion.Tentatives -lt 50) { "Alerte"   }
-              else                                  { "CRITIQUE" }
+$connexion.IP
+$connexion.Tentatives
+```
 
-    $couleur = switch ($niveau) {
-        "Normal"   { "Green"      }
-        "Suspect"  { "Yellow"     }
-        "Alerte"   { "DarkYellow" }
-        "CRITIQUE" { "Red"        }
-    }
+Reprenez maintenant votre `if` de la partie A, mais sur cette connexion :
 
-    Write-Host "[$niveau] $($connexion.IP) - $($connexion.Tentatives) tentatives ($($connexion.Utilisateur))" -ForegroundColor $couleur
+```powershell
+if ($connexion.Tentatives -lt 3) {
+    Write-Host "Normal" -ForegroundColor Green
+} elseif ($connexion.Tentatives -lt 10) {
+    Write-Host "Suspect" -ForegroundColor Yellow
+} elseif ($connexion.Tentatives -lt 50) {
+    Write-Host "Alerte" -ForegroundColor DarkYellow
+} else {
+    Write-Host "CRITIQUE" -ForegroundColor Red
 }
 ```
 
-**C1.** Lancez ce script. Combien de lignes obtenez-vous ?
+**C1.** Quel niveau obtenez-vous pour `$logs[1]` ?
 
-**C2.** Remarquez la ligne `$niveau = if (...)`. Que fait-elle exactement ?
+**C2.** Changez l'index (`$logs[0]`, `$logs[3]`…) et relancez. Testez les quatre
+niveaux.
 
-> 💡 **Indice** : en PowerShell, un `if` **renvoie une valeur** — on peut donc
-> l'affecter directement à une variable.
+**C3.** Affichez un message complet indiquant l'IP **et** le nombre de tentatives.
+
+> 💡 **Indice** : `Write-Host "IP : $($connexion.IP)"` — les `$( )` sont
+> nécessaires pour insérer une propriété dans un texte.
 
 ---
 
 ## Mission finale D : l'alerte intelligente 🌟
 
-**D1.** Améliorez le rapport pour afficher `>>> BLOQUÉ` pour toute IP avec plus
-de 100 tentatives **sur le port 22** (SSH).
-
-**D2.** Affichez à la fin le nombre total de connexions CRITIQUES.
+**D1.** Écrivez un `if` qui affiche `>>> BLOQUÉ` si la connexion a plus de
+100 tentatives **et** vise le port 22 (SSH). Testez-le sur `$logs[3]`.
 
 <details>
 <summary>💡 Indice</summary>
@@ -147,6 +153,11 @@ if ($connexion.Tentatives -gt 100 -and $connexion.Port -eq 22) {
 
 </details>
 
+**D2.** Affichez le nombre total de connexions CRITIQUES (50 tentatives ou plus).
+
+> 💡 **Indice** : pas besoin de `if` ici — un `Where-Object` suivi de `.Count`
+> suffit (chapitre 09).
+
 ---
 
 > [!success] Validation
@@ -154,4 +165,4 @@ if ($connexion.Tentatives -gt 100 -and $connexion.Port -eq 22) {
 > - Vous savez utiliser `if / elseif / else`
 > - Vous savez utiliser `switch` et pourquoi il faut `break`
 > - Vous connaissez les opérateurs `-lt`, `-ge`, `-eq`, `-and`
-> - Vous savez qu'un `if` renvoie une valeur affectable
+> - Vous savez tester les propriétés d'un objet dans une condition

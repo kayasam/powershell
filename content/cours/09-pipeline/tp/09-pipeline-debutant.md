@@ -69,20 +69,25 @@ $equipage | Where-Object DevilFruit -eq $true
 
 ---
 
-## Partie C : Les primes en milliards (5 min)
+## Partie C : Les grosses primes (5 min)
 
 ```powershell
+# Les primes supérieures à 500 millions
+$equipage | Where-Object { $_.Prime -gt 500000000 }
+
+# On ne garde que deux colonnes
 $equipage |
     Where-Object { $_.Prime -gt 500000000 } |
-    Select-Object Nom, @{Name="Prime_Mrd"; Expression={ [math]::Round($_.Prime / 1000000000, 2) }}
+    Select-Object Nom, Prime
 ```
 
-**C1.** Lancez cette commande. Qui a plus d'un milliard de prime ?
+**C1.** Combien de pirates dépassent 500 millions ?
 
-**C2.** Que fait la partie `@{Name=...; Expression=...}` ?
+**C2.** Affichez uniquement ceux qui dépassent **un milliard**, avec leur nom et
+leur rôle.
 
-> 💡 **Indice** : c'est une **colonne calculée** — elle crée une colonne qui
-> n'existe pas dans les données d'origine (chapitre 08).
+> 💡 **Indice** : dans `Where-Object { ... }`, `$_` désigne le pirate en cours
+> d'examen. `$_.Prime` est donc sa prime.
 
 ---
 
@@ -123,7 +128,7 @@ $equipage | Group-Object Role
 Gouvernement Mondial :
 
 - uniquement les pirates avec une prime supérieure à 500 millions
-- colonnes : nom, rôle, prime en milliards, présence d'un Devil Fruit
+- colonnes : nom, rôle, prime, présence d'un Devil Fruit
 - trié par prime décroissante
 - affiché proprement en tableau
 
@@ -136,6 +141,7 @@ Gouvernement Mondial :
 >
 > - Vous savez filtrer avec `Where-Object`
 > - Vous savez trier avec `Sort-Object`
-> - Vous savez créer des colonnes calculées avec `Select-Object`
+> - Vous savez choisir les colonnes avec `Select-Object`
 > - Vous savez grouper avec `Group-Object`
 > - Vous savez mesurer avec `Measure-Object`
+> - Vous savez enchaîner plusieurs étapes dans un seul pipeline

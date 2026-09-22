@@ -70,25 +70,28 @@ $logs = @(
 
 ---
 
-## Partie C : Le rapport automatique (15 min)
+## Partie C : Analyser une connexion précise (15 min)
 
-**C1.** Écrivez un script qui parcourt tous les logs et affiche, pour chaque
-connexion, son niveau et sa couleur. Sans dupliquer la logique de classement.
+**C1.** Sortez la **2e** connexion de la liste dans une variable, puis appliquez-lui
+le classement de la partie A. Quel niveau obtenez-vous ?
 
-**C2.** En PowerShell, que renvoie un `if` ? Quelle écriture cela permet-il ?
+**C2.** Changez d'index pour atteindre les quatre niveaux. Quelle connexion donne
+`CRITIQUE` ?
 
-**C3.** PowerShell 7 propose une écriture condensée pour une affectation
-conditionnelle simple. Laquelle ? Donnez un exemple, et dites quand elle devient
-moins lisible qu'un `if`.
+**C3.** Affichez un message complet contenant l'IP, l'utilisateur et le nombre de
+tentatives, sur une seule ligne.
+
+**C4.** À partir d'un niveau (`"Normal"`, `"Suspect"`…), utilisez un `switch` pour
+obtenir le nom de la couleur correspondante dans une variable.
 
 ---
 
 ## Mission finale D : l'alerte intelligente 🌟
 
-**D1.** Affichez `>>> BLOQUÉ` pour toute IP avec plus de 100 tentatives sur le
-port 22.
+**D1.** Écrivez la condition qui affiche `>>> BLOQUÉ` pour une IP avec plus de
+100 tentatives **et** sur le port 22. Testez-la sur la connexion concernée.
 
-**D2.** Affichez à la fin le nombre total de connexions CRITIQUES.
+**D2.** Affichez le nombre total de connexions CRITIQUES (50 tentatives ou plus).
 
 **D3.** Prédisez le résultat de chacun de ces tests, puis vérifiez. Expliquez
 chaque surprise.
@@ -105,11 +108,13 @@ if (@(0))  { "F" }
 **D4.** Quelle est la façon **sûre** de tester « cette saisie est-elle vide ? »
 
 **D5.** Réécrivez cette condition pour la rendre lisible, sans changer son
-comportement. Citez ses trois défauts.
+comportement. Citez ses deux défauts.
 
 ```powershell
-if (((Get-Service W32Time).Status -eq "Running") -and ((Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'").FreeSpace / (Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'").Size * 100 -lt 15)) { "ALERTE" }
+if (((Get-Service W32Time).Status -eq "Running") -and ((Get-Service Spooler).Status -eq "Running") -and ((Get-Service W32Time).StartType -eq "Automatic")) { "OK" }
 ```
+
+> 💡 **Indice** : rangez d'abord les services dans des variables.
 
 ---
 
