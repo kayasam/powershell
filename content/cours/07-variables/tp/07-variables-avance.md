@@ -33,10 +33,24 @@ indicateur « possède un fruit du démon ».
 
 **A2.** Quel type PowerShell a-t-il choisi pour chacune ? Vérifiez-le.
 
-**A3.** Forcez la prime à être un entier **long**, et l'âge à être un entier à
-partir d'une chaîne. Que se passe-t-il si vous tentez de convertir `"abc"` en entier ?
+**A3.** Un nombre entre guillemets n'est pas un nombre. Prédisez puis vérifiez :
 
-**A4.** Prédisez puis vérifiez le résultat de ces trois opérations. Expliquez la règle :
+```powershell
+"10" -gt "9"
+10 -gt 9
+```
+
+Pourquoi le premier est-il **faux** ? Confirmez avec un tri :
+
+```powershell
+"10", "9", "100", "2" | Sort-Object
+10, 9, 100, 2 | Sort-Object
+```
+
+**A4.** Réparez la comparaison avec un **transtypage**. Que se passe-t-il si vous
+tentez de convertir `"abc"` en entier ?
+
+**A5.** Prédisez puis vérifiez le résultat de ces trois opérations. Expliquez la règle :
 
 ```powershell
 "10" + 5
@@ -91,6 +105,7 @@ encadré et des couleurs.
 > [!success] Validation
 >
 > - Vous savez créer des variables de différents types et les contraindre
+> - Vous savez repérer un nombre stocké en **texte** et le corriger avec `[int]`
 > - Vous connaissez la règle de conversion de l'opérateur `+`
 > - Vous savez choisir entre tableau et table de hachage
 > - Vous distinguez table de hachage et `[PSCustomObject]`

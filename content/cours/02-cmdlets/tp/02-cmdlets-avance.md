@@ -85,8 +85,8 @@ mémoire utilisée.
 
 **D3.** N'affichez que les 5 premiers résultats.
 
-**D4.** Affichez les 5 processus qui consomment le **plus** de mémoire, avec la
-mémoire exprimée en **mégaoctets** arrondis.
+**D4.** À l'aide de `Get-Member`, trouvez la propriété qui donne le **chemin de
+l'exécutable** d'un processus, puis affichez nom et chemin pour les 5 premiers.
 
 ---
 
@@ -96,4 +96,4 @@ mémoire exprimée en **mégaoctets** arrondis.
 > - Vous savez lire l'aide et en tirer un exemple utilisable
 > - Vous savez explorer un objet inconnu
 > - Vous distinguez propriété et méthode
-> - Vous savez trier et limiter un résultat avant de l'afficher
+> - Vous savez trouver une propriété utile et l'afficher en colonne

@@ -54,16 +54,34 @@ $prime.GetType()
 $devilFruit.GetType()
 ```
 
-**A3.** Forcez un type et observez le résultat :
+**A3.** Un nombre entre guillemets n'est **pas** un nombre. Testez :
 
 ```powershell
-[string]$primeTexte = 1000000   # convertit en texte
-[int]$ageNombre     = "19"      # convertit en nombre
+$primeTexte  = "1000"    # avec guillemets  -> du TEXTE
+$primeNombre = 1000      # sans guillemets  -> un NOMBRE
+
+$primeTexte.GetType().Name     # ?
+$primeNombre.GetType().Name    # ?
 ```
 
-Que donne `$primeTexte.GetType()` ?
+**A4.** Maintenant, comparez. Prédisez le résultat **avant** d'exécuter :
 
-> 💡 **Indice** : `GetType()` est une **méthode** — d'où les parenthèses (chapitre 03).
+```powershell
+"10" -gt "9"     # ?
+10 -gt 9         # ?
+```
+
+Pourquoi le premier est-il faux ? Triez ces deux listes pour mieux voir :
+
+```powershell
+"10", "9", "100", "2" | Sort-Object
+10, 9, 100, 2 | Sort-Object
+```
+
+**A5.** Réparez le problème : convertissez le texte en nombre avec `[int]`.
+
+> 💡 **Indice** : `[int]"10"` transforme le texte `"10"` en nombre 10.
+> `GetType()` est une **méthode** — d'où les parenthèses (chapitre 03).
 
 ---
 
@@ -188,6 +206,8 @@ Write-Host "=============================" -ForegroundColor Red
 > [!success] Validation
 >
 > - Vous savez créer des variables de différents types
+> - Vous savez vérifier un type avec `GetType().Name`
+> - Vous savez qu'un nombre entre guillemets se comporte comme du **texte**
 > - Vous savez faire des calculs et manipuler du texte
 > - Vous savez créer et accéder à un tableau
 > - Vous savez créer et accéder à une table de hachage
