@@ -404,4 +404,4 @@ Les trois niveaux à remarquer :
 
 ## Fiche récapitulative
 
-![21_Erreurs_avancees](https://kayasam.github.io/powershell/ressources/images/21_Erreurs_avancees.png)
+![21_Erreurs_avancees](https://kayasam.github.io/powershell/ressources/images/21_erreurs_avancees.png)

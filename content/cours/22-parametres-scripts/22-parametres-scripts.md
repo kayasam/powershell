@@ -189,4 +189,4 @@ Get-Help Get-Info -Examples
 
 ## Fiche récapitulative
 
-![22_Parametres_des_scripts](https://kayasam.github.io/powershell/ressources/images/22_Parametres_des_scripts.png)
+![22_Parametres_des_scripts](https://kayasam.github.io/powershell/ressources/images/22_parametres_des_scripts.png)

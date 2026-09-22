@@ -95,4 +95,4 @@ Clear-Host       # Effacer l'écran (comme cls)
 
 ## Fiche récapitulative
 
-![02_Cmdlets](https://kayasam.github.io/powershell/ressources/images/02_Cmdlets.png)
+![02_Cmdlets](https://kayasam.github.io/powershell/ressources/images/02_cmdlets.png)

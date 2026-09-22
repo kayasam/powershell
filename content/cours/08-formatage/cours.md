@@ -172,4 +172,4 @@ $donnees | Format-Table # on peut réafficher, trier, filtrer…
 
 ## Fiche récapitulative
 
-![08_Formatage](https://kayasam.github.io/powershell/ressources/images/08_Formatage.png)
+![08_Formatage](https://kayasam.github.io/powershell/ressources/images/08_formatage.png)

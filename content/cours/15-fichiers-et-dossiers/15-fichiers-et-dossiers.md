@@ -116,4 +116,4 @@ $fichier.Extension     # .txt
 
 ## Fiche récapitulative
 
-![15_Fichiers_et_dossiers](https://kayasam.github.io/powershell/ressources/images/15_Fichiers_et_dossiers.png)
+![15_Fichiers_et_dossiers](https://kayasam.github.io/powershell/ressources/images/15_fichiers_et_dossiers.png)

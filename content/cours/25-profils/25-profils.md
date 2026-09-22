@@ -264,4 +264,4 @@ Deux autres points de vigilance :
 
 ## Fiche récapitulative
 
-![25_Profils](https://kayasam.github.io/powershell/ressources/images/25_Profils.png)
+![25_Profils](https://kayasam.github.io/powershell/ressources/images/25_profils.png)

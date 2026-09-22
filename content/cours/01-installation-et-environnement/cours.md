@@ -90,4 +90,4 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## Fiche récapitulative
 
-![01_Installation_et_environnement](https://kayasam.github.io/powershell/ressources/images/01_Installation_et_environnement.png)
+![01_Installation_et_environnement](https://kayasam.github.io/powershell/ressources/images/01_installation_et_environnement.png)

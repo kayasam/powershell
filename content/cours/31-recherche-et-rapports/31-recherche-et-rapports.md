@@ -195,4 +195,4 @@ Get-TableauBordAD | Format-List
 
 ## Fiche récapitulative
 
-![31_Recherche_et_rapports_AD](https://kayasam.github.io/powershell/ressources/images/31_Recherche_et_rapports_AD.png)
+![31_Recherche_et_rapports_AD](https://kayasam.github.io/powershell/ressources/images/31_recherche_et_rapports_ad.png)

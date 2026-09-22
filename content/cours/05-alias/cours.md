@@ -89,4 +89,4 @@ New-Alias monscript "C:\Scripts\test.ps1"
 
 ## Fiche récapitulative
 
-![05_Alias](https://kayasam.github.io/powershell/ressources/images/05_Alias.png)
+![05_Alias](https://kayasam.github.io/powershell/ressources/images/05_alias.png)

@@ -31,9 +31,9 @@ function ConvertTo-Berrys {
     param($Montant)
 
     if ($Montant -ge 1000000000) {
-        return "$([math]::Round($Montant / 1000000000, 2)) Milliards"
+        return "$($Montant / 1000000000) Milliards"
     } elseif ($Montant -ge 1000000) {
-        return "$([math]::Round($Montant / 1000000, 1)) Millions"
+        return "$($Montant / 1000000) Millions"
     } else {
         return "$Montant Berrys"
     }
@@ -122,8 +122,8 @@ function Get-InfoServeur {
 
     return [PSCustomObject]@{
         Serveur    = $NomServeur
-        RAM_Total  = [math]::Round($memoire.TotalVisibleMemorySize / 1MB, 1)
-        RAM_Libre  = [math]::Round($memoire.FreePhysicalMemory / 1MB, 1)
+        RAM_Total  = $memoire.TotalVisibleMemorySize / 1MB
+        RAM_Libre  = $memoire.FreePhysicalMemory / 1MB
         CPU_Modele = $cpu.Name
         Heure      = Get-Date -Format "HH:mm:ss"
     }

@@ -87,4 +87,4 @@ Clear-History -Id 5
 
 ## Fiche récapitulative
 
-![06_Historique](https://kayasam.github.io/powershell/ressources/images/06_Historique.png)
+![06_Historique](https://kayasam.github.io/powershell/ressources/images/06_historique.png)

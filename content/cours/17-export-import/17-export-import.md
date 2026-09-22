@@ -141,4 +141,4 @@ Write-Host "Seuil CPU : $($configChargee.SeuilCPU)%"
 
 ## Fiche récapitulative
 
-![17_Export_import](https://kayasam.github.io/powershell/ressources/images/17_Export_import.png)
+![17_Export_import](https://kayasam.github.io/powershell/ressources/images/17_export_import.png)

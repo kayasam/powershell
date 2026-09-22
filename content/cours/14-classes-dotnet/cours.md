@@ -254,4 +254,4 @@ double antislash.
 
 ## Fiche récapitulative
 
-![14_Classes_DotNET](https://kayasam.github.io/powershell/ressources/images/14_Classes_DotNET.png)
+![14_Classes_DotNET](https://kayasam.github.io/powershell/ressources/images/14_classes_dotnet.png)

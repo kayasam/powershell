@@ -1,10 +1,13 @@
 ---
 title: "Exercice 14 - L'Atelier de Vegapunk"
+publier: true
 parcours-tssr: false
 parcours-pro: true
 ---
 
 # Exercice 14 - L'Atelier de Vegapunk 🔬
+
+> Chapitre associé : [[14-classes-dotnet/14-classes-dotnet]]
 
 ## Contexte
 
@@ -17,7 +20,9 @@ Vos cmdlets sont confortables. Sous elles, il y a .NET — et parfois, il faut y
 
 **Durée : 30 min**
 
-## Partie 1 : Statique ou instance ? (5 min)
+---
+
+## Partie A : Statique ou instance ? (5 min)
 
 ```powershell
 # Statique : la classe travaille
@@ -28,13 +33,15 @@ $d = Get-Date
 $d.AddDays(7)
 ```
 
-**Questions** :
+**A1.** Quelle est la différence entre `::` et `.` ?
 
-- Quelle est la différence entre `::` et `.` ?
-- `(Get-Date).GetType().FullName` renvoie quoi ?
-- Explorez `[math]` avec `Get-Member -Static`. Combien de méthodes trouvez-vous ?
+**A2.** Que renvoie `(Get-Date).GetType().FullName` ?
 
-## Partie 2 : L'atelier Math (10 min)
+**A3.** Explorez `[math]` avec `Get-Member -Static`. Combien de méthodes trouvez-vous ?
+
+---
+
+## Partie B : L'atelier Math (10 min)
 
 ```powershell
 [math]::Round(3.14159, 2)
@@ -44,15 +51,17 @@ $d.AddDays(7)
 [math]::Sqrt(144)
 ```
 
-**Exercices** :
+**B1.** Calculez l'aire d'un disque de rayon 5.
+_(indice : `[math]::PI`, `[math]::Pow`)_
 
-1. Calculez l'aire d'un disque de rayon 5 _(indice : `[math]::PI`, `[math]::Pow`)_
-2. Convertissez 3 500 000 000 octets en Go, arrondi à 2 décimales
-3. Trouvez la plus grande de trois valeurs _(indice : `[math]::Max` imbriqué)_
+**B2.** Convertissez 3 500 000 000 octets en Go, arrondi à 2 décimales.
+
+**B3.** Trouvez la plus grande de trois valeurs.
+_(indice : `[math]::Max` imbriqué)_
 
 ### Le piège 🪤
 
-Testez et expliquez :
+Testez :
 
 ```powershell
 [math]::Round(2.5)
@@ -60,13 +69,15 @@ Testez et expliquez :
 [math]::Round(4.5)
 ```
 
-**Questions** :
+**B4.** Le résultat de `[math]::Round(2.5)` vous surprend-il ? Pourquoi ce comportement ?
 
-- Le résultat de `[math]::Round(2.5)` vous surprend-il ? Pourquoi ce comportement ?
-- Comment obtenir l'arrondi « scolaire » (2,5 → 3) ?
-- Dans quel type de script cette différence serait-elle **grave** ?
+**B5.** Comment obtenir l'arrondi « scolaire » (2,5 → 3) ?
 
-## Partie 3 : L'atelier FileIO (10 min)
+**B6.** Dans quel type de script cette différence serait-elle **grave** ?
+
+---
+
+## Partie C : L'atelier FileIO (10 min)
 
 ```powershell
 $p = "C:\Logs\rapport-2026.csv"
@@ -77,16 +88,16 @@ $p = "C:\Logs\rapport-2026.csv"
 [System.IO.Path]::Combine("C:\Logs", "archive", "x.txt")
 ```
 
-**Question** : ce chemin n'existe pas sur votre machine. Les commandes fonctionnent
+**C1.** Ce chemin n'existe pas sur votre machine. Les commandes fonctionnent
 quand même — pourquoi ?
 
-**Exercices** :
+**C2.** À partir de `"D:\Data\2026\export-final.xlsx"`, extrayez le nom **sans
+extension**.
 
-1. À partir de `"D:\Data\2026\export-final.xlsx"`, extrayez le nom **sans extension**
-2. Construisez proprement le chemin `<dossier temp>\cipher-pol\rapport.log`
-   _(indice : `GetTempPath` + `Combine`)_
+**C3.** Construisez proprement le chemin `<dossier temp>\cipher-pol\rapport.log`.
+_(indice : `GetTempPath` + `Combine`)_
 
-### Lecture et écriture
+### Lecture, écriture et mesure
 
 ```powershell
 $f = Join-Path $env:TEMP "vegapunk.txt"
@@ -97,23 +108,23 @@ $f = Join-Path $env:TEMP "vegapunk.txt"
 [System.IO.File]::AppendAllText($f, "`nNote 4")
 ```
 
-### Mesurer la différence
-
 ```powershell
 $gros = Join-Path $env:TEMP "gros.txt"
-[System.IO.File]::WriteAllLines($gros, (1..20000 | ForEach-Object { "ligne $_" }))
+[System.IO.File]::WriteAllLines($gros, [string[]]@(1..20000 | ForEach-Object { "ligne $_" }))
 
 Measure-Command { Get-Content $gros }
 Measure-Command { [System.IO.File]::ReadAllLines($gros) }
 ```
 
-**Questions** :
+**C4.** Quel écart mesurez-vous entre les deux ?
 
-- Quel écart mesurez-vous ?
-- Pourquoi `Get-Content` est-il plus lent ?
-- Faut-il pour autant abandonner `Get-Content` ?
+**C5.** Pourquoi `Get-Content` est-il plus lent ?
 
-## Partie 4 : Valider une saisie (5 min)
+**C6.** Faut-il pour autant abandonner `Get-Content` ?
+
+---
+
+## Partie D : Valider une saisie (5 min)
 
 ```powershell
 $saisie = "   "
@@ -122,16 +133,18 @@ if (-not $saisie)                          { "vide (test simple)" }
 if ([string]::IsNullOrWhiteSpace($saisie)) { "vide (test .NET)" }
 ```
 
-**Questions** :
+**D1.** Lequel des deux tests se déclenche ?
 
-- Lequel des deux se déclenche ?
-- Quelle différence entre `IsNullOrEmpty` et `IsNullOrWhiteSpace` ?
+**D2.** Quelle différence entre `IsNullOrEmpty` et `IsNullOrWhiteSpace` ?
 
-## Mission finale : le rapport de Vegapunk 🏴‍☠️
+---
 
-Écrivez une fonction `Get-InfoFichier` qui, pour un chemin donné :
+## Mission finale E : le rapport de Vegapunk 🏴‍☠️
 
-1. **valide** que le chemin n'est ni vide ni composé d'espaces _(`[string]::IsNullOrWhiteSpace`)_ ;
+**E1.** Écrivez une fonction `Get-InfoFichier` qui, pour un chemin donné :
+
+1. **valide** que le chemin n'est ni vide ni composé d'espaces
+   _(`[string]::IsNullOrWhiteSpace`)_ ;
 2. renvoie un `[PSCustomObject]` contenant :
    - le **nom sans extension** et l'**extension** _(`[System.IO.Path]`)_ ;
    - le **dossier parent** ;
@@ -140,7 +153,10 @@ if ([string]::IsNullOrWhiteSpace($saisie)) { "vide (test .NET)" }
    - un **identifiant unique** de traitement _(`[guid]::NewGuid()`)_ ;
 3. lève une erreur claire si le fichier n'existe pas _(`throw`, chapitre 21)_.
 
-Testez-la sur un fichier que vous créez dans `$env:TEMP`.
+Testez-la sur un fichier que vous créez dans `$env:TEMP`, puis sur un chemin
+absent et sur une saisie composée d'espaces.
+
+---
 
 > [!success] Validation
 >

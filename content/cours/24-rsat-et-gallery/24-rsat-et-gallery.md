@@ -271,4 +271,4 @@ Get-Command -Module Carbon | Measure-Object
 
 ## Fiche récapitulative
 
-![24_RSAT_et_Gallery](https://kayasam.github.io/powershell/ressources/images/24_RSAT_et_Gallery.png)
+![24_RSAT_et_Gallery](https://kayasam.github.io/powershell/ressources/images/24_rsat_et_gallery.png)

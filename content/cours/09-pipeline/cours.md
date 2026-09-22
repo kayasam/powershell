@@ -159,4 +159,4 @@ Get-Service |
 
 ## Fiche récapitulative
 
-![09_Pipeline](https://kayasam.github.io/powershell/ressources/images/09_Pipeline.png)
+![09_Pipeline](https://kayasam.github.io/powershell/ressources/images/09_pipeline.png)

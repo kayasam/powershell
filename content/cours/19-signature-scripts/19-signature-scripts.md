@@ -276,4 +276,4 @@ La checklist :
 
 ## Fiche récapitulative
 
-![19_Signature_des_scripts](https://kayasam.github.io/powershell/ressources/images/19_Signature_des_scripts.png)
+![19_Signature_des_scripts](https://kayasam.github.io/powershell/ressources/images/19_signature_des_scripts.png)

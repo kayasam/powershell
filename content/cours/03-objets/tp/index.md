@@ -11,4 +11,8 @@ Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
 | 🟢 Débutant — commandes données, indices        | [[03-objets/tp/03-objets-debutant\|Exercice 03 - L'Autopsie du Den Den Mushi 🐌 — Débutant]] |
 | 🔵 Avancé — mêmes exercices, sans les commandes | [[03-objets/tp/03-objets-avance\|Exercice 03 - L'Autopsie du Den Den Mushi 🐌 — Avancé]]     |
 
+## Correction
+
 Commandes complètes, réponses et explications, pour les deux niveaux.
+
+- [[03-objets/tp/03-objets-correction|Correction - Exercice 03 : L'Autopsie du Den Den Mushi 🐌]]

@@ -161,4 +161,4 @@ if ($service.Status -eq "Running") {
 
 ## Fiche récapitulative
 
-![10_Conditions](https://kayasam.github.io/powershell/ressources/images/10_Conditions.png)
+![10_Conditions](https://kayasam.github.io/powershell/ressources/images/10_conditions.png)

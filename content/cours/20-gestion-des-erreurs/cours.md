@@ -148,4 +148,4 @@ catch {
 
 ## Fiche récapitulative
 
-![20_Gestion_des_erreurs](https://kayasam.github.io/powershell/ressources/images/20_Gestion_des_erreurs.png)
+![20_Gestion_des_erreurs](https://kayasam.github.io/powershell/ressources/images/20_gestion_des_erreurs.png)

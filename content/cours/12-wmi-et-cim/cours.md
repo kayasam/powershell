@@ -264,4 +264,4 @@ que `Terminate`) : elles sont plus lisibles et gèrent `-WhatIf`.
 
 ## Fiche récapitulative
 
-![12_WMI_et_CIM](https://kayasam.github.io/powershell/ressources/images/12_WMI_et_CIM.png)
+![12_WMI_et_CIM](https://kayasam.github.io/powershell/ressources/images/12_wmi_et_cim.png)

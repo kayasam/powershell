@@ -374,4 +374,4 @@ Pour un script d'admin : restez sur WinForms.
 
 ## Fiche récapitulative
 
-![32_Interfaces_graphiques_WinForms](https://kayasam.github.io/powershell/ressources/images/32_Interfaces_graphiques_WinForms.png)
+![32_Interfaces_graphiques_WinForms](https://kayasam.github.io/powershell/ressources/images/32_interfaces_graphiques_winforms.png)

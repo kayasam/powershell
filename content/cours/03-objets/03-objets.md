@@ -109,4 +109,4 @@ Get-Process firefox | Select-Object Id  # Simple!
 
 ## Fiche récapitulative
 
-![03_Objets](https://kayasam.github.io/powershell/ressources/images/03_Objets.png)
+![03_Objets](https://kayasam.github.io/powershell/ressources/images/03_objets.png)

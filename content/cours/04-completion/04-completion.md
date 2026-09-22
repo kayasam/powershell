@@ -70,4 +70,4 @@ $fichier.N<Tab>  # Complète Name, etc.
 
 ## Fiche récapitulative
 
-![04_Completion](https://kayasam.github.io/powershell/ressources/images/04_Completion.png)
+![04_Completion](https://kayasam.github.io/powershell/ressources/images/04_completion.png)

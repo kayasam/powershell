@@ -177,4 +177,4 @@ foreach ($agent in $agents) {
 
 ## Fiche récapitulative
 
-![29_Utilisateurs_Active_Directory](https://kayasam.github.io/powershell/ressources/images/29_Utilisateurs_Active_Directory.png)
+![29_Utilisateurs_Active_Directory](https://kayasam.github.io/powershell/ressources/images/29_utilisateurs_active_directory.png)

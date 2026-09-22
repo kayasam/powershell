@@ -128,4 +128,4 @@ whoami             # DOMAINE\login
 
 ## Fiche récapitulative
 
-![28_Introduction_Active_Directory](https://kayasam.github.io/powershell/ressources/images/28_Introduction_Active_Directory.png)
+![28_Introduction_Active_Directory](https://kayasam.github.io/powershell/ressources/images/28_introduction_active_directory.png)

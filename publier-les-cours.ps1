@@ -76,7 +76,7 @@ Mirror-Directory $staticRoot $stageRoot
 $sourceCourses = Join-Path $sourceRoot "cours"
 if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
   Write-Host "1/4 - Préparation des cours publics..."
-  Mirror-Directory $sourceCourses (Join-Path $stageRoot "cours") @("private", "sessions", "_archives", "solutions") @("*correction*.md", "*corrige*.md", "*.excalidraw", "*.excalidraw.md")
+  Mirror-Directory $sourceCourses (Join-Path $stageRoot "cours") @("private", "sessions", "_archives", "solutions") @("*.excalidraw", "*.excalidraw.md")
 
   $interactiveIndex = Join-Path $stageRoot 'cours/index.html'
   if (Test-Path -LiteralPath $interactiveIndex -PathType Leaf) {
@@ -143,6 +143,14 @@ if (Test-Path -LiteralPath $sourceImages -PathType Container) {
   Mirror-Directory $sourceImages (Join-Path $stageRoot "Ressources\images")
 }
 
+# Les fiches récapitulatives sont stockées séparément des autres illustrations.
+$sourceFiches = Join-Path $sourceRoot 'Ressources\Fiches_PowerShell_TSSR_32_Chapitres\Fiches_PowerShell_TSSR_32_Chapitres'
+if (Test-Path -LiteralPath $sourceFiches -PathType Container) {
+  Get-ChildItem -LiteralPath $sourceFiches -File -Filter '*.png' | ForEach-Object {
+    Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $stageRoot ('Ressources\images\' + $_.Name.ToLowerInvariant())) -Force
+  }
+}
+
 $sourceMemo = Join-Path $sourceRoot "Ressources\Memo-Commandes.md"
 if (Test-Path -LiteralPath $sourceMemo -PathType Leaf) {
   Copy-Item -LiteralPath $sourceMemo -Destination (Join-Path $stageRoot "memo-commandes.md") -Force
@@ -159,7 +167,7 @@ Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Ob
     { param($match)
       $fileName = $match.Groups[1].Value
       $alt = [IO.Path]::GetFileNameWithoutExtension($fileName).Replace('-', ' ')
-      "![$alt](https://kayasam.github.io/powershell/ressources/images/$fileName)"
+      "![$alt](https://kayasam.github.io/powershell/ressources/images/$($fileName.ToLowerInvariant()))"
     },
     [Text.RegularExpressions.RegexOptions]::IgnoreCase
   )
@@ -168,23 +176,32 @@ Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Ob
 
 Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Object {
   $document = [IO.File]::ReadAllText($_.FullName)
-  if ($document -match '(?m)^publier:\s*false\s*$') {
+  $isCorrection = $_.Name -match '(?i)correction|corrig[eé]'
+  $isPublished = $document -match '(?m)^publier:\s*true\s*$'
+  if ($document -match '(?m)^publier:\s*false\s*$' -or ($isCorrection -and -not $isPublished)) {
     [IO.File]::Delete($_.FullName)
   }
 }
 
-# Les index élèves ne doivent jamais proposer un lien vers une correction absente.
-Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "index.md" | Where-Object {
-  $_.DirectoryName -match '(?i)[\\/]tp$'
-} | ForEach-Object {
+# Retirer uniquement les liens vers des corrections non publiées.
+Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "index.md" | ForEach-Object {
   $document = [IO.File]::ReadAllText($_.FullName)
-  $document = [regex]::Replace($document, '(?im)^.*(?:correction|corrig[eé]).*(?:\r?\n|$)', '')
+  $document = [regex]::Replace($document, '(?im)^.*\[\[([^\]|]*(?:correction|corrig[eé])[^\]|]*)(?:\|[^\]]*)?\]\].*(?:\r?\n|$)', {
+    param($match)
+    $target = $match.Groups[1].Value.TrimEnd('\')
+    $candidate = Join-Path (Join-Path $stageRoot 'cours') ($target.Replace('/', [IO.Path]::DirectorySeparatorChar) + '.md')
+    if (Test-Path -LiteralPath $candidate -PathType Leaf) { return $match.Value }
+    return ''
+  })
+  if ($document -notmatch '(?i)\[\[[^\]]*(?:correction|corrig[eé])') {
+    $document = [regex]::Replace($document, '(?ims)^## Corrections?(?: formateur)?\s*$.*?(?=^## |\z)', '')
+  }
   [IO.File]::WriteAllText($_.FullName, $document, [Text.UTF8Encoding]::new($false))
 }
 
 # Les énoncés publics gardent les indices de réflexion, pas les blocs de solution.
 Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | Where-Object {
-  $_.DirectoryName -match '(?i)[\\/]tp(?:[\\/]|$)'
+  $_.DirectoryName -match '(?i)[\\/]tp(?:[\\/]|$)' -and $_.Name -notmatch '(?i)correction|corrig[eé]'
 } | ForEach-Object {
   $document = [IO.File]::ReadAllText($_.FullName)
   $document = [regex]::Replace($document, '(?is)<details>\s*<summary>[^<]*solution[^<]*</summary>.*?</details>\s*', '')
@@ -205,7 +222,9 @@ if (Test-Path -LiteralPath $publicThread -PathType Container) {
 }
 
 $forbidden = Get-ChildItem -LiteralPath $stageRoot -Recurse -File | Where-Object {
-  $_.Name -match '(?i)correction|corrig[eé]' -or $_.FullName -match '(?i)[\\/](sessions|private|_archives|solutions)[\\/]'
+  $_.FullName -match '(?i)[\\/](sessions|private|_archives|solutions)[\\/]' -or
+  (($_.Name -match '(?i)correction|corrig[eé]') -and
+   ($_.Extension -ne '.md' -or [IO.File]::ReadAllText($_.FullName) -notmatch '(?m)^publier:\s*true\s*$'))
 }
 if ($forbidden) {
   throw "Un élément privé a été détecté dans le contenu à publier : $($forbidden[0].FullName)"

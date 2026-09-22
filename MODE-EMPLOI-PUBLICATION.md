@@ -38,7 +38,9 @@ Formations\Powershell\
 └── sessions\
 ```
 
-Les fichiers contenant `correction` ou `corrige`, les dossiers `solutions`, les dossiers privés, les sessions et les fichiers marqués `publier: false` ne sont pas publiés.
+Les corrections sont publiées uniquement lorsque leur propriété Obsidian indique `publier: true`. Décochez cette propriété pour les retirer du site lors de la prochaine publication. Les dossiers `solutions`, les dossiers privés, les sessions et les fichiers marqués `publier: false` restent exclus.
+
+Les fiches PNG du dossier `Ressources/Fiches_PowerShell_TSSR_32_Chapitres` sont copiées automatiquement avec les illustrations du site. Le contrôle de publication signale toute image référencée mais absente.
 
 ## Règle permanente pour les pages HTML interactives
 

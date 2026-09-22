@@ -144,4 +144,4 @@ New-ModuleManifest -Path ".\MesOutils.psd1" `
 
 ## Fiche récapitulative
 
-![23_Modules](https://kayasam.github.io/powershell/ressources/images/23_Modules.png)
+![23_Modules](https://kayasam.github.io/powershell/ressources/images/23_modules.png)

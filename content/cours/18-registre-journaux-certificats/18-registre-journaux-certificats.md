@@ -305,4 +305,4 @@ Get-AuthenticodeSignature .\MonScript.ps1 | Select-Object Status, SignerCertific
 
 ## Fiche récapitulative
 
-![18_Registre_journaux_certificats](https://kayasam.github.io/powershell/ressources/images/18_Registre_journaux_certificats.png)
+![18_Registre_journaux_certificats](https://kayasam.github.io/powershell/ressources/images/18_registre_journaux_certificats.png)

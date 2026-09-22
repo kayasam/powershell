@@ -172,4 +172,4 @@ Très utile en dépannage : un script qui doit écrire un log ira dans
 
 ## Fiche récapitulative
 
-![07_Variables](https://kayasam.github.io/powershell/ressources/images/07_Variables.png)
+![07_Variables](https://kayasam.github.io/powershell/ressources/images/07_variables.png)

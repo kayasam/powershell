@@ -114,4 +114,4 @@ Set-Content "C:\Logs\rapport.txt" -Value $contenu -Encoding UTF8
 
 ## Fiche récapitulative
 
-![16_Lire_et_ecrire](https://kayasam.github.io/powershell/ressources/images/16_Lire_et_ecrire.png)
+![16_Lire_et_ecrire](https://kayasam.github.io/powershell/ressources/images/16_lire_et_ecrire.png)

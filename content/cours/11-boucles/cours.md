@@ -130,4 +130,4 @@ foreach ($fichier in Get-ChildItem "C:\Logs") {
 
 ## Fiche récapitulative
 
-![11_Boucles](https://kayasam.github.io/powershell/ressources/images/11_Boucles.png)
+![11_Boucles](https://kayasam.github.io/powershell/ressources/images/11_boucles.png)

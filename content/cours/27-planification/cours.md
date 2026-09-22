@@ -167,4 +167,4 @@ pwsh.exe -NonInteractive -File "C:\Scripts\MonScript.ps1"
 
 ## Fiche récapitulative
 
-![27_Planification](https://kayasam.github.io/powershell/ressources/images/27_Planification.png)
+![27_Planification](https://kayasam.github.io/powershell/ressources/images/27_planification.png)

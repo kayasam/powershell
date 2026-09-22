@@ -166,4 +166,4 @@ function Send-Alerte       { ... }
 
 ## Fiche récapitulative
 
-![13_Fonctions](https://kayasam.github.io/powershell/ressources/images/13_Fonctions.png)
+![13_Fonctions](https://kayasam.github.io/powershell/ressources/images/13_fonctions.png)

@@ -10,5 +10,3 @@ Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | 🟢 Débutant — commandes données, indices        | [[10-conditions/tp/10-conditions-debutant\|Exercice 10 - L'Analyseur d'Intrusion 🔐 — Débutant]] |
 | 🔵 Avancé — mêmes exercices, sans les commandes | [[10-conditions/tp/10-conditions-avance\|Exercice 10 - L'Analyseur d'Intrusion 🔐 — Avancé]]     |
-
-Commandes complètes, réponses et explications, pour les deux niveaux.

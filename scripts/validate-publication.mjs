@@ -7,6 +7,9 @@ if (!root.startsWith(projectRoot + path.sep))
   throw new Error("Validation hors du projet interdite.")
 
 const errors = []
+const imageNames = new Set(
+  (await readdir(path.join(root, "Ressources", "images"))).map((name) => name.toLowerCase()),
+)
 async function visit(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const filename = path.join(directory, entry.name)
@@ -14,6 +17,15 @@ async function visit(directory) {
     else if (/\.(?:md|html|js|css)$/.test(entry.name)) {
       const document = await readFile(filename, "utf8")
       const relative = path.relative(root, filename).replaceAll(path.sep, "/")
+      if (/correction|corrig[eé]/i.test(entry.name) && entry.name.endsWith(".md") &&
+          !/^publier:\s*true\s*$/m.test(document)) {
+        errors.push(`${relative} : correction sans publier: true`)
+      }
+      for (const match of document.matchAll(/https:\/\/kayasam\.github\.io\/powershell\/ressources\/images\/([^\s)"']+)/g)) {
+        if (!imageNames.has(decodeURIComponent(match[1]).toLowerCase())) {
+          errors.push(`${relative} : image absente : ${match[1]}`)
+        }
+      }
       if (/\uFFFD|SchÃ|Ã©|Ã¨|Ãª|Ã |â†’|â€™/.test(document))
         errors.push(`${relative} : encodage UTF-8 abîmé`)
       if (

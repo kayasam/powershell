@@ -158,4 +158,4 @@ Get-ADUser -Filter "Title -eq 'Administrateur'" |
 
 ## Fiche récapitulative
 
-![30_Groupes_Active_Directory](https://kayasam.github.io/powershell/ressources/images/30_Groupes_Active_Directory.png)
+![30_Groupes_Active_Directory](https://kayasam.github.io/powershell/ressources/images/30_groupes_active_directory.png)
