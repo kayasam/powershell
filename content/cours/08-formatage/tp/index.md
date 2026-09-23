@@ -17,3 +17,9 @@ Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | 🟢 Débutant — commandes données, indices        | [[08-formatage/tp/08-formatage-debutant\|Exercice 08 - Le Rapport pour l'Amiral 📊 — Débutant]] |
 | 🔵 Avancé — mêmes exercices, sans les commandes | [[08-formatage/tp/08-formatage-avance\|Exercice 08 - Le Rapport pour l'Amiral 📊 — Avancé]]     |
+
+## Correction
+
+Commandes complètes, réponses et explications, pour les deux niveaux.
+
+- [[08-formatage/tp/08-formatage-correction|Correction - Exercice 08 : Le Rapport pour l'Amiral 📊]]
