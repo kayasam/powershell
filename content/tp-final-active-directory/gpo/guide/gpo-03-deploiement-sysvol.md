@@ -2,7 +2,7 @@
 title: "Phase 3 — Déploiement dans SYSVOL"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|Index GPO Manuel]]
 > Phase précédente : [[tp-final-active-directory/gpo/guide/gpo-02-creer-lier-gpo\|GPO-02-Creer-Lier-GPO]] | Phase suivante : [[tp-final-active-directory/gpo/guide/gpo-04-enregistrer-script\|GPO-04-Enregistrer-Script]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

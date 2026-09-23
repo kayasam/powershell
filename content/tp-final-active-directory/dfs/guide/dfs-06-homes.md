@@ -2,7 +2,7 @@
 title: "Phase 6 — Configuration des dossiers personnels Homes"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
 > Phase precedente : [[tp-final-active-directory/dfs/guide/dfs-05-replication-dfsr\|DFS-05-Replication-DFSr]] | Phase suivante : [[tp-final-active-directory/dfs/guide/dfs-07-homedirectory\|DFS-07-HomeDirectory]]
 
 ## Objectif

@@ -9,6 +9,14 @@ if (!root.startsWith(projectRoot + path.sep))
 const errors = []
 let finalTpIndex = false
 let finalTpPageCount = 0
+const finalTpRequiredPages = new Set([
+  "tp-final-active-directory/demarrer-ici.md",
+  "tp-final-active-directory/preparation/01-installer-les-vm.md",
+  "tp-final-active-directory/preparation/02-preparer-les-serveurs.md",
+  "tp-final-active-directory/preparation/03-promouvoir-dc01.md",
+  "tp-final-active-directory/preparation/04-joindre-dc2.md",
+  "tp-final-active-directory/preparation/05-poste-de-travail.md",
+])
 const imageNames = new Set(
   (await readdir(path.join(root, "Ressources", "images"))).map((name) => name.toLowerCase()),
 )
@@ -22,6 +30,7 @@ async function visit(directory) {
       if (relative.startsWith("tp-final-active-directory/") && relative.endsWith(".md")) {
         finalTpPageCount += 1
         if (relative === "tp-final-active-directory/index.md") finalTpIndex = true
+        finalTpRequiredPages.delete(relative)
         if (
           /Explication-Script|0[0-3]-(?:AD-Arborescence|DFS-Deploiement|GPO-Home|Deploiement-Complet)\.ps1/i.test(
             document,
@@ -110,8 +119,9 @@ async function visit(directory) {
 }
 
 await visit(root)
-if (!finalTpIndex || finalTpPageCount < 30) {
+if (!finalTpIndex || finalTpPageCount < 35 || finalTpRequiredPages.size) {
   errors.push(`TP final Active Directory incomplet : ${finalTpPageCount} pages Markdown`)
+  for (const relative of finalTpRequiredPages) errors.push(`${relative} : page obligatoire absente`)
 }
 if (errors.length) {
   console.error(errors.join("\n"))

@@ -2,7 +2,7 @@
 title: "Vérification et Dépannage — GPO Emplacement Home"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|Index GPO Manuel]]
 > Phase précédente : [[tp-final-active-directory/gpo/guide/gpo-04-enregistrer-script\|GPO-04-Enregistrer-Script]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

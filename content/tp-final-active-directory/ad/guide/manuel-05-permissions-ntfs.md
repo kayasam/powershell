@@ -2,7 +2,7 @@
 title: "Etape 5 — Créer les dossiers et appliquer les permissions NTFS"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|Index AD Manuel]]
 > Etape précédente : [[tp-final-active-directory/ad/guide/manuel-04-imbriquer-groupes-agdlp\|Manuel-04-Imbriquer-Groupes-AGDLP]] | Etape suivante : [[tp-final-active-directory/ad/guide/manuel-06-creer-les-utilisateurs\|Manuel-06-Creer-les-Utilisateurs]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

@@ -6,9 +6,17 @@ description: "Déployer l’infrastructure Active Directory, DFS et GPO du Fourn
 <section class="ps-final-lab-hero">
   <span>Projet de synthèse</span>
   <h2>Le Fournil — TP final Active Directory</h2>
-  <p>Un cas d’entreprise complet à réaliser en trois étapes : annuaire et permissions, DFS et réplication, puis stratégie de groupe.</p>
-  <a href="https://kayasam.github.io/powershell/tp-final-active-directory/prerequis">Commencer par les prérequis →</a>
+  <p>Partez d’un poste Windows vide, montez deux serveurs, créez le domaine, puis réalisez les travaux Active Directory, DFS et GPO.</p>
+  <a href="https://kayasam.github.io/powershell/tp-final-active-directory/demarrer-ici">Démarrer le lab depuis zéro →</a>
 </section>
+
+## Préparer le lab
+
+1. [Créer les deux machines virtuelles](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/01-installer-les-vm)
+2. [Préparer les deux serveurs](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/02-preparer-les-serveurs)
+3. [Installer AD DS et promouvoir DC01](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/03-promouvoir-dc01)
+4. [Joindre DC2 et le promouvoir](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/04-joindre-dc2)
+5. [Brancher le poste de travail](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/05-poste-de-travail)
 
 ## Choisir son parcours
 

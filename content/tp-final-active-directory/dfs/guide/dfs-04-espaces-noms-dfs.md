@@ -2,7 +2,7 @@
 title: "Phase 4 — Creation des espaces de noms DFS"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
 > Phase precedente : [[tp-final-active-directory/dfs/guide/dfs-03-partages-dc01\|DFS-03-Partages-DC01]] | Phase suivante : [[tp-final-active-directory/dfs/guide/dfs-05-replication-dfsr\|DFS-05-Replication-DFSr]]
 
 ![Schema-DFS-Architecture](https://kayasam.github.io/powershell/ressources/images/schema-dfs-architecture.svg)

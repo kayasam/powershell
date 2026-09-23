@@ -2,7 +2,7 @@
 title: "Etape 1 — Charger le module Active Directory"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|Index AD Manuel]]
 > Etape suivante : [[tp-final-active-directory/ad/guide/manuel-02-creer-les-ous\|Manuel-02-Creer-les-OUs]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

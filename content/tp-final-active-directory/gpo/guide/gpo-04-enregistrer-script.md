@@ -2,7 +2,7 @@
 title: "Phase 4 — Enregistrer le script de connexion dans la GPO"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|Index GPO Manuel]]
 > Phase précédente : [[tp-final-active-directory/gpo/guide/gpo-03-deploiement-sysvol\|GPO-03-Deploiement-SYSVOL]] | Phase suivante : [[tp-final-active-directory/gpo/guide/gpo-05-verification-depannage\|GPO-05-Verification-Depannage]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

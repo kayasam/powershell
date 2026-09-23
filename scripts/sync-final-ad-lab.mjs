@@ -34,8 +34,12 @@ const selected = []
 for (const filename of await markdownFiles(path.join(proceduresRoot, "TP"))) {
   const basename = path.basename(filename, ".md")
   const match = basename.match(/^([0-3]{2})\.TP-(Debutant|Avance)-(.+)$/i)
-  const destination = basename.startsWith("00.")
-    ? "prerequis.md"
+  const setupMatch = basename.match(/^00\.(\d)-(.+)$/i)
+  if (!match && !setupMatch) continue
+  const destination = setupMatch
+    ? setupMatch[1] === "0"
+      ? "demarrer-ici.md"
+      : `preparation/0${setupMatch[1]}-${slugify(setupMatch[2])}.md`
     : `${match[3].toLowerCase()}/${match[2].toLowerCase()}.md`
   selected.push({ filename, destination })
 }
@@ -54,7 +58,7 @@ for (const [folder, section] of [
 
 const byBasename = new Map()
 for (const item of selected) {
-  const key = path.basename(item.filename, ".md").toLowerCase()
+  const key = slugify(path.basename(item.filename, ".md"))
   const values = byBasename.get(key) ?? []
   values.push(item)
   byBasename.set(key, values)
@@ -64,6 +68,7 @@ const indexAliases = new Map([
   ["01-ad-arborescence-manuel", "ad/guide/index.md"],
   ["02-dfs-deploiement-procedure", "dfs/guide/index.md"],
   ["03-gpo-home-procedure", "gpo/guide/index.md"],
+  ["guide-deploiement-fournil", "index.md"],
 ])
 const forbiddenReferences = [
   "Explication-Script-",
@@ -76,7 +81,7 @@ const forbiddenReferences = [
 ]
 
 function resolveTarget(sourceFile, target) {
-  const key = path.basename(target.replaceAll("\\", "/")).toLowerCase()
+  const key = slugify(path.basename(target.replaceAll("\\", "/")))
   if (indexAliases.has(key)) return indexAliases.get(key)
   const candidates = byBasename.get(key) ?? []
   if (candidates.length === 1) return candidates[0].destination
@@ -109,6 +114,32 @@ for (const item of selected) {
     .filter((line) => !forbiddenReferences.some((reference) => line.includes(reference)))
     .join("\n")
 
+  if (path.basename(item.filename, ".md") === "00.5-Poste-de-Travail") {
+    document = document.replace(
+      /## B7 — Déposer les fichiers du TP[\s\S]*?\n---\n\n# ÉTAPE C/,
+      `## B7 — Télécharger les fichiers nécessaires au TP
+
+> 🖥️ **SUR DC01** — terminal VSCode, en administrateur
+
+\`\`\`powershell
+New-Item -ItemType Directory -Path "C:\\Deploy" -Force | Out-Null
+$baseUrl = "https://kayasam.github.io/powershell/tp-final-active-directory/ressources"
+
+Invoke-WebRequest "$baseUrl/orga-fournil.csv" -OutFile "C:\\Deploy\\orga-fournil.csv"
+Invoke-WebRequest "$baseUrl/utilisateurs-fournil.csv" -OutFile "C:\\Deploy\\utilisateurs-fournil.csv"
+Invoke-WebRequest "$baseUrl/set-networklocation.ps1" -OutFile "C:\\Deploy\\Set-NetworkLocation.ps1"
+
+Get-ChildItem C:\\Deploy | Select-Object Name, Length
+\`\`\`
+
+Ces trois fichiers suffisent pour réaliser les parcours guidé et avancé publiés sur ce site.
+
+---
+
+# ÉTAPE C`,
+    )
+  }
+
   const title = titleOf(document, path.basename(item.filename, ".md"))
   document = document.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "")
   document = document.replace(/^#\s+.+(?:\r?\n|$)/m, "")
@@ -135,13 +166,18 @@ for (const item of selected) {
       return `[[tp-final-active-directory/${publicTarget}\\|${alias || titleOfDestination(destination)}]]`
     },
   )
-  const output = `---\ntitle: "${escapeTitle(title)}"\n---\n\n${document.trim()}\n`
+  const aliases =
+    item.destination === "demarrer-ici.md"
+      ? "\naliases:\n  - /tp-final-active-directory/prerequis"
+      : ""
+  const output = `---\ntitle: "${escapeTitle(title)}"${aliases}\n---\n\n${document.trim()}\n`
   const destination = path.join(outputRoot, item.destination)
   await mkdir(path.dirname(destination), { recursive: true })
   await writeFile(destination, output, "utf8")
 }
 
 function titleOfDestination(destination) {
+  if (destination === "index.md") return "Accueil du TP final"
   const item = selected.find((candidate) => candidate.destination === destination)
   return item ? path.basename(item.filename, ".md") : destination
 }
@@ -159,7 +195,9 @@ async function collectSvg(directory) {
   }
 }
 await collectSvg(proceduresRoot)
-for (const filename of svgFiles) {
+await collectSvg(path.join(sourceRoot, "Ressources", "images"))
+const uniqueSvgFiles = [...new Map(svgFiles.map((filename) => [path.basename(filename).toLowerCase(), filename])).values()]
+for (const filename of uniqueSvgFiles) {
   await copyFile(filename, path.join(publicImagesRoot, path.basename(filename).toLowerCase()))
 }
 
@@ -178,9 +216,17 @@ description: "Déployer l’infrastructure Active Directory, DFS et GPO du Fourn
 <section class="ps-final-lab-hero">
   <span>Projet de synthèse</span>
   <h2>Le Fournil — TP final Active Directory</h2>
-  <p>Un cas d’entreprise complet à réaliser en trois étapes : annuaire et permissions, DFS et réplication, puis stratégie de groupe.</p>
-  <a href="https://kayasam.github.io/powershell/tp-final-active-directory/prerequis">Commencer par les prérequis →</a>
+  <p>Partez d’un poste Windows vide, montez deux serveurs, créez le domaine, puis réalisez les travaux Active Directory, DFS et GPO.</p>
+  <a href="https://kayasam.github.io/powershell/tp-final-active-directory/demarrer-ici">Démarrer le lab depuis zéro →</a>
 </section>
+
+## Préparer le lab
+
+1. [Créer les deux machines virtuelles](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/01-installer-les-vm)
+2. [Préparer les deux serveurs](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/02-preparer-les-serveurs)
+3. [Installer AD DS et promouvoir DC01](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/03-promouvoir-dc01)
+4. [Joindre DC2 et le promouvoir](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/04-joindre-dc2)
+5. [Brancher le poste de travail](https://kayasam.github.io/powershell/tp-final-active-directory/preparation/05-poste-de-travail)
 
 ## Choisir son parcours
 
@@ -200,5 +246,5 @@ Les corrections détaillées et les scripts de déploiement complets restent dan
 `
 await writeFile(path.join(outputRoot, "index.md"), landing, "utf8")
 console.log(
-  `${selected.length} pages et ${svgFiles.length} schémas synchronisés pour le TP final Active Directory.`,
+  `${selected.length} pages et ${uniqueSvgFiles.length} schémas synchronisés pour le TP final Active Directory.`,
 )

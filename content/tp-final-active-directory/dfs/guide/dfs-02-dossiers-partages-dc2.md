@@ -2,7 +2,7 @@
 title: "Phase 2 — Creation des dossiers et partages sur DC2"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
 > Phase precedente : [[tp-final-active-directory/dfs/guide/dfs-01-installer-roles\|DFS-01-Installer-Roles]] | Phase suivante : [[tp-final-active-directory/dfs/guide/dfs-03-partages-dc01\|DFS-03-Partages-DC01]]
 
 ## Objectif

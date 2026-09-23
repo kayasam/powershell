@@ -2,7 +2,7 @@
 title: "Etape 3 — Créer les groupes de sécurité"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|Index AD Manuel]]
 > Etape précédente : [[tp-final-active-directory/ad/guide/manuel-02-creer-les-ous\|Manuel-02-Creer-les-OUs]] | Etape suivante : [[tp-final-active-directory/ad/guide/manuel-04-imbriquer-groupes-agdlp\|Manuel-04-Imbriquer-Groupes-AGDLP]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

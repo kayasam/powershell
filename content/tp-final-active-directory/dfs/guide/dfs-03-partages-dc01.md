@@ -2,7 +2,7 @@
 title: "Phase 3 — Creation des partages par pole sur DC01"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
 > Phase precedente : [[tp-final-active-directory/dfs/guide/dfs-02-dossiers-partages-dc2\|DFS-02-Dossiers-Partages-DC2]] | Phase suivante : [[tp-final-active-directory/dfs/guide/dfs-04-espaces-noms-dfs\|DFS-04-Espaces-Noms-DFS]]
 
 ## Objectif

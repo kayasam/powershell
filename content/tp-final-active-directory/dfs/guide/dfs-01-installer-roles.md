@@ -2,7 +2,7 @@
 title: "Phase 1 — Installation des roles DFS"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
 > Phase suivante : [[tp-final-active-directory/dfs/guide/dfs-02-dossiers-partages-dc2\|DFS-02-Dossiers-Partages-DC2]]
 
 ## Objectif

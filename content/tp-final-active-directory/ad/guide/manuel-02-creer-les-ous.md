@@ -2,7 +2,7 @@
 title: "Etape 2 — Créer les OUs (Unités d'Organisation)"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|Index AD Manuel]]
 > Etape précédente : [[tp-final-active-directory/ad/guide/manuel-01-charger-module-ad\|Manuel-01-Charger-Module-AD]] | Etape suivante : [[tp-final-active-directory/ad/guide/manuel-03-creer-les-groupes\|Manuel-03-Creer-les-Groupes]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

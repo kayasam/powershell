@@ -2,7 +2,7 @@
 title: "Phase 7 — Configuration du HomeDirectory des utilisateurs"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
 > Phase precedente : [[tp-final-active-directory/dfs/guide/dfs-06-homes\|DFS-06-Homes]] | Phase suivante : [[tp-final-active-directory/dfs/guide/dfs-08-verification-depannage\|DFS-08-Verification-Depannage]]
 
 ## Objectif

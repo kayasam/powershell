@@ -2,7 +2,7 @@
 title: "Etape 6 — Créer les utilisateurs"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|Index AD Manuel]]
 > Etape précédente : [[tp-final-active-directory/ad/guide/manuel-05-permissions-ntfs\|Manuel-05-Permissions-NTFS]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

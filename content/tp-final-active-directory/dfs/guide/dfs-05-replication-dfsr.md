@@ -2,7 +2,7 @@
 title: "Phase 5 — Configuration de la replication DFS"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
 > Phase precedente : [[tp-final-active-directory/dfs/guide/dfs-04-espaces-noms-dfs\|DFS-04-Espaces-Noms-DFS]] | Phase suivante : [[tp-final-active-directory/dfs/guide/dfs-06-homes\|DFS-06-Homes]]
 
 ## Objectif

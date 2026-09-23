@@ -2,7 +2,7 @@
 title: "Phase 1 — Création du script de connexion"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|Index GPO Manuel]]
 > Phase suivante : [[tp-final-active-directory/gpo/guide/gpo-02-creer-lier-gpo\|GPO-02-Creer-Lier-GPO]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

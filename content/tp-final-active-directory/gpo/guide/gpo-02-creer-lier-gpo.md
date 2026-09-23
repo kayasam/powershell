@@ -2,7 +2,7 @@
 title: "Phase 2 — Création et liaison de la GPO"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/gpo/guide/index\|Index GPO Manuel]]
 > Phase précédente : [[tp-final-active-directory/gpo/guide/gpo-01-script-connexion\|GPO-01-Script-Connexion]] | Phase suivante : [[tp-final-active-directory/gpo/guide/gpo-03-deploiement-sysvol\|GPO-03-Deploiement-SYSVOL]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01

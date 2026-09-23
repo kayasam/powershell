@@ -2,7 +2,7 @@
 title: "Etape 4 — Imbriquer les groupes (modèle AGDLP)"
 ---
 
-> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|00-Index]]
+> Retour vers l'index : [[tp-final-active-directory/ad/guide/index\|Index AD Manuel]]
 > Etape précédente : [[tp-final-active-directory/ad/guide/manuel-03-creer-les-groupes\|Manuel-03-Creer-les-Groupes]] | Etape suivante : [[tp-final-active-directory/ad/guide/manuel-05-permissions-ntfs\|Manuel-05-Permissions-NTFS]]
 
 **Domaine** : `ad.fournil.lab` | **Serveur** : DC01
