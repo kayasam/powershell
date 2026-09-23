@@ -95,4 +95,9 @@ Clear-Host       # Effacer l'écran (comme cls)
 
 ## Fiche récapitulative
 
-![02_Cmdlets](https://kayasam.github.io/powershell/ressources/images/02_cmdlets.png)
+![02_Cmdlets](https://kayasam.github.io/powershell/ressources/images/02_cmdlets.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/01-installation-et-environnement/"><small>← Chapitre précédent</small><b>01. Installation et environnement</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/03-objets/"><small>Chapitre suivant →</small><b>03. Objets</b></a>
+</nav>

@@ -118,4 +118,9 @@ $fichier.Extension     # .txt
 
 ## Fiche récapitulative
 
-![15_Fichiers_et_dossiers](https://kayasam.github.io/powershell/ressources/images/15_fichiers_et_dossiers.png)
+![15_Fichiers_et_dossiers](https://kayasam.github.io/powershell/ressources/images/15_fichiers_et_dossiers.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/14-classes-dotnet/"><small>← Chapitre précédent</small><b>14. Les classes du framework .NET</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/16-lire-et-ecrire/"><small>Chapitre suivant →</small><b>16. Lire et écrire</b></a>
+</nav>

@@ -266,4 +266,9 @@ Deux autres points de vigilance :
 
 ## Fiche récapitulative
 
-![25_Profils](https://kayasam.github.io/powershell/ressources/images/25_profils.png)
+![25_Profils](https://kayasam.github.io/powershell/ressources/images/25_profils.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/24-rsat-et-gallery/"><small>← Chapitre précédent</small><b>24. RSAT et PowerShell Gallery</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/26-regex/"><small>Chapitre suivant →</small><b>26. Expressions régulières (Regex)</b></a>
+</nav>

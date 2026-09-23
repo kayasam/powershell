@@ -128,4 +128,9 @@ whoami             # DOMAINE\login
 
 ## Fiche récapitulative
 
-![28_Introduction_Active_Directory](https://kayasam.github.io/powershell/ressources/images/28_introduction_active_directory.png)
+![28_Introduction_Active_Directory](https://kayasam.github.io/powershell/ressources/images/28_introduction_active_directory.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/27-planification/"><small>← Chapitre précédent</small><b>27. Planification des tâches</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/29-utilisateurs-ad/"><small>Chapitre suivant →</small><b>29. Utilisateurs Active Directory</b></a>
+</nav>

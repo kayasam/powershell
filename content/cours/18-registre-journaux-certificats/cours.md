@@ -307,4 +307,9 @@ Get-AuthenticodeSignature .\MonScript.ps1 | Select-Object Status, SignerCertific
 
 ## Fiche récapitulative
 
-![18_Registre_journaux_certificats](https://kayasam.github.io/powershell/ressources/images/18_registre_journaux_certificats.png)
+![18_Registre_journaux_certificats](https://kayasam.github.io/powershell/ressources/images/18_registre_journaux_certificats.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/17-export-import/"><small>← Chapitre précédent</small><b>17. Export et Import</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/19-signature-scripts/"><small>Chapitre suivant →</small><b>19. Sécurité et signature des scripts</b></a>
+</nav>

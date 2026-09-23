@@ -143,4 +143,9 @@ Write-Host "Seuil CPU : $($configChargee.SeuilCPU)%"
 
 ## Fiche récapitulative
 
-![17_Export_import](https://kayasam.github.io/powershell/ressources/images/17_export_import.png)
+![17_Export_import](https://kayasam.github.io/powershell/ressources/images/17_export_import.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/16-lire-et-ecrire/"><small>← Chapitre précédent</small><b>16. Lire et écrire</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/18-registre-journaux-certificats/"><small>Chapitre suivant →</small><b>18. Registre, journaux et certificats</b></a>
+</nav>

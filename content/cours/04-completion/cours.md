@@ -72,4 +72,9 @@ $fichier.N<Tab>  # Complète Name, etc.
 
 ## Fiche récapitulative
 
-![04_Completion](https://kayasam.github.io/powershell/ressources/images/04_completion.png)
+![04_Completion](https://kayasam.github.io/powershell/ressources/images/04_completion.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/03-objets/"><small>← Chapitre précédent</small><b>03. Objets</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/05-alias/"><small>Chapitre suivant →</small><b>05. Alias</b></a>
+</nav>

@@ -168,4 +168,9 @@ function Send-Alerte       { ... }
 
 ## Fiche récapitulative
 
-![13_Fonctions](https://kayasam.github.io/powershell/ressources/images/13_fonctions.png)
+![13_Fonctions](https://kayasam.github.io/powershell/ressources/images/13_fonctions.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/12-wmi-et-cim/"><small>← Chapitre précédent</small><b>12. WMI et CIM</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/14-classes-dotnet/"><small>Chapitre suivant →</small><b>14. Les classes du framework .NET</b></a>
+</nav>

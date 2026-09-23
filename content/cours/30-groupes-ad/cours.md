@@ -158,4 +158,9 @@ Get-ADUser -Filter "Title -eq 'Administrateur'" |
 
 ## Fiche récapitulative
 
-![30_Groupes_Active_Directory](https://kayasam.github.io/powershell/ressources/images/30_groupes_active_directory.png)
+![30_Groupes_Active_Directory](https://kayasam.github.io/powershell/ressources/images/30_groupes_active_directory.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/29-utilisateurs-ad/"><small>← Chapitre précédent</small><b>29. Utilisateurs Active Directory</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/31-recherche-et-rapports/"><small>Chapitre suivant →</small><b>31. Recherche et rapports AD</b></a>
+</nav>

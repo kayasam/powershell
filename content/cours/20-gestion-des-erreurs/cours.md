@@ -148,4 +148,9 @@ catch {
 
 ## Fiche récapitulative
 
-![20_Gestion_des_erreurs](https://kayasam.github.io/powershell/ressources/images/20_gestion_des_erreurs.png)
+![20_Gestion_des_erreurs](https://kayasam.github.io/powershell/ressources/images/20_gestion_des_erreurs.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/19-signature-scripts/"><small>← Chapitre précédent</small><b>19. Sécurité et signature des scripts</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/21-erreurs-avancees/"><small>Chapitre suivant →</small><b>21. Gestion des erreurs avancée</b></a>
+</nav>

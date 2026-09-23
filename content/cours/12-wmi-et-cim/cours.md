@@ -264,4 +264,9 @@ que `Terminate`) : elles sont plus lisibles et gèrent `-WhatIf`.
 
 ## Fiche récapitulative
 
-![12_WMI_et_CIM](https://kayasam.github.io/powershell/ressources/images/12_wmi_et_cim.png)
+![12_WMI_et_CIM](https://kayasam.github.io/powershell/ressources/images/12_wmi_et_cim.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/11-boucles/"><small>← Chapitre précédent</small><b>11. Boucles</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/13-fonctions/"><small>Chapitre suivant →</small><b>13. Fonctions</b></a>
+</nav>

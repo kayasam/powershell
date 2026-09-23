@@ -6,6 +6,19 @@
   --ps-shadow: 0 1rem 2.8rem rgb(35 38 96 / 14%);
 }
 
+.ps-hero .external-icon,
+.ps-module-card .external-icon,
+.ps-quest .external-icon,
+.ps-chapter-path .external-icon,
+.ps-course-pagination .external-icon,
+.ps-interactive-launch .external-icon {
+  display: none;
+}
+
+body[data-slug^="cours/"][data-slug$="/index"]:not([data-slug*="/tp/"]) .page-listing {
+  display: none;
+}
+
 @media all and (min-width: 1200px) {
   body[data-slug="index"] .page > #quartz-body {
     grid-template-columns: minmax(15rem, 19rem) minmax(0, 1fr);
@@ -309,7 +322,56 @@
 .ps-chapter-path a:hover {
   border-color: var(--secondary);
 }
+.ps-chapter-path a[aria-current="page"],
+body[data-slug$="/cours"] .ps-chapter-path a[href$="/cours"],
+body[data-slug$="/cours-interactif"] .ps-chapter-path a[href$="/cours-interactif"],
+body[data-slug$="/quiz"] .ps-chapter-path a[href$="/quiz"],
+body[data-slug$="/tp/index"] .ps-chapter-path a[href$="/tp/"] {
+  border-color: var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 10%, var(--light));
+  box-shadow: 0 0.35rem 0.9rem color-mix(in srgb, var(--secondary) 12%, transparent);
+}
 .ps-chapter-path small {
+  color: var(--darkgray);
+}
+
+.ps-chapter-intro {
+  margin: 1rem 0 1.4rem;
+  padding: 1.15rem 1.25rem;
+  border-left: 4px solid var(--secondary);
+  border-radius: 0.2rem 0.8rem 0.8rem 0.2rem;
+  background: color-mix(in srgb, var(--secondary) 7%, var(--light));
+}
+.ps-chapter-intro p {
+  margin: 0.25rem 0 0;
+}
+
+.ps-course-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 2.5rem 0 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--lightgray);
+}
+.ps-course-pagination a {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--ps-line);
+  border-radius: 0.75rem;
+  color: var(--dark);
+  background: var(--light);
+  text-decoration: none;
+}
+.ps-course-pagination a:last-child {
+  text-align: right;
+}
+.ps-course-pagination a:hover {
+  border-color: var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 7%, var(--light));
+}
+.ps-course-pagination small {
   color: var(--darkgray);
 }
 
@@ -367,5 +429,11 @@
   }
   .ps-interactive-launch a {
     display: block;
+  }
+  .ps-course-pagination {
+    grid-template-columns: 1fr;
+  }
+  .ps-course-pagination a:last-child {
+    text-align: left;
   }
 }

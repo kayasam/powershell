@@ -136,7 +136,7 @@ for (const slug of chapters) {
   await writeFile(path.join(quizRoot, `${slug}.html`), template.replaceAll('QUIZ_ID', slug), 'utf8')
   await writeFile(
     path.join(coursesRoot, slug, 'quiz.md'),
-    `---\ntitle: "Quiz"\n---\n\n<div class="ps-interactive-launch">\n  <strong>20 questions · objectif 16/20</strong>\n  <span>Quatre choix par question, réponse expliquée et progression sauvegardée.</span>\n  <a href="${quizUrl}">Ouvrir le quiz en plein écran →</a>\n</div>\n\n<iframe class="ps-course-frame" src="${quizUrl}" title="Quiz PowerShell ${chapterTitle.replaceAll('"', '&quot;')}" loading="eager"></iframe>\n`,
+    `---\ntitle: "Quiz"\n---\n\n<nav class="ps-chapter-path" aria-label="Parcours du chapitre">\n  <a href="${siteUrl}/cours/${slug}/cours"><b>01 · Cours</b><small>Comprendre les notions</small></a>\n  <a href="${siteUrl}/cours/${slug}/cours-interactif"><b>02 · Cours interactif</b><small>Schéma et défi rapide</small></a>\n  <a href="${siteUrl}/cours/${slug}/quiz" aria-current="page"><b>03 · Quiz</b><small>Vérifier ses acquis</small></a>\n  <a href="${siteUrl}/cours/${slug}/tp/"><b>04 · Travaux pratiques</b><small>Appliquer en autonomie</small></a>\n</nav>\n\n<div class="ps-interactive-launch">\n  <strong>20 questions · objectif 16/20</strong>\n  <span>Quatre choix par question, réponse expliquée et progression sauvegardée.</span>\n  <a href="${quizUrl}">Ouvrir le quiz en plein écran →</a>\n</div>\n\n<iframe class="ps-course-frame" src="${quizUrl}" title="Quiz PowerShell ${chapterTitle.replaceAll('"', '&quot;')}" loading="eager"></iframe>\n`,
     'utf8',
   )
 }

@@ -197,4 +197,9 @@ Get-TableauBordAD | Format-List
 
 ## Fiche récapitulative
 
-![31_Recherche_et_rapports_AD](https://kayasam.github.io/powershell/ressources/images/31_recherche_et_rapports_ad.png)
+![31_Recherche_et_rapports_AD](https://kayasam.github.io/powershell/ressources/images/31_recherche_et_rapports_ad.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/30-groupes-ad/"><small>← Chapitre précédent</small><b>30. Groupes Active Directory</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/32-interfaces-graphiques/"><small>Chapitre suivant →</small><b>32. Interfaces graphiques (WinForms)</b></a>
+</nav>

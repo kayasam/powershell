@@ -278,4 +278,9 @@ La checklist :
 
 ## Fiche récapitulative
 
-![19_Signature_des_scripts](https://kayasam.github.io/powershell/ressources/images/19_signature_des_scripts.png)
+![19_Signature_des_scripts](https://kayasam.github.io/powershell/ressources/images/19_signature_des_scripts.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/18-registre-journaux-certificats/"><small>← Chapitre précédent</small><b>18. Registre, journaux et certificats</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/20-gestion-des-erreurs/"><small>Chapitre suivant →</small><b>20. Gestion des erreurs</b></a>
+</nav>

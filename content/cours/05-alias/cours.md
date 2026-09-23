@@ -89,4 +89,9 @@ New-Alias monscript "C:\Scripts\test.ps1"
 
 ## Fiche récapitulative
 
-![05_Alias](https://kayasam.github.io/powershell/ressources/images/05_alias.png)
+![05_Alias](https://kayasam.github.io/powershell/ressources/images/05_alias.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/04-completion/"><small>← Chapitre précédent</small><b>04. Complétion</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/06-historique/"><small>Chapitre suivant →</small><b>06. Historique</b></a>
+</nav>

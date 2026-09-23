@@ -273,4 +273,9 @@ Get-Command -Module Carbon | Measure-Object
 
 ## Fiche récapitulative
 
-![24_RSAT_et_Gallery](https://kayasam.github.io/powershell/ressources/images/24_rsat_et_gallery.png)
+![24_RSAT_et_Gallery](https://kayasam.github.io/powershell/ressources/images/24_rsat_et_gallery.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/23-modules/"><small>← Chapitre précédent</small><b>23. Modules</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/25-profils/"><small>Chapitre suivant →</small><b>25. Les profils PowerShell</b></a>
+</nav>

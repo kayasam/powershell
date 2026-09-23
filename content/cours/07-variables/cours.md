@@ -172,4 +172,9 @@ Très utile en dépannage : un script qui doit écrire un log ira dans
 
 ## Fiche récapitulative
 
-![07_Variables](https://kayasam.github.io/powershell/ressources/images/07_variables.png)
+![07_Variables](https://kayasam.github.io/powershell/ressources/images/07_variables.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/06-historique/"><small>← Chapitre précédent</small><b>06. Historique</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/08-formatage/"><small>Chapitre suivant →</small><b>08. Formatage</b></a>
+</nav>

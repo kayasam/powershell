@@ -86,7 +86,7 @@
   }
   .folder-title::after {
     content: $title;
-    font-size: 0.81rem;
+    font-size: 0.86rem;
   }
   .folder-button::after {
     flex: 0 0 auto;
@@ -97,7 +97,7 @@
     background: color-mix(in srgb, var(--chapter-accent) 9%, transparent);
     content: $label;
     font-family: var(--codeFont);
-    font-size: 0.48rem;
+    font-size: 0.55rem;
     font-weight: 850;
     letter-spacing: 0.03em;
   }
@@ -126,7 +126,7 @@
   border-radius: 0.58rem;
   color: var(--darkgray);
   background: color-mix(in srgb, var(--chapter-accent, #8058f0) 5%, var(--light));
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 720;
   text-decoration: none;
 }

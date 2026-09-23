@@ -159,4 +159,9 @@ Get-Service |
 
 ## Fiche récapitulative
 
-![09_Pipeline](https://kayasam.github.io/powershell/ressources/images/09_pipeline.png)
+![09_Pipeline](https://kayasam.github.io/powershell/ressources/images/09_pipeline.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/08-formatage/"><small>← Chapitre précédent</small><b>08. Formatage</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/10-conditions/"><small>Chapitre suivant →</small><b>10. Conditions</b></a>
+</nav>

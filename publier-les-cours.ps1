@@ -84,13 +84,20 @@ if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
     [IO.File]::WriteAllText($interactiveIndex, $indexDocument, [Text.UTF8Encoding]::new($false))
   }
 
-  # Le fichier "dossier/dossier.md" est déjà la page d'accueil Quartz du chapitre.
-  # On ajoute seulement les deux entrées explicites visibles dans l'explorateur.
-  Get-ChildItem -LiteralPath (Join-Path $stageRoot "cours") -Directory | Where-Object {
+  # La page du dossier devient un sommaire court ; le contenu complet reste dans « Cours ».
+  $chapterDirectories = @(Get-ChildItem -LiteralPath (Join-Path $stageRoot "cours") -Directory | Where-Object {
     $_.Name -match '^\d{2}-'
-  } | ForEach-Object {
-    $slug = $_.Name
-    $chapterSource = Join-Path $_.FullName "$slug.md"
+  } | Sort-Object Name)
+  $chapterTitles = @{}
+  foreach ($directory in $chapterDirectories) {
+    $document = [IO.File]::ReadAllText((Join-Path $directory.FullName "$($directory.Name).md"))
+    $match = [regex]::Match($document, '(?m)^title:\s*["'']?(.+?)["'']?\s*$')
+    if ($match.Success) { $chapterTitles[$directory.Name] = $match.Groups[1].Value }
+  }
+  for ($chapterIndex = 0; $chapterIndex -lt $chapterDirectories.Count; $chapterIndex++) {
+    $chapterDirectory = $chapterDirectories[$chapterIndex]
+    $slug = $chapterDirectory.Name
+    $chapterSource = Join-Path $chapterDirectory.FullName "$slug.md"
     if (Test-Path -LiteralPath $chapterSource -PathType Leaf) {
       $chapterDocument = [IO.File]::ReadAllText($chapterSource)
       $chapterPath = @"
@@ -105,11 +112,35 @@ if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
 "@
       $frontmatter = [regex]::Match($chapterDocument, '\A---\r?\n[\s\S]*?\r?\n---\r?\n')
       if (-not $frontmatter.Success) { throw "Frontmatter du chapitre absent : $slug" }
+      $titleMatch = [regex]::Match($frontmatter.Value, '(?m)^title:\s*["'']?(.+?)["'']?\s*$')
+      if (-not $titleMatch.Success) { throw "Titre du chapitre absent : $slug" }
+      $chapterTitle = $titleMatch.Groups[1].Value
       $chapterDocument = $chapterDocument.Insert($frontmatter.Length, $chapterPath)
       $courseDocument = [regex]::new('(?m)^title:\s*.*$').Replace($chapterDocument, 'title: "Cours"', 1)
-      $chapterLanding = [regex]::new('(?m)^# .*(?:\r?\n|$)').Replace($chapterDocument, '', 1)
+
+      $paginationLinks = @()
+      if ($chapterIndex -gt 0) {
+        $previousSlug = $chapterDirectories[$chapterIndex - 1].Name
+        $paginationLinks += "  <a href=`"https://kayasam.github.io/powershell/cours/$previousSlug/`"><small>← Chapitre précédent</small><b>$($chapterTitles[$previousSlug])</b></a>"
+      }
+      if ($chapterIndex -lt $chapterDirectories.Count - 1) {
+        $nextSlug = $chapterDirectories[$chapterIndex + 1].Name
+        $paginationLinks += "  <a href=`"https://kayasam.github.io/powershell/cours/$nextSlug/`"><small>Chapitre suivant →</small><b>$($chapterTitles[$nextSlug])</b></a>"
+      }
+      if ($paginationLinks.Count -gt 0) {
+        $courseDocument += "`n`n<nav class=`"ps-course-pagination`" aria-label=`"Navigation entre les chapitres`">`n$($paginationLinks -join "`n")`n</nav>`n"
+      }
+
+      $chapterLanding = @"
+$($frontmatter.Value)
+<div class="ps-chapter-intro">
+  <strong>Votre parcours dans ce chapitre</strong>
+  <p>Choisissez une étape ci-dessous. Pour une première visite, commencez par le cours.</p>
+</div>
+$chapterPath
+"@
       [IO.File]::WriteAllText($chapterSource, $chapterLanding, [Text.UTF8Encoding]::new($false))
-      [IO.File]::WriteAllText((Join-Path $_.FullName "cours.md"), $courseDocument, [Text.UTF8Encoding]::new($false))
+      [IO.File]::WriteAllText((Join-Path $chapterDirectory.FullName "cours.md"), $courseDocument, [Text.UTF8Encoding]::new($false))
 
       $interactiveUrl = "https://kayasam.github.io/powershell/cours/$slug/$slug-interactif.html"
       $interactiveDocument = @"
@@ -117,6 +148,7 @@ if (Test-Path -LiteralPath $sourceCourses -PathType Container) {
 title: "Cours interactif"
 ---
 
+$chapterPath
 <div class="ps-interactive-launch">
   <strong>Version interactive du chapitre</strong>
   <span>Schéma mental, défi rapide, progression et commandes à copier.</span>
@@ -125,7 +157,17 @@ title: "Cours interactif"
 
 <iframe class="ps-course-frame" src="$interactiveUrl" title="Cours PowerShell interactif" loading="eager"></iframe>
 "@
-      [IO.File]::WriteAllText((Join-Path $_.FullName "cours-interactif.md"), $interactiveDocument, [Text.UTF8Encoding]::new($false))
+      [IO.File]::WriteAllText((Join-Path $chapterDirectory.FullName "cours-interactif.md"), $interactiveDocument, [Text.UTF8Encoding]::new($false))
+
+      $tpIndex = Join-Path $chapterDirectory.FullName 'tp\index.md'
+      if (Test-Path -LiteralPath $tpIndex -PathType Leaf) {
+        $tpDocument = [IO.File]::ReadAllText($tpIndex)
+        $tpFrontmatter = [regex]::Match($tpDocument, '\A---\r?\n[\s\S]*?\r?\n---\r?\n')
+        if ($tpFrontmatter.Success) {
+          $tpDocument = $tpDocument.Insert($tpFrontmatter.Length, $chapterPath)
+          [IO.File]::WriteAllText($tpIndex, $tpDocument, [Text.UTF8Encoding]::new($false))
+        }
+      }
     }
   }
 
@@ -149,6 +191,8 @@ if (Test-Path -LiteralPath $sourceFiches -PathType Container) {
   Get-ChildItem -LiteralPath $sourceFiches -File -Filter '*.png' | ForEach-Object {
     Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $stageRoot ('Ressources\images\' + $_.Name.ToLowerInvariant())) -Force
   }
+  & node (Join-Path $projectRoot 'scripts/optimize-summary-images.mjs') (Join-Path $stageRoot 'Ressources\images')
+  if ($LASTEXITCODE -ne 0) { throw "Impossible d'optimiser les fiches récapitulatives." }
 }
 
 $sourceMemo = Join-Path $sourceRoot "Ressources\Memo-Commandes.md"
@@ -167,7 +211,12 @@ Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Ob
     { param($match)
       $fileName = $match.Groups[1].Value
       $alt = [IO.Path]::GetFileNameWithoutExtension($fileName).Replace('-', ' ')
-      "![$alt](https://kayasam.github.io/powershell/ressources/images/$($fileName.ToLowerInvariant()))"
+      $publicName = if ($fileName -match '^\d{2}_.+\.png$') {
+        [IO.Path]::ChangeExtension($fileName, '.webp')
+      } else {
+        $fileName
+      }
+      "![$alt](https://kayasam.github.io/powershell/ressources/images/$($publicName.ToLowerInvariant()))"
     },
     [Text.RegularExpressions.RegexOptions]::IgnoreCase
   )

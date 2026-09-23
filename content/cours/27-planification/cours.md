@@ -167,4 +167,9 @@ pwsh.exe -NonInteractive -File "C:\Scripts\MonScript.ps1"
 
 ## Fiche récapitulative
 
-![27_Planification](https://kayasam.github.io/powershell/ressources/images/27_planification.png)
+![27_Planification](https://kayasam.github.io/powershell/ressources/images/27_planification.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/26-regex/"><small>← Chapitre précédent</small><b>26. Expressions régulières (Regex)</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/28-introduction-ad/"><small>Chapitre suivant →</small><b>28. Introduction à Active Directory</b></a>
+</nav>

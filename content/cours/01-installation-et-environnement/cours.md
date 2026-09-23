@@ -90,4 +90,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## Fiche récapitulative
 
-![01_Installation_et_environnement](https://kayasam.github.io/powershell/ressources/images/01_installation_et_environnement.png)
+![01_Installation_et_environnement](https://kayasam.github.io/powershell/ressources/images/01_installation_et_environnement.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/02-cmdlets/"><small>Chapitre suivant →</small><b>02. Cmdlets</b></a>
+</nav>

@@ -376,4 +376,8 @@ Pour un script d'admin : restez sur WinForms.
 
 ## Fiche récapitulative
 
-![32_Interfaces_graphiques_WinForms](https://kayasam.github.io/powershell/ressources/images/32_interfaces_graphiques_winforms.png)
+![32_Interfaces_graphiques_WinForms](https://kayasam.github.io/powershell/ressources/images/32_interfaces_graphiques_winforms.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/31-recherche-et-rapports/"><small>← Chapitre précédent</small><b>31. Recherche et rapports AD</b></a>
+</nav>

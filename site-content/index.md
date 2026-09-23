@@ -11,8 +11,8 @@ description: Formation PowerShell interactive, des fondamentaux à Active Direct
     <h2>Comprendre PowerShell. Automatiser avec méthode.</h2>
     <p>{{CHAPTER_COUNT}} chapitres à parcourir librement, avec des schémas mentaux, des défis rapides, un quiz expliqué par chapitre, des exercices pratiques et un fil rouge ludique.</p>
     <div class="ps-actions">
-      <a href="https://kayasam.github.io/powershell/cours/index.html">Ouvrir le parcours interactif →</a>
-      <a href="https://kayasam.github.io/powershell/cours/tp-fil-rouge/jeu-fil-rouge.html">Jouer l’opération Grand Line</a>
+      <a class="ps-action-primary" href="https://kayasam.github.io/powershell/cours/01-installation-et-environnement/">Commencer au chapitre 01 →</a>
+      <a href="https://kayasam.github.io/powershell/cours/index.html">Voir le parcours interactif</a>
     </div>
     <a class="ps-hero-download" href="./powershell-obsidian.zip" download="powershell-obsidian.zip" data-router-ignore>⬇ Télécharger toute la formation (ZIP)</a>
   </div>

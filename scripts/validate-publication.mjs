@@ -17,11 +17,34 @@ async function visit(directory) {
     else if (/\.(?:md|html|js|css)$/.test(entry.name)) {
       const document = await readFile(filename, "utf8")
       const relative = path.relative(root, filename).replaceAll(path.sep, "/")
-      if (/correction|corrig[eé]/i.test(entry.name) && entry.name.endsWith(".md") &&
-          !/^publier:\s*true\s*$/m.test(document)) {
+      if (
+        /correction|corrig[eé]/i.test(entry.name) &&
+        entry.name.endsWith(".md") &&
+        !/^publier:\s*true\s*$/m.test(document)
+      ) {
         errors.push(`${relative} : correction sans publier: true`)
       }
-      for (const match of document.matchAll(/https:\/\/kayasam\.github\.io\/powershell\/ressources\/images\/([^\s)"']+)/g)) {
+      if (
+        /^cours\/\d{2}-[^/]+\/\d{2}-[^/]+\.md$/.test(relative) &&
+        (!document.includes("ps-chapter-intro") || !document.includes("ps-chapter-path"))
+      ) {
+        errors.push(`${relative} : sommaire de chapitre incomplet`)
+      }
+      if (
+        /^cours\/\d{2}-[^/]+\/cours\.md$/.test(relative) &&
+        !document.includes("ps-course-pagination")
+      ) {
+        errors.push(`${relative} : navigation précédent/suivant absente`)
+      }
+      if (
+        /^cours\/\d{2}-[^/]+\/(?:cours-interactif|quiz)\.md$/.test(relative) &&
+        !document.includes("ps-chapter-path")
+      ) {
+        errors.push(`${relative} : parcours du chapitre absent`)
+      }
+      for (const match of document.matchAll(
+        /https:\/\/kayasam\.github\.io\/powershell\/ressources\/images\/([^\s)"']+)/g,
+      )) {
         if (!imageNames.has(decodeURIComponent(match[1]).toLowerCase())) {
           errors.push(`${relative} : image absente : ${match[1]}`)
         }

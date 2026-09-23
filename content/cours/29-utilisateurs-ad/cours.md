@@ -177,4 +177,9 @@ foreach ($agent in $agents) {
 
 ## Fiche récapitulative
 
-![29_Utilisateurs_Active_Directory](https://kayasam.github.io/powershell/ressources/images/29_utilisateurs_active_directory.png)
+![29_Utilisateurs_Active_Directory](https://kayasam.github.io/powershell/ressources/images/29_utilisateurs_active_directory.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/28-introduction-ad/"><small>← Chapitre précédent</small><b>28. Introduction à Active Directory</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/30-groupes-ad/"><small>Chapitre suivant →</small><b>30. Groupes Active Directory</b></a>
+</nav>

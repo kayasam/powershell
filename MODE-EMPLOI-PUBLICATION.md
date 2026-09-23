@@ -40,7 +40,9 @@ Formations\Powershell\
 
 Les corrections sont publiées uniquement lorsque leur propriété Obsidian indique `publier: true`. Décochez cette propriété pour les retirer du site lors de la prochaine publication. Les dossiers `solutions`, les dossiers privés, les sessions et les fichiers marqués `publier: false` restent exclus.
 
-Les fiches PNG du dossier `Ressources/Fiches_PowerShell_TSSR_32_Chapitres` sont copiées automatiquement avec les illustrations du site. Le contrôle de publication signale toute image référencée mais absente.
+Les fiches PNG du dossier `Ressources/Fiches_PowerShell_TSSR_32_Chapitres` sont copiées automatiquement puis optimisées en WebP pour le site. Le contrôle de publication signale toute image référencée mais absente.
+
+La page principale de chaque chapitre sert de sommaire vers le cours, l'interactif, le quiz et les TP. La version complète se trouve dans `Cours`, avec une navigation vers les chapitres précédent et suivant. Ces éléments sont recréés automatiquement à chaque publication.
 
 ## Règle permanente pour les pages HTML interactives
 

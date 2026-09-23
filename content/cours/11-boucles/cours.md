@@ -130,4 +130,9 @@ foreach ($fichier in Get-ChildItem "C:\Logs") {
 
 ## Fiche récapitulative
 
-![11_Boucles](https://kayasam.github.io/powershell/ressources/images/11_boucles.png)
+![11_Boucles](https://kayasam.github.io/powershell/ressources/images/11_boucles.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/10-conditions/"><small>← Chapitre précédent</small><b>10. Conditions</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/12-wmi-et-cim/"><small>Chapitre suivant →</small><b>12. WMI et CIM</b></a>
+</nav>

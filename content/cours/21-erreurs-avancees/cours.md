@@ -404,4 +404,9 @@ Les trois niveaux à remarquer :
 
 ## Fiche récapitulative
 
-![21_Erreurs_avancees](https://kayasam.github.io/powershell/ressources/images/21_erreurs_avancees.png)
+![21_Erreurs_avancees](https://kayasam.github.io/powershell/ressources/images/21_erreurs_avancees.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/20-gestion-des-erreurs/"><small>← Chapitre précédent</small><b>20. Gestion des erreurs</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/22-parametres-scripts/"><small>Chapitre suivant →</small><b>22. Paramètres de scripts</b></a>
+</nav>

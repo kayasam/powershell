@@ -172,4 +172,9 @@ $donnees | Format-Table # on peut réafficher, trier, filtrer…
 
 ## Fiche récapitulative
 
-![08_Formatage](https://kayasam.github.io/powershell/ressources/images/08_formatage.png)
+![08_Formatage](https://kayasam.github.io/powershell/ressources/images/08_formatage.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/07-variables/"><small>← Chapitre précédent</small><b>07. Variables</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/09-pipeline/"><small>Chapitre suivant →</small><b>09. Pipeline</b></a>
+</nav>

@@ -161,4 +161,9 @@ if ($service.Status -eq "Running") {
 
 ## Fiche récapitulative
 
-![10_Conditions](https://kayasam.github.io/powershell/ressources/images/10_conditions.png)
+![10_Conditions](https://kayasam.github.io/powershell/ressources/images/10_conditions.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/09-pipeline/"><small>← Chapitre précédent</small><b>09. Pipeline</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/11-boucles/"><small>Chapitre suivant →</small><b>11. Boucles</b></a>
+</nav>

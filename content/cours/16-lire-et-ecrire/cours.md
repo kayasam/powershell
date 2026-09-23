@@ -116,4 +116,9 @@ Set-Content "C:\Logs\rapport.txt" -Value $contenu -Encoding UTF8
 
 ## Fiche récapitulative
 
-![16_Lire_et_ecrire](https://kayasam.github.io/powershell/ressources/images/16_lire_et_ecrire.png)
+![16_Lire_et_ecrire](https://kayasam.github.io/powershell/ressources/images/16_lire_et_ecrire.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/15-fichiers-et-dossiers/"><small>← Chapitre précédent</small><b>15. Fichiers et dossiers</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/17-export-import/"><small>Chapitre suivant →</small><b>17. Export et Import</b></a>
+</nav>

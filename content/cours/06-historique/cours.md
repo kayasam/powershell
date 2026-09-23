@@ -87,4 +87,9 @@ Clear-History -Id 5
 
 ## Fiche récapitulative
 
-![06_Historique](https://kayasam.github.io/powershell/ressources/images/06_historique.png)
+![06_Historique](https://kayasam.github.io/powershell/ressources/images/06_historique.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/05-alias/"><small>← Chapitre précédent</small><b>05. Alias</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/07-variables/"><small>Chapitre suivant →</small><b>07. Variables</b></a>
+</nav>

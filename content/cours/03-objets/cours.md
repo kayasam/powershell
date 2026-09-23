@@ -111,4 +111,9 @@ Get-Process firefox | Select-Object Id  # Simple!
 
 ## Fiche récapitulative
 
-![03_Objets](https://kayasam.github.io/powershell/ressources/images/03_objets.png)
+![03_Objets](https://kayasam.github.io/powershell/ressources/images/03_objets.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/02-cmdlets/"><small>← Chapitre précédent</small><b>02. Cmdlets</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/04-completion/"><small>Chapitre suivant →</small><b>04. Complétion</b></a>
+</nav>

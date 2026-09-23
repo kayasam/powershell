@@ -146,4 +146,9 @@ New-ModuleManifest -Path ".\MesOutils.psd1" `
 
 ## Fiche récapitulative
 
-![23_Modules](https://kayasam.github.io/powershell/ressources/images/23_modules.png)
+![23_Modules](https://kayasam.github.io/powershell/ressources/images/23_modules.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/22-parametres-scripts/"><small>← Chapitre précédent</small><b>22. Paramètres de scripts</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/24-rsat-et-gallery/"><small>Chapitre suivant →</small><b>24. RSAT et PowerShell Gallery</b></a>
+</nav>

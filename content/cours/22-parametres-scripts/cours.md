@@ -191,4 +191,9 @@ Get-Help Get-Info -Examples
 
 ## Fiche récapitulative
 
-![22_Parametres_des_scripts](https://kayasam.github.io/powershell/ressources/images/22_parametres_des_scripts.png)
+![22_Parametres_des_scripts](https://kayasam.github.io/powershell/ressources/images/22_parametres_des_scripts.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/21-erreurs-avancees/"><small>← Chapitre précédent</small><b>21. Gestion des erreurs avancée</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/23-modules/"><small>Chapitre suivant →</small><b>23. Modules</b></a>
+</nav>

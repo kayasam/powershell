@@ -254,4 +254,9 @@ double antislash.
 
 ## Fiche récapitulative
 
-![14_Classes_DotNET](https://kayasam.github.io/powershell/ressources/images/14_classes_dotnet.png)
+![14_Classes_DotNET](https://kayasam.github.io/powershell/ressources/images/14_classes_dotnet.webp)
+
+<nav class="ps-course-pagination" aria-label="Navigation entre les chapitres">
+  <a href="https://kayasam.github.io/powershell/cours/13-fonctions/"><small>← Chapitre précédent</small><b>13. Fonctions</b></a>
+  <a href="https://kayasam.github.io/powershell/cours/15-fichiers-et-dossiers/"><small>Chapitre suivant →</small><b>15. Fichiers et dossiers</b></a>
+</nav>
