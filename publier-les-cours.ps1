@@ -10,6 +10,7 @@ if ($PSVersionTable.PSVersion.Major -lt 7) {
 }
 
 $sourceRoot = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\Powershell"
+$sourceFinalTp = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\active-directory\tp\TP-FINAL"
 $projectRoot = "D:\Projet-git\powershell"
 $staticRoot = Join-Path $projectRoot "site-content"
 $stageRoot = Join-Path $projectRoot ".publication-stage"
@@ -193,6 +194,12 @@ if (Test-Path -LiteralPath $sourceFiches -PathType Container) {
   }
   & node (Join-Path $projectRoot 'scripts/optimize-summary-images.mjs') (Join-Path $stageRoot 'Ressources\images')
   if ($LASTEXITCODE -ne 0) { throw "Impossible d'optimiser les fiches récapitulatives." }
+}
+
+if (Test-Path -LiteralPath $sourceFinalTp -PathType Container) {
+  Write-Host "2/4 - Préparation du TP final Active Directory..."
+  & node (Join-Path $projectRoot 'scripts/sync-final-ad-lab.mjs') $sourceFinalTp $stageRoot
+  if ($LASTEXITCODE -ne 0) { throw "Impossible de préparer le TP final Active Directory." }
 }
 
 $sourceMemo = Join-Path $sourceRoot "Ressources\Memo-Commandes.md"

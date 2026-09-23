@@ -25,6 +25,23 @@
   font-size: 0.9rem;
 }
 
+.explorer-content .folder-container[data-folderpath="tp-final-active-directory/index"] {
+  margin: 0.75rem 0 0.35rem;
+  padding: 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--ps-ad) 42%, var(--lightgray));
+  border-left: 3px solid var(--ps-ad);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--ps-ad) 9%, var(--light));
+}
+
+.explorer-content
+  .folder-container[data-folderpath="tp-final-active-directory/index"]
+  .folder-title {
+  color: var(--dark);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
 @mixin chapter-card($accent, $label, $title) {
   --chapter-accent: #{$accent};
   position: relative;

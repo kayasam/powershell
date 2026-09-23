@@ -1,0 +1,194 @@
+---
+title: "TP Débutant — DFS et Réplication"
+---
+
+> Durée estimée : 2h
+> Prérequis : TP Active Directory terminé, DC01 + DC2 opérationnels
+> Niveau : Débutant — commandes manuelles
+
+---
+
+## Contexte
+
+L'Active Directory du Fournil est en place. Maintenant il faut :
+
+- Partager les dossiers entre les deux serveurs (DC01 et DC2)
+- Mettre en place DFS pour que les utilisateurs accèdent aux fichiers via un chemin unique (`\\ad.fournil.lab\...`)
+- Configurer la réplication pour que les fichiers soient synchronisés entre les serveurs
+- Créer les dossiers personnels (homes)
+
+---
+
+## Exercice 1 — Installer les rôles DFS
+
+### Consigne
+
+1. Sur DC01, installez les rôles **DFS Namespace** et **DFS Replication** avec les outils de gestion
+2. Sur DC2, installez uniquement **DFS Replication** (via `Invoke-Command`)
+
+### Questions
+
+- Pourquoi DC01 a besoin des 2 rôles mais DC2 n'en a besoin que d'un seul ?
+- Que fait le paramètre `-IncludeManagementTools` ?
+- Qu'est-ce que `Invoke-Command` ? Pourquoi l'utiliser ?
+
+### Vérification
+
+```powershell
+Get-WindowsFeature FS-DFS-Namespace, FS-DFS-Replication | Select-Object Name, InstallState
+```
+
+> [!tip]- Besoin d'aide ? Cliquez ici
+> Consultez : [[tp-final-active-directory/dfs/guide/dfs-01-installer-roles\|DFS-01-Installer-Roles]]
+
+---
+
+## Exercice 2 — Créer les partages
+
+### Consigne
+
+1. Sur DC2, créez l'arborescence de dossiers `C:\fournil\Laboratoire\fabrication` (et sous-dossiers)
+2. Sur DC01 ET DC2, créez un partage caché `fabrication$` pointant vers `C:\fournil\Laboratoire\fabrication`
+
+### Questions
+
+- Pourquoi le `$` à la fin du nom de partage ? Que signifie-t-il ?
+- Quelle commande crée un partage SMB ?
+- Comment vérifier qu'un partage existe ?
+
+### Vérification
+
+```powershell
+# Sur DC01
+Get-SmbShare -Name "fabrication$"
+
+# Sur DC2
+Invoke-Command -ComputerName DC2 { Get-SmbShare -Name "fabrication$" }
+```
+
+> [!tip]- Besoin d'aide ? Cliquez ici
+> Consultez : [[tp-final-active-directory/dfs/guide/dfs-02-dossiers-partages-dc2\|DFS-02-Dossiers-Partages-DC2]] et [[tp-final-active-directory/dfs/guide/dfs-03-partages-dc01\|DFS-03-Partages-DC01]]
+
+---
+
+## Exercice 3 — Créer un espace de noms DFS
+
+> Etudiez l'architecture DFS avant de commencer :
+
+![Schema-DFS-Architecture](https://kayasam.github.io/powershell/ressources/images/schema-dfs-architecture.svg)
+
+### Consigne
+
+1. Créez un dossier `C:\DFSRoots\Laboratoire` sur DC01
+2. Partagez-le sous le nom `Laboratoire`
+3. Créez la racine DFS `\\ad.fournil.lab\Laboratoire` pointant vers `\\DC01\Laboratoire`
+4. Ajoutez un dossier DFS `\\ad.fournil.lab\Laboratoire\fabrication` avec :
+   - Cible 1 : `\\DC01\fabrication$`
+   - Cible 2 : `\\DC2\fabrication$`
+
+### Questions
+
+- Quelle est la différence entre un partage SMB normal et un espace de noms DFS ?
+- Que signifie `-Type DomainV2` ?
+- Que signifie `-EnableAccessBasedEnumeration $true` ?
+- Pourquoi 2 cibles (DC01 + DC2) par dossier ?
+
+### Vérification
+
+```powershell
+Get-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\*"
+Get-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\fabrication"
+```
+
+> [!tip]- Besoin d'aide ? Cliquez ici
+> Consultez : [[tp-final-active-directory/dfs/guide/dfs-04-espaces-noms-dfs\|DFS-04-Espaces-Noms-DFS]]
+
+---
+
+## Exercice 4 — Configurer la réplication
+
+### Consigne
+
+Pour le pôle `fabrication` :
+
+1. Créez un groupe de réplication `Laboratoire-fabrication-Replication`
+2. Ajoutez DC01 et DC2 comme membres
+3. Créez une connexion entre DC01 et DC2
+4. Configurez DC01 comme **membre principal** et DC2 comme secondaire
+5. Liez la réplication à l'espace de noms DFS
+
+### Questions
+
+- Qu'est-ce que DFSr ?
+- Pourquoi un serveur est "principal" et l'autre "secondaire" ?
+- Que se passe-t-il si on crée un fichier sur DC2 ? Est-il répliqué vers DC01 ?
+
+### Test
+
+```powershell
+# Créer un fichier test sur DC01
+New-Item "C:\fournil\Laboratoire\fabrication\test-replication.txt" -Value "bonjour"
+
+# Attendre 30 secondes puis vérifier sur DC2
+Invoke-Command -ComputerName DC2 { Get-Content "C:\fournil\Laboratoire\fabrication\test-replication.txt" }
+```
+
+> [!tip]- Besoin d'aide ? Cliquez ici
+> Consultez : [[tp-final-active-directory/dfs/guide/dfs-05-replication-dfsr\|DFS-05-Replication-DFSr]]
+
+---
+
+## Exercice 5 — Dossiers personnels (Homes)
+
+### Consigne
+
+1. Créez `C:\homes\Laboratoire` et `C:\homes\Vente` sur DC01
+2. Appliquez les permissions NTFS :
+   - Racine `C:\homes` : SYSTEM + Admins du domaine uniquement
+   - `C:\homes\Laboratoire` : + `CREATEUR PROPRIETAIRE` en modification + `Utilisateurs du domaine` en création de dossier
+3. Créez le partage `homes-Laboratoire$` sur DC01
+4. Créez l'espace de noms DFS `\\ad.fournil.lab\HOMES`
+5. Configurez le HomeDirectory de `mlebrun` vers `\\ad.fournil.lab\HOMES\Laboratoire\mlebrun` avec le lecteur `H:`
+
+### Questions
+
+- Qu'est-ce que `CREATEUR PROPRIETAIRE` ? Pourquoi l'utiliser ?
+- Que fait `Set-ADUser -HomeDirectory ... -HomeDrive "H:"` ?
+- À quoi sert l'ABE (Access Based Enumeration) sur les homes ?
+
+### Vérification
+
+```powershell
+Get-ADUser -Identity "mlebrun" -Properties HomeDirectory, HomeDrive | Select-Object Name, HomeDirectory, HomeDrive
+```
+
+> [!tip]- Besoin d'aide ? Cliquez ici
+> Consultez : [[tp-final-active-directory/dfs/guide/dfs-06-homes\|DFS-06-Homes]] et [[tp-final-active-directory/dfs/guide/dfs-07-homedirectory\|DFS-07-HomeDirectory]]
+
+---
+
+## Exercice 6 — Vérification globale
+
+Depuis un **poste client** connecté avec `mlebrun` :
+
+| Test                                       | Résultat attendu      | OK ? |
+| ------------------------------------------ | --------------------- | ---- |
+| `\\ad.fournil.lab\Laboratoire\fabrication` | Accès en modification | ☐    |
+| `\\ad.fournil.lab\Vente\ressources`        | Accès refusé          | ☐    |
+| Lecteur `H:` visible                       | Pointe vers le home   | ☐    |
+| Créer un fichier dans `H:`                 | Fonctionne            | ☐    |
+
+> [!tip]- Commandes de vérification
+> Consultez : [[tp-final-active-directory/dfs/guide/dfs-08-verification-depannage\|DFS-08-Verification-Depannage]]
+
+---
+
+## Bonus — Le script fait tout ça automatiquement
+
+| Exercice          | Phase du script |
+| ----------------- | --------------- |
+| 1 (Rôles)         | Phase 1         |
+| 2 (Partages DC2)  | Phase 2-3       |
+| 3 (DFS Namespace) | Phase 4         |
+| 4 (Réplication)   | Phase 5         |
+| 5 (Homes)         | Phase 6-7       |

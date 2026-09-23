@@ -7,6 +7,8 @@ if (!root.startsWith(projectRoot + path.sep))
   throw new Error("Validation hors du projet interdite.")
 
 const errors = []
+let finalTpIndex = false
+let finalTpPageCount = 0
 const imageNames = new Set(
   (await readdir(path.join(root, "Ressources", "images"))).map((name) => name.toLowerCase()),
 )
@@ -17,6 +19,20 @@ async function visit(directory) {
     else if (/\.(?:md|html|js|css)$/.test(entry.name)) {
       const document = await readFile(filename, "utf8")
       const relative = path.relative(root, filename).replaceAll(path.sep, "/")
+      if (relative.startsWith("tp-final-active-directory/") && relative.endsWith(".md")) {
+        finalTpPageCount += 1
+        if (relative === "tp-final-active-directory/index.md") finalTpIndex = true
+        if (
+          /Explication-Script|0[0-3]-(?:AD-Arborescence|DFS-Deploiement|GPO-Home|Deploiement-Complet)\.ps1/i.test(
+            document,
+          )
+        ) {
+          errors.push(`${relative} : référence à une correction formateur`)
+        }
+        if (/\[\[(?!tp-final-active-directory\/)/.test(document)) {
+          errors.push(`${relative} : wikilien non résolu dans le TP final`)
+        }
+      }
       if (
         /correction|corrig[eé]/i.test(entry.name) &&
         entry.name.endsWith(".md") &&
@@ -94,6 +110,9 @@ async function visit(directory) {
 }
 
 await visit(root)
+if (!finalTpIndex || finalTpPageCount < 30) {
+  errors.push(`TP final Active Directory incomplet : ${finalTpPageCount} pages Markdown`)
+}
 if (errors.length) {
   console.error(errors.join("\n"))
   process.exitCode = 1

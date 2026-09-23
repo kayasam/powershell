@@ -44,6 +44,14 @@ Les fiches PNG du dossier `Ressources/Fiches_PowerShell_TSSR_32_Chapitres` sont 
 
 La page principale de chaque chapitre sert de sommaire vers le cours, l'interactif, le quiz et les TP. La version complète se trouve dans `Cours`, avec une navigation vers les chapitres précédent et suivant. Ces éléments sont recréés automatiquement à chaque publication.
 
+## TP final Active Directory
+
+La rubrique `TP final Active Directory` est synchronisée depuis :
+
+`Formations/active-directory/tp/TP-FINAL`
+
+La publication inclut les prérequis, les parcours débutant et avancé, les guides manuels, les schémas, les deux CSV et le script de connexion fourni. Les scripts complets de déploiement et les pages `Explication-Script-*` restent privés. Le générateur vérifie les liens internes et recrée la rubrique à chaque publication.
+
 ## Règle permanente pour les pages HTML interactives
 
 Dans les fichiers Markdown rendus par Quartz, un lien relatif vers un fichier `.html`

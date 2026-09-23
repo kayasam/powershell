@@ -38,6 +38,10 @@ Choisis un module, puis retrouve toutes ces étapes dans l’arborescence de cha
   <a class="ps-module-card" href="https://kayasam.github.io/powershell/cours/27-planification/"><span class="ps-module-card__number">05</span><small>Chapitres 27–32</small><strong>Administration</strong><span>Automatiser des tâches et administrer Active Directory avec des rapports lisibles.</span></a>
 </div>
 
+## TP final Active Directory
+
+<div class="ps-final-lab"><div><span>Projet de synthèse</span><strong>Déployer l’infrastructure du Fournil</strong><p>Active Directory, permissions NTFS, DFS, réplication et GPO dans un cas d’entreprise complet, avec un parcours guidé et un parcours avancé.</p></div><a href="https://kayasam.github.io/powershell/tp-final-active-directory/">Ouvrir le TP final →</a></div>
+
 ## Mission finale
 
 <div class="ps-quest"><div><strong>Opération Grand Line</strong><span>Cinq missions pour réfléchir, tester ses choix et relier toutes les notions du cours.</span></div><a href="https://kayasam.github.io/powershell/cours/tp-fil-rouge/jeu-fil-rouge.html">Lancer le mini-jeu →</a></div>
