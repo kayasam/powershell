@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 05 - Les Noms de Code de la Marine 🏷️ — Avancé
 
-> Chapitre associé : [[05-alias/05-alias]]
+> Chapitre associé : [[cours/05-alias/05-alias]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

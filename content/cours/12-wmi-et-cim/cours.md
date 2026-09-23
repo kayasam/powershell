@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[12-wmi-et-cim/tp/index|Exercices pratiques]]
+> - [[cours/12-wmi-et-cim/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 `Get-Process` et `Get-Service` couvrent les processus et les services. Mais pour la RAM

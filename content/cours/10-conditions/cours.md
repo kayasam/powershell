@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[10-conditions/tp/index|Exercices pratiques]]
+> - [[cours/10-conditions/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## If / Else : prendre une décision

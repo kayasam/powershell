@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 07 - La Fiche des Pirates 📋 — Avancé
 
-> Chapitre associé : [[07-variables/07-variables]]
+> Chapitre associé : [[cours/07-variables/07-variables]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

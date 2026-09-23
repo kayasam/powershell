@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[32-interfaces-graphiques/tp/index|Exercices pratiques]]
+> - [[cours/32-interfaces-graphiques/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 Jusqu'ici vos scripts s'adressaient à des administrateurs. Parfois, l'utilisateur

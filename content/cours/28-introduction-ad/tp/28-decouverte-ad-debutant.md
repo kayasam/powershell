@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 28 - Le Registre du Gouvernement Mondial 🌍 — Débutant
 
-> Chapitre associé : [[28-introduction-ad/28-introduction-ad]]
+> Chapitre associé : [[cours/28-introduction-ad/28-introduction-ad]]
 
 ## Contexte
 

@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 03 - L'Autopsie du Den Den Mushi 🐌 — Débutant
 
-> Chapitre associé : [[03-objets/03-objets]]
+> Chapitre associé : [[cours/03-objets/03-objets]]
 
 ## Contexte
 

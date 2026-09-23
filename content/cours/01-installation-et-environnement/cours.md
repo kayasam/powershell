@@ -15,7 +15,7 @@ parcours-pro: false
 
 > [!TIP] Ressources du chapitre
 >
-> - [[01-installation-et-environnement/tp/index|Exercices pratiques]]
+> - [[cours/01-installation-et-environnement/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Les deux versions de PowerShell

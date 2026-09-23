@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 11 - Le Scanner de la Flotte 🛸 — Avancé
 
-> Chapitre associé : [[11-boucles/11-boucles]]
+> Chapitre associé : [[cours/11-boucles/11-boucles]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

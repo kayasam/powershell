@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 06 - Le Journal de Bord du Terminal 📜 — Avancé
 
-> Chapitre associé : [[06-historique/06-historique]]
+> Chapitre associé : [[cours/06-historique/06-historique]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

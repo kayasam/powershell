@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[14-classes-dotnet/tp/index|Exercices pratiques]]
+> - [[cours/14-classes-dotnet/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 Depuis le chapitre 12, vous écrivez `[math]::Round(...)` sans qu'on vous ait jamais

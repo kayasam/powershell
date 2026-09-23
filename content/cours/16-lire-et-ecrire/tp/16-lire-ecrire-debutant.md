@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 16 - Le Journal de Bord de Nami 🗺️ — Débutant
 
-> Chapitre associé : [[16-lire-et-ecrire/16-lire-et-ecrire]]
+> Chapitre associé : [[cours/16-lire-et-ecrire/16-lire-et-ecrire]]
 
 ## Contexte
 

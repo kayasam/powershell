@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[13-fonctions/tp/index|Exercices pratiques]]
+> - [[cours/13-fonctions/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Pourquoi des fonctions ?

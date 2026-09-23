@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 15 - Les Archives de Robin 📚 — Débutant
 
-> Chapitre associé : [[15-fichiers-et-dossiers/15-fichiers-et-dossiers]]
+> Chapitre associé : [[cours/15-fichiers-et-dossiers/15-fichiers-et-dossiers]]
 
 ## Contexte
 

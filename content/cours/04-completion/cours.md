@@ -15,7 +15,7 @@ parcours-pro: false
 
 > [!TIP] Ressources du chapitre
 >
-> - [[04-completion/tp/index|Exercices pratiques]]
+> - [[cours/04-completion/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Complétion automatique (Tab)

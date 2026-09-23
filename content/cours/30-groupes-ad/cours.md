@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[30-groupes-ad/tp/index|Exercices pratiques]]
+> - [[cours/30-groupes-ad/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Les types de groupes

@@ -15,7 +15,7 @@ parcours-pro: false
 
 > [!TIP] Ressources du chapitre
 >
-> - [[05-alias/tp/index|Exercices pratiques]]
+> - [[cours/05-alias/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Qu'est-ce qu'un alias ?

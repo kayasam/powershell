@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 09 - Le Pipeline des Pirates 🏴‍☠️ — Avancé
 
-> Chapitre associé : [[09-pipeline/09-pipeline]]
+> Chapitre associé : [[cours/09-pipeline/09-pipeline]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

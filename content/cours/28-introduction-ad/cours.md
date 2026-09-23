@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[28-introduction-ad/tp/index|Exercices pratiques]]
+> - [[cours/28-introduction-ad/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Qu'est-ce qu'Active Directory ?

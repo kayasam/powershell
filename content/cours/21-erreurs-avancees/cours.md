@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[21-erreurs-avancees/tp/index|Exercices pratiques]]
+> - [[cours/21-erreurs-avancees/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 Au chapitre 20 vous avez appris à **attraper** une erreur avec `try/catch`.

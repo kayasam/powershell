@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 08 - Le Rapport pour l'Amiral 📊 — Avancé
 
-> Chapitre associé : [[08-formatage/08-formatage]]
+> Chapitre associé : [[cours/08-formatage/08-formatage]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

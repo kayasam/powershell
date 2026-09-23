@@ -23,7 +23,7 @@ Les deux modes produisent les mêmes exports ; choisissez **un** niveau.
 - Renvoyez un objet de bilan (`ExportsOK`, `Echecs`, `Dossier`, `Horodatage`) et testez un export qui échoue sans interrompre les autres.
 - Un fichier source doit rester récupérable si l'archivage échoue ; prouvez-le sur des fichiers d'essai.
 
-**Correction formateur :** [[tp-fil-rouge/03-archives-cipher-pol-correction|énoncé et solution réunis]].
+**Correction formateur :** [[cours/tp-fil-rouge/03-archives-cipher-pol-correction|énoncé et solution réunis]].
 
 ## Contexte
 

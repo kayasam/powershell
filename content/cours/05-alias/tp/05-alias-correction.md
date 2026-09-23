@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 05 : Les Noms de Code de la Marine 🏷️
 
-> Chapitre associé : [[05-alias/05-alias]]
+> Chapitre associé : [[cours/05-alias/05-alias]]
 > Énoncé de la version [[05-alias-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[05-alias-debutant|débutant]].

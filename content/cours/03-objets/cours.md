@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[03-objets/tp/index|Exercices pratiques]]
+> - [[cours/03-objets/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## PowerShell manipule des objets

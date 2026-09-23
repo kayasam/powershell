@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 04 : Le Reflexe Tab ⚡
 
-> Chapitre associé : [[04-completion/04-completion]]
+> Chapitre associé : [[cours/04-completion/04-completion]]
 > Énoncé de la version [[04-completion-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[04-completion-debutant|débutant]].

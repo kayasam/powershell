@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 06 : Le Journal de Bord du Terminal 📜
 
-> Chapitre associé : [[06-historique/06-historique]]
+> Chapitre associé : [[cours/06-historique/06-historique]]
 > Énoncé de la version [[06-historique-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[06-historique-debutant|débutant]].

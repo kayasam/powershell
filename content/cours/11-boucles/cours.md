@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[11-boucles/tp/index|Exercices pratiques]]
+> - [[cours/11-boucles/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## ForEach-Object : dans le pipeline

@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 10 : L'Analyseur d'Intrusion 🔐
 
-> Chapitre associé : [[10-conditions/10-conditions]]
+> Chapitre associé : [[cours/10-conditions/10-conditions]]
 > Énoncé de la version [[10-conditions-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[10-conditions-debutant|débutant]].

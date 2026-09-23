@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 13 - La Boite à Outils de Franky ⚙️ — Avancé
 
-> Chapitre associé : [[13-fonctions/13-fonctions]]
+> Chapitre associé : [[cours/13-fonctions/13-fonctions]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

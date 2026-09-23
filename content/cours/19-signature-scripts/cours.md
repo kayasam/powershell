@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[19-signature-scripts/tp/index|Exercices pratiques]]
+> - [[cours/19-signature-scripts/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 Au chapitre 01 vous avez tapé `Set-ExecutionPolicy RemoteSigned` pour pouvoir lancer

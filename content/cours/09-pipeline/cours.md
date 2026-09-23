@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[09-pipeline/tp/index|Exercices pratiques]]
+> - [[cours/09-pipeline/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Le pipeline : enchaîner les commandes
@@ -74,7 +74,7 @@ un tiret.
 > Dans un rapport d'alerte, c'est souvent `-ge` qu'il faut.
 
 La liste complète (dont `-like` et `-match`) et les opérateurs logiques
-`-and` / `-or` / `-not` sont détaillés au [[10-conditions/10-conditions|chapitre 10]].
+`-and` / `-or` / `-not` sont détaillés au [[cours/10-conditions/10-conditions|chapitre 10]].
 
 ### Filtres avec bloc de script
 

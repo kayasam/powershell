@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 14 - L'Atelier de Vegapunk 🔬
 
-> Chapitre associé : [[14-classes-dotnet/14-classes-dotnet]]
+> Chapitre associé : [[cours/14-classes-dotnet/14-classes-dotnet]]
 
 ## Contexte
 

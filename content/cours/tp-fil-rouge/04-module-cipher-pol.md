@@ -23,7 +23,7 @@ Le module et le script principal sont communs aux deux modes ; choisissez **un**
 - Retournez des objets pour les métriques et le score ; réservez `Write-Host` à la présentation.
 - Testez les paramètres valides/invalides et le rechargement du module ; planifiez seulement sur un Windows de laboratoire autorisé, avec nettoyage ciblé.
 
-**Correction formateur :** [[tp-fil-rouge/04-module-cipher-pol-correction|énoncé et solution réunis]].
+**Correction formateur :** [[cours/tp-fil-rouge/04-module-cipher-pol-correction|énoncé et solution réunis]].
 
 ## Contexte
 

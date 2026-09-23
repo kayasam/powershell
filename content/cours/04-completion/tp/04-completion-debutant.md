@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 04 - Le Reflexe Tab ⚡ — Débutant
 
-> Chapitre associé : [[04-completion/04-completion]]
+> Chapitre associé : [[cours/04-completion/04-completion]]
 
 ## Contexte
 

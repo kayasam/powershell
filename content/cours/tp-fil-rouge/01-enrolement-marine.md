@@ -23,7 +23,7 @@ Le même énoncé ci-dessous sert aux deux modes : choisissez **un** niveau, san
 - Validez âge positif et division entre 1 et 12 avant le calcul ; testez deux valeurs invalides.
 - N'inscrivez ni nom, ni date, ni solde en dur dans le badge : le résultat doit changer quand la fiche change.
 
-**Correction formateur :** [[tp-fil-rouge/01-enrolement-marine-correction|énoncé et solution réunis]].
+**Correction formateur :** [[cours/tp-fil-rouge/01-enrolement-marine-correction|énoncé et solution réunis]].
 
 ## Contexte
 

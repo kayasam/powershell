@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[15-fichiers-et-dossiers/tp/index|Exercices pratiques]]
+> - [[cours/15-fichiers-et-dossiers/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Navigation

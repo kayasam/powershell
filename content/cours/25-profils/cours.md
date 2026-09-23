@@ -15,7 +15,7 @@ parcours-pro: false
 
 > [!TIP] Ressources du chapitre
 >
-> - [[25-profils/tp/index|Exercices pratiques]]
+> - [[cours/25-profils/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 Au chapitre 05 vous avez créé des alias. Au chapitre 13, des fonctions. Au chapitre 23,

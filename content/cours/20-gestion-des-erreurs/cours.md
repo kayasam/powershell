@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[20-gestion-des-erreurs/tp/index|Exercices pratiques]]
+> - [[cours/20-gestion-des-erreurs/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Pourquoi gérer les erreurs ?

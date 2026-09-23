@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 12 - L'Inventaire du Thousand Sunny 🛠️ — Avancé
 
-> Chapitre associé : [[12-wmi-et-cim/12-wmi-et-cim]]
+> Chapitre associé : [[cours/12-wmi-et-cim/12-wmi-et-cim]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

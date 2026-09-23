@@ -23,7 +23,7 @@ Les deux modes utilisent le même CSV et le même rapport. **Simulation par déf
 - Rendez le traitement relançable : détectez logins et appartenances déjà présents, puis classez `Créé`, `Ignoré`, `Erreur` sans doublons.
 - Les secrets doivent venir d'une source cryptographique ; un échec d'utilisateur interdit l'ajout aux groupes pour cet utilisateur.
 
-**Correction formateur :** [[tp-fil-rouge/05-gestion-agents-correction|énoncé et solution réunis]].
+**Correction formateur :** [[cours/tp-fil-rouge/05-gestion-agents-correction|énoncé et solution réunis]].
 
 ## Contexte
 

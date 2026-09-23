@@ -42,6 +42,9 @@ async function visit(directory) {
       ) {
         errors.push(`${relative} : parcours du chapitre absent`)
       }
+      if (/\[\[(?:\d{2}-[^/\]|\\]+|tp-fil-rouge)(?:\/[^\]|\\]+)+/.test(document)) {
+        errors.push(`${relative} : wikilien de cours sans le préfixe cours/`)
+      }
       for (const match of document.matchAll(
         /https:\/\/kayasam\.github\.io\/powershell\/ressources\/images\/([^\s)"']+)/g,
       )) {

@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 06 - Le Journal de Bord du Terminal 📜 — Débutant
 
-> Chapitre associé : [[06-historique/06-historique]]
+> Chapitre associé : [[cours/06-historique/06-historique]]
 
 ## Contexte
 

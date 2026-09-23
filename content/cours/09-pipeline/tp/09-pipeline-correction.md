@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 09 : Le Pipeline des Pirates 🏴‍☠️
 
-> Chapitre associé : [[09-pipeline/09-pipeline]]
+> Chapitre associé : [[cours/09-pipeline/09-pipeline]]
 > Énoncé de la version [[09-pipeline-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[09-pipeline-debutant|débutant]].

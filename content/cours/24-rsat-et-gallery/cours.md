@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[24-rsat-et-gallery/tp/index|Exercices pratiques]]
+> - [[cours/24-rsat-et-gallery/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 Au chapitre 23 vous avez appris à **écrire** un module. Ici, vous apprenez à

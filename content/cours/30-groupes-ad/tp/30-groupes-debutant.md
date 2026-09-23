@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 30 - Les Unités de la Cipher Pol - Version débutant
 
-> Chapitre associé : [[30-groupes-ad/30-groupes-ad]]
+> Chapitre associé : [[cours/30-groupes-ad/30-groupes-ad]]
 
 ## Objectifs
 

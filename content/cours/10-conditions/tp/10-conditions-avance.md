@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 10 - L'Analyseur d'Intrusion 🔐 — Avancé
 
-> Chapitre associé : [[10-conditions/10-conditions]]
+> Chapitre associé : [[cours/10-conditions/10-conditions]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

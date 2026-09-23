@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[17-export-import/tp/index|Exercices pratiques]]
+> - [[cours/17-export-import/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Du pipeline au fichier, puis retour aux objets

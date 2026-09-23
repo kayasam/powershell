@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[22-parametres-scripts/tp/index|Exercices pratiques]]
+> - [[cours/22-parametres-scripts/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Le problème sans paramètres

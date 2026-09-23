@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 08 - Le Rapport pour l'Amiral 📊 — Débutant
 
-> Chapitre associé : [[08-formatage/08-formatage]]
+> Chapitre associé : [[cours/08-formatage/08-formatage]]
 
 ## Contexte
 

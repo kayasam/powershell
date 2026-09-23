@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 20 - Le Courage d'Usopp 🎯 — Avancé
 
-> Chapitre associé : [[20-gestion-des-erreurs/20-gestion-des-erreurs]]
+> Chapitre associé : [[cours/20-gestion-des-erreurs/20-gestion-des-erreurs]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

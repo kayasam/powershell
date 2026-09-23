@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[29-utilisateurs-ad/tp/index|Exercices pratiques]]
+> - [[cours/29-utilisateurs-ad/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Lire des utilisateurs

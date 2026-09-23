@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[27-planification/tp/index|Exercices pratiques]]
+> - [[cours/27-planification/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Pourquoi planifier ?

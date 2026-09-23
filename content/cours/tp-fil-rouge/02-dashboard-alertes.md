@@ -23,7 +23,7 @@ Le même dashboard est à construire dans les deux modes ; choisissez **un** niv
 - Rendez les seuils paramétrables et testez le verdict avec trois jeux de données simulées, sans dépendre du poste.
 - Le bonus live doit avoir un arrêt contrôlé ; évitez une boucle infinie sans délai ni sortie.
 
-**Correction formateur :** [[tp-fil-rouge/02-dashboard-alertes-correction|énoncé et solution réunis]].
+**Correction formateur :** [[cours/tp-fil-rouge/02-dashboard-alertes-correction|énoncé et solution réunis]].
 
 ## Contexte
 

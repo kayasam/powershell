@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 17 - Les Plans de Franky 📐 — Débutant
 
-> Chapitre associé : [[17-export-import/17-export-import]]
+> Chapitre associé : [[cours/17-export-import/17-export-import]]
 
 ## Contexte
 

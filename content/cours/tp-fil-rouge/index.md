@@ -10,13 +10,13 @@ Chaque mission reprend le script de la précédente et lui ajoute de nouvelles n
 Fil narratif : recrue à la Marine, puis recruté par la **Cipher Pol** sous les ordres
 de Rob Lucci — de l'affichage brut au script d'administration industrialisé.
 
-| Mission | TP                                                                   | Ce que le TP construit                                                 | Module  |
-| ------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------- |
-| 1       | [[tp-fil-rouge/01-enrolement-marine\|01 — L'Enrôlement à la Marine]] | Premier script, variables, affichage formaté                           | 01 → 08 |
-| 2       | [[tp-fil-rouge/02-dashboard-alertes\|02 — Le Dashboard d'Alerte]]    | Fonctions, alertes conditionnelles, données CIM, score de santé        | 09 → 13 |
-| 3       | [[tp-fil-rouge/03-archives-cipher-pol\|03 — Le Système d'Archives]]  | Fonction de logging, export CSV/JSON, archivage par date, `try/catch`  | 14 → 21 |
-| 4       | [[tp-fil-rouge/04-module-cipher-pol\|04 — Le Module Officiel]]       | Refactorisation en module `.psm1`, paramètres validés, tâche planifiée | 22 → 27 |
-| 5       | [[tp-fil-rouge/05-gestion-agents\|05 — L'Administration des Agents]] | Import CSV, création de comptes AD, affectation aux groupes, rapport   | 28 → 32 |
+| Mission | TP                                                                         | Ce que le TP construit                                                 | Module  |
+| ------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------- |
+| 1       | [[cours/tp-fil-rouge/01-enrolement-marine\|01 — L'Enrôlement à la Marine]] | Premier script, variables, affichage formaté                           | 01 → 08 |
+| 2       | [[cours/tp-fil-rouge/02-dashboard-alertes\|02 — Le Dashboard d'Alerte]]    | Fonctions, alertes conditionnelles, données CIM, score de santé        | 09 → 13 |
+| 3       | [[cours/tp-fil-rouge/03-archives-cipher-pol\|03 — Le Système d'Archives]]  | Fonction de logging, export CSV/JSON, archivage par date, `try/catch`  | 14 → 21 |
+| 4       | [[cours/tp-fil-rouge/04-module-cipher-pol\|04 — Le Module Officiel]]       | Refactorisation en module `.psm1`, paramètres validés, tâche planifiée | 22 → 27 |
+| 5       | [[cours/tp-fil-rouge/05-gestion-agents\|05 — L'Administration des Agents]] | Import CSV, création de comptes AD, affectation aux groupes, rapport   | 28 → 32 |
 
 > [!NOTE] Le TP ne couvre pas tout son module
 > Chaque mission mobilise les notions **centrales** de son module, pas la totalité

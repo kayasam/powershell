@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Correction - Exercice 01 : L'Équipement de la Recrue 🎖️
 
-> Chapitre associé : [[01-installation-et-environnement/01-installation-et-environnement]]
+> Chapitre associé : [[cours/01-installation-et-environnement/01-installation-et-environnement]]
 > Énoncé de la version [[01-installation-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[01-installation-debutant|débutant]].

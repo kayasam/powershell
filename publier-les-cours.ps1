@@ -205,6 +205,16 @@ if (Test-Path -LiteralPath $sourceMemo -PathType Leaf) {
 # on conserve la syntaxe Obsidian dans le coffre et on la convertit seulement ici.
 Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "*.md" | ForEach-Object {
   $document = [IO.File]::ReadAllText($_.FullName)
+  # Obsidian résout ces liens depuis le dossier « cours », tandis que Quartz
+  # les résout depuis la racine de « content ».
+  $document = [regex]::Replace(
+    $document,
+    '\[\[((?:\d{2}-[^/\]|\\]+|tp-fil-rouge)(?:/[^\]|\\]+)+)(\\?\|[^\]]+)?\]\]',
+    { param($match)
+      "[[cours/$($match.Groups[1].Value)$($match.Groups[2].Value)]]"
+    },
+    [Text.RegularExpressions.RegexOptions]::IgnoreCase
+  )
   $document = [regex]::Replace(
     $document,
     '!\[\[([^\]|\\/]+\.(?:svg|png|webp|jpe?g))(?:\|[^\]]+)?\]\]',
@@ -237,7 +247,7 @@ Get-ChildItem -LiteralPath $stageRoot -Recurse -File -Filter "index.md" | ForEac
   $document = [IO.File]::ReadAllText($_.FullName)
   $document = [regex]::Replace($document, '(?im)^.*\[\[([^\]|]*(?:correction|corrig[eé])[^\]|]*)(?:\|[^\]]*)?\]\].*(?:\r?\n|$)', {
     param($match)
-    $target = $match.Groups[1].Value.TrimEnd('\')
+    $target = $match.Groups[1].Value.TrimEnd('\') -replace '^cours/', ''
     $candidate = Join-Path (Join-Path $stageRoot 'cours') ($target.Replace('/', [IO.Path]::DirectorySeparatorChar) + '.md')
     if (Test-Path -LiteralPath $candidate -PathType Leaf) { return $match.Value }
     return ''

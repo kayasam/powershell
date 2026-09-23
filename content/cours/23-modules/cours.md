@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[23-modules/tp/index|Exercices pratiques]]
+> - [[cours/23-modules/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Qu'est-ce qu'un module ?

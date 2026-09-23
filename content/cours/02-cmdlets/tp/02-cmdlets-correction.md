@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 02 : Les Outils de la Marine 🌊
 
-> Chapitre associé : [[02-cmdlets/02-cmdlets]]
+> Chapitre associé : [[cours/02-cmdlets/02-cmdlets]]
 > Énoncé de la version [[02-cmdlets-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[02-cmdlets-debutant|débutant]].

@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 29 - Le Recrutement de la Cipher Pol 🕵️ — Débutant
 
-> Chapitre associé : [[29-utilisateurs-ad/29-utilisateurs-ad]]
+> Chapitre associé : [[cours/29-utilisateurs-ad/29-utilisateurs-ad]]
 
 ## Contexte
 

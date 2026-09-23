@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 07 : La Fiche des Pirates 📋
 
-> Chapitre associé : [[07-variables/07-variables]]
+> Chapitre associé : [[cours/07-variables/07-variables]]
 > Énoncé de la version [[07-variables-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[07-variables-debutant|débutant]].

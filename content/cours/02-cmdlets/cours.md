@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[02-cmdlets/tp/index|Exercices pratiques]]
+> - [[cours/02-cmdlets/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Qu'est-ce qu'une cmdlet ?

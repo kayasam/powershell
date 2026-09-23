@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 02 - Les Outils de la Marine 🌊 — Débutant
 
-> Chapitre associé : [[02-cmdlets/02-cmdlets]]
+> Chapitre associé : [[cours/02-cmdlets/02-cmdlets]]
 
 ## Contexte
 

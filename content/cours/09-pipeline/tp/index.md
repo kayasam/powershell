@@ -13,13 +13,13 @@ title: "Exercices pratiques — Pipeline"
 
 Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
 
-| Niveau                                          | Fichier                                                                                      |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| 🟢 Débutant — commandes données, indices        | [[09-pipeline/tp/09-pipeline-debutant\|Exercice 09 - Le Pipeline des Pirates 🏴‍☠️ — Débutant]] |
-| 🔵 Avancé — mêmes exercices, sans les commandes | [[09-pipeline/tp/09-pipeline-avance\|Exercice 09 - Le Pipeline des Pirates 🏴‍☠️ — Avancé]]     |
+| Niveau                                          | Fichier                                                                                            |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| 🟢 Débutant — commandes données, indices        | [[cours/09-pipeline/tp/09-pipeline-debutant\|Exercice 09 - Le Pipeline des Pirates 🏴‍☠️ — Débutant]] |
+| 🔵 Avancé — mêmes exercices, sans les commandes | [[cours/09-pipeline/tp/09-pipeline-avance\|Exercice 09 - Le Pipeline des Pirates 🏴‍☠️ — Avancé]]     |
 
 ## Correction
 
 Commandes complètes, réponses et explications, pour les deux niveaux.
 
-- [[09-pipeline/tp/09-pipeline-correction|Correction - Exercice 09 : Le Pipeline des Pirates 🏴‍☠️]]
+- [[cours/09-pipeline/tp/09-pipeline-correction|Correction - Exercice 09 : Le Pipeline des Pirates 🏴‍☠️]]

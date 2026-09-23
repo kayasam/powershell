@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 17 - Les Plans de Franky 📐 — Avancé
 
-> Chapitre associé : [[17-export-import/17-export-import]]
+> Chapitre associé : [[cours/17-export-import/17-export-import]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

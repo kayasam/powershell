@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[18-registre-journaux-certificats/tp/index|Exercices pratiques]]
+> - [[cours/18-registre-journaux-certificats/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 Vous savez lire et écrire des fichiers. Windows range pourtant beaucoup d'informations

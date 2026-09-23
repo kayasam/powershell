@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[31-recherche-et-rapports/tp/index|Exercices pratiques]]
+> - [[cours/31-recherche-et-rapports/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Le paramètre -Filter

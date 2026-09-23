@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Exercice 02 - Les Outils de la Marine 🌊 — Avancé
 
-> Chapitre associé : [[02-cmdlets/02-cmdlets]]
+> Chapitre associé : [[cours/02-cmdlets/02-cmdlets]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

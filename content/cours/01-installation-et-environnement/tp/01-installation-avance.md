@@ -7,7 +7,7 @@ parcours-pro: false
 
 # Exercice 01 - L'Équipement de la Recrue 🎖️ — Avancé
 
-> Chapitre associé : [[01-installation-et-environnement/01-installation-et-environnement]]
+> Chapitre associé : [[cours/01-installation-et-environnement/01-installation-et-environnement]]
 > Mêmes parties que la version débutant, mais **sans les commandes**. À vous de les trouver.
 
 ## Contexte

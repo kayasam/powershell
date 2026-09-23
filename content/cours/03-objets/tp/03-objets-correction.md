@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 03 : L'Autopsie du Den Den Mushi 🐌
 
-> Chapitre associé : [[03-objets/03-objets]]
+> Chapitre associé : [[cours/03-objets/03-objets]]
 > Énoncé de la version [[03-objets-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[03-objets-debutant|débutant]].

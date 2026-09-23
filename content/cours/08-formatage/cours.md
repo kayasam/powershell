@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[08-formatage/tp/index|Exercices pratiques]]
+> - [[cours/08-formatage/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Pourquoi formater ?

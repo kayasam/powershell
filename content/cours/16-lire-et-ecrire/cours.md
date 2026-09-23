@@ -15,7 +15,7 @@ parcours-pro: true
 
 > [!TIP] Ressources du chapitre
 >
-> - [[16-lire-et-ecrire/tp/index|Exercices pratiques]]
+> - [[cours/16-lire-et-ecrire/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## Lire un fichier

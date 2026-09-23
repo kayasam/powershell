@@ -7,7 +7,7 @@ parcours-pro: true
 
 # Correction - Exercice 08 : Le Rapport pour l'Amiral 📊
 
-> Chapitre associé : [[08-formatage/08-formatage]]
+> Chapitre associé : [[cours/08-formatage/08-formatage]]
 > Énoncé de la version [[08-formatage-avance|avancée]], **réponse sous chaque
 > question**. Les questions non marquées _(avancé)_ figurent aussi dans la
 > version [[08-formatage-debutant|débutant]].

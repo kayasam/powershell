@@ -15,7 +15,7 @@ parcours-pro: false
 
 > [!TIP] Ressources du chapitre
 >
-> - [[06-historique/tp/index|Exercices pratiques]]
+> - [[cours/06-historique/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
 ## L'historique des commandes
