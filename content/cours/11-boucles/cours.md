@@ -18,9 +18,40 @@ parcours-pro: true
 > - [[cours/11-boucles/tp/index|Exercices pratiques]]
 > - [[Memo-Commandes|Mémo des commandes]]
 
+## Qu'est-ce qu'une boucle ?
+
+Une **boucle** permet de répéter une action plusieurs fois, sans avoir à recopier le même code à chaque fois.
+
+> [!EXAMPLE] Analogie
+> Imaginez que vous devez arroser 10 plantes. Sans boucle, vous écririez "arroser la plante 1", "arroser la plante 2", etc. jusqu'à 10. Avec une boucle, vous dites simplement : **"pour chaque plante, arroser"** — une seule instruction qui se répète toute seule.
+
+En pseudocode, ça donne toujours la même idée :
+
+```
+TANT QUE (ou POUR CHAQUE) une condition est vraie :
+    faire une action
+```
+
+PowerShell propose plusieurs façons d'écrire cette idée, selon ce que vous parcourez :
+
+| Vous voulez...                                                   | Utilisez         |
+| ---------------------------------------------------------------- | ---------------- |
+| Parcourir chaque élément d'une liste déjà stockée                | `foreach`        |
+| Traiter chaque élément qui arrive dans un pipeline               | `ForEach-Object` |
+| Répéter un nombre précis de fois (avec un compteur)              | `for`            |
+| Répéter tant qu'une condition est vraie (nombre inconnu de fois) | `while`          |
+| Répéter au moins une fois, puis vérifier la condition            | `do/while`       |
+
 ## ForEach-Object : dans le pipeline
 
 Pour traiter chaque élément qui passe dans le pipeline.
+
+En pseudocode :
+
+```
+POUR CHAQUE service reçu du pipeline :
+    afficher son nom et son statut
+```
 
 ```powershell
 Get-Service | ForEach-Object {
@@ -37,6 +68,13 @@ Get-Process | % { Write-Host $_.Name }
 ## foreach : boucle classique
 
 Pour parcourir une collection déjà stockée.
+
+En pseudocode :
+
+```
+POUR CHAQUE fruit dans la liste des fruits :
+    afficher "J'aime les " + fruit
+```
 
 ```powershell
 $fruits = @("Pomme", "Banane", "Cerise")
@@ -59,7 +97,18 @@ foreach ($p in $processus) { Write-Host $p.Name }
 
 ## for : boucle avec compteur
 
-Quand vous avez besoin d'un index.
+Quand vous avez besoin d'un index, ou que vous savez à l'avance combien de fois répéter.
+
+En pseudocode :
+
+```
+i = 1
+TANT QUE i <= 5 :
+    afficher "Tentative " + i
+    i = i + 1
+```
+
+La boucle `for` regroupe ces 3 étapes (initialisation, condition, incrémentation) sur une seule ligne :
 
 ```powershell
 for ($i = 1; $i -le 5; $i++) {
@@ -67,9 +116,24 @@ for ($i = 1; $i -le 5; $i++) {
 }
 ```
 
+> [!INFO] Décomposition de `for ($i = 1; $i -le 5; $i++)`
+>
+> - `$i = 1` → **initialisation** : on part de 1
+> - `$i -le 5` → **condition** : on continue tant que $i est inférieur ou égal à 5
+> - `$i++` → **incrémentation** : on ajoute 1 à $i à chaque tour
+
 ## while : tant que
 
-Répète tant que la condition est vraie.
+Répète tant que la condition est vraie. On l'utilise quand on **ne sait pas à l'avance** combien de tours seront nécessaires.
+
+En pseudocode :
+
+```
+compteur = 0
+TANT QUE compteur < 3 :
+    afficher "Tour " + compteur
+    compteur = compteur + 1
+```
 
 ```powershell
 $compteur = 0
@@ -81,6 +145,16 @@ while ($compteur -lt 3) {
 ```
 
 ## do/while : au moins une fois
+
+Différence avec `while` : ici, l'action est exécutée **une première fois avant même de vérifier la condition**. Utile quand on doit forcément faire l'action au moins une fois (par exemple demander une saisie à l'utilisateur).
+
+En pseudocode :
+
+```
+FAIRE :
+    demander une réponse à l'utilisateur
+TANT QUE la réponse n'est pas "oui"
+```
 
 ```powershell
 do {
