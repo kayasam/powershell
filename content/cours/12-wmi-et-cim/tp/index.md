@@ -11,7 +11,11 @@ title: "Exercices pratiques — WMI et CIM"
 
 # Exercices pratiques — WMI et CIM
 
-Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
+Deux niveaux, **mêmes parties** (A à F) et mêmes numéros de question (A1, B2…).
+
+> Deux écarts assumés : la partie **C** est découpée en plus petites étapes côté
+> débutant, et la version avancée se termine par une section **bonus hors
+> programme** (G1 à G5).
 
 | Niveau                                          | Fichier                                                                                                    |
 | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |

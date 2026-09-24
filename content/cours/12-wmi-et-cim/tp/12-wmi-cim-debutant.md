@@ -21,6 +21,10 @@ installée ni sur la taille des disques. Il faut interroger **WMI**.
 
 **Durée : 30 min**
 
+> [!tip] Tout ce dont vous avez besoin, vous l'avez déjà vu
+> Une seule cmdlet nouvelle : `Get-CimInstance`. Pour le reste, ce sont vos outils
+> habituels — `Select-Object`, `Where-Object`, `Format-List`, les variables.
+
 ---
 
 ## Partie A : Le carnet de bord du navire (5 min)
@@ -36,7 +40,8 @@ Get-CimInstance Win32_OperatingSystem
 
 **A3.** Affichez **toutes** les propriétés de cette classe. Combien y en a-t-il ?
 
-> 💡 **Indice** : `| Format-List *` révèle tout, et `Measure-Object` compte.
+> 💡 **Indice** : `| Format-List *` révèle tout, et `Measure-Object` compte
+> (chapitre 09).
 
 ---
 
@@ -61,20 +66,36 @@ de cœurs** et sa **charge instantanée**.
 Get-CimInstance Win32_LogicalDisk
 ```
 
-Vous obtenez tous les lecteurs, y compris les clés USB. Pour ne garder que les
-**disques durs locaux**, filtrez sur `DriveType=3` :
+Vous obtenez tous les lecteurs, y compris les clés USB et les lecteurs CD. Pour ne
+garder que les **disques durs locaux**, filtrez sur `DriveType=3` :
 
 ```powershell
 Get-CimInstance Win32_LogicalDisk -Filter "DriveType=3"
 ```
 
-**C1.** Produisez un tableau avec, pour chaque disque local : lettre, taille en Go,
-espace libre en Go, pourcentage libre.
+**C1.** Affichez, pour les disques durs locaux uniquement, la **lettre du lecteur**,
+la **taille** et l'**espace libre**.
 
-> ⚠️ Un lecteur peut avoir une taille de 0. Prévoyez le cas avant de diviser.
+> 💡 **Indice** : les propriétés sont `DeviceID`, `Size` et `FreeSpace`.
+> Un simple `Select-Object` suffit.
 
-> 💡 **Indice** : `Size` et `FreeSpace` sont en **octets** → diviser par `1GB`.
-> Une colonne calculée s'écrit `@{Name="Titre"; Expression={ ... }}` (chapitre 08).
+**C2.** Les tailles s'affichent en **octets** — illisible. Mettez le disque `C:`
+dans une variable, puis affichez sa taille **en Go**, arrondie à 1 décimale.
+
+```powershell
+# On récupère un seul disque
+$c = Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'"
+
+# À vous : affichez $c.Size converti en Go
+```
+
+> 💡 **Indice** : diviser par `1GB`, et arrondir avec `[math]::Round(<valeur>, 1)`.
+
+**C3.** Faites la même chose pour l'espace libre, puis calculez le **pourcentage
+d'espace libre** du disque `C:`.
+
+> ⚠️ Avant de diviser, demandez-vous ce qui se passerait si `Size` valait `0`
+> (c'est le cas d'un lecteur CD vide).
 
 ---
 
@@ -121,15 +142,20 @@ démarrage est **automatique**.
 
 ## Mission finale F : la fiche du Thousand Sunny 🏴‍☠️
 
-**F1.** Écrivez un script qui affiche une fiche unique regroupant :
+Le chapitre se termine par un exemple appelé **« une fiche machine »**.
+Ouvrez-le : c'est votre point de départ.
 
-- le **nom de la machine** et son **fabricant** (`Win32_ComputerSystem`)
-- le **système** et sa **version** (`Win32_OperatingSystem`)
-- le **processeur** et son nombre de cœurs (`Win32_Processor`)
-- la **RAM totale** et la **RAM libre** en Go
-- le **numéro de série** du BIOS (`Win32_BIOS`)
+**F1.** Recopiez cet exemple, exécutez-le, et vérifiez que vous comprenez chaque ligne.
 
-Le tout dans un seul `[PSCustomObject]`, affiché avec `Format-List`.
+**F2.** Complétez-le pour qu'il affiche **en plus** :
+
+- le **fabricant** de la machine (`Win32_ComputerSystem`, propriété `Manufacturer`)
+- le **numéro de série du BIOS** (celui trouvé en D1)
+
+Affichez le résultat avec `Format-List`.
+
+> 💡 **Indice** : il suffit d'ajouter deux lignes dans le bloc du cours, sur le
+> modèle de celles qui existent déjà.
 
 > ⚠️ **Rappel** : la RAM de `Win32_OperatingSystem` est en **kilooctets**, pas en
 > octets. Le diviseur n'est donc pas le même que pour les disques.

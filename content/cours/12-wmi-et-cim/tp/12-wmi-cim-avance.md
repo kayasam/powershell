@@ -17,7 +17,34 @@ poste, c'est une curiosité. D'un parc de cinquante, c'est un outil de décision
 
 > _"Un bon charpentier connaît chaque planche de son navire."_ — Franky
 
-**Durée : 35 min**
+**Durée : 30 min**
+
+---
+
+## Boîte à outils
+
+Deux syntaxes vous seront utiles et n'ont pas encore été vues en cours.
+Les voici : ne perdez pas de temps à les deviner.
+
+**La colonne calculée** — créer une colonne qui n'existe pas dans les données :
+
+```powershell
+Get-CimInstance Win32_LogicalDisk -Filter "DriveType=3" |
+    Select-Object DeviceID,
+        @{Name="Taille_Go"; Expression={ [math]::Round($_.Size / 1GB, 1) }}
+```
+
+**L'objet personnalisé** — regrouper des informations de sources différentes :
+
+```powershell
+[PSCustomObject]@{
+    Machine = $cs.Name
+    Systeme = $os.Caption
+}
+```
+
+> Vous en trouverez un exemple complet à la fin du chapitre, section
+> **« Exemple complet : une fiche machine »**.
 
 ---
 
@@ -31,8 +58,6 @@ Trouvez la classe WMI qui décrit le système d'exploitation.
 
 **A3.** Combien de propriétés cette classe possède-t-elle ?
 
-**A4.** Calculez depuis combien de **jours** la machine tourne.
-
 ---
 
 ## Partie B : Le moteur (5 min)
@@ -42,8 +67,6 @@ instantanée.
 
 **B2.** Pourquoi `Select-Object -First 1` peut-il être utile ici ?
 
-**B3.** Quelle différence entre `NumberOfCores` et `NumberOfLogicalProcessors` ?
-
 ---
 
 ## Partie C : Les cales (10 min)
@@ -51,10 +74,8 @@ instantanée.
 **C1.** Produisez un tableau des disques durs **locaux uniquement** avec : lettre,
 taille en Go, espace libre en Go, pourcentage libre.
 
-**C2.** Que vaut `DriveType` pour un lecteur réseau ? Pour un CD-ROM ?
-
-**C3.** Que se passe-t-il si vous oubliez de filtrer et qu'un lecteur CD vide est
-présent ? Comment vous en prémunir ?
+**C2.** Que se passe-t-il si un lecteur CD vide est présent et que vous oubliez de
+filtrer ? Comment vous en prémunir ?
 
 ---
 
@@ -85,10 +106,6 @@ laquelle fonctionne ?
 | -------------------------------------------- | ---------- |
 | Services arrêtés au démarrage automatique    |            |
 | Disques durs locaux de moins de 10 Go libres |            |
-| Processus dont le nom commence par « power » |            |
-
-**E4.** Comparez le temps d'un filtrage WQL et d'un `Where-Object` équivalent.
-Quel est l'intérêt réel du premier ?
 
 ---
 
@@ -98,16 +115,16 @@ Quel est l'intérêt réel du premier ?
 numéro de série, système, version, RAM totale et libre en Go, nombre de disques,
 espace libre total en Go, date de dernier démarrage.
 
-Le résultat doit s'exporter en CSV sans retouche.
+Le résultat doit s'exporter en CSV sans retouche (chapitre 08).
 
 **F2.** Adaptez la commande pour interroger **trois machines distantes** d'un coup.
 
 **F3.** Écrivez la version qui ouvre une **session réutilisable** et la referme.
 Quel avantage si vous posez dix questions à la même machine ?
 
-**F4.** La classe qui liste les logiciels installés est réputée dangereuse.
-Laquelle est-ce, quel effet de bord provoque-t-elle, et quelle alternative fiable
-existe ?
+> [!note] F2 et F3 : à écrire, pas à exécuter
+> Vous n'avez pas de machines distantes en salle. Ce qui compte ici, c'est la
+> commande juste — pas son exécution.
 
 ---
 
@@ -117,4 +134,25 @@ existe ?
 > - Vous filtrez en WQL plutôt qu'avec `Where-Object`
 > - Vous maîtrisez les unités (Ko pour la RAM, octets pour les disques)
 > - Vous savez interroger des machines distantes, avec ou sans session
-> - Vous connaissez les classes à éviter
+
+---
+
+## Pour aller plus loin — hors programme
+
+> [!info] Non évalué
+> Ces questions portent sur des notions **non abordées en cours**. Traitez-les
+> seulement si vous avez terminé en avance.
+
+**G1.** Quelle différence entre `NumberOfCores` et `NumberOfLogicalProcessors` ?
+
+**G2.** Que vaut `DriveType` pour un lecteur réseau ? Pour un CD-ROM ?
+
+**G3.** La classe qui liste les logiciels installés est réputée dangereuse.
+Laquelle est-ce, quel effet de bord provoque-t-elle, et quelle alternative fiable
+existe ?
+
+**G4.** Depuis combien de **jours** la machine tourne-t-elle ?
+_(Nécessite le calcul sur les dates.)_
+
+**G5.** Comparez le temps d'un filtrage WQL et d'un `Where-Object` équivalent.
+_(Nécessite `Measure-Command`.)_
