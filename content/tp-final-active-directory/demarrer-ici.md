@@ -37,16 +37,16 @@ C'est la source de confusion n°1 du TP.
 ![Schema-Reseau-Lab](https://kayasam.github.io/powershell/ressources/images/schema-reseau-lab.svg)
 
 > [!tip] La règle simple
-> Vous n'ouvrez **jamais** la console directement sur DC2.
-> Vous travaillez depuis **votre poste**, connecté en SSH à **DC01**, et DC01 pilote DC2 à distance.
+> Vous n'ouvrez **jamais** la console directement sur DC02.
+> Vous travaillez depuis **votre poste**, connecté en SSH à **DC01**, et DC01 pilote DC02 à distance.
 
 Dans toutes les notes du TP, chaque bloc de commandes est précédé d'un badge qui dit où le taper :
 
-| Badge                  | Signification                                                       |
-| ---------------------- | ------------------------------------------------------------------- |
-| 💻 **SUR VOTRE POSTE** | PowerShell ouvert sur votre Windows 10/11                           |
-| 🖥️ **SUR DC01**        | Terminal VSCode connecté en SSH à DC01 (ou console directe)         |
-| 🖧 **VERS DC2**         | Vous tapez sur DC01, mais ça s'exécute sur DC2 via `Invoke-Command` |
+| Badge                  | Signification                                                        |
+| ---------------------- | -------------------------------------------------------------------- |
+| 💻 **SUR VOTRE POSTE** | PowerShell ouvert sur votre Windows 10/11                            |
+| 🖥️ **SUR DC01**        | Terminal VSCode connecté en SSH à DC01 (ou console directe)          |
+| 🖧 **VERS DC02**        | Vous tapez sur DC01, mais ça s'exécute sur DC02 via `Invoke-Command` |
 
 ---
 
@@ -82,13 +82,14 @@ Deux machines virtuelles sur votre PC, reliées par un réseau virtuel privé, a
 
 ### Phase A — Monter le lab (≈ 3 h, une seule fois)
 
-| Ordre | Note                                                                                           | Durée  | C'est quoi                                           |
-| ----- | ---------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------- |
-| **1** | [[tp-final-active-directory/preparation/01-installer-les-vm\|00.1-Installer-les-VM]]           | 1 h    | Hyper-V, le réseau virtuel, les 2 VM, Windows Server |
-| **2** | [[tp-final-active-directory/preparation/02-preparer-les-serveurs\|00.2-Preparer-les-Serveurs]] | 45 min | Nommer, adresser, mettre à jour les 2 serveurs       |
-| **3** | [[tp-final-active-directory/preparation/03-promouvoir-dc01\|00.3-Promouvoir-DC01]]             | 30 min | Installer AD DS et créer le domaine `ad.fournil.lab` |
-| **4** | [[tp-final-active-directory/preparation/04-joindre-dc2\|00.4-Joindre-DC2]]                     | 30 min | Joindre DC2 et le promouvoir en DC additionnel       |
-| **5** | [[tp-final-active-directory/preparation/05-poste-de-travail\|00.5-Poste-de-Travail]]           | 30 min | Brancher VSCode en SSH + ouvrir le pare-feu          |
+| Ordre     | Note                                                                                           | Durée  | C'est quoi                                           |
+| --------- | ---------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------- |
+| **1**     | [[tp-final-active-directory/preparation/01-installer-les-vm\|00.1-Installer-les-VM]]           | 1 h    | Hyper-V, le réseau virtuel, les 2 VM, Windows Server |
+| **1 bis** | [[tp-final-active-directory/preparation/01-vmware-workstation\|00.1-VMware-Workstation]]       | 1 h    | Variante pour un poste équipé de VMware Workstation  |
+| **2**     | [[tp-final-active-directory/preparation/02-preparer-les-serveurs\|00.2-Preparer-les-Serveurs]] | 45 min | Nommer, adresser, mettre à jour les 2 serveurs       |
+| **3**     | [[tp-final-active-directory/preparation/03-promouvoir-dc01\|00.3-Promouvoir-DC01]]             | 30 min | Installer AD DS et créer le domaine `ad.fournil.lab` |
+| **4**     | [[tp-final-active-directory/preparation/04-joindre-dc02\|00.4-Joindre-DC02]]                   | 30 min | Joindre DC02 et le promouvoir en DC additionnel      |
+| **5**     | [[tp-final-active-directory/preparation/05-poste-de-travail\|00.5-Poste-de-Travail]]           | 30 min | Brancher VSCode en SSH + ouvrir le pare-feu          |
 
 ### Phase B — Le TP proprement dit (≈ 5 h)
 
@@ -98,6 +99,12 @@ Deux machines virtuelles sur votre PC, reliées par un réseau virtuel privé, a
 | **7** | [[tp-final-active-directory/dfs/debutant\|02.TP-Debutant-DFS]] | 2 h   | Les partages, DFS, la réplication, les homes |
 | **8** | [[tp-final-active-directory/gpo/debutant\|03.TP-Debutant-GPO]] | 1 h   | La GPO qui pousse le raccourci réseau        |
 
+> [!info] Trois niveaux pour la partie PowerShell AD
+>
+> - **Débutant** : commandes une par une sur un seul service — [[tp-final-active-directory/ad/debutant\|01.TP-Debutant-AD]]
+> - **Intermédiaire** : import des CSV et boucles simples, sans fonction — [[tp-final-active-directory/ad/intermediaire\|01.TP-Intermediaire-AD]]
+> - **Avancé** : script complet avec fonctions, contrôles et cache — [[tp-final-active-directory/ad/avance\|01.TP-Avance-AD]]
+
 > [!tip] Le réflexe qui sauve : les points de contrôle Hyper-V
 > À la fin de chaque note de la phase A, on vous fait créer un **snapshot**.
 > Si vous cassez quelque chose, vous revenez à l'état précédent en 30 secondes au lieu de tout réinstaller.
@@ -106,8 +113,8 @@ Deux machines virtuelles sur votre PC, reliées par un réseau virtuel privé, a
 > [!info] Le lab est déjà monté par le formateur ?
 > Sautez directement à [[tp-final-active-directory/preparation/05-poste-de-travail\|00.5-Poste-de-Travail]]. Mais lisez quand même [[tp-final-active-directory/preparation/03-promouvoir-dc01\|00.3-Promouvoir-DC01]] en diagonale : la distinction **rôle / promotion** et la logique **DNS** y sont expliquées, et elles tombent en évaluation.
 
-> Le **parcours Avancé** ([[tp-final-active-directory/ad/avance\|01.TP-Avance-AD]] et suivants) ne se fait qu'**après** avoir terminé le débutant.
-> Il consiste à réécrire vous-même, sous forme de script PowerShell, ce que vous venez de faire à la main.
+> Le **TP intermédiaire** utilise les CSV avec des boucles simples, sans fonction.
+> Le **parcours Avancé** ([[tp-final-active-directory/ad/avance\|01.TP-Avance-AD]] et suivants) consiste ensuite à réécrire le déploiement sous forme de scripts structurés et réutilisables.
 
 ---
 

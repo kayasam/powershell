@@ -22,7 +22,7 @@
   <text x="62" y="186" font-size="10.5" fill="#333"><tspan font-weight="bold">00.1</tspan> Creer les 2 VM Hyper-V</text>
   <text x="62" y="204" font-size="10.5" fill="#333"><tspan font-weight="bold">00.2</tspan> Nommer, adresser, mettre a jour</text>
   <text x="62" y="222" font-size="10.5" fill="#333"><tspan font-weight="bold">00.3</tspan> Role AD DS + promouvoir DC01</text>
-  <text x="62" y="240" font-size="10.5" fill="#333"><tspan font-weight="bold">00.4</tspan> Joindre et promouvoir DC2</text>
+  <text x="62" y="240" font-size="10.5" fill="#333"><tspan font-weight="bold">00.4</tspan> Joindre et promouvoir DC02</text>
   <text x="62" y="252" font-size="10.5" fill="#333"><tspan font-weight="bold">00.5</tspan> VSCode + pare-feu</text>
 
   <!-- ETAPE 1 -->
@@ -46,7 +46,7 @@
   <line x1="672" y1="167" x2="873" y2="167" stroke="#2E7D32" stroke-width="1" stroke-dasharray="3 3"/>
   <text x="672" y="188" font-size="11.5" fill="#333">Partager les dossiers</text>
   <text x="672" y="208" font-size="11.5" fill="#333">Creer les espaces de noms</text>
-  <text x="672" y="228" font-size="11.5" fill="#333">Repliquer DC01 vers DC2</text>
+  <text x="672" y="228" font-size="11.5" fill="#333">Repliquer DC01 vers DC02</text>
   <text x="672" y="247" font-size="11.5" fill="#333">Les dossiers personnels (H:)</text>
 
   <!-- ETAPE 3 -->
@@ -66,30 +66,42 @@
   <line x1="590" y1="180" x2="645" y2="180" stroke="#555" stroke-width="2.5" marker-end="url(#a1)"/>
   <line x1="895" y1="180" x2="920" y2="180" stroke="#555" stroke-width="2.5" marker-end="url(#a1)"/>
 
-  <!-- DEUX PARCOURS -->
-  <rect x="40" y="300" width="545" height="215" rx="14" fill="#fff" stroke="#1565C0" stroke-width="2.5" filter="url(#sh)"/>
-  <rect x="40" y="300" width="545" height="38" rx="14" fill="#1565C0"/>
-  <rect x="40" y="320" width="545" height="18" fill="#1565C0"/>
-  <text x="312" y="326" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">PARCOURS DEBUTANT &#8212; commencez ici par defaut</text>
-  <text x="62" y="366" font-size="12" fill="#333">Vous tapez les commandes une par une et vous comprenez</text>
-  <text x="62" y="386" font-size="12" fill="#333">chaque parametre. Aucun script a ecrire.</text>
-  <rect x="62" y="402" width="501" height="44" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="1"/>
-  <text x="82" y="421" font-size="11.5" font-weight="bold" fill="#1565C0">Manuel = la procedure (la reponse)</text>
-  <text x="82" y="438" font-size="11.5" font-weight="bold" fill="#1565C0">TP = les exercices (a vous de jouer)</text>
-  <text x="62" y="472" font-size="11.5" fill="#333">Bloque plus de 10 minutes sur un exercice ?</text>
-  <text x="62" y="492" font-size="11.5" fill="#333">Ouvrez le Manuel correspondant : c'est fait pour ca.</text>
+  <!-- TROIS NIVEAUX POWERSHELL -->
+  <rect x="40" y="300" width="340" height="215" rx="14" fill="#fff" stroke="#1565C0" stroke-width="2.5" filter="url(#sh)"/>
+  <rect x="40" y="300" width="340" height="38" rx="14" fill="#1565C0"/>
+  <rect x="40" y="320" width="340" height="18" fill="#1565C0"/>
+  <text x="210" y="326" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">DEBUTANT</text>
+  <text x="62" y="366" font-size="11.5" fill="#333">Commandes une par une sur un service.</text>
+  <text x="62" y="386" font-size="11.5" fill="#333">Chaque parametre est explique.</text>
+  <rect x="62" y="402" width="296" height="44" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="1"/>
+  <text x="82" y="421" font-size="11" font-weight="bold" fill="#1565C0">Manuel = la procedure</text>
+  <text x="82" y="438" font-size="11" font-weight="bold" fill="#1565C0">TP = les exercices guides</text>
+  <text x="62" y="472" font-size="11" fill="#333">Pour decouvrir AD et PowerShell.</text>
+  <text x="62" y="492" font-size="11" fill="#333">Aucun CSV, aucune automatisation.</text>
 
-  <rect x="625" y="300" width="515" height="215" rx="14" fill="#fff" stroke="#2E7D32" stroke-width="2.5" filter="url(#sh)"/>
-  <rect x="625" y="300" width="515" height="38" rx="14" fill="#2E7D32"/>
-  <rect x="625" y="320" width="515" height="18" fill="#2E7D32"/>
-  <text x="882" y="326" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">PARCOURS AVANCE &#8212; seulement si le debutant est fini</text>
-  <text x="648" y="366" font-size="12" fill="#333">Vous ecrivez vous-meme un script PowerShell qui lit les CSV</text>
-  <text x="648" y="386" font-size="12" fill="#333">et deploie les 30 utilisateurs automatiquement.</text>
-  <rect x="648" y="402" width="470" height="44" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1"/>
-  <text x="668" y="421" font-size="11.5" font-weight="bold" fill="#2E7D32">TP-Avance = le cahier des charges</text>
-  <text x="668" y="438" font-size="11.5" font-weight="bold" fill="#2E7D32">Explication-Script = la correction commentee</text>
-  <text x="648" y="472" font-size="11.5" fill="#333">Prerequis : savoir faire une boucle foreach, une fonction,</text>
-  <text x="648" y="492" font-size="11.5" fill="#333">et utiliser Import-Csv.</text>
+  <rect x="420" y="300" width="340" height="215" rx="14" fill="#fff" stroke="#EF6C00" stroke-width="2.5" filter="url(#sh)"/>
+  <rect x="420" y="300" width="340" height="38" rx="14" fill="#EF6C00"/>
+  <rect x="420" y="320" width="340" height="18" fill="#EF6C00"/>
+  <text x="590" y="326" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">INTERMEDIAIRE</text>
+  <text x="442" y="366" font-size="11.5" fill="#333">Les deux CSV pilotent tout le deploiement.</text>
+  <text x="442" y="386" font-size="11.5" fill="#333">Variables et boucles simples uniquement.</text>
+  <rect x="442" y="402" width="296" height="44" rx="8" fill="#FFF3E0" stroke="#EF6C00" stroke-width="1"/>
+  <text x="462" y="421" font-size="11" font-weight="bold" fill="#EF6C00">Import-Csv + foreach</text>
+  <text x="462" y="438" font-size="11" font-weight="bold" fill="#EF6C00">Commandes minimales fournies</text>
+  <text x="442" y="472" font-size="11" fill="#333">Pour automatiser sans architecture</text>
+  <text x="442" y="492" font-size="11" fill="#333">de script. Aucune fonction.</text>
+
+  <rect x="800" y="300" width="340" height="215" rx="14" fill="#fff" stroke="#2E7D32" stroke-width="2.5" filter="url(#sh)"/>
+  <rect x="800" y="300" width="340" height="38" rx="14" fill="#2E7D32"/>
+  <rect x="800" y="320" width="340" height="18" fill="#2E7D32"/>
+  <text x="970" y="326" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">AVANCE</text>
+  <text x="822" y="366" font-size="11.5" fill="#333">Vous concevez un script reutilisable.</text>
+  <text x="822" y="386" font-size="11.5" fill="#333">Controles, fonctions et cache.</text>
+  <rect x="822" y="402" width="296" height="44" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1"/>
+  <text x="842" y="421" font-size="11" font-weight="bold" fill="#2E7D32">TP = le cahier des charges</text>
+  <text x="842" y="438" font-size="11" font-weight="bold" fill="#2E7D32">Script = la correction commentee</text>
+  <text x="822" y="472" font-size="11" fill="#333">Pour apprendre a structurer une vraie</text>
+  <text x="822" y="492" font-size="11" fill="#333">automatisation PowerShell.</text>
 
   <!-- REGLE D'OR -->
   <rect x="40" y="545" width="1100" height="125" rx="14" fill="#FFEBEE" stroke="#C62828" stroke-width="2.5" filter="url(#sh)"/>

@@ -3,7 +3,7 @@ title: "TP Débutant — DFS et Réplication"
 ---
 
 > Durée estimée : 2h
-> Prérequis : TP Active Directory terminé, DC01 + DC2 opérationnels
+> Prérequis : TP Active Directory terminé, DC01 + DC02 opérationnels
 > Niveau : Débutant — commandes manuelles
 
 ---
@@ -12,7 +12,7 @@ title: "TP Débutant — DFS et Réplication"
 
 L'Active Directory du Fournil est en place. Maintenant il faut :
 
-- Partager les dossiers entre les deux serveurs (DC01 et DC2)
+- Partager les dossiers entre les deux serveurs (DC01 et DC02)
 - Mettre en place DFS pour que les utilisateurs accèdent aux fichiers via un chemin unique (`\\ad.fournil.lab\...`)
 - Configurer la réplication pour que les fichiers soient synchronisés entre les serveurs
 - Créer les dossiers personnels (homes)
@@ -24,11 +24,11 @@ L'Active Directory du Fournil est en place. Maintenant il faut :
 ### Consigne
 
 1. Sur DC01, installez les rôles **DFS Namespace** et **DFS Replication** avec les outils de gestion
-2. Sur DC2, installez uniquement **DFS Replication** (via `Invoke-Command`)
+2. Sur DC02, installez uniquement **DFS Replication** (via `Invoke-Command`)
 
 ### Questions
 
-- Pourquoi DC01 a besoin des 2 rôles mais DC2 n'en a besoin que d'un seul ?
+- Pourquoi DC01 a besoin des 2 rôles mais DC02 n'en a besoin que d'un seul ?
 - Que fait le paramètre `-IncludeManagementTools` ?
 - Qu'est-ce que `Invoke-Command` ? Pourquoi l'utiliser ?
 
@@ -47,8 +47,8 @@ Get-WindowsFeature FS-DFS-Namespace, FS-DFS-Replication | Select-Object Name, In
 
 ### Consigne
 
-1. Sur DC2, créez l'arborescence de dossiers `C:\fournil\Laboratoire\fabrication` (et sous-dossiers)
-2. Sur DC01 ET DC2, créez un partage caché `fabrication$` pointant vers `C:\fournil\Laboratoire\fabrication`
+1. Sur DC02, créez l'arborescence de dossiers `C:\fournil\Laboratoire\fabrication` (et sous-dossiers)
+2. Sur DC01 ET DC02, créez un partage caché `fabrication$` pointant vers `C:\fournil\Laboratoire\fabrication`
 
 ### Questions
 
@@ -62,12 +62,12 @@ Get-WindowsFeature FS-DFS-Namespace, FS-DFS-Replication | Select-Object Name, In
 # Sur DC01
 Get-SmbShare -Name "fabrication$"
 
-# Sur DC2
-Invoke-Command -ComputerName DC2 { Get-SmbShare -Name "fabrication$" }
+# Sur DC02
+Invoke-Command -ComputerName DC02 { Get-SmbShare -Name "fabrication$" }
 ```
 
 > [!tip]- Besoin d'aide ? Cliquez ici
-> Consultez : [[tp-final-active-directory/dfs/guide/dfs-02-dossiers-partages-dc2\|DFS-02-Dossiers-Partages-DC2]] et [[tp-final-active-directory/dfs/guide/dfs-03-partages-dc01\|DFS-03-Partages-DC01]]
+> Consultez : [[tp-final-active-directory/dfs/guide/dfs-02-dossiers-partages-dc02\|DFS-02-Dossiers-Partages-DC02]] et [[tp-final-active-directory/dfs/guide/dfs-03-partages-dc01\|DFS-03-Partages-DC01]]
 
 ---
 
@@ -84,14 +84,14 @@ Invoke-Command -ComputerName DC2 { Get-SmbShare -Name "fabrication$" }
 3. Créez la racine DFS `\\ad.fournil.lab\Laboratoire` pointant vers `\\DC01\Laboratoire`
 4. Ajoutez un dossier DFS `\\ad.fournil.lab\Laboratoire\fabrication` avec :
    - Cible 1 : `\\DC01\fabrication$`
-   - Cible 2 : `\\DC2\fabrication$`
+   - Cible 2 : `\\DC02\fabrication$`
 
 ### Questions
 
 - Quelle est la différence entre un partage SMB normal et un espace de noms DFS ?
 - Que signifie `-Type DomainV2` ?
 - Que signifie `-EnableAccessBasedEnumeration $true` ?
-- Pourquoi 2 cibles (DC01 + DC2) par dossier ?
+- Pourquoi 2 cibles (DC01 + DC02) par dossier ?
 
 ### Vérification
 
@@ -112,16 +112,16 @@ Get-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\fabrication"
 Pour le pôle `fabrication` :
 
 1. Créez un groupe de réplication `Laboratoire-fabrication-Replication`
-2. Ajoutez DC01 et DC2 comme membres
-3. Créez une connexion entre DC01 et DC2
-4. Configurez DC01 comme **membre principal** et DC2 comme secondaire
+2. Ajoutez DC01 et DC02 comme membres
+3. Créez une connexion entre DC01 et DC02
+4. Configurez DC01 comme **membre principal** et DC02 comme secondaire
 5. Liez la réplication à l'espace de noms DFS
 
 ### Questions
 
 - Qu'est-ce que DFSr ?
 - Pourquoi un serveur est "principal" et l'autre "secondaire" ?
-- Que se passe-t-il si on crée un fichier sur DC2 ? Est-il répliqué vers DC01 ?
+- Que se passe-t-il si on crée un fichier sur DC02 ? Est-il répliqué vers DC01 ?
 
 ### Test
 
@@ -129,8 +129,8 @@ Pour le pôle `fabrication` :
 # Créer un fichier test sur DC01
 New-Item "C:\fournil\Laboratoire\fabrication\test-replication.txt" -Value "bonjour"
 
-# Attendre 30 secondes puis vérifier sur DC2
-Invoke-Command -ComputerName DC2 { Get-Content "C:\fournil\Laboratoire\fabrication\test-replication.txt" }
+# Attendre 30 secondes puis vérifier sur DC02
+Invoke-Command -ComputerName DC02 { Get-Content "C:\fournil\Laboratoire\fabrication\test-replication.txt" }
 ```
 
 > [!tip]- Besoin d'aide ? Cliquez ici
@@ -188,7 +188,7 @@ Depuis un **poste client** connecté avec `mlebrun` :
 | Exercice          | Phase du script |
 | ----------------- | --------------- |
 | 1 (Rôles)         | Phase 1         |
-| 2 (Partages DC2)  | Phase 2-3       |
+| 2 (Partages DC02) | Phase 2-3       |
 | 3 (DFS Namespace) | Phase 4         |
 | 4 (Réplication)   | Phase 5         |
 | 5 (Homes)         | Phase 6-7       |

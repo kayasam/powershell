@@ -7,7 +7,7 @@ title: "Phase 6 — Configuration des dossiers personnels Homes"
 
 ## Objectif
 
-Créer les dossiers personnels des utilisateurs (homes) avec les permissions NTFS appropriées, les répliquer sur DC2, les partager, les intégrer dans un espace de noms DFS dédié, et configurer la réplication.
+Créer les dossiers personnels des utilisateurs (homes) avec les permissions NTFS appropriées, les répliquer sur DC02, les partager, les intégrer dans un espace de noms DFS dédié, et configurer la réplication.
 
 ## Commandes détaillées
 
@@ -118,32 +118,32 @@ Set-Acl "C:\homes\Laboratoire" $acl
 
 > **Principe de fonctionnement :** Quand un utilisateur se connecte pour la première fois et que Windows crée son dossier home, l'utilisateur devient le « créateur propriétaire » de ce dossier. La règle CREATEUR PROPRIETAIRE lui accorde alors automatiquement les droits de modification. C'est un mécanisme élégant qui évite de devoir configurer les permissions individuellement pour chaque utilisateur.
 
-### 6.4 -- Copie des homes vers DC2 avec Robocopy
+### 6.4 -- Copie des homes vers DC02 avec Robocopy
 
 ```powershell
-robocopy "C:\homes" "\\DC2\C$\homes" /MIR /COPYALL /R:1 /W:1
+robocopy "C:\homes" "\\DC02\C$\homes" /MIR /COPYALL /R:1 /W:1
 ```
 
-| Paramètre          | Description                                                                                                                                                                                                                                      |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `"C:\homes"`       | Dossier source (local sur DC01).                                                                                                                                                                                                                 |
-| `"\\DC2\C$\homes"` | Dossier destination sur DC2, via le partage administratif `C$`.                                                                                                                                                                                  |
-| `/MIR`             | Mode miroir : copie tout et supprime dans la destination les fichiers qui n'existent plus dans la source. Crée une copie exacte.                                                                                                                 |
-| `/COPYALL`         | Copie tous les attributs des fichiers : données, attributs, horodatages, **permissions NTFS (DACL)**, propriétaire, **informations d'audit (SACL)**. C'est crucial pour que les permissions configurées à l'étape 6.3 soient identiques sur DC2. |
-| `/R:1`             | Nombre de tentatives en cas d'échec de copie d'un fichier : 1 (au lieu des 1 million par défaut).                                                                                                                                                |
-| `/W:1`             | Temps d'attente entre les tentatives : 1 seconde (au lieu de 30 secondes par défaut).                                                                                                                                                            |
+| Paramètre           | Description                                                                                                                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"C:\homes"`        | Dossier source (local sur DC01).                                                                                                                                                                                                                  |
+| `"\\DC02\C$\homes"` | Dossier destination sur DC02, via le partage administratif `C$`.                                                                                                                                                                                  |
+| `/MIR`              | Mode miroir : copie tout et supprime dans la destination les fichiers qui n'existent plus dans la source. Crée une copie exacte.                                                                                                                  |
+| `/COPYALL`          | Copie tous les attributs des fichiers : données, attributs, horodatages, **permissions NTFS (DACL)**, propriétaire, **informations d'audit (SACL)**. C'est crucial pour que les permissions configurées à l'étape 6.3 soient identiques sur DC02. |
+| `/R:1`              | Nombre de tentatives en cas d'échec de copie d'un fichier : 1 (au lieu des 1 million par défaut).                                                                                                                                                 |
+| `/W:1`              | Temps d'attente entre les tentatives : 1 seconde (au lieu de 30 secondes par défaut).                                                                                                                                                             |
 
 > **Pourquoi `/COPYALL` et pas `/COPY:DATSOU` ?** `/COPYALL` est un raccourci pour `/COPY:DATSOU` qui copie les 6 attributs : **D**onnées, **A**ttributs, **T**imestamps, **S**ecurity (DACL), **O**wner, a**U**diting (SACL). On utilise `/COPYALL` ici car les permissions NTFS doivent être identiques sur les deux serveurs pour que la réplication DFS fonctionne correctement.
 
-### 6.5 -- Création des partages homes sur DC01 et DC2
+### 6.5 -- Création des partages homes sur DC01 et DC02
 
 ```powershell
 # Sur DC01
 New-SmbShare -Name "homes-Laboratoire$" -Path "C:\homes\Laboratoire" -FullAccess "Tout le monde"
 New-SmbShare -Name "homes-Vente$" -Path "C:\homes\Vente" -FullAccess "Tout le monde"
 
-# Sur DC2
-Invoke-Command -ComputerName DC2 -ScriptBlock {
+# Sur DC02
+Invoke-Command -ComputerName DC02 -ScriptBlock {
     New-SmbShare -Name "homes-Laboratoire$" -Path "C:\homes\Laboratoire" -FullAccess "Tout le monde"
     New-SmbShare -Name "homes-Vente$" -Path "C:\homes\Vente" -FullAccess "Tout le monde"
 }
@@ -169,12 +169,12 @@ New-DfsnRoot -Path "\\ad.fournil.lab\HOMES" `
 New-DfsnFolder -Path "\\ad.fournil.lab\HOMES\Laboratoire" `
     -TargetPath "\\DC01\homes-Laboratoire$"
 New-DfsnFolderTarget -Path "\\ad.fournil.lab\HOMES\Laboratoire" `
-    -TargetPath "\\DC2\homes-Laboratoire$"
+    -TargetPath "\\DC02\homes-Laboratoire$"
 
 New-DfsnFolder -Path "\\ad.fournil.lab\HOMES\Vente" `
     -TargetPath "\\DC01\homes-Vente$"
 New-DfsnFolderTarget -Path "\\ad.fournil.lab\HOMES\Vente" `
-    -TargetPath "\\DC2\homes-Vente$"
+    -TargetPath "\\DC02\homes-Vente$"
 ```
 
 L'espace de noms `\\ad.fournil.lab\HOMES` permet aux utilisateurs d'accéder à leurs dossiers personnels via un chemin uniforme, indépendamment du serveur physique.
@@ -187,16 +187,16 @@ La procédure suit le même schéma que pour les pôles (Phase 5), avec deux gro
 # --- HOMES Laboratoire ---
 New-DfsReplicationGroup -GroupName "HOMES-Laboratoire-Replication"
 New-DfsReplicatedFolder -GroupName "HOMES-Laboratoire-Replication" -FolderName "homes-Laboratoire"
-Add-DfsrMember -GroupName "HOMES-Laboratoire-Replication" -ComputerName DC01,DC2
+Add-DfsrMember -GroupName "HOMES-Laboratoire-Replication" -ComputerName DC01,DC02
 Add-DfsrConnection -GroupName "HOMES-Laboratoire-Replication" `
-    -SourceComputerName DC01 -DestinationComputerName DC2
+    -SourceComputerName DC01 -DestinationComputerName DC02
 
 Set-DfsrMembership -GroupName "HOMES-Laboratoire-Replication" `
     -FolderName "homes-Laboratoire" -ComputerName DC01 `
     -ContentPath "C:\homes\Laboratoire" -PrimaryMember $true -Force
 
 Set-DfsrMembership -GroupName "HOMES-Laboratoire-Replication" `
-    -FolderName "homes-Laboratoire" -ComputerName DC2 `
+    -FolderName "homes-Laboratoire" -ComputerName DC02 `
     -ContentPath "C:\homes\Laboratoire" -Force
 
 Set-DfsReplicatedFolder -GroupName "HOMES-Laboratoire-Replication" `
@@ -206,16 +206,16 @@ Set-DfsReplicatedFolder -GroupName "HOMES-Laboratoire-Replication" `
 # --- HOMES Vente ---
 New-DfsReplicationGroup -GroupName "HOMES-Vente-Replication"
 New-DfsReplicatedFolder -GroupName "HOMES-Vente-Replication" -FolderName "homes-Vente"
-Add-DfsrMember -GroupName "HOMES-Vente-Replication" -ComputerName DC01,DC2
+Add-DfsrMember -GroupName "HOMES-Vente-Replication" -ComputerName DC01,DC02
 Add-DfsrConnection -GroupName "HOMES-Vente-Replication" `
-    -SourceComputerName DC01 -DestinationComputerName DC2
+    -SourceComputerName DC01 -DestinationComputerName DC02
 
 Set-DfsrMembership -GroupName "HOMES-Vente-Replication" `
     -FolderName "homes-Vente" -ComputerName DC01 `
     -ContentPath "C:\homes\Vente" -PrimaryMember $true -Force
 
 Set-DfsrMembership -GroupName "HOMES-Vente-Replication" `
-    -FolderName "homes-Vente" -ComputerName DC2 `
+    -FolderName "homes-Vente" -ComputerName DC02 `
     -ContentPath "C:\homes\Vente" -Force
 
 Set-DfsReplicatedFolder -GroupName "HOMES-Vente-Replication" `

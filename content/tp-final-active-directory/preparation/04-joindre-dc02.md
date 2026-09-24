@@ -1,16 +1,20 @@
 ---
-title: "00.4 — Joindre DC2 et le promouvoir en DC additionnel"
+title: "00.4 — Joindre DC02 et le promouvoir en DC additionnel"
 ---
 
 > Durée : **30 min**
 > Où : 💻 **SUR VOTRE POSTE**, via PowerShell Direct
 > Précédent : [[tp-final-active-directory/preparation/03-promouvoir-dc01\|00.3-Promouvoir-DC01]]
 
+> [!info] Vous utilisez VMware Workstation ?
+> Exécutez directement le contenu des blocs `Invoke-Command -VMName` dans la console de la VM indiquée : DC02 pour la jonction et la promotion, DC01 pour les contrôles signalés.
+> Utilisez `Restart-Computer` dans la VM et `vmrun snapshot` depuis l'hôte ; voir [[tp-final-active-directory/preparation/01-vmware-workstation\|00.1-VMware-Workstation]].
+
 ---
 
 ## Ce qu'on fait, et pourquoi dans cet ordre
 
-DC2 doit franchir **trois portes**, dans l'ordre. Sauter une marche = message d'erreur incompréhensible.
+DC02 doit franchir **trois portes**, dans l'ordre. Sauter une marche = message d'erreur incompréhensible.
 
 | #   | Action                         | Sans ça...                                                               |
 | --- | ------------------------------ | ------------------------------------------------------------------------ |
@@ -20,20 +24,20 @@ DC2 doit franchir **trois portes**, dans l'ordre. Sauter une marche = message d'
 
 > [!question] Pourquoi un deuxième contrôleur de domaine ?
 >
-> - **Tolérance de panne** : si DC01 tombe, plus personne ne peut ouvrir de session. Avec DC2, l'entreprise continue de tourner.
-> - **Réplication** : vous allez voir concrètement un objet créé sur DC01 apparaître sur DC2.
-> - Et pour le TP DFS : DC2 hébergera la **deuxième copie** des données, avec DFS-R qui les synchronise.
+> - **Tolérance de panne** : si DC01 tombe, plus personne ne peut ouvrir de session. Avec DC02, l'entreprise continue de tourner.
+> - **Réplication** : vous allez voir concrètement un objet créé sur DC01 apparaître sur DC02.
+> - Et pour le TP DFS : DC02 hébergera la **deuxième copie** des données, avec DFS-R qui les synchronise.
 
 ---
 
-## Étape 1 — Faire pointer le DNS de DC2 vers DC01
+## Étape 1 — Faire pointer le DNS de DC02 vers DC01
 
 > 💻 **SUR VOTRE POSTE**
 
 ![Schema-DNS-Etapes](https://kayasam.github.io/powershell/ressources/images/schema-dns-etapes.svg)
 
 ```powershell
-Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDC2 -ScriptBlock {
     $if = Get-NetAdapter | Where-Object Status -eq "Up" | Select-Object -First 1
 
     Set-DnsClientServerAddress -InterfaceIndex $if.ifIndex -ServerAddresses "192.168.3.1"
@@ -46,7 +50,7 @@ Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
 ### Vérification — l'étape à ne surtout pas sauter
 
 ```powershell
-Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDC2 -ScriptBlock {
     Resolve-DnsName ad.fournil.lab
     Resolve-DnsName _ldap._tcp.dc._msdcs.ad.fournil.lab -Type SRV
 }
@@ -61,42 +65,42 @@ Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
 > [!failure] `Resolve-DnsName : DNS name does not exist`
 > Trois causes possibles, dans cet ordre :
 >
-> 1. Le DNS de DC2 ne pointe pas vers `192.168.3.1` → revérifiez la commande ci-dessus
+> 1. Le DNS de DC02 ne pointe pas vers `192.168.3.1` → revérifiez la commande ci-dessus
 > 2. DC01 n'est pas démarré → `Get-VM DC01`
-> 3. Le pare-feu de DC01 bloque le port 53 → testez depuis DC2 :
+> 3. Le pare-feu de DC01 bloque le port 53 → testez depuis DC02 :
 >
 > ```powershell
-> Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
+> Invoke-Command -VMName DC02 -Credential $credDC2 -ScriptBlock {
 >     Test-NetConnection 192.168.3.1 -Port 53
 > }
 > ```
 
 ---
 
-## Étape 2 — Joindre DC2 au domaine
+## Étape 2 — Joindre DC02 au domaine
 
 ```powershell
 # Identifiants d'un admin du domaine (créé à la promotion de DC01)
 $credDom = Get-Credential -Message "Admin du DOMAINE (login : AD\Administrateur)"
 
-Invoke-Command -VMName DC2 -Credential $credDC2 -ArgumentList $credDom -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDC2 -ArgumentList $credDom -ScriptBlock {
     param($credDom)
     Add-Computer -DomainName "ad.fournil.lab" -Credential $credDom -Force
 }
 ```
 
 > [!tip] Le `-ArgumentList` / `param()`, c'est quoi ?
-> Le bloc `{ }` s'exécute **sur DC2** : il n'a aucune idée de ce que contient votre variable `$credDom`, qui vit sur votre PC.
+> Le bloc `{ }` s'exécute **sur DC02** : il n'a aucune idée de ce que contient votre variable `$credDom`, qui vit sur votre PC.
 > `-ArgumentList` la fait passer de l'autre côté, et `param()` la récupère. C'est un réflexe à prendre avec `Invoke-Command`.
 
 ```powershell
-Restart-VM -Name DC2 -Force -Wait -For Heartbeat
+Restart-VM -Name DC02 -Force -Wait -For Heartbeat
 ```
 
 ### Vérification
 
 ```powershell
-Invoke-Command -VMName DC2 -Credential $credDom -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDom -ScriptBlock {
     (Get-CimInstance Win32_ComputerSystem) | Select-Object Name, Domain, PartOfDomain
 }
 ```
@@ -106,7 +110,7 @@ Invoke-Command -VMName DC2 -Credential $credDom -ScriptBlock {
 ```
 Name Domain         PartOfDomain
 ---- ------         ------------
-DC2  ad.fournil.lab         True
+DC02  ad.fournil.lab         True
 ```
 
 > [!success] Checkpoint 2
@@ -119,7 +123,7 @@ DC2  ad.fournil.lab         True
 > Kerberos refuse un écart de plus de **5 minutes** entre les machines. Resynchronisez :
 >
 > ```powershell
-> Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
+> Invoke-Command -VMName DC02 -Credential $credDC2 -ScriptBlock {
 >     w32tm /config /syncfromflags:manual /manualpeerlist:"192.168.3.1" /update
 >     Restart-Service w32time
 >     w32tm /resync
@@ -128,27 +132,27 @@ DC2  ad.fournil.lab         True
 
 ---
 
-## Étape 3 — Installer le rôle AD DS sur DC2
+## Étape 3 — Installer le rôle AD DS sur DC02
 
 ```powershell
-Invoke-Command -VMName DC2 -Credential $credDom -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDom -ScriptBlock {
     Install-WindowsFeature AD-Domain-Services, DNS -IncludeManagementTools
 }
 ```
 
 ---
 
-## Étape 4 — Promouvoir DC2 en contrôleur de domaine additionnel
+## Étape 4 — Promouvoir DC02 en contrôleur de domaine additionnel
 
 Attention : la commande n'est **pas** la même qu'à l'étape 00.3.
 
-| Situation                               | Commande                       |
-| --------------------------------------- | ------------------------------ |
-| Créer un **nouveau** domaine (DC01)     | `Install-ADDSForest`           |
-| Rejoindre un domaine **existant** (DC2) | `Install-ADDSDomainController` |
+| Situation                                | Commande                       |
+| ---------------------------------------- | ------------------------------ |
+| Créer un **nouveau** domaine (DC01)      | `Install-ADDSForest`           |
+| Rejoindre un domaine **existant** (DC02) | `Install-ADDSDomainController` |
 
 ```powershell
-Invoke-Command -VMName DC2 -Credential $credDom -ArgumentList $credDom -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDom -ArgumentList $credDom -ScriptBlock {
     param($credDom)
 
     Import-Module ADDSDeployment
@@ -167,18 +171,18 @@ Invoke-Command -VMName DC2 -Credential $credDom -ArgumentList $credDom -ScriptBl
 
 ### Les paramètres qui comptent
 
-| Paramètre                 | Rôle                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------ |
-| `-Credential $credDom`    | Il faut être **Admin du domaine** pour ajouter un DC. Un admin local ne suffit pas.  |
-| `-InstallDns`             | DC2 devient aussi serveur DNS : la zone se réplique automatiquement depuis DC01      |
-| `-NoGlobalCatalog:$false` | DC2 sera **catalogue global** — il peut répondre aux ouvertures de session tout seul |
-| `-SiteName`               | Le site AD. Un seul ici, celui par défaut.                                           |
+| Paramètre                 | Rôle                                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------------- |
+| `-Credential $credDom`    | Il faut être **Admin du domaine** pour ajouter un DC. Un admin local ne suffit pas.   |
+| `-InstallDns`             | DC02 devient aussi serveur DNS : la zone se réplique automatiquement depuis DC01      |
+| `-NoGlobalCatalog:$false` | DC02 sera **catalogue global** — il peut répondre aux ouvertures de session tout seul |
+| `-SiteName`               | Le site AD. Un seul ici, celui par défaut.                                            |
 
 > [!note] La promotion est plus longue que la première
-> DC2 doit **télécharger toute la base d'annuaire** depuis DC01. Comptez 5 à 15 minutes, puis un redémarrage automatique.
+> DC02 doit **télécharger toute la base d'annuaire** depuis DC01. Comptez 5 à 15 minutes, puis un redémarrage automatique.
 
 ```powershell
-Wait-VM -Name DC2 -For Heartbeat
+Wait-VM -Name DC02 -For Heartbeat
 ```
 
 ---
@@ -203,7 +207,7 @@ Invoke-Command -VMName DC01 -Credential $credDom -ScriptBlock {
 Name IPv4Address   IsGlobalCatalog Site
 ---- -----------   --------------- ----
 DC01 192.168.3.1              True Default-First-Site-Name
-DC2  192.168.3.2              True Default-First-Site-Name
+DC02  192.168.3.2              True Default-First-Site-Name
 ```
 
 ### 5.2 — L'état de la réplication
@@ -229,14 +233,14 @@ Invoke-Command -VMName DC01 -Credential $credDom -ScriptBlock {
     repadmin /syncall /AdeP
 }
 
-# ...et on le cherche sur DC2
-Invoke-Command -VMName DC2 -Credential $credDom -ScriptBlock {
-    Get-ADUser -Identity "testrepl" -Server "DC2" | Select-Object Name, SamAccountName
+# ...et on le cherche sur DC02
+Invoke-Command -VMName DC02 -Credential $credDom -ScriptBlock {
+    Get-ADUser -Identity "testrepl" -Server "DC02" | Select-Object Name, SamAccountName
 }
 ```
 
 > [!success] Checkpoint 5 — la réplication fonctionne
-> `test-replication` a été créé sur DC01 et apparaît sur DC2. Votre domaine est réellement redondant.
+> `test-replication` a été créé sur DC01 et apparaît sur DC02. Votre domaine est réellement redondant.
 
 ```powershell
 # Nettoyer
@@ -257,7 +261,7 @@ Invoke-Command -VMName DC01 -Credential $credDom -ScriptBlock {
     Set-DnsClientServerAddress -InterfaceIndex $if.ifIndex -ServerAddresses "127.0.0.1","192.168.3.2"
 }
 
-Invoke-Command -VMName DC2 -Credential $credDom -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDom -ScriptBlock {
     $if = Get-NetAdapter | Where-Object Status -eq "Up" | Select-Object -First 1
     Set-DnsClientServerAddress -InterfaceIndex $if.ifIndex -ServerAddresses "127.0.0.1","192.168.3.1"
 
@@ -269,7 +273,7 @@ Invoke-Command -VMName DC2 -Credential $credDom -ScriptBlock {
 ### Vérification du profil réseau
 
 ```powershell
-foreach ($vm in "DC01","DC2") {
+foreach ($vm in "DC01","DC02") {
     Invoke-Command -VMName $vm -Credential $credDom -ScriptBlock {
         "$env:COMPUTERNAME : " + (Get-NetConnectionProfile).NetworkCategory
     }
@@ -280,14 +284,14 @@ foreach ($vm in "DC01","DC2") {
 
 ```
 DC01 : DomainAuthenticated
-DC2 : DomainAuthenticated
+DC02 : DomainAuthenticated
 ```
 
 > [!warning] Si vous voyez `Private` ou `Public`
 > Ne passez pas à la suite. Toutes les règles de pare-feu de l'étape 00.5 sont en `-Profile Domain` : elles ne s'appliqueraient pas, et vous perdriez l'après-midi sur le TP DFS.
 >
 > ```powershell
-> Invoke-Command -VMName DC2 -Credential $credDom -ScriptBlock {
+> Invoke-Command -VMName DC02 -Credential $credDom -ScriptBlock {
 >     Restart-NetAdapter -Name (Get-NetAdapter | Where-Object Status -eq "Up").Name
 >     Start-Sleep 15
 >     Get-NetConnectionProfile | Select-Object NetworkCategory
@@ -300,7 +304,7 @@ DC2 : DomainAuthenticated
 
 ```powershell
 Checkpoint-VM -Name DC01 -SnapshotName "04-Domaine-operationnel"
-Checkpoint-VM -Name DC2  -SnapshotName "04-Domaine-operationnel"
+Checkpoint-VM -Name DC02  -SnapshotName "04-Domaine-operationnel"
 ```
 
 > [!important] Faites-les **tous les deux en même temps**
@@ -310,14 +314,14 @@ Checkpoint-VM -Name DC2  -SnapshotName "04-Domaine-operationnel"
 
 ## Checkpoint final de l'étape 00.4
 
-| Vérification        | Commande                               | Attendu                       |
-| ------------------- | -------------------------------------- | ----------------------------- |
-| DC2 dans le domaine | `Get-CimInstance Win32_ComputerSystem` | `PartOfDomain = True`         |
-| Deux DC             | `Get-ADDomainController -Filter *`     | `DC01` et `DC2`               |
-| Réplication saine   | `repadmin /replsummary`                | `fails = 0`                   |
-| Catalogue global    | `Get-ADDomainController -Filter *`     | `IsGlobalCatalog = True` (×2) |
-| Profil réseau       | `Get-NetConnectionProfile`             | `DomainAuthenticated` (×2)    |
-| Résolution interne  | `Resolve-DnsName ad.fournil.lab`       | 2 IP : `.1` et `.2`           |
+| Vérification         | Commande                               | Attendu                       |
+| -------------------- | -------------------------------------- | ----------------------------- |
+| DC02 dans le domaine | `Get-CimInstance Win32_ComputerSystem` | `PartOfDomain = True`         |
+| Deux DC              | `Get-ADDomainController -Filter *`     | `DC01` et `DC02`              |
+| Réplication saine    | `repadmin /replsummary`                | `fails = 0`                   |
+| Catalogue global     | `Get-ADDomainController -Filter *`     | `IsGlobalCatalog = True` (×2) |
+| Profil réseau        | `Get-NetConnectionProfile`             | `DomainAuthenticated` (×2)    |
+| Résolution interne   | `Resolve-DnsName ad.fournil.lab`       | 2 IP : `.1` et `.2`           |
 
 > [!success] Votre infrastructure est debout
 > Un domaine, deux contrôleurs, une réplication qui fonctionne, Internet.

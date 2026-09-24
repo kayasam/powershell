@@ -27,17 +27,16 @@ comprend pas, trois semaines après, dans un journal illisible.
 
 **A2.** Le script s'arrête-t-il, ou continue-t-il ?
 
-**A3.** Classez ces situations et vérifiez chacune :
+**A3.** Testez chacune de ces situations dans un `try/catch` **sans**
+`-ErrorAction Stop`, et notez si le `catch` se déclenche :
 
-| Situation                        | Terminante ? | `catch` se déclenche ? |
-| -------------------------------- | ------------ | ---------------------- |
-| `Get-Item` sur un fichier absent |              |                        |
-| Division par zéro                |              |                        |
-| Appel d'une cmdlet inexistante   |              |                        |
-| `Write-Error`                    |              |                        |
-| Erreur de syntaxe dans le script |              |                        |
+| Situation                        | `catch` se déclenche ? |
+| -------------------------------- | ---------------------- |
+| `Get-Item` sur un fichier absent |                        |
+| Division par zéro                |                        |
+| Appel d'une cmdlet inexistante   |                        |
 
-Laquelle ne peut **jamais** être interceptée par `try/catch` ? Pourquoi ?
+Que faut-il ajouter pour que la première soit interceptée ?
 
 ---
 
@@ -50,11 +49,8 @@ déclenche réellement. Quel paramètre est indispensable ?
 
 **B3.** Le bloc `finally` s'exécute-t-il dans les deux cas ? À quoi sert-il ?
 
-**B4.** Dans le `catch`, affichez le message, le **type** de l'exception, la
-**ligne** et la **commande** fautive.
-
-**B5.** Écrivez un `try/catch` distinguant « fichier absent » de « accès refusé ».
-Dans quel ordre les blocs `catch` doivent-ils être écrits ? Que se passe-t-il sinon ?
+**B4.** Dans le `catch`, affichez le message, le **type** de l'exception et la
+**ligne** où elle est survenue.
 
 ---
 
@@ -77,19 +73,13 @@ besoin, écrit dans un fichier **et** affiche à l'écran avec une couleur par n
 
 ---
 
-## Partie D : Préférences et flux
+## Partie D : Traiter un lot sans s'arrêter
 
-**D1.** Que fait `$ErrorActionPreference = 'Stop'` en tête de script ?
-Quel est le risque de le mettre sans réfléchir ?
+**D1.** Écrivez une boucle qui traite dix chemins, dont quatre invalides, et qui :
+ne s'arrête jamais, compte succès et échecs séparément, et affiche un bilan final.
 
-**D2.** Quelle différence entre `SilentlyContinue` et `Ignore` ? Comment inspecter
-une erreur qu'on a volontairement rendue silencieuse ?
-
-**D3.** Que fait `2>&1` ? Quel type d'objet obtient-on ?
-
-**D4.** Écrivez une boucle qui traite dix chemins, dont quatre invalides, et qui :
-ne s'arrête jamais, compte succès et échecs séparément, collecte le détail de
-chaque échec dans un objet, et produit un rapport CSV.
+**D2.** Collectez le détail de chaque échec dans un objet, puis exportez le
+rapport en CSV (chapitre 17).
 
 ---
 
@@ -98,11 +88,9 @@ chaque échec dans un objet, et produit un rapport CSV.
 **E1.** Écrivez une fonction de lecture robuste : contenu si tout va bien,
 message clair et `$null` sinon, jamais d'interruption, journalisation des erreurs.
 
-**E2.** Complétez-la avec un **code de sortie** : `0` si tout s'est bien passé,
-`1` s'il y a eu des erreurs partielles, `2` en cas d'échec bloquant.
-
-**E3.** Comment l'appelant récupère-t-il ce code ? Pourquoi est-ce indispensable
-pour une tâche planifiée ?
+**E2.** Testez-la sur un fichier existant puis sur un fichier absent. Vérifiez
+que le script appelant va **jusqu'au bout** dans les deux cas, et que le journal
+contient bien les deux passages.
 
 ---
 
@@ -110,6 +98,6 @@ pour une tâche planifiée ?
 >
 > - Vous distinguez erreur **terminante** et **non terminante**
 > - Vous savez qu'il faut `-ErrorAction Stop` pour attraper la seconde
-> - Vous écrivez des `catch` typés, dans le bon ordre
+> - Vous connaissez les trois patterns : tester, replier, journaliser
 > - Vous produisez un journal d'erreur exploitable
-> - Vous terminez vos scripts par un `exit` explicite
+> - Vous traitez un lot d'éléments sans jamais interrompre le script

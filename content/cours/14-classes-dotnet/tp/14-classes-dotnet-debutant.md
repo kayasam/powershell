@@ -23,5 +23,6 @@ parcours-pro: false
 2. Commandes utiles : `[System.IO.Path]::GetFileNameWithoutExtension($chemin)`, `[System.IO.Path]::GetExtension($chemin)`, `[System.IO.File]::ReadAllLines($chemin)`.
 3. Pour vérifier l'entrée : `[string]::IsNullOrWhiteSpace($Chemin)` puis `[System.IO.File]::Exists($Chemin)`.
 4. Pour créer un objet : `[PSCustomObject]@{ Nom = ...; Extension = ...; Lignes = ... }`.
+   Cette écriture est **fournie** : elle sera détaillée au chapitre 17, recopiez-la telle quelle.
 
 **Livrable :** vos réponses 1 à 3, le fichier d'essai et la fonction testée sur un chemin valide et un chemin absent.

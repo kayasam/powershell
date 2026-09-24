@@ -54,16 +54,16 @@
   <rect x="730" y="134" width="220" height="22" rx="4" fill="white" stroke="#FFF176"/>
   <text x="840" y="150" text-anchor="middle" font-size="9" fill="#666">fabrication$ (partage cache)</text>
 
-  <!-- DC2 -->
+  <!-- DC02 -->
   <rect x="715" y="210" width="250" height="120" rx="12" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2" filter="url(#sh)"/>
-  <text x="840" y="238" text-anchor="middle" font-size="14" font-weight="bold" fill="#7B1FA2">DC2 (replica)</text>
+  <text x="840" y="238" text-anchor="middle" font-size="14" font-weight="bold" fill="#7B1FA2">DC02 (replica)</text>
   <text x="840" y="258" text-anchor="middle" font-size="10" fill="#555">DFSr uniquement</text>
   <rect x="730" y="268" width="220" height="22" rx="4" fill="white" stroke="#CE93D8"/>
   <text x="840" y="284" text-anchor="middle" font-size="9" fill="#666">C:\fournil\Laboratoire\fabrication</text>
   <rect x="730" y="294" width="220" height="22" rx="4" fill="white" stroke="#CE93D8"/>
   <text x="840" y="310" text-anchor="middle" font-size="9" fill="#666">fabrication$ (partage cache)</text>
 
-  <!-- Réplication DC01 ↔ DC2 -->
+  <!-- Réplication DC01 ↔ DC02 -->
   <rect x="935" y="160" width="50" height="60" rx="8" fill="#E0E0E0" stroke="#9E9E9E"/>
   <text x="960" y="183" text-anchor="middle" font-size="18">&#128260;</text>
   <text x="960" y="212" text-anchor="middle" font-size="7" fill="#666">DFSr</text>
@@ -80,9 +80,9 @@
   <text x="50" y="440" font-size="11" fill="#555">2. DFS redirige vers le serveur le plus proche :</text>
   <text x="385" y="440" font-size="11" font-weight="bold" fill="#F57F17">\\DC01\fabrication$</text>
   <text x="560" y="440" font-size="11" fill="#555">ou</text>
-  <text x="585" y="440" font-size="11" font-weight="bold" fill="#7B1FA2">\\DC2\fabrication$</text>
+  <text x="585" y="440" font-size="11" font-weight="bold" fill="#7B1FA2">\\DC02\fabrication$</text>
 
-  <text x="50" y="462" font-size="11" fill="#555">3. Si DC01 tombe en panne, DFS bascule automatiquement sur DC2 (et inversement)</text>
+  <text x="50" y="462" font-size="11" fill="#555">3. Si DC01 tombe en panne, DFS bascule automatiquement sur DC02 (et inversement)</text>
 
   <text x="50" y="490" font-size="11" fill="#555">4. DFSr synchronise les fichiers entre les deux serveurs en temps reel</text>
 

@@ -13,6 +13,7 @@ Construisez `Get-InfoFichier` sans solution fournie. La fonction accepte un chem
 
 1. Testez un fichier réel, un chemin absent et une saisie composée d'espaces.
 2. Comparez sur votre poste le temps de lecture de 20 000 lignes par `Get-Content` et par `[System.IO.File]::ReadAllLines()` ; notez les deux mesures, sans imposer un résultat fixe.
+   _(La mesure se fait avec `Measure-Command { ... }`.)_
 3. Expliquez pourquoi `[System.IO.Path]` fonctionne sur un chemin inexistant, et pourquoi `[System.IO.File]` ne bénéficie pas de `-WhatIf`.
 4. Montrez avec `2.5` et `4.5` la différence entre l'arrondi par défaut et l'arrondi demandé.
 

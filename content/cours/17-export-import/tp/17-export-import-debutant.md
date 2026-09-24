@@ -129,13 +129,35 @@ Write-Host "Seuil Cola : $($chargee.SeuilCola)"
 
 ## Mission finale E : le rapport d'inventaire 🌟
 
-**E1.** Produisez un rapport groupé **par type d'énergie**, indiquant pour chaque
-énergie : le nombre de pièces et la puissance totale.
+**E1.** Groupez les pièces **par type d'énergie** et affichez, pour chaque
+énergie, le nombre de pièces.
 
-**E2.** Exportez ce rapport en CSV.
+```powershell
+$pieces | Group-Object Energie | Select-Object Name, Count
+```
 
-> 💡 **Indice** : `Group-Object Energie`, puis une colonne calculée utilisant
-> `$_.Group` et `Measure-Object`.
+**E2.** Complétez pour obtenir **aussi** la puissance totale par énergie.
+Construisez le rapport avec une boucle `foreach` :
+
+```powershell
+$rapport = foreach ($groupe in ($pieces | Group-Object Energie)) {
+
+    $total = ($groupe.Group | Measure-Object Puissance -Sum).Sum
+
+    [PSCustomObject]@{
+        Energie        = $groupe.Name
+        NbPieces       = $groupe.Count
+        PuissanceTotale = $total
+    }
+}
+
+$rapport | Format-Table -AutoSize
+```
+
+**E3.** Exportez ce rapport en CSV, puis réimportez-le pour vérifier.
+
+> 💡 **Indice** : `$groupe.Group` contient les objets du groupe, `$groupe.Name`
+> la valeur commune et `$groupe.Count` leur nombre (chapitre 09).
 
 ---
 

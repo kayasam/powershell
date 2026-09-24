@@ -7,7 +7,7 @@ title: "Phase 5 — Configuration de la replication DFS"
 
 ## Objectif
 
-Mettre en place la réplication automatique des fichiers entre DC01 et DC2 pour chaque pôle. La réplication DFS utilise le protocole RDC (Remote Differential Compression) pour ne transmettre que les différences entre fichiers, économisant ainsi la bande passante.
+Mettre en place la réplication automatique des fichiers entre DC01 et DC02 pour chaque pôle. La réplication DFS utilise le protocole RDC (Remote Differential Compression) pour ne transmettre que les différences entre fichiers, économisant ainsi la bande passante.
 
 ## Concepts clés
 
@@ -49,29 +49,29 @@ New-DfsReplicatedFolder -GroupName "Laboratoire-fabrication-Replication" `
 
 ```powershell
 Add-DfsrMember -GroupName "Laboratoire-fabrication-Replication" `
-    -ComputerName DC01,DC2
+    -ComputerName DC01,DC02
 ```
 
 | Paramètre       | Valeur                                  | Description                                                                                                                                                       |
 | --------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `-GroupName`    | `"Laboratoire-fabrication-Replication"` | Groupe de réplication auquel ajouter les membres.                                                                                                                 |
-| `-ComputerName` | `DC01,DC2`                              | Liste des serveurs à ajouter comme membres. On peut passer plusieurs noms séparés par des virgules. Les deux serveurs rejoignent le groupe en une seule commande. |
+| `-ComputerName` | `DC01,DC02`                             | Liste des serveurs à ajouter comme membres. On peut passer plusieurs noms séparés par des virgules. Les deux serveurs rejoignent le groupe en une seule commande. |
 
 ### 5.4 -- Création de la connexion de réplication
 
 ```powershell
 Add-DfsrConnection -GroupName "Laboratoire-fabrication-Replication" `
     -SourceComputerName DC01 `
-    -DestinationComputerName DC2
+    -DestinationComputerName DC02
 ```
 
 | Paramètre                  | Valeur                                  | Description                                         |
 | -------------------------- | --------------------------------------- | --------------------------------------------------- |
 | `-GroupName`               | `"Laboratoire-fabrication-Replication"` | Groupe de réplication concerné.                     |
 | `-SourceComputerName`      | `DC01`                                  | Serveur source de la connexion de réplication.      |
-| `-DestinationComputerName` | `DC2`                                   | Serveur destination de la connexion de réplication. |
+| `-DestinationComputerName` | `DC02`                                  | Serveur destination de la connexion de réplication. |
 
-> **Note :** Bien que la connexion soit définie avec une source et une destination, la réplication DFS est **bidirectionnelle** par défaut. Les modifications effectuées sur DC2 sont également répliquées vers DC01. La notion de source/destination définit surtout la topologie initiale et la direction de la réplication de première synchronisation.
+> **Note :** Bien que la connexion soit définie avec une source et une destination, la réplication DFS est **bidirectionnelle** par défaut. Les modifications effectuées sur DC02 sont également répliquées vers DC01. La notion de source/destination définit surtout la topologie initiale et la direction de la réplication de première synchronisation.
 
 ### 5.5 -- Configuration de l'appartenance (membership) pour DC01
 
@@ -84,26 +84,26 @@ Set-DfsrMembership -GroupName "Laboratoire-fabrication-Replication" `
     -Force
 ```
 
-| Paramètre        | Valeur                                  | Description                                                                                                                                                                                                                                                                          |
-| ---------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `-GroupName`     | `"Laboratoire-fabrication-Replication"` | Groupe de réplication.                                                                                                                                                                                                                                                               |
-| `-FolderName`    | `"fabrication"`                         | Nom logique du dossier répliqué (défini à l'étape 5.2).                                                                                                                                                                                                                              |
-| `-ComputerName`  | `DC01`                                  | Serveur membre à configurer.                                                                                                                                                                                                                                                         |
-| `-ContentPath`   | `"C:\fournil\Laboratoire\fabrication"`  | Chemin physique local du dossier sur ce serveur. C'est ici que le moteur DFSr lira et écrira les fichiers répliqués.                                                                                                                                                                 |
-| `-PrimaryMember` | `$true`                                 | **Paramètre crucial.** Désigne DC01 comme le membre primaire. Lors de la réplication initiale, si des fichiers existent des deux côtés avec des différences, les fichiers de DC01 font autorité. Les fichiers en conflit sur DC2 sont déplacés dans le dossier `ConflictAndDeleted`. |
-| `-Force`         | --                                      | Supprime les demandes de confirmation interactives. Nécessaire pour une exécution non interactive (dans un script).                                                                                                                                                                  |
+| Paramètre        | Valeur                                  | Description                                                                                                                                                                                                                                                                           |
+| ---------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-GroupName`     | `"Laboratoire-fabrication-Replication"` | Groupe de réplication.                                                                                                                                                                                                                                                                |
+| `-FolderName`    | `"fabrication"`                         | Nom logique du dossier répliqué (défini à l'étape 5.2).                                                                                                                                                                                                                               |
+| `-ComputerName`  | `DC01`                                  | Serveur membre à configurer.                                                                                                                                                                                                                                                          |
+| `-ContentPath`   | `"C:\fournil\Laboratoire\fabrication"`  | Chemin physique local du dossier sur ce serveur. C'est ici que le moteur DFSr lira et écrira les fichiers répliqués.                                                                                                                                                                  |
+| `-PrimaryMember` | `$true`                                 | **Paramètre crucial.** Désigne DC01 comme le membre primaire. Lors de la réplication initiale, si des fichiers existent des deux côtés avec des différences, les fichiers de DC01 font autorité. Les fichiers en conflit sur DC02 sont déplacés dans le dossier `ConflictAndDeleted`. |
+| `-Force`         | --                                      | Supprime les demandes de confirmation interactives. Nécessaire pour une exécution non interactive (dans un script).                                                                                                                                                                   |
 
-### 5.6 -- Configuration de l'appartenance pour DC2
+### 5.6 -- Configuration de l'appartenance pour DC02
 
 ```powershell
 Set-DfsrMembership -GroupName "Laboratoire-fabrication-Replication" `
     -FolderName "fabrication" `
-    -ComputerName DC2 `
+    -ComputerName DC02 `
     -ContentPath "C:\fournil\Laboratoire\fabrication" `
     -Force
 ```
 
-Même commande que pour DC01, mais sans `-PrimaryMember $true`. Par défaut, le membre n'est pas primaire (`$false`). DC2 recevra les fichiers de DC01 lors de la synchronisation initiale.
+Même commande que pour DC01, mais sans `-PrimaryMember $true`. Par défaut, le membre n'est pas primaire (`$false`). DC02 recevra les fichiers de DC01 lors de la synchronisation initiale.
 
 ### 5.7 -- Liaison avec l'espace de noms DFS
 

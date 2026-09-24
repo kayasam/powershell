@@ -13,7 +13,7 @@ title: "Phase 3 — Déploiement dans SYSVOL"
 
 Cette phase copie le script `Set-NetworkLocation.ps1` dans le **SYSVOL** de la GPO.
 
-**SYSVOL**, c'est quoi ?** C'est un partage réseau (`\\ad.fournil.lab\SYSVOL\`) qui est automatiquement répliqué entre tous les contrôleurs de domaine (DC01 et DC2). En mettant le script dedans, on s'assure que n'importe quel poste client pourra le télécharger, quel que soit le DC qui l'authentifie.
+**SYSVOL**, c'est quoi ?** C'est un partage réseau (`\\ad.fournil.lab\SYSVOL\`) qui est automatiquement répliqué entre tous les contrôleurs de domaine (DC01 et DC02). En mettant le script dedans, on s'assure que n'importe quel poste client pourra le télécharger, quel que soit le DC qui l'authentifie.
 
 ## Etape 3.1 — Construire le chemin SYSVOL
 
@@ -37,7 +37,7 @@ $sysvolPath = "\\ad.fournil.lab\SYSVOL\ad.fournil.lab\Policies\$gpoId\User\Scrip
 │                                                │          │    └── Dossier Scripts
 │                                                │          └── Config Utilisateur (pas Ordinateur)
 │                                                └── GUID unique de la GPO
-└── Partage SYSVOL (répliqué entre DC01 et DC2)
+└── Partage SYSVOL (répliqué entre DC01 et DC02)
 ```
 
 ## Etape 3.2 — Créer le dossier et copier le script
@@ -52,4 +52,4 @@ Copy-Item -Path "C:\Deploy\Set-NetworkLocation.ps1" -Destination $sysvolPath -Fo
 | `New-Item ... -Force`  | Crée le dossier `Logon` + tous les dossiers parents manquants |
 | `Copy-Item ... -Force` | Copie le script, écrase si déjà présent                       |
 
-> Après quelques minutes, le fichier sera automatiquement répliqué vers DC2 via SYSVOL.
+> Après quelques minutes, le fichier sera automatiquement répliqué vers DC02 via SYSVOL.

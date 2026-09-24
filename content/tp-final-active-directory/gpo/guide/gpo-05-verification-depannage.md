@@ -117,11 +117,11 @@ Chercher `GPO_Emplacement_Home` dans la section **"Objets de stratégie de group
 # Sur DC01
 Test-Path "\\DC01\SYSVOL\ad.fournil.lab\Policies\$gpoId\User\Scripts\Logon\Set-NetworkLocation.ps1"
 
-# Sur DC2
-Test-Path "\\DC2\SYSVOL\ad.fournil.lab\Policies\$gpoId\User\Scripts\Logon\Set-NetworkLocation.ps1"
+# Sur DC02
+Test-Path "\\DC02\SYSVOL\ad.fournil.lab\Policies\$gpoId\User\Scripts\Logon\Set-NetworkLocation.ps1"
 ```
 
-Si absent sur DC2 → problème de réplication SYSVOL.
+Si absent sur DC02 → problème de réplication SYSVOL.
 
 **4. Rappel important :**
 

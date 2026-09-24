@@ -11,7 +11,7 @@ title: "Procédure GPO — Emplacement réseau Home"
 | Rôle       | Nom  | Description                             |
 | ---------- | ---- | --------------------------------------- |
 | Principal  | DC01 | Crée la GPO et le script                |
-| Secondaire | DC2  | Reçoit le script via réplication SYSVOL |
+| Secondaire | DC02 | Reçoit le script via réplication SYSVOL |
 
 ---
 
@@ -21,7 +21,7 @@ title: "Procédure GPO — Emplacement réseau Home"
 | --- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | 1   | [[tp-final-active-directory/gpo/guide/gpo-01-script-connexion\|GPO-01-Script-Connexion]]             | Créer le script `Set-NetworkLocation.ps1` (lecture HomeDirectory AD, raccourci réseau, Desktop.ini, idempotence) |
 | 2   | [[tp-final-active-directory/gpo/guide/gpo-02-creer-lier-gpo\|GPO-02-Creer-Lier-GPO]]                 | Créer la GPO `GPO_Emplacement_Home` et la lier à `OU=fournil`                                                    |
-| 3   | [[tp-final-active-directory/gpo/guide/gpo-03-deploiement-sysvol\|GPO-03-Deploiement-SYSVOL]]         | Copier le script dans le SYSVOL de la GPO (répliqué vers DC2)                                                    |
+| 3   | [[tp-final-active-directory/gpo/guide/gpo-03-deploiement-sysvol\|GPO-03-Deploiement-SYSVOL]]         | Copier le script dans le SYSVOL de la GPO (répliqué vers DC02)                                                   |
 | 4   | [[tp-final-active-directory/gpo/guide/gpo-04-enregistrer-script\|GPO-04-Enregistrer-Script]]         | Créer `psscripts.ini` pour que Windows exécute le script à la connexion                                          |
 | 5   | [[tp-final-active-directory/gpo/guide/gpo-05-verification-depannage\|GPO-05-Verification-Depannage]] | Tester le raccourci + résoudre les problèmes courants                                                            |
 

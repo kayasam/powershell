@@ -61,12 +61,12 @@
   <text x="240" y="472" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565C0">192.168.3.1 /24</text>
   <line x1="240" y1="492" x2="240" y2="528" stroke="#1565C0" stroke-width="3"/>
 
-  <!-- DC2 -->
+  <!-- DC02 -->
   <rect x="440" y="262" width="300" height="230" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2.5" filter="url(#sh)"/>
   <rect x="440" y="262" width="300" height="28" rx="14" fill="#2E7D32"/>
   <rect x="440" y="278" width="300" height="12" fill="#2E7D32"/>
   <text x="590" y="282" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">MACHINE VIRTUELLE 2</text>
-  <text x="590" y="315" text-anchor="middle" font-size="19" font-weight="bold" fill="#2E7D32">DC2</text>
+  <text x="590" y="315" text-anchor="middle" font-size="19" font-weight="bold" fill="#2E7D32">DC02</text>
   <line x1="465" y1="328" x2="715" y2="328" stroke="#2E7D32" stroke-width="1" stroke-dasharray="3 3"/>
   <text x="465" y="349" font-size="11.5" fill="#333">Windows Server 2025 Standard</text>
   <text x="465" y="369" font-size="11.5" fill="#333">4 vCPU &#183; 4 Go RAM &#183; 80 Go</text>

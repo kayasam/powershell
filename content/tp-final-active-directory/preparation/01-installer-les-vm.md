@@ -61,7 +61,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All -All
 
 > [!failure] La fonctionnalité n'apparaît pas du tout
 > Vous êtes en **Windows Famille / Home**, qui n'a pas Hyper-V. Il vous faut Windows Pro, Entreprise ou Éducation.
-> Alternative : faire le lab sous VMware Workstation ou VirtualBox — la logique reste la même, seules les commandes de cette note changent.
+> Alternative documentée : **[[tp-final-active-directory/preparation/01-vmware-workstation\|00.1-VMware-Workstation]]**.
 
 ---
 
@@ -153,7 +153,7 @@ Get-Item "D:\HyperV\ISO\ws2025.iso" | Select-Object Name, @{N='Go';E={[math]::Ro
 
 > 💻 **SUR VOTRE POSTE** — PowerShell **en administrateur**
 
-Copiez ce bloc entier. Il crée DC01 et DC2 d'un coup.
+Copiez ce bloc entier. Il crée DC01 et DC02 d'un coup.
 
 ```powershell
 # ====== Variables ======
@@ -165,7 +165,7 @@ $VhdSize = 80GB
 $RAM     = 4GB
 $CPU     = 4
 
-foreach ($VMName in "DC01","DC2") {
+foreach ($VMName in "DC01","DC02") {
 
     $VmPath  = Join-Path $VmRoot $VMName
     $VhdPath = Join-Path $VhdRoot "$VMName.vhdx"
@@ -203,8 +203,8 @@ foreach ($VMName in "DC01","DC2") {
 ### Vérification
 
 ```powershell
-Get-VM DC01,DC2 | Format-Table Name, State, Generation, MemoryStartup, ProcessorCount
-Get-VMNetworkAdapter DC01,DC2 | Format-Table VMName, SwitchName
+Get-VM DC01,DC02 | Format-Table Name, State, Generation, MemoryStartup, ProcessorCount
+Get-VMNetworkAdapter DC01,DC02 | Format-Table VMName, SwitchName
 ```
 
 > [!success] Checkpoint 5
@@ -214,7 +214,7 @@ Get-VMNetworkAdapter DC01,DC2 | Format-Table VMName, SwitchName
 
 ## Étape 6 — Installer Windows Server sur chaque VM
 
-> [!note] À faire **deux fois** : une fois pour DC01, une fois pour DC2
+> [!note] À faire **deux fois** : une fois pour DC01, une fois pour DC02
 > Vous pouvez lancer les deux en parallèle si votre PC a 16 Go de RAM.
 
 ```powershell
@@ -250,11 +250,11 @@ Puis, dans la fenêtre de la VM :
 >
 > Et cette fois, cliquez dans la fenêtre et martelez une touche.
 
-Répétez pour DC2 :
+Répétez pour DC02 :
 
 ```powershell
-Start-VM -Name DC2
-vmconnect.exe localhost DC2
+Start-VM -Name DC02
+vmconnect.exe localhost DC02
 ```
 
 ---
@@ -266,9 +266,9 @@ vmconnect.exe localhost DC2
 
 ```powershell
 Checkpoint-VM -Name DC01 -SnapshotName "01-Windows-installe"
-Checkpoint-VM -Name DC2  -SnapshotName "01-Windows-installe"
+Checkpoint-VM -Name DC02  -SnapshotName "01-Windows-installe"
 
-Get-VMSnapshot -VMName DC01,DC2 | Format-Table VMName, Name, CreationTime
+Get-VMSnapshot -VMName DC01,DC02 | Format-Table VMName, Name, CreationTime
 ```
 
 > Pour revenir en arrière plus tard :
@@ -285,7 +285,7 @@ Get-VMSnapshot -VMName DC01,DC2 | Format-Table VMName, Name, CreationTime
 - [ ] `vSwitch-Rennes` créé en **Internal**
 - [ ] IP `192.168.3.254` sur la carte de l'hôte
 - [ ] NAT `192.168.3.0/24` actif
-- [ ] DC01 et DC2 créées, Windows Server installé, session ouverte sur le bureau
+- [ ] DC01 et DC02 créées, Windows Server installé, session ouverte sur le bureau
 - [ ] Point de contrôle `01-Windows-installe` sur les deux VM
 
 > [!success] État attendu

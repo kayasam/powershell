@@ -3,7 +3,7 @@ title: "00.5 — Brancher votre poste de travail"
 ---
 
 > Durée : **30 min** · À faire **une seule fois**, avant le premier TP.
-> Précédent : [[tp-final-active-directory/preparation/04-joindre-dc2\|00.4-Joindre-DC2]]
+> Précédent : [[tp-final-active-directory/preparation/04-joindre-dc02\|00.4-Joindre-DC02]]
 
 > [!important] Vous arrivez directement ici ?
 >
@@ -19,11 +19,11 @@ Pour ça il faut trois choses, dans cet ordre :
 
 | Étape | On fait quoi                    | Pourquoi                                                                              |
 | ----- | ------------------------------- | ------------------------------------------------------------------------------------- |
-| **A** | Vérifier la maquette            | Ne pas découvrir à l'exercice 4 que DC2 n'est pas dans le domaine                     |
+| **A** | Vérifier la maquette            | Ne pas découvrir à l'exercice 4 que DC02 n'est pas dans le domaine                    |
 | **B** | Brancher VSCode en SSH sur DC01 | Pour écrire et lancer du PowerShell confortablement, sans la console pourrie de la VM |
-| **C** | Ouvrir les ports du pare-feu    | Pour que DC01 puisse piloter DC2 (WinRM, SMB, RPC)                                    |
+| **C** | Ouvrir les ports du pare-feu    | Pour que DC01 puisse piloter DC02 (WinRM, SMB, RPC)                                   |
 
-À la fin, vous devez avoir **un terminal PowerShell DC01 ouvert dans VSCode**, et `Invoke-Command -ComputerName DC2` qui répond.
+À la fin, vous devez avoir **un terminal PowerShell DC01 ouvert dans VSCode**, et `Invoke-Command -ComputerName DC02` qui répond.
 
 ---
 
@@ -32,7 +32,7 @@ Pour ça il faut trois choses, dans cet ordre :
 ![Schema-Reseau-Lab](https://kayasam.github.io/powershell/ressources/images/schema-reseau-lab.svg)
 
 > [!tip] Les badges dans les blocs de commandes
-> 💻 **SUR VOTRE POSTE** · 🖥️ **SUR DC01** · 🖧 **VERS DC2** (tapé sur DC01, exécuté sur DC2)
+> 💻 **SUR VOTRE POSTE** · 🖥️ **SUR DC01** · 🖧 **VERS DC02** (tapé sur DC01, exécuté sur DC02)
 
 ---
 
@@ -58,15 +58,15 @@ Get-ADDomain | Select-Object DNSRoot, NetBIOSName
 > ❌ `Get-ADDomain n'est pas reconnu` → `Install-WindowsFeature RSAT-AD-PowerShell`
 
 ```powershell
-# A3 — Quelle est mon IP, et DC2 répond-il ?
+# A3 — Quelle est mon IP, et DC02 répond-il ?
 Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -notlike "127.*" } | Select-Object IPAddress, InterfaceAlias
-Test-Connection DC2 -Count 2
-Resolve-DnsName DC2
+Test-Connection DC02 -Count 2
+Resolve-DnsName DC02
 ```
 
-> Attendu : votre IP DC01, un ping qui répond, et une résolution DNS de DC2.
+> Attendu : votre IP DC01, un ping qui répond, et une résolution DNS de DC02.
 > **Notez l'IP de DC01**, vous en aurez besoin à l'étape B.
-> ❌ `Resolve-DnsName : DNS name does not exist` → DC2 n'est pas enregistré dans le DNS. Vérifiez que DC2 est bien joint au domaine et que **sa carte réseau pointe vers l'IP de DC01 comme serveur DNS**.
+> ❌ `Resolve-DnsName : DNS name does not exist` → DC02 n'est pas enregistré dans le DNS. Vérifiez que DC02 est bien joint au domaine et que **sa carte réseau pointe vers l'IP de DC01 comme serveur DNS**.
 
 ```powershell
 # A4 — Les deux serveurs sont-ils en profil réseau Domaine ?
@@ -87,7 +87,7 @@ Get-NetConnectionProfile | Select-Object InterfaceAlias, NetworkCategory
 > ```
 
 > [!success] Checkpoint A
-> A1 → `DC01` · A2 → `ad.fournil.lab` · A3 → DC2 pingue et se résout · A4 → `DomainAuthenticated`
+> A1 → `DC01` · A2 → `ad.fournil.lab` · A3 → DC02 pingue et se résout · A4 → `DomainAuthenticated`
 
 ---
 
@@ -267,14 +267,14 @@ Le pare-feu Windows bloque par défaut les connexions entrantes qui ne correspon
 
 ![Schema-Flux-Firewall](https://kayasam.github.io/powershell/ressources/images/schema-flux-firewall.svg)
 
-> [!question] Pourquoi DC01 doit-il parler à DC2 ?
+> [!question] Pourquoi DC01 doit-il parler à DC02 ?
 > Parce qu'au TP DFS, les scripts font ceci :
 >
 > ```powershell
-> Invoke-Command -ComputerName DC2 -ScriptBlock { New-Item -Path "D:\Labo" ... }
+> Invoke-Command -ComputerName DC02 -ScriptBlock { New-Item -Path "D:\Labo" ... }
 > ```
 >
-> DC01 exécute du code **sur** DC2 sans que vous ayez à ouvrir la console de DC2.
+> DC01 exécute du code **sur** DC02 sans que vous ayez à ouvrir la console de DC02.
 > Ça passe par **WinRM (5985)**. Sans ce port : `WinRM cannot complete the operation`.
 >
 > Ensuite, DFS copie des fichiers entre les deux serveurs → **SMB (445)**,
@@ -322,14 +322,14 @@ New-NetFirewallRule -DisplayName "ICMPv4-In" `
 
 > `-ErrorAction SilentlyContinue` masque les erreurs non bloquantes. Si vous relancez ce bloc, Windows peut créer des règles portant le même nom d'affichage ; cela ne bloque pas le TP.
 
-## C3 — Appliquer sur DC2, à distance
+## C3 — Appliquer sur DC02, à distance
 
-> 🖧 **VERS DC2** — on tape sur DC01, ça s'exécute sur DC2
+> 🖧 **VERS DC02** — on tape sur DC01, ça s'exécute sur DC02
 
 C'est votre **première utilisation de `Invoke-Command`** : tout ce qui est entre `{ }` part s'exécuter sur l'autre serveur.
 
 ```powershell
-Invoke-Command -ComputerName DC2 -ScriptBlock {
+Invoke-Command -ComputerName DC02 -ScriptBlock {
     Enable-PSRemoting -Force
 
     Set-NetFirewallRule -Name "WINRM-HTTP-In-TCP" -Enabled True -Profile Domain
@@ -353,26 +353,26 @@ Invoke-Command -ComputerName DC2 -ScriptBlock {
 ```
 
 > [!failure] `Invoke-Command` échoue ici ? C'est normal et c'est l'œuf et la poule
-> Si WinRM n'a jamais été activé sur DC2, vous ne pouvez pas l'activer... à distance.
-> **Solution** : ouvrez la console de DC2 **une seule fois**, lancez-y `Enable-PSRemoting -Force`, puis revenez sur DC01 et relancez le bloc ci-dessus.
+> Si WinRM n'a jamais été activé sur DC02, vous ne pouvez pas l'activer... à distance.
+> **Solution** : ouvrez la console de DC02 **une seule fois**, lancez-y `Enable-PSRemoting -Force`, puis revenez sur DC01 et relancez le bloc ci-dessus.
 
 ## C4 — Vérification finale
 
 > 🖥️ **SUR DC01**
 
 ```powershell
-# 1. Le service WinRM de DC2 répond-il ?
-Test-WSMan -ComputerName DC2
+# 1. Le service WinRM de DC02 répond-il ?
+Test-WSMan -ComputerName DC02
 ```
 
 > Attendu : un bloc avec `ProductVendor : Microsoft Corporation`
 
 ```powershell
-# 2. Puis-je vraiment exécuter du code sur DC2 ?
-Invoke-Command -ComputerName DC2 -ScriptBlock { $env:COMPUTERNAME }
+# 2. Puis-je vraiment exécuter du code sur DC02 ?
+Invoke-Command -ComputerName DC02 -ScriptBlock { $env:COMPUTERNAME }
 ```
 
-> Attendu : **`DC2`** — c'est LE test qui compte.
+> Attendu : **`DC02`** — c'est LE test qui compte.
 
 ```powershell
 # 3. Mes règles sont-elles bien actives en profil Domaine ?
@@ -382,7 +382,7 @@ Get-NetFirewallRule -Direction Inbound -Enabled True |
 ```
 
 > [!success] Checkpoint C — et fin des prérequis
-> `Invoke-Command -ComputerName DC2 { $env:COMPUTERNAME }` renvoie **`DC2`**.
+> `Invoke-Command -ComputerName DC02 { $env:COMPUTERNAME }` renvoie **`DC02`**.
 > Si cette commande marche, **tout le TP DFS marchera**. Si elle ne marche pas, n'allez pas plus loin.
 
 ---
@@ -392,10 +392,10 @@ Get-NetFirewallRule -Direction Inbound -Enabled True |
 | Port        | Protocole | Flux         | Nécessaire pour                     | Symptôme si fermé                     |
 | ----------- | --------- | ------------ | ----------------------------------- | ------------------------------------- |
 | 22          | TCP       | Poste → DC01 | VSCode Remote-SSH                   | `Could not establish connection`      |
-| 5985        | TCP       | DC01 → DC2   | `Invoke-Command`, `Enter-PSSession` | `WinRM cannot complete the operation` |
-| 445         | TCP       | DC01 ⇄ DC2   | Partages, DFS, SYSVOL, Robocopy     | `Le chemin réseau n'a pas été trouvé` |
-| 135         | TCP       | DC01 ⇄ DC2   | Annuaire RPC (DFS, réplication)     | Console DFS : « erreur générale »     |
-| 49152-65535 | TCP       | DC01 ⇄ DC2   | Ports RPC négociés dynamiquement    | Réplication DFS-R bloquée à 0 %       |
+| 5985        | TCP       | DC01 → DC02  | `Invoke-Command`, `Enter-PSSession` | `WinRM cannot complete the operation` |
+| 445         | TCP       | DC01 ⇄ DC02  | Partages, DFS, SYSVOL, Robocopy     | `Le chemin réseau n'a pas été trouvé` |
+| 135         | TCP       | DC01 ⇄ DC02  | Annuaire RPC (DFS, réplication)     | Console DFS : « erreur générale »     |
+| 49152-65535 | TCP       | DC01 ⇄ DC02  | Ports RPC négociés dynamiquement    | Réplication DFS-R bloquée à 0 %       |
 | ICMP type 8 | ICMPv4    | Tous         | `Test-Connection` / ping            | Diagnostic impossible                 |
 
 > Toutes ces règles sont limitées au profil **Domaine** : elles ne s'appliquent pas sur un réseau public ou privé.
@@ -404,15 +404,15 @@ Get-NetFirewallRule -Direction Inbound -Enabled True |
 
 ## En cas de problème
 
-| Symptôme                                          | Où chercher                                                         |
-| ------------------------------------------------- | ------------------------------------------------------------------- |
-| VSCode : `Could not establish connection to dc01` | Service `sshd` arrêté, ou règle port 22 absente (B1)                |
-| SSH redemande le mot de passe                     | Clé dans le mauvais fichier ou `icacls` oublié (B4)                 |
-| Terminal VSCode ouvre `cmd.exe`                   | `DefaultShell` non appliqué (B1) — reconnectez-vous après           |
-| `Get-AD*` non reconnu                             | `Install-WindowsFeature RSAT-AD-PowerShell`                         |
-| `Test-WSMan` échoue                               | WinRM pas activé sur DC2 — console DC2 → `Enable-PSRemoting -Force` |
-| `NetworkCategory = Private`                       | Le DNS du serveur ne pointe pas vers DC01 (A4)                      |
-| DC2 injoignable par son nom                       | `Resolve-DnsName DC2` — problème DNS, pas pare-feu                  |
+| Symptôme                                          | Où chercher                                                           |
+| ------------------------------------------------- | --------------------------------------------------------------------- |
+| VSCode : `Could not establish connection to dc01` | Service `sshd` arrêté, ou règle port 22 absente (B1)                  |
+| SSH redemande le mot de passe                     | Clé dans le mauvais fichier ou `icacls` oublié (B4)                   |
+| Terminal VSCode ouvre `cmd.exe`                   | `DefaultShell` non appliqué (B1) — reconnectez-vous après             |
+| `Get-AD*` non reconnu                             | `Install-WindowsFeature RSAT-AD-PowerShell`                           |
+| `Test-WSMan` échoue                               | WinRM pas activé sur DC02 — console DC02 → `Enable-PSRemoting -Force` |
+| `NetworkCategory = Private`                       | Le DNS du serveur ne pointe pas vers DC01 (A4)                        |
+| DC02 injoignable par son nom                      | `Resolve-DnsName DC02` — problème DNS, pas pare-feu                   |
 
 ---
 
@@ -420,24 +420,34 @@ Get-NetFirewallRule -Direction Inbound -Enabled True |
 
 La phase de montage est terminée. Le vrai TP commence maintenant.
 
-| Parcours                  | Premier TP                                                   |
-| ------------------------- | ------------------------------------------------------------ |
-| **Débutant** (recommandé) | [[tp-final-active-directory/ad/debutant\|01.TP-Debutant-AD]] |
-| Avancé                    | [[tp-final-active-directory/ad/avance\|01.TP-Avance-AD]]     |
+| Parcours                  | Premier TP                                                             |
+| ------------------------- | ---------------------------------------------------------------------- |
+| **Débutant** (recommandé) | [[tp-final-active-directory/ad/debutant\|01.TP-Debutant-AD]]           |
+| Intermédiaire             | [[tp-final-active-directory/ad/intermediaire\|01.TP-Intermediaire-AD]] |
+| Avancé                    | [[tp-final-active-directory/ad/avance\|01.TP-Avance-AD]]               |
 
 > [!tip] Dernier point de contrôle avant de commencer
 >
 > ```powershell
 > Checkpoint-VM -Name DC01 -SnapshotName "05-Lab-pret"
-> Checkpoint-VM -Name DC2  -SnapshotName "05-Lab-pret"
+> Checkpoint-VM -Name DC02  -SnapshotName "05-Lab-pret"
 > ```
 >
 > C'est votre retour arrière si le TP AD part de travers.
 
+> [!info] Snapshot VMware Workstation
+> Arrêtez proprement les deux VM, puis utilisez `vmrun` depuis l'hôte :
+>
+> ```powershell
+> $vmrun = "C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe"
+> & $vmrun -T ws snapshot "D:\VMware-Fournil\VM\DC01\DC01.vmx" "05-Lab-pret"
+> & $vmrun -T ws snapshot "D:\VMware-Fournil\VM\DC02\DC02.vmx" "05-Lab-pret"
+> ```
+
 ---
 
-| ← Précédent                                                                | Suivant →                                                    |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| [[tp-final-active-directory/preparation/04-joindre-dc2\|00.4-Joindre-DC2]] | [[tp-final-active-directory/ad/debutant\|01.TP-Debutant-AD]] |
+| ← Précédent                                                                  | Suivant →                                                    |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [[tp-final-active-directory/preparation/04-joindre-dc02\|00.4-Joindre-DC02]] | [[tp-final-active-directory/ad/debutant\|01.TP-Debutant-AD]] |
 
 > Retour à l'accueil : [[tp-final-active-directory/demarrer-ici\|00.0-DEMARRER-ICI]]

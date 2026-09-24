@@ -106,7 +106,7 @@ Get-GPInheritance -Target "OU=fournil,DC=ad,DC=fournil,DC=lab" |
 - Qu'est-ce que SYSVOL ? Pourquoi le script doit y être stocké ?
 - Que fait `$gpo.Id.ToString("B").ToUpper()` ? Pourquoi le format `{...}` ?
 - Pourquoi le chemin contient `User\Scripts\Logon` et pas `Machine\Scripts` ?
-- Le script sera-t-il automatiquement répliqué sur DC2 ? Pourquoi ?
+- Le script sera-t-il automatiquement répliqué sur DC02 ? Pourquoi ?
 
 ### Vérification
 

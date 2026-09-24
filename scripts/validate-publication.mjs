@@ -14,7 +14,7 @@ const finalTpRequiredPages = new Set([
   "tp-final-active-directory/preparation/01-installer-les-vm.md",
   "tp-final-active-directory/preparation/02-preparer-les-serveurs.md",
   "tp-final-active-directory/preparation/03-promouvoir-dc01.md",
-  "tp-final-active-directory/preparation/04-joindre-dc2.md",
+  "tp-final-active-directory/preparation/04-joindre-dc02.md",
   "tp-final-active-directory/preparation/05-poste-de-travail.md",
 ])
 const imageNames = new Set(

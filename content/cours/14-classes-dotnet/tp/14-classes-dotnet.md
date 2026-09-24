@@ -145,13 +145,24 @@ if ([string]::IsNullOrWhiteSpace($saisie)) { "vide (test .NET)" }
 
 1. **valide** que le chemin n'est ni vide ni composé d'espaces
    _(`[string]::IsNullOrWhiteSpace`)_ ;
-2. renvoie un `[PSCustomObject]` contenant :
+2. affiche un message clair et renvoie `$null` si le fichier n'existe pas
+   _(`[System.IO.File]::Exists`)_ ;
+3. renvoie sinon un objet contenant :
    - le **nom sans extension** et l'**extension** _(`[System.IO.Path]`)_ ;
    - le **dossier parent** ;
    - la **taille en Ko**, arrondie à 1 décimale, en arrondi **scolaire** ;
    - le **nombre de lignes**, lu avec `[System.IO.File]::ReadAllLines()` ;
-   - un **identifiant unique** de traitement _(`[guid]::NewGuid()`)_ ;
-3. lève une erreur claire si le fichier n'existe pas _(`throw`, chapitre 21)_.
+   - un **identifiant unique** de traitement _(`[guid]::NewGuid()`)_.
+
+> 💡 **Syntaxe fournie** — regrouper des valeurs dans un objet se fait ainsi.
+> Cette écriture sera détaillée au chapitre 17 :
+>
+> ```powershell
+> [PSCustomObject]@{
+>     Nom       = $nom
+>     Extension = $ext
+> }
+> ```
 
 Testez-la sur un fichier que vous créez dans `$env:TEMP`, puis sur un chemin
 absent et sur une saisie composée d'espaces.

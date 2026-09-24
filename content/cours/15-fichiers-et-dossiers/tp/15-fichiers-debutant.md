@@ -110,11 +110,11 @@ Get-ChildItem "$env:TEMP\Archives-Robin" -Recurse -Filter "*.txt" |
     Select-Object -First 1
 ```
 
-**D3.** Pour un fichier de votre choix, relevez : nom, nom sans extension,
-extension, taille en octets, chemin complet.
+**D3.** Pour un fichier de votre choix, relevez : nom, extension, taille en
+octets, chemin complet.
 
-> 💡 **Indice** : les propriétés s'appellent `Name`, `BaseName`, `Extension`,
-> `Length`, `FullName`.
+> 💡 **Indice** : les propriétés s'appellent `Name`, `Extension`, `Length`,
+> `FullName` (chapitre 15, section _Obtenir les infos d'un fichier_).
 
 ---
 

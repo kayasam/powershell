@@ -9,7 +9,7 @@ title: "Phase 4 — Creation des espaces de noms DFS"
 
 ## Objectif
 
-Configurer les espaces de noms DFS (DFSn) qui fournissent une arborescence unifiée aux utilisateurs. Au lieu d'accéder à `\\DC01\fabrication$` ou `\\DC2\fabrication$`, les utilisateurs accèdent à `\\ad.fournil.lab\Laboratoire\fabrication` -- un chemin unique, indépendant du serveur physique.
+Configurer les espaces de noms DFS (DFSn) qui fournissent une arborescence unifiée aux utilisateurs. Au lieu d'accéder à `\\DC01\fabrication$` ou `\\DC02\fabrication$`, les utilisateurs accèdent à `\\ad.fournil.lab\Laboratoire\fabrication` -- un chemin unique, indépendant du serveur physique.
 
 ## Concepts clés
 
@@ -86,7 +86,7 @@ New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\fabrication" `
     -TargetPath "\\DC01\fabrication$"
 
 New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\fabrication" `
-    -TargetPath "\\DC2\fabrication$"
+    -TargetPath "\\DC02\fabrication$"
 ```
 
 Cette opération est répétée pour chaque pôle. Voici ce que font ces cmdlets :
@@ -100,12 +100,12 @@ Cette opération est répétée pour chaque pôle. Voici ce que font ces cmdlets
 
 **`New-DfsnFolderTarget`** : ajoute une cible supplémentaire à un dossier DFS existant.
 
-| Paramètre     | Valeur                                       | Description                                                                                                                                                                       |
-| ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-Path`       | `"\\ad.fournil.lab\Laboratoire\fabrication"` | Chemin du dossier DFS existant auquel ajouter la cible.                                                                                                                           |
-| `-TargetPath` | `"\\DC2\fabrication$"`                       | Deuxième chemin cible (partage physique sur DC2). Le client DFS choisira automatiquement la cible la plus appropriée (généralement le serveur le plus proche ou le moins chargé). |
+| Paramètre     | Valeur                                       | Description                                                                                                                                                                        |
+| ------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-Path`       | `"\\ad.fournil.lab\Laboratoire\fabrication"` | Chemin du dossier DFS existant auquel ajouter la cible.                                                                                                                            |
+| `-TargetPath` | `"\\DC02\fabrication$"`                      | Deuxième chemin cible (partage physique sur DC02). Le client DFS choisira automatiquement la cible la plus appropriée (généralement le serveur le plus proche ou le moins chargé). |
 
-Avec deux cibles, si DC01 est indisponible, les utilisateurs sont automatiquement redirigés vers DC2 (tolérance aux pannes).
+Avec deux cibles, si DC01 est indisponible, les utilisateurs sont automatiquement redirigés vers DC02 (tolérance aux pannes).
 
 ### 4.5 -- Liste complète des dossiers DFS créés
 
@@ -114,31 +114,31 @@ Avec deux cibles, si DC01 est indisponible, les utilisateurs sont automatiquemen
 ```powershell
 # fabrication
 New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\fabrication" -TargetPath "\\DC01\fabrication$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\fabrication" -TargetPath "\\DC2\fabrication$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\fabrication" -TargetPath "\\DC02\fabrication$"
 
 # approvisionnement
 New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\approvisionnement" -TargetPath "\\DC01\approvisionnement$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\approvisionnement" -TargetPath "\\DC2\approvisionnement$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\approvisionnement" -TargetPath "\\DC02\approvisionnement$"
 
 # conditionnement
 New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\conditionnement" -TargetPath "\\DC01\conditionnement$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\conditionnement" -TargetPath "\\DC2\conditionnement$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\conditionnement" -TargetPath "\\DC02\conditionnement$"
 
 # qualite-hygiene
 New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\qualite-hygiene" -TargetPath "\\DC01\qualite-hygiene$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\qualite-hygiene" -TargetPath "\\DC2\qualite-hygiene$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\qualite-hygiene" -TargetPath "\\DC02\qualite-hygiene$"
 
 # maintenance
 New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\maintenance" -TargetPath "\\DC01\maintenance$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\maintenance" -TargetPath "\\DC2\maintenance$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\maintenance" -TargetPath "\\DC02\maintenance$"
 
 # direction-laboratoire
 New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\direction-laboratoire" -TargetPath "\\DC01\direction-laboratoire$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\direction-laboratoire" -TargetPath "\\DC2\direction-laboratoire$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\direction-laboratoire" -TargetPath "\\DC02\direction-laboratoire$"
 
 # communs-laboratoire
 New-DfsnFolder -Path "\\ad.fournil.lab\Laboratoire\communs-laboratoire" -TargetPath "\\DC01\communs-laboratoire$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\communs-laboratoire" -TargetPath "\\DC2\communs-laboratoire$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\communs-laboratoire" -TargetPath "\\DC02\communs-laboratoire$"
 ```
 
 **Entité Vente :**
@@ -146,25 +146,25 @@ New-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\communs-laboratoire" -T
 ```powershell
 # boutique
 New-DfsnFolder -Path "\\ad.fournil.lab\Vente\boutique" -TargetPath "\\DC01\boutique$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\boutique" -TargetPath "\\DC2\boutique$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\boutique" -TargetPath "\\DC02\boutique$"
 
 # commercial
 New-DfsnFolder -Path "\\ad.fournil.lab\Vente\commercial" -TargetPath "\\DC01\commercial$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\commercial" -TargetPath "\\DC2\commercial$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\commercial" -TargetPath "\\DC02\commercial$"
 
 # livraisons
 New-DfsnFolder -Path "\\ad.fournil.lab\Vente\livraisons" -TargetPath "\\DC01\livraisons$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\livraisons" -TargetPath "\\DC2\livraisons$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\livraisons" -TargetPath "\\DC02\livraisons$"
 
 # ressources
 New-DfsnFolder -Path "\\ad.fournil.lab\Vente\ressources" -TargetPath "\\DC01\ressources$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\ressources" -TargetPath "\\DC2\ressources$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\ressources" -TargetPath "\\DC02\ressources$"
 
 # direction-vente
 New-DfsnFolder -Path "\\ad.fournil.lab\Vente\direction-vente" -TargetPath "\\DC01\direction-vente$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\direction-vente" -TargetPath "\\DC2\direction-vente$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\direction-vente" -TargetPath "\\DC02\direction-vente$"
 
 # communs-vente
 New-DfsnFolder -Path "\\ad.fournil.lab\Vente\communs-vente" -TargetPath "\\DC01\communs-vente$"
-New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\communs-vente" -TargetPath "\\DC2\communs-vente$"
+New-DfsnFolderTarget -Path "\\ad.fournil.lab\Vente\communs-vente" -TargetPath "\\DC02\communs-vente$"
 ```

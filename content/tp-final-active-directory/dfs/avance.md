@@ -3,7 +3,7 @@ title: "TP Avancé — Scripter le déploiement DFS depuis un CSV"
 ---
 
 > Durée estimée : 3h
-> Prérequis : TP Avancé AD terminé, DC01 + DC2 opérationnels
+> Prérequis : TP Avancé AD terminé, DC01 + DC02 opérationnels
 > Fichiers fournis : `orga-fournil.csv`, `utilisateurs-fournil.csv`
 > Niveau : Avancé — écriture de script, Invoke-Command, DFS
 
@@ -31,7 +31,7 @@ En haut de votre script, définissez les variables :
 
 - Les chemins des 2 CSV
 - Le nom de domaine (`ad.fournil.lab`)
-- Les noms des 2 serveurs (`DC01`, `DC2`)
+- Les noms des 2 serveurs (`DC01`, `DC02`)
 - Le dossier racine des fichiers (`C:\fournil`)
 - Le dossier des homes (`C:\homes`)
 - Le dossier des racines DFS (`C:\DFSRoots`)
@@ -49,7 +49,7 @@ Importez les 2 CSV.
 > ```powershell
 > $domainName = "ad.fournil.lab"
 > $serverPrincipal = "DC01"
-> $serverSecondaire = "DC2"
+> $serverSecondaire = "DC02"
 > $rootFolder = "C:\fournil"
 > $homesFolder = "C:\homes"
 > $dfsRootsFolder = "C:\DFSRoots"
@@ -66,19 +66,19 @@ Importez les 2 CSV.
 
 1. Vérifie si les rôles **DFS Namespace** et **DFS Replication** sont installés sur DC01
 2. Les installe uniquement s'ils manquent
-3. Vérifie et installe **DFS Replication** sur DC2 via `Invoke-Command`
+3. Vérifie et installe **DFS Replication** sur DC02 via `Invoke-Command`
 
 ### Questions
 
 - Quelle cmdlet vérifie si un rôle Windows est installé ?
-- Pourquoi DC01 a besoin de `FS-DFS-Namespace` ET `FS-DFS-Replication` mais DC2 seulement de `FS-DFS-Replication` ?
+- Pourquoi DC01 a besoin de `FS-DFS-Namespace` ET `FS-DFS-Replication` mais DC02 seulement de `FS-DFS-Replication` ?
 - Comment exécuter une commande sur un serveur distant avec `Invoke-Command` ?
 
 ### Vérification
 
 ```powershell
 Get-WindowsFeature FS-DFS-Namespace, FS-DFS-Replication | Select-Object Name, InstallState
-Invoke-Command -ComputerName DC2 { Get-WindowsFeature FS-DFS-Replication | Select-Object Name, InstallState }
+Invoke-Command -ComputerName DC02 { Get-WindowsFeature FS-DFS-Replication | Select-Object Name, InstallState }
 ```
 
 > [!tip]- Indice sur Invoke-Command
@@ -107,8 +107,8 @@ Invoke-Command -ComputerName DC2 { Get-WindowsFeature FS-DFS-Replication | Selec
 
 Puis parcourez le CSV pour :
 
-1. Créer toute l'arborescence de dossiers sur **DC2** (miroir de DC01)
-2. Créer un partage caché par pôle (`fabrication$`, `boutique$`, etc.) sur **DC01 et DC2**
+1. Créer toute l'arborescence de dossiers sur **DC02** (miroir de DC01)
+2. Créer un partage caché par pôle (`fabrication$`, `boutique$`, etc.) sur **DC01 et DC02**
 
 ### Questions
 
@@ -122,7 +122,7 @@ Puis parcourez le CSV pour :
 
 ```powershell
 Get-SmbShare | Where-Object { $_.Name -like "*$" -and $_.Name -notlike "[A-Z]$" }
-Invoke-Command -ComputerName DC2 { Get-SmbShare | Where-Object { $_.Name -like "*$" -and $_.Name -notlike "[A-Z]$" } }
+Invoke-Command -ComputerName DC02 { Get-SmbShare | Where-Object { $_.Name -like "*$" -and $_.Name -notlike "[A-Z]$" } }
 ```
 
 > [!tip]- Indice sur la création distante
@@ -174,7 +174,7 @@ Invoke-Command -ComputerName DC2 { Get-SmbShare | Where-Object { $_.Name -like "
 
 2. Pour chaque pôle du CSV :
    - Créez le dossier DFS `\\ad.fournil.lab\<Entite>\<Pole>`
-   - Ajoutez 2 cibles : `\\DC01\<Pole>$` et `\\DC2\<Pole>$`
+   - Ajoutez 2 cibles : `\\DC01\<Pole>$` et `\\DC02\<Pole>$`
 
 ### Questions
 
@@ -213,7 +213,7 @@ Get-DfsnFolderTarget -Path "\\ad.fournil.lab\Laboratoire\fabrication"
 Pour chaque pôle du CSV, écrivez le code qui :
 
 1. Crée un groupe de réplication `<Entite>-<Pole>-Replication`
-2. Ajoute DC01 et DC2 comme membres
+2. Ajoute DC01 et DC02 comme membres
 3. Crée une connexion bidirectionnelle entre les 2 serveurs
 4. Configure DC01 comme **membre principal** (`-PrimaryMember $true`)
 5. Lie la réplication à l'espace de noms DFS
@@ -231,8 +231,8 @@ Pour chaque pôle du CSV, écrivez le code qui :
 # Créer un fichier test sur DC01
 New-Item "C:\fournil\Laboratoire\fabrication\test-replication.txt" -Value "bonjour"
 
-# Attendre 30 secondes puis vérifier sur DC2
-Invoke-Command -ComputerName DC2 { Get-Content "C:\fournil\Laboratoire\fabrication\test-replication.txt" }
+# Attendre 30 secondes puis vérifier sur DC02
+Invoke-Command -ComputerName DC02 { Get-Content "C:\fournil\Laboratoire\fabrication\test-replication.txt" }
 ```
 
 > [!tip]- Indice sur le chaînage des cmdlets DFS
@@ -266,11 +266,11 @@ Invoke-Command -ComputerName DC2 { Get-Content "C:\fournil\Laboratoire\fabricati
    - Sous-dossiers : + `CREATEUR PROPRIETAIRE` en modification + `Utilisateurs du domaine` en création de dossier
 
 2. **Partages** :
-   - Créez un partage caché `homes-<Entite>$` par entité sur DC01 et DC2
+   - Créez un partage caché `homes-<Entite>$` par entité sur DC01 et DC02
 
 3. **DFS** :
    - Créez la racine DFS `\\ad.fournil.lab\HOMES`
-   - Pour chaque entité, créez un dossier DFS avec 2 cibles (DC01 + DC2)
+   - Pour chaque entité, créez un dossier DFS avec 2 cibles (DC01 + DC02)
 
 4. **Réplication** :
    - Créez un groupe de réplication `HOMES-<Entite>-Replication` par entité
@@ -283,7 +283,7 @@ Invoke-Command -ComputerName DC2 { Get-Content "C:\fournil\Laboratoire\fabricati
 
 - Qu'est-ce que `CREATEUR PROPRIETAIRE` ? Pourquoi l'utiliser pour les homes ?
 - Pourquoi `InheritOnly` pour `CREATEUR PROPRIETAIRE` ?
-- Comment copier les dossiers homes vers DC2 avec leurs permissions ? (`Robocopy /COPYALL`)
+- Comment copier les dossiers homes vers DC02 avec leurs permissions ? (`Robocopy /COPYALL`)
 - Que fait `Set-ADUser -HomeDirectory ... -HomeDrive "H:"` ?
 
 ### Vérification
@@ -324,13 +324,13 @@ Get-DfsnFolder -Path "\\ad.fournil.lab\HOMES\*"
 
 Ajoutez un résumé en fin de script avec des compteurs, puis testez depuis un **poste client** connecté avec `mlebrun` :
 
-| Test                                        | Résultat attendu      | OK ? |
-| ------------------------------------------- | --------------------- | ---- |
-| `\\ad.fournil.lab\Laboratoire\fabrication`  | Accès en modification | ☐    |
-| `\\ad.fournil.lab\Vente\ressources`         | Accès refusé          | ☐    |
-| Lecteur `H:` visible                        | Pointe vers le home   | ☐    |
-| Créer un fichier dans `H:`                  | Fonctionne            | ☐    |
-| Créer un fichier sur DC01, vérifier sur DC2 | Répliqué              | ☐    |
+| Test                                         | Résultat attendu      | OK ? |
+| -------------------------------------------- | --------------------- | ---- |
+| `\\ad.fournil.lab\Laboratoire\fabrication`   | Accès en modification | ☐    |
+| `\\ad.fournil.lab\Vente\ressources`          | Accès refusé          | ☐    |
+| Lecteur `H:` visible                         | Pointe vers le home   | ☐    |
+| Créer un fichier dans `H:`                   | Fonctionne            | ☐    |
+| Créer un fichier sur DC01, vérifier sur DC02 | Répliqué              | ☐    |
 
 ### Critère de réussite
 

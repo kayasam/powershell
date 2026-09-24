@@ -8,7 +8,7 @@ title: "TP Débutant — Active Directory"
 
 > [!important] Où est-ce que je tape tout ça ?
 > 🖥️ **SUR DC01**, dans le terminal PowerShell de VSCode, ouvert **en administrateur**.
-> Tout ce TP se fait sur DC01. DC2 n'intervient qu'au TP suivant.
+> Tout ce TP se fait sur DC01. DC02 n'intervient qu'au TP suivant.
 
 ---
 

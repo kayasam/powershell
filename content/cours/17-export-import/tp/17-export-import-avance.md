@@ -42,9 +42,6 @@ Y a-t-il une ligne d'en-tête ?
 
 **A3.** Que fait `-NoTypeInformation` ? Est-il encore utile en PowerShell 7 ?
 
-**A4.** Sur un Windows français, quel séparateur Excel attend-il ? Quel séparateur
-`Export-Csv` utilise-t-il par défaut ? Quel paramètre permet de s'adapter ?
-
 ---
 
 ## Partie B : Import et analyse CSV (10 min)
@@ -75,9 +72,6 @@ Et `Operationnel` ? Comparez avec le CSV.
 **C4.** Ajoutez à une pièce une **liste** de sous-composants, puis réexportez en
 JSON. Essayez la même chose en CSV. Que se passe-t-il ?
 
-**C5.** `ConvertTo-Json` tronque au-delà d'une certaine profondeur. Laquelle,
-et comment la régler ?
-
 ---
 
 ## Partie D : Fichier de configuration (10 min)
@@ -86,9 +80,11 @@ et comment la régler ?
 
 **D2.** Modifiez une valeur, réenregistrez, rechargez. La modification tient-elle ?
 
-**D3.** Écrivez un couple de fonctions : l'une crée une configuration par défaut
-si le fichier n'existe pas, l'autre le charge, **valide** la présence des clés
-obligatoires et renvoie un objet. Aucune exception non gérée.
+**D3.** Écrivez une fonction qui charge la configuration si le fichier existe,
+et renvoie sinon une configuration par défaut.
+
+> 💡 Utilisez `Test-Path` (chapitre 15) : la gestion d'erreur par `try/catch`
+> n'arrive qu'au chapitre 20.
 
 ---
 
@@ -100,10 +96,6 @@ obligatoires et renvoie un objet. Aucune exception non gérée.
 | ------ | ------- | ---------------- | ------ |
 | CSV    |         |                  |        |
 | JSON   |         |                  |        |
-| CLIXML |         |                  |        |
-
-**E2.** Quel format conserve **fidèlement** les types PowerShell à l'aller-retour ?
-Prouvez-le.
 
 ---
 
@@ -125,5 +117,4 @@ exactement les mêmes valeurs et les mêmes types.
 > - Vous exportez et réimportez en CSV et en JSON
 > - Vous savez qu'un import CSV rend **tout** en texte, et comment y remédier
 > - Vous connaissez les limites du CSV sur les données imbriquées
-> - Vous maîtrisez la profondeur de sérialisation JSON
-> - Vous savez quel format conserve les types
+> - Vous savez choisir entre CSV et JSON selon le besoin

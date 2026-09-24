@@ -76,6 +76,20 @@ Remove-Item "C:\Logs\Archive" -Recurse
 Remove-Item "C:\Logs\*.log"
 ```
 
+> [!WARNING] `Remove-Item` est définitif : pas de corbeille
+> Prenez le réflexe de **simuler** avant de supprimer, avec `-WhatIf` :
+>
+> ```powershell
+> Remove-Item "C:\Logs\Archive" -Recurse -WhatIf
+> # Opération « Supprimer le répertoire » en cours sur la cible « C:\Logs\Archive ».
+> ```
+>
+> Rien n'est supprimé : PowerShell vous **annonce** ce qu'il ferait. Vous relancez
+> sans `-WhatIf` une fois la liste vérifiée.
+>
+> `-WhatIf` fonctionne sur toutes les cmdlets qui modifient quelque chose
+> (`Remove-Item`, `Move-Item`, `Set-Content`...).
+
 ## Tester si quelque chose existe
 
 ```powershell
@@ -106,7 +120,7 @@ $fichier.Extension     # .txt
 >
 > - `New-Item` pour créer fichiers et dossiers
 > - `Copy-Item` et `Move-Item` pour copier/déplacer
-> - `Remove-Item` pour supprimer
+> - `Remove-Item` pour supprimer — toujours testé avec `-WhatIf` d'abord
 > - `Test-Path` pour vérifier qu'un chemin existe
 > - `Get-Item` pour obtenir les détails d'un fichier
 

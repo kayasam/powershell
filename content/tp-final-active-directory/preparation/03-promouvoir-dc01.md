@@ -6,6 +6,10 @@ title: "00.3 — Installer AD DS et promouvoir DC01"
 > Où : 💻 **SUR VOTRE POSTE**, via PowerShell Direct
 > Précédent : [[tp-final-active-directory/preparation/02-preparer-les-serveurs\|00.2-Preparer-les-Serveurs]]
 
+> [!info] Vous utilisez VMware Workstation ?
+> Ouvrez la console de **DC01** et exécutez directement dans DC01 le contenu situé entre `{` et `}` dans les blocs `Invoke-Command -VMName DC01`.
+> Utilisez `Restart-Computer` pour redémarrer et `vmrun snapshot` pour le checkpoint ; voir [[tp-final-active-directory/preparation/01-vmware-workstation\|00.1-VMware-Workstation]].
+
 > [!important] C'est le moment où le domaine `ad.fournil.lab` naît
 > Jusqu'ici vous aviez deux PC Windows isolés. À la fin de cette note, vous avez un **annuaire d'entreprise**.
 
@@ -45,7 +49,7 @@ C'est la confusion classique. Ce sont **deux étapes distinctes** :
 >
 > ```powershell
 > $credDC01 = Get-Credential -Message "Admin LOCAL DC01 (Administrateur)"
-> $credDC2  = Get-Credential -Message "Admin LOCAL DC2 (Administrateur)"
+> $credDC2  = Get-Credential -Message "Admin LOCAL DC02 (Administrateur)"
 > ```
 
 ```powershell
@@ -269,10 +273,10 @@ Checkpoint-VM -Name DC01 -SnapshotName "03-DC01-promu"
 - [ ] Point de contrôle `03-DC01-promu`
 
 > [!success] Vous avez un domaine
-> DC2 n'en fait pas encore partie. C'est l'objet de l'étape suivante.
+> DC02 n'en fait pas encore partie. C'est l'objet de l'étape suivante.
 
 ---
 
-| ← Précédent                                                                                    | Suivant →                                                                  |
-| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [[tp-final-active-directory/preparation/02-preparer-les-serveurs\|00.2-Preparer-les-Serveurs]] | [[tp-final-active-directory/preparation/04-joindre-dc2\|00.4-Joindre-DC2]] |
+| ← Précédent                                                                                    | Suivant →                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [[tp-final-active-directory/preparation/02-preparer-les-serveurs\|00.2-Preparer-les-Serveurs]] | [[tp-final-active-directory/preparation/04-joindre-dc02\|00.4-Joindre-DC02]] |

@@ -62,4 +62,4 @@ Lors de l'ouverture de session :
 2. Windows mappe automatiquement le lecteur `H:` vers `\\ad.fournil.lab\HOMES\<Entite>\<Login>`.
 3. Si le dossier n'existe pas encore, Windows le crée automatiquement (grâce à la permission `CreateDirectories` accordée aux « Utilisateurs du domaine » à l'étape 6.3).
 4. L'utilisateur devient le « créateur propriétaire » de son dossier et obtient les droits de modification (grâce à la permission CREATEUR PROPRIETAIRE configurée à l'étape 6.3).
-5. L'utilisateur peut stocker ses fichiers personnels dans `H:\`, qui sera répliqué entre DC01 et DC2.
+5. L'utilisateur peut stocker ses fichiers personnels dans `H:\`, qui sera répliqué entre DC01 et DC02.

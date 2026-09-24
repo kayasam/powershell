@@ -1,5 +1,5 @@
 ---
-title: "Phase 2 — Creation des dossiers et partages sur DC2"
+title: "Phase 2 — Creation des dossiers et partages sur DC02"
 ---
 
 > Retour vers l'index : [[tp-final-active-directory/dfs/guide/index\|Index DFS Manuel]]
@@ -7,11 +7,11 @@ title: "Phase 2 — Creation des dossiers et partages sur DC2"
 
 ## Objectif
 
-Créer l'arborescence de dossiers `C:\fournil\...` sur DC2 à partir du fichier CSV `orga-fournil.csv`, puis créer des partages SMB masqués pour chaque pôle.
+Créer l'arborescence de dossiers `C:\fournil\...` sur DC02 à partir du fichier CSV `orga-fournil.csv`, puis créer des partages SMB masqués pour chaque pôle.
 
-## Pourquoi sur DC2 d'abord ?
+## Pourquoi sur DC02 d'abord ?
 
-Le script AD précédent (`01-Deployer-AD-fournil.ps1`) a déjà créé l'arborescence sur DC01. Il faut donc reproduire cette structure sur DC2 pour que la réplication DFS puisse fonctionner. Les dossiers doivent exister des deux côtés avant de configurer la réplication.
+Le script AD précédent (`01-Deployer-AD-fournil.ps1`) a déjà créé l'arborescence sur DC01. Il faut donc reproduire cette structure sur DC02 pour que la réplication DFS puisse fonctionner. Les dossiers doivent exister des deux côtés avant de configurer la réplication.
 
 ## Commandes détaillées
 
@@ -28,10 +28,10 @@ $csvContent = Import-Csv -Path ".\orga-fournil.csv" -Delimiter ";"
 
 `Import-Csv` lit le fichier et retourne un tableau d'objets PowerShell, chaque ligne du CSV devenant un objet dont les propriétés correspondent aux en-têtes de colonnes (`Entreprise`, `Entite`, `Poles`, `Service`).
 
-### 2.2 -- Création de l'arborescence sur DC2
+### 2.2 -- Création de l'arborescence sur DC02
 
 ```powershell
-Invoke-Command -ComputerName DC2 -ScriptBlock {
+Invoke-Command -ComputerName DC02 -ScriptBlock {
     param($csv)
     foreach ($ligne in $csv) {
         $entite = $ligne.Entite
@@ -61,10 +61,10 @@ C'est l'un des aspects les plus subtils de cette commande. Décortiquons :
 | `Test-Path $chemin`                                 | Vérifie si le chemin (dossier ou fichier) existe déjà. Retourne `$true` ou `$false`.                                                                                |
 | `New-Item -ItemType Directory -Path $chemin -Force` | Crée un nouveau dossier. Le paramètre `-Force` crée automatiquement les dossiers parents intermédiaires s'ils n'existent pas (équivalent de `mkdir -p` sous Linux). |
 
-### 2.3 -- Création des partages SMB masqués sur DC2
+### 2.3 -- Création des partages SMB masqués sur DC02
 
 ```powershell
-Invoke-Command -ComputerName DC2 -ScriptBlock {
+Invoke-Command -ComputerName DC02 -ScriptBlock {
     param($csv)
     $poles = $csv | Select-Object -Property Entite, Poles -Unique
     foreach ($item in $poles) {
@@ -81,7 +81,7 @@ Invoke-Command -ComputerName DC2 -ScriptBlock {
 
 **Explication des partages masqués :**
 
-Un partage dont le nom se termine par `$` est un **partage masqué** (hidden share) sous Windows. Il n'apparaît pas lorsqu'on parcourt le réseau (`\\DC2\`) mais reste accessible si on connaît son nom exact (`\\DC2\fabrication$`). C'est une pratique courante pour les partages DFS : les utilisateurs accèdent aux fichiers via le chemin DFS (par exemple `\\ad.fournil.lab\Laboratoire\fabrication`) et n'ont pas besoin de voir les partages sous-jacents.
+Un partage dont le nom se termine par `$` est un **partage masqué** (hidden share) sous Windows. Il n'apparaît pas lorsqu'on parcourt le réseau (`\\DC02\`) mais reste accessible si on connaît son nom exact (`\\DC02\fabrication$`). C'est une pratique courante pour les partages DFS : les utilisateurs accèdent aux fichiers via le chemin DFS (par exemple `\\ad.fournil.lab\Laboratoire\fabrication`) et n'ont pas besoin de voir les partages sous-jacents.
 
 **Cmdlets utilisées :**
 
@@ -93,7 +93,7 @@ Un partage dont le nom se termine par `$` est un **partage masqué** (hidden sha
 
 > **Bonne pratique :** Les permissions au niveau du partage (`-FullAccess "Tout le monde"`) sont volontairement larges. Le contrôle d'accès fin se fait au niveau des permissions NTFS et de l'ABE (Access-Based Enumeration) configurée sur les espaces de noms DFS.
 
-## Exemples de partages créés sur DC2
+## Exemples de partages créés sur DC02
 
 | Partage                  | Chemin local                                   |
 | ------------------------ | ---------------------------------------------- |

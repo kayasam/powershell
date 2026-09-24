@@ -6,6 +6,10 @@ title: "00.2 — Préparer les deux serveurs"
 > Où : 💻 **SUR VOTRE POSTE**, via **PowerShell Direct**
 > Précédent : [[tp-final-active-directory/preparation/01-installer-les-vm\|00.1-Installer-les-VM]]
 
+> [!info] Vous utilisez VMware Workstation ?
+> PowerShell Direct est réservé à Hyper-V. Ouvrez la console de DC01 ou DC02 et exécutez **directement dans la VM concernée** le contenu situé entre `{` et `}` dans chaque bloc `Invoke-Command -VMName`.
+> Remplacez `Restart-VM` par `Restart-Computer` et les checkpoints Hyper-V par `vmrun snapshot`, comme expliqué dans [[tp-final-active-directory/preparation/01-vmware-workstation\|00.1-VMware-Workstation]].
+
 ---
 
 ## Ce qu'on fait, et dans quel ordre
@@ -15,7 +19,7 @@ On corrige tout ça **avant** d'installer le moindre rôle.
 
 | #   | Action                         | Pourquoi maintenant                                   |
 | --- | ------------------------------ | ----------------------------------------------------- |
-| 1   | Renommer en `DC01` / `DC2`     | Renommer un DC **après** promotion est très compliqué |
+| 1   | Renommer en `DC01` / `DC02`    | Renommer un DC **après** promotion est très compliqué |
 | 2   | IP statique + passerelle + DNS | Un DC doit avoir une IP fixe, jamais du DHCP          |
 | 3   | Fuseau horaire                 | Kerberos refuse un écart > 5 min entre machines       |
 | 4   | Mises à jour Windows           | Un serveur non à jour = bugs inexpliqués plus tard    |
@@ -41,7 +45,7 @@ On corrige tout ça **avant** d'installer le moindre rôle.
 
 ```powershell
 $credDC01 = Get-Credential -Message "Admin LOCAL de la VM DC01 (login : Administrateur)"
-$credDC2  = Get-Credential -Message "Admin LOCAL de la VM DC2  (login : Administrateur)"
+$credDC2  = Get-Credential -Message "Admin LOCAL de la VM DC02  (login : Administrateur)"
 ```
 
 > Login à saisir : `Administrateur` (celui que vous avez défini pendant l'installation Windows).
@@ -49,7 +53,7 @@ $credDC2  = Get-Credential -Message "Admin LOCAL de la VM DC2  (login : Administ
 ```powershell
 # Test : est-ce que ça répond ?
 Invoke-Command -VMName DC01 -Credential $credDC01 -ScriptBlock { hostname }
-Invoke-Command -VMName DC2  -Credential $credDC2  -ScriptBlock { hostname }
+Invoke-Command -VMName DC02  -Credential $credDC2  -ScriptBlock { hostname }
 ```
 
 > Attendu : deux noms du genre `WIN-K3J8DQ2`. On va les changer tout de suite.
@@ -94,12 +98,12 @@ Invoke-Command -VMName DC01 -Credential $credDC01 -ScriptBlock {
 }
 ```
 
-## Étape 2 — Idem pour DC2
+## Étape 2 — Idem pour DC02
 
 ```powershell
-Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
+Invoke-Command -VMName DC02 -Credential $credDC2 -ScriptBlock {
 
-    Rename-Computer -NewName "DC2" -Force
+    Rename-Computer -NewName "DC02" -Force
 
     $if = Get-NetAdapter | Where-Object Status -eq "Up" | Select-Object -First 1
 
@@ -113,7 +117,7 @@ Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
 
     Set-TimeZone -Id "Romance Standard Time"
 
-    Write-Host "DC2 configure" -ForegroundColor Green
+    Write-Host "DC02 configure" -ForegroundColor Green
 }
 ```
 
@@ -121,7 +125,7 @@ Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
 
 ```powershell
 Restart-VM -Name DC01 -Force -Wait -For Heartbeat
-Restart-VM -Name DC2  -Force -Wait -For Heartbeat
+Restart-VM -Name DC02  -Force -Wait -For Heartbeat
 ```
 
 > `-Wait -For Heartbeat` rend la main quand Windows a fini de redémarrer. Comptez 1 à 2 minutes.
@@ -147,7 +151,7 @@ IPAddress    PrefixLength
 8.8.8.8
 ```
 
-Faites la même chose pour DC2 (attendu : `DC2` / `192.168.3.2`).
+Faites la même chose pour DC02 (attendu : `DC02` / `192.168.3.2`).
 
 > [!question] Pourquoi `8.8.8.8` en DNS, et `192.168.3.254` en passerelle ?
 > Ce sont **deux rôles différents**, et les confondre est une erreur classique :
@@ -172,7 +176,7 @@ Faites la même chose pour DC2 (attendu : `DC2` / `192.168.3.2`).
 > Pour lever le doute tout de suite :
 >
 > ```powershell
-> Invoke-Command -VMName DC2 -Credential $credDC2 -ScriptBlock {
+> Invoke-Command -VMName DC02 -Credential $credDC2 -ScriptBlock {
 >     New-NetFirewallRule -DisplayName "ICMPv4-In" -Direction Inbound `
 >         -Protocol ICMPv4 -IcmpType 8 -Action Allow -Profile Any
 > }
@@ -225,12 +229,12 @@ Invoke-Command -VMName DC01 -Credential $credDC01 -ScriptBlock {
 }
 ```
 
-Puis exactement la même chose pour DC2 (`-VMName DC2 -Credential $credDC2`).
+Puis exactement la même chose pour DC02 (`-VMName DC02 -Credential $credDC2`).
 
 ```powershell
 # Redémarrer une fois les mises à jour posées
 Restart-VM -Name DC01 -Force -Wait -For Heartbeat
-Restart-VM -Name DC2  -Force -Wait -For Heartbeat
+Restart-VM -Name DC02  -Force -Wait -For Heartbeat
 ```
 
 ### Vérification
@@ -250,7 +254,7 @@ Invoke-Command -VMName DC01 -Credential $credDC01 -ScriptBlock {
 ## Étape 6 — Le confort (2 min, mais ça change la vie)
 
 ```powershell
-foreach ($vm in @(@{N="DC01";C=$credDC01}, @{N="DC2";C=$credDC2})) {
+foreach ($vm in @(@{N="DC01";C=$credDC01}, @{N="DC02";C=$credDC2})) {
     Invoke-Command -VMName $vm.N -Credential $vm.C -ScriptBlock {
 
         # Désactiver la sécurité renforcée d'Internet Explorer
@@ -277,7 +281,7 @@ foreach ($vm in @(@{N="DC01";C=$credDC01}, @{N="DC2";C=$credDC2})) {
 
 ```powershell
 Checkpoint-VM -Name DC01 -SnapshotName "02-Serveurs-prepares"
-Checkpoint-VM -Name DC2  -SnapshotName "02-Serveurs-prepares"
+Checkpoint-VM -Name DC02  -SnapshotName "02-Serveurs-prepares"
 ```
 
 > [!important] C'est le point de retour le plus utile du TP
@@ -287,9 +291,9 @@ Checkpoint-VM -Name DC2  -SnapshotName "02-Serveurs-prepares"
 
 ## Checkpoint final de l'étape 00.2
 
-| Élément         | DC01                      | DC2                       |
+| Élément         | DC01                      | DC02                      |
 | --------------- | ------------------------- | ------------------------- |
-| Nom             | `DC01`                    | `DC2`                     |
+| Nom             | `DC01`                    | `DC02`                    |
 | IP              | `192.168.3.1/24`          | `192.168.3.2/24`          |
 | Passerelle      | `192.168.3.254`           | `192.168.3.254`           |
 | DNS             | `8.8.8.8` _(provisoire)_  | `8.8.8.8` _(provisoire)_  |
