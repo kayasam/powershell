@@ -20,152 +20,226 @@ Chaque fonction = un outil dans la boîte à outils.
 
 **Durée : 40 min**
 
+> [!tip] Comment travailler
+> On construit **un outil à la fois**, du plus simple au plus complet.
+> Tapez chaque bout de code, exécutez-le, regardez ce qui sort. Ne lisez pas :
+> faites tourner.
+
+> [!warning] La règle qui fait perdre 10 minutes à tout le monde
+> Une fonction doit être **définie avant d'être appelée**.
+> Dans VSCode, sélectionnez le bloc `function { ... }` et faites **F8** pour le
+> charger, _puis_ appelez-la. Sinon : `Le terme ... n'est pas reconnu`.
+
 ---
 
-## Partie A : Vos premiers outils (15 min)
+## Partie A : Votre premier outil (10 min)
 
-### Outil 1 : convertir les Berrys
+### A1 — Une fonction sans rien
+
+Tapez ceci, puis appelez-la :
 
 ```powershell
-function ConvertTo-Berrys {
+function Show-Bonjour {
+    Write-Host "SUPER !"
+}
+
+Show-Bonjour
+```
+
+**A1.** Que se passe-t-il si vous appelez `Show-Bonjour` **trois fois** de suite ?
+
+### A2 — Une fonction avec un paramètre
+
+Modifiez votre fonction pour qu'elle salue quelqu'un :
+
+```powershell
+function Show-Bonjour {
+    param($Prenom)
+
+    Write-Host "SUPER, $Prenom !"
+}
+
+Show-Bonjour -Prenom "Franky"
+Show-Bonjour -Prenom "Nami"
+```
+
+**A2.** Écrivez l'appel qui affiche `SUPER, Zoro !`
+
+### A3 — Une valeur par défaut
+
+```powershell
+function Show-Bonjour {
+    param($Prenom = "moussaillon")
+
+    Write-Host "SUPER, $Prenom !"
+}
+```
+
+**A3.** Qu'affiche `Show-Bonjour` appelée **sans aucun paramètre** ? Pourquoi ?
+
+### A4 — À vous
+
+**A4.** Écrivez une fonction `Show-Alerte` qui prend un paramètre `$Message` et
+l'affiche en rouge.
+
+> 💡 **Indice** : `Write-Host "texte" -ForegroundColor Red`
+
+---
+
+## Partie B : Une fonction qui RETOURNE une valeur (10 min)
+
+Jusqu'ici vos fonctions **affichent**. Maintenant, on va en fabriquer une qui
+**rend un résultat**, pour pouvoir s'en resservir.
+
+### B1 — Convertir une prime
+
+```powershell
+function ConvertTo-Millions {
     param($Montant)
 
-    if ($Montant -ge 1000000000) {
-        return "$($Montant / 1000000000) Milliards"
-    } elseif ($Montant -ge 1000000) {
-        return "$($Montant / 1000000) Millions"
-    } else {
-        return "$Montant Berrys"
-    }
+    return $Montant / 1000000
 }
 
-ConvertTo-Berrys 3000000000
-ConvertTo-Berrys 500000000
-ConvertTo-Berrys 1000
+ConvertTo-Millions -Montant 500000000
 ```
 
-**A1.** Que renvoient ces trois appels ?
+**B1.** Quel nombre obtenez-vous ?
 
-**A2.** Vérifiez que le résultat est **réutilisable** : rangez-le dans une variable
-et affichez-la.
-
-### Outil 2 : afficher un titre stylé
+**B2.** Rangez le résultat dans une variable et réutilisez-le :
 
 ```powershell
-function Write-Titre {
-    param(
-        $Texte,
-        $Couleur = "Cyan"
-    )
+$prime = ConvertTo-Millions -Montant 1111000000
 
-    $ligne = "=" * ($Texte.Length + 4)
-    Write-Host $ligne -ForegroundColor $Couleur
-    Write-Host "  $Texte  " -ForegroundColor $Couleur
-    Write-Host $ligne -ForegroundColor $Couleur
-}
-
-Write-Titre "Rapport de la flotte"
-Write-Titre "ALERTE CRITIQUE" -Couleur Red
+Write-Host "Prime de Zoro : $prime millions de Berrys"
 ```
 
-**A3.** Que se passe-t-il si vous appelez `Write-Titre` **sans** préciser `-Couleur` ?
+Est-ce que ça fonctionne ? Pourquoi ?
 
-> 💡 **Indice** : `$Couleur = "Cyan"` dans le `param()` est une **valeur par défaut**.
+### B3 — Le piège à connaître
+
+Testez ces deux fonctions, puis regardez ce que valent `$a` et `$b` :
+
+```powershell
+function Test-Affiche {
+    Write-Host "bonjour"
+}
+
+function Test-Retourne {
+    return "bonjour"
+}
+
+$a = Test-Affiche
+$b = Test-Retourne
+
+Write-Host "a vaut : [$a]"
+Write-Host "b vaut : [$b]"
+```
+
+**B3.** Laquelle des deux variables est vide ? Expliquez avec vos mots.
+
+> 📘 Une fonction qui n'utilise que `Write-Host` **ne rend rien** : elle parle à
+> l'écran, mais ne donne rien à réutiliser. C'est le piège n°1 des fonctions.
 
 ---
 
-## Partie B : Analyser un pirate (15 min)
+## Partie C : Un outil qui en utilise un autre (10 min)
+
+C'est tout l'intérêt de la boîte à outils : les outils se combinent.
 
 ```powershell
 function Show-FichePirate {
     param(
         $Nom,
-        $Prime,
-        $DevilFruit = $false
+        $Prime
     )
 
-    Write-Host "--- Analyse de $Nom ---" -ForegroundColor Yellow
+    Write-Host "--- $Nom ---" -ForegroundColor Yellow
 
-    $primeFormatee = ConvertTo-Berrys $Prime
-    Write-Host "Prime       : $primeFormatee"
+    # On réutilise l'outil de la partie B
+    $millions = ConvertTo-Millions -Montant $Prime
+    Write-Host "Prime  : $millions millions"
 
-    $danger = if     ($Prime -ge 1000000000) { "Extremement dangereux" }
-              elseif ($Prime -ge 100000000)  { "Dangereux" }
-              elseif ($Prime -ge 10000000)   { "Modere" }
-              else                           { "Faible" }
-
-    Write-Host "Danger      : $danger"
-
-    $df = if ($DevilFruit) { "Oui - Mefiance accrue !" } else { "Non" }
-    Write-Host "Devil Fruit : $df"
-}
-
-Show-FichePirate -Nom "Roronoa Zoro" -Prime 1111000000
-Show-FichePirate -Nom "Tony Tony Chopper" -Prime 1000 -DevilFruit $true
-```
-
-**B1.** Quel niveau de danger obtient Zoro ? Et Chopper ?
-
-**B2.** Repérez la ligne `$primeFormatee = ConvertTo-Berrys $Prime`. Que fait-elle
-de remarquable ?
-
----
-
-## Partie C : Une fonction qui retourne un objet (10 min)
-
-```powershell
-function Get-InfoServeur {
-    param($NomServeur)
-
-    $memoire = Get-CimInstance Win32_OperatingSystem
-    $cpu     = Get-CimInstance Win32_Processor | Select-Object -First 1
-
-    return [PSCustomObject]@{
-        Serveur    = $NomServeur
-        RAM_Total  = $memoire.TotalVisibleMemorySize / 1MB
-        RAM_Libre  = $memoire.FreePhysicalMemory / 1MB
-        CPU_Modele = $cpu.Name
-        Heure      = Get-Date -Format "HH:mm:ss"
+    if ($Prime -ge 1000000000) {
+        Write-Host "Danger : Extremement dangereux"
+    }
+    elseif ($Prime -ge 100000000) {
+        Write-Host "Danger : Dangereux"
+    }
+    else {
+        Write-Host "Danger : Faible"
     }
 }
 
-$info = Get-InfoServeur -NomServeur "Thousand-Sunny"
-$info | Format-List
+Show-FichePirate -Nom "Roronoa Zoro" -Prime 1111000000
+Show-FichePirate -Nom "Nami"         -Prime 366000000
 ```
 
-**C1.** Quelles valeurs obtenez-vous sur votre machine ?
+**C1.** Quel niveau de danger obtient Zoro ? Et Nami ?
 
-**C2.** Essayez `$info.RAM_Libre` seul. Pourquoi est-ce possible ?
+**C2.** Repérez la ligne `$millions = ConvertTo-Millions -Montant $Prime`.
+Que fait-elle de remarquable ?
 
-> 💡 **Indice** : la fonction renvoie un **objet**, pas du texte.
+**C3.** Que se passe-t-il si vous exécutez `Show-FichePirate` dans un terminal
+neuf, **sans** avoir chargé `ConvertTo-Millions` avant ?
 
 ---
 
-## Mission finale D : la boîte à outils complète 🌟
+## Mission finale D : le rapport d'équipage 🌟
 
-**D1.** Écrivez une fonction `Get-RapportEquipage` qui :
-
-1. prend une liste de pirates en paramètre
-2. affiche l'analyse de chacun avec `Show-FichePirate`
-3. affiche à la fin le **total des primes**, formaté avec `ConvertTo-Berrys`
+Voici l'équipage. Chaque pirate est une **table de hachage** (chapitre 07) :
 
 ```powershell
 $equipage = @(
-    [PSCustomObject]@{ Nom="Monkey D. Luffy"; Prime=3000000000; DevilFruit=$true  }
-    [PSCustomObject]@{ Nom="Roronoa Zoro";    Prime=1111000000; DevilFruit=$false }
-    [PSCustomObject]@{ Nom="Nami";            Prime=366000000;  DevilFruit=$false }
+    @{ Nom = "Monkey D. Luffy"; Prime = 3000000000 }
+    @{ Nom = "Roronoa Zoro";    Prime = 1111000000 }
+    @{ Nom = "Nami";            Prime = 366000000  }
 )
+
+# Pour lire un pirate :
+$equipage[0].Nom      # Monkey D. Luffy
+$equipage[0].Prime    # 3000000000
 ```
 
-> 💡 **Indice** : parcourez la liste avec `foreach`, et additionnez les primes
-> avec `Measure-Object Prime -Sum`.
+**D1.** Écrivez une fonction `Show-RapportEquipage` qui prend `$Liste` en
+paramètre et affiche la fiche de **chaque** pirate.
+
+```powershell
+function Show-RapportEquipage {
+    param($Liste)
+
+    foreach ($pirate in $Liste) {
+        # À vous : appelez Show-FichePirate avec $pirate.Nom et $pirate.Prime
+    }
+}
+
+Show-RapportEquipage -Liste $equipage
+```
+
+**D2.** Complétez votre fonction pour qu'elle affiche, **à la fin**, le total des
+primes de l'équipage.
+
+```powershell
+    $total = 0
+
+    foreach ($pirate in $Liste) {
+        # ... l'affichage de la fiche ...
+        $total = $total + $pirate.Prime
+    }
+
+    # Après la boucle : affichez le total
+```
+
+> 💡 **Indice** : pour afficher le total en millions, réutilisez encore
+> `ConvertTo-Millions`. Trois outils qui travaillent ensemble : c'est ça, une
+> boîte à outils.
 
 ---
 
 > [!success] Validation
 >
-> - Vous savez créer une fonction avec `param()`
-> - Vous savez réutiliser une fonction dans une autre
-> - Vous savez utiliser des valeurs par défaut
-> - Vous savez retourner des objets structurés
-> - Vous respectez la convention **Verbe-Nom**
+> - Vous savez créer une fonction avec `function` et `param()`
+> - Vous savez donner une **valeur par défaut** à un paramètre
+> - Vous faites la différence entre **afficher** (`Write-Host`) et **retourner** (`return`)
+> - Vous savez appeler une fonction **depuis** une autre fonction
+> - Vous savez qu'une fonction doit être **définie avant** d'être appelée
+> - Vous nommez vos fonctions en **Verbe-Nom**

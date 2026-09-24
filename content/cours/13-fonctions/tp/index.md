@@ -11,7 +11,15 @@ title: "Exercices pratiques — Fonctions"
 
 # Exercices pratiques — Fonctions
 
-Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
+Deux niveaux, **mêmes notions**, progression différente.
+
+> La version **débutant** découpe chaque notion en petites étapes : on écrit une
+> fonction dès la première minute, puis on l'enrichit. La version **avancée**
+> reprend les mêmes attendus sans les commandes, et se termine par une section
+> **bonus hors programme** (E1 à E4).
+>
+> La table de correspondance entre les deux numérotations est en tête de la
+> correction.
 
 | Niveau                                          | Fichier                                                                                                  |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
