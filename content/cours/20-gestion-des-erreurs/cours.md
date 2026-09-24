@@ -101,6 +101,39 @@ if (Test-Path "C:\Logs\vieux.log") {
 }
 ```
 
+## `if` ou `try/catch` : lequel choisir ?
+
+Les deux évitent un plantage, mais ils ne répondent pas à la même question.
+
+|                           | `if` (ex. `Test-Path`)                                                                                                                | `try/catch`                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Question posée            | "Est-ce que la condition est vraie **avant** d'agir ?"                                                                                | "Est-ce que l'action a **échoué** pendant qu'elle s'exécutait ?"                                                |
+| Moment de la vérification | Avant l'action                                                                                                                        | Pendant/après l'action                                                                                          |
+| Ce qu'il gère             | Une condition prévisible, testable à l'avance                                                                                         | Une erreur imprévisible ou impossible à anticiper                                                               |
+| Exemple typique           | Le fichier existe-t-il ? Le dossier est-il vide ?                                                                                     | Le disque réseau se déconnecte en cours de copie, permission refusée, fichier verrouillé par un autre processus |
+| Limite                    | Ne protège pas contre un problème qui survient **entre** le test et l'action (ex. le fichier est supprimé juste après le `Test-Path`) | Ne remplace pas un test simple : plus lourd à lire pour un cas prévisible                                       |
+
+**Règle pratique** :
+
+- Si vous pouvez vérifier la condition _avant_ d'agir → `if` / `Test-Path`.
+- Si l'erreur ne peut survenir _que pendant_ l'exécution de la commande (réseau, droits, verrou) → `try/catch`.
+- Dans le doute, ou pour du code robuste (script de prod), combinez les deux : `Test-Path` pour éviter les cas évidents, `try/catch` pour rattraper ce qui reste possible malgré tout.
+
+```powershell
+# Combinaison : Test-Path pour le cas évident, try/catch pour le reste
+if (Test-Path "C:\Logs\rapport.txt") {
+    try {
+        $contenu = Get-Content "C:\Logs\rapport.txt" -ErrorAction Stop
+    }
+    catch {
+        # Ex. : le fichier a été verrouillé ou supprimé juste après le Test-Path
+        Write-Host "Le fichier existe mais n'a pas pu être lu : $($_.Exception.Message)" -ForegroundColor Red
+    }
+} else {
+    Write-Host "Le fichier n'existe pas" -ForegroundColor Yellow
+}
+```
+
 ## $_ dans le catch : l'objet d'erreur
 
 ```powershell
