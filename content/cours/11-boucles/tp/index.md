@@ -17,3 +17,9 @@ Deux niveaux, **mêmes parties et mêmes numéros de question** (A1, B2…).
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | 🟢 Débutant — commandes données, indices        | [[cours/11-boucles/tp/11-boucles-debutant\|Exercice 11 - Le Scanner de la Flotte 🛸 — Débutant]] |
 | 🔵 Avancé — mêmes exercices, sans les commandes | [[cours/11-boucles/tp/11-boucles-avance\|Exercice 11 - Le Scanner de la Flotte 🛸 — Avancé]]     |
+
+## Correction
+
+Commandes complètes, réponses et explications, pour les deux niveaux.
+
+- [[cours/11-boucles/tp/11-boucles-correction|Correction - Exercice 11 : Le Scanner de la Flotte 🛸]]

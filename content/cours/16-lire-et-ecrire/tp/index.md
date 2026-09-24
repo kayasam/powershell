@@ -21,3 +21,7 @@ title: "Exercices pratiques — Lire et écrire"
 
 - [[cours/16-lire-et-ecrire/tp/16-lire-ecrire-debutant|Exercice 16 - Le Journal de Bord de Nami - Version débutant]]
 - [[cours/16-lire-et-ecrire/tp/16-lire-ecrire-avance|Exercice 16 - Le Journal de Bord de Nami - Version avancée]]
+
+## Correction formateur
+
+- [[cours/16-lire-et-ecrire/tp/16-lire-ecrire-correction|Correction guidée - Exercice 16 : Le Journal de Bord de Nami (Lire/Écrire)]]

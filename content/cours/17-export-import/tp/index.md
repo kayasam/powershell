@@ -21,3 +21,7 @@ title: "Exercices pratiques — Export et Import"
 
 - [[cours/17-export-import/tp/17-export-import-debutant|Exercice 17 - Les Plans de Franky - Version débutant]]
 - [[cours/17-export-import/tp/17-export-import-avance|Exercice 17 - Les Plans de Franky - Version avancée]]
+
+## Correction formateur
+
+- [[cours/17-export-import/tp/17-export-import-correction|Correction guidée - Exercice 17 : Les Plans de Franky (Export/Import)]]

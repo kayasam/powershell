@@ -20,8 +20,15 @@ parcours-pro: true
 
 ## Qu'est-ce qu'un module ?
 
-Un module = une collection de fonctions, cmdlets et variables regroupées dans un fichier.
-Au lieu de copier-coller vos fonctions d'un script à l'autre, vous les importez.
+Un module = une collection de fonctions, cmdlets et variables regroupées dans un fichier (ou un dossier), qu'on peut charger à la demande dans une session PowerShell.
+
+C'est le même principe qu'une bibliothèque logicielle dans un autre langage : au lieu de tout réécrire, on réutilise du code déjà écrit et testé. PowerShell lui-même est construit ainsi — les cmdlets que vous utilisez tous les jours (`Get-Process`, `Get-Service`, `Test-Path`...) viennent de modules chargés automatiquement au démarrage.
+
+Un module peut venir de trois endroits :
+
+- **Intégré à Windows/PowerShell** (ex. `Microsoft.PowerShell.Management`)
+- **Installé à part** pour ajouter des fonctionnalités (ex. `ActiveDirectory` via RSAT, `Az` pour Azure)
+- **Créé par vous-même**, pour regrouper vos propres fonctions
 
 ```powershell
 # Sans module : copier-coller partout
@@ -32,6 +39,8 @@ function Write-Log { ... }   # dans script2.ps1 (doublon !)
 Import-Module ".\MesOutils.psm1"
 Write-Log "Message"          # disponible dans tous les scripts
 ```
+
+**Pourquoi c'est important** : sans module, chaque script est isolé et les corrections de bug doivent être répétées partout. Avec un module, vous corrigez une fois dans le `.psm1`, et tous les scripts qui l'importent bénéficient du correctif.
 
 ## Trouver et installer des modules
 
@@ -54,6 +63,8 @@ Update-Module -Name "ImportExcel"
 
 ### Modules déjà disponibles
 
+`Get-Module -ListAvailable` liste tout ce qui est **installé** sur la machine (mais pas forcément chargé). `Get-Module` (sans paramètre) liste ce qui est **actuellement chargé** dans la session — souvent une petite partie seulement, car PowerShell charge les modules à la demande pour rester léger.
+
 ```powershell
 # Voir tous les modules installés
 Get-Module -ListAvailable
@@ -61,9 +72,30 @@ Get-Module -ListAvailable
 # Voir les modules chargés dans la session
 Get-Module
 
-# Importer manuellement
+# Importer manuellement (nécessaire si l'auto-chargement ne suffit pas)
 Import-Module ActiveDirectory
 ```
+
+### Découvrir les commandes d'un module
+
+Une fois un module importé, `Get-Command -Module <Nom>` liste toutes les cmdlets qu'il apporte. C'est très utile pour explorer un module que vous ne connaissez pas encore, comme `ActiveDirectory` :
+
+```powershell
+# Importer le module (si pas déjà chargé automatiquement)
+Import-Module ActiveDirectory
+
+# Lister toutes les commandes du module ActiveDirectory
+Get-Command -Module ActiveDirectory
+
+# Filtrer par verbe, ex. uniquement les commandes de lecture
+Get-Command -Module ActiveDirectory -Verb Get
+
+# Chercher une commande par mot-clé (ex. tout ce qui concerne les utilisateurs)
+Get-Command -Module ActiveDirectory -Name "*User*"
+```
+
+> [!TIP]
+> `Get-Command -Module ActiveDirectory` fonctionne uniquement si le module est installé (RSAT sur un poste Windows, ou depuis un serveur avec le rôle AD). Sans RSAT, la commande renvoie une erreur "module introuvable".
 
 ## Créer son propre module
 

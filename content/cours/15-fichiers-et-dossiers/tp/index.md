@@ -21,3 +21,7 @@ title: "Exercices pratiques — Fichiers et dossiers"
 
 - [[cours/15-fichiers-et-dossiers/tp/15-fichiers-debutant|Exercice 15 - Les Archives de Robin - Version débutant]]
 - [[cours/15-fichiers-et-dossiers/tp/15-fichiers-avance|Exercice 15 - Les Archives de Robin - Version avancée]]
+
+## Correction formateur
+
+- [[cours/15-fichiers-et-dossiers/tp/15-fichiers-correction|Correction guidée - Exercice 15 : Les Archives de Robin (Fichiers)]]

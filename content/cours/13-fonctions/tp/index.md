@@ -25,3 +25,9 @@ Deux niveaux, **mêmes notions**, progression différente.
 | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | 🟢 Débutant — commandes données, indices        | [[cours/13-fonctions/tp/13-fonctions-debutant\|Exercice 13 - La Boite à Outils de Franky ⚙️ — Débutant]] |
 | 🔵 Avancé — mêmes exercices, sans les commandes | [[cours/13-fonctions/tp/13-fonctions-avance\|Exercice 13 - La Boite à Outils de Franky ⚙️ — Avancé]]     |
+
+## Correction
+
+Commandes complètes, réponses et explications, pour les deux niveaux.
+
+- [[cours/13-fonctions/tp/13-fonctions-correction|Correction - Exercice 13 : La Boite à Outils de Franky ⚙️]]

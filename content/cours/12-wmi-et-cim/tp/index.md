@@ -21,3 +21,9 @@ Deux niveaux, **mêmes parties** (A à F) et mêmes numéros de question (A1, B2
 | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | 🟢 Débutant — commandes données, indices        | [[cours/12-wmi-et-cim/tp/12-wmi-cim-debutant\|Exercice 12 - L'Inventaire du Thousand Sunny 🛠️ — Débutant]] |
 | 🔵 Avancé — mêmes exercices, sans les commandes | [[cours/12-wmi-et-cim/tp/12-wmi-cim-avance\|Exercice 12 - L'Inventaire du Thousand Sunny 🛠️ — Avancé]]     |
+
+## Correction
+
+Commandes complètes, réponses et explications, pour les deux niveaux.
+
+- [[cours/12-wmi-et-cim/tp/12-wmi-cim-correction|Correction - Exercice 12 : L'Inventaire du Thousand Sunny 🛠️]]

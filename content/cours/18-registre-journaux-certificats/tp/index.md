@@ -21,3 +21,7 @@ title: "Exercices pratiques — Registre, journaux et certificats"
 
 - [[cours/18-registre-journaux-certificats/tp/18-registre-journaux-debutant|Les Archives Secrètes d'Ohara — mode débutant]]
 - [[cours/18-registre-journaux-certificats/tp/18-registre-journaux-avance|Les Archives Secrètes d'Ohara — mode avancé]]
+
+## Correction formateur
+
+- [[cours/18-registre-journaux-certificats/tp/18-registre-journaux-correction|Correction guidée - Exercice 18 : Les Archives Secrètes d'Ohara]]

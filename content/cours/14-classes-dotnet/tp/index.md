@@ -21,3 +21,7 @@ title: "Exercices pratiques — Les classes du framework .NET"
 
 - [[cours/14-classes-dotnet/tp/14-classes-dotnet-debutant|L'Atelier de Vegapunk — mode débutant]]
 - [[cours/14-classes-dotnet/tp/14-classes-dotnet-avance|L'Atelier de Vegapunk — mode avancé]]
+
+## Correction formateur
+
+- [[cours/14-classes-dotnet/tp/14-classes-dotnet-correction|Correction guidée - Exercice 14 : L'Atelier de Vegapunk]]
